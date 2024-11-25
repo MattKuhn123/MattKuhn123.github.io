@@ -54,4 +54,4 @@ Full stack developers may require the assistance of a specialist.
 | IDE license         |               |              |               | $1,200        |
 | Total               |               |              |               | $13,000       |
 
-Total = $624,000 + $182,000 + $13,000 = $819,000
+A professional application in an enterprise can cost $819,000
