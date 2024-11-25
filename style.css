@@ -1,0 +1,9 @@
+:root {
+    --color-primary: whitesmoke;
+    --color-accent: white;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-accent);
+}
