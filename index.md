@@ -1,12 +1,6 @@
-# The value of web application software
+# The value, risk, and cost of enterprise web application software
 
-Is it worth it to create custom software? There are a few things to consider:
-
-- Value for clients
-- Risk for clients
-- Cost to clients
-
-## Value for clients
+## Value
 
 - Mitigate risk of human error.
 - Improve process efficiency.
@@ -15,15 +9,15 @@ Is it worth it to create custom software? There are a few things to consider:
 - Communicate between parties.
 - Convenience.
 
-## Risk for clients
+## Risk
 
 - Business becomes hostage to software, unable to function without it.
 - Processes become rigid, unable to change without changing underlying software.
 - Software errors possibly more catastrophic than human errors.
 
-## Cost to clients
+## Cost
 
-This cost may be distributed across a family of applications owned by a team.
+_(This cost may be distributed across a family of applications owned by a team)._
 
 | Role                | Cost per hour | Cost per day | Cost per week | Cost per year |
 | ------------------- | :------------ | :----------- | :------------ | :------------ |
