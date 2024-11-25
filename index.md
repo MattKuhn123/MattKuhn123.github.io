@@ -1,6 +1,10 @@
 # The value of software
 
-## What is the value to clients?
+- Value for clients
+- Risk for clients
+- Cost to clients
+
+## Value for clients
 
 - Mitigate risk of human error.
 - Improve process efficiency.
@@ -9,31 +13,13 @@
 - Communicate between parties.
 - Convenience.
 
-## What is the risk to clients?
+## Risk for clients
 
 - Business becomes hostage to software, unable to function without it.
 - Processes become rigid, unable to change without changing underlying software.
 - Software errors possibly more catastrophic than human errors.
 
-## What is needed to deliver value?
-
-|                      | QA  | Developer | Platform engineer | DBA | BA  |
-| -------------------- | :-: | :-------: | :---------------: | :-: | :-: |
-| Platform management  |     | X         | X                 |     |     |
-| Network management   |     | X         | X                 |     |     |
-| Client collaboration |     | X         |                   |     | X   |
-| Business analysis    |     | X         |                   |     | X   |
-| Database management  |     | X         |                   | X   |     |
-| Development          |     | X         |                   |     |     |
-| Peer review          | X   |           |                   |     |     |
-| Quality assurance    | X   |           |                   |     |     |
-| DevOps               |     | X         |                   |     |     |
-
-Full stack developers are cost effective because they can be responsible for the all aspects of value delivery, excluding review and assure the quality of their own code.
-
-Full stack developers may require the assistance of a specialist.
-
-## What is the cost?
+## Cost to clients
 
 This cost may be distributed across a family of applications owned by a team.
 
