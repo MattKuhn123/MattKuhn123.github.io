@@ -1,4 +1,6 @@
-# The value of software
+# The value of web application software
+
+Is it worth it to create custom software? There are a few things to consider:
 
 - Value for clients
 - Risk for clients
