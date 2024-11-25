@@ -53,5 +53,6 @@ Full stack developers may require the assistance of a specialist.
 | Database license    |               |              |               | $10,000       |
 | IDE license         |               |              |               | $1,200        |
 | Total               |               |              |               | $13,000       |
+|                     |               |              |               |               |
+| **TOTAL**           |               |              |               | **$819,000**  |
 
-A professional application in an enterprise can cost $819,000 per year.
