@@ -13,20 +13,14 @@ body {
 
 ::selection {
     color: var(--color-accent);
-    background-color: var(--color-primaru);
+    background-color: var(--color-primary);
 }
 
 .title {
     color: var(--color-primary);
-    padding: 10px;
 }
 
-.blog-title {
-    color: var(--color-primary);
-    font-weight: bolder;
-}
-
-.blog-sub-title {
+.sub-title {
     font-style: italic;
     float: right;
 }
@@ -52,4 +46,26 @@ details summary ~ * {
 
 details[open] summary ~ * {
     opacity: 100;
+}
+
+output {
+    display: block;
+}
+
+fieldset label + input {
+    display: block;
+}
+
+.btn {
+    padding: 5px;
+}
+
+.btn-primary {
+    color: var(--color-accent);
+    background-color: var(--color-primary);
+}
+
+.btn-accent {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
 }

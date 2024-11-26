@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Cost/Benefit analysis of enterprise web application software | MattKuhn123</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+
+  <script>
+    const currencyFormat = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
+  </script>
+</head>
+
+<body>
+  <h1 class="title">Cost/Benefit analysis of enterprise web application software</h1>
+
+  <h2 class="title">Benefit</h2>
+
+  <ul>
+    <li>Saving on staffing cost by optimizing processes</li>
+    <li>Profiting by forecasting trends or attracting business</li>
+  </ul>
+
+  <form id="staffing-savings-form">
+    <h3 class="title">Save on staffing cost by optimizing processes</h3>
+
+    <fieldset>
+      <label for="staff-count">Staff:</label>
+      <input id="staff-count" name="staff-count" type="number" placeholder="100" required />
+    </fieldset>
+
+    <fieldset>
+      <label for="staff-hourly-wage">Wage per hour per staff:</label>
+      <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" required />
+    </fieldset>
+
+    <fieldset>
+      <label for="staff-weekly-hours-saved">Estimate potential hours saved per week per staff:</label>
+      <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" required />
+    </fieldset>
+
+    <fieldset>
+      <input id="calculate-staffing-savings" type="button" value="Calculate" class="btn btn-primary" />
+      <input id="reset-staffing-savings" type="button" value="Reset" class="btn btn-accent" />
+    </fieldset>
+
+    <fieldset>
+      <h4 class="title">Yearly estimate</h3>
+        <p>Software savings: <span id="software-savings">$0.00</span></p>
+    </fieldset>
+
+    <script>
+      document.getElementById("reset-staffing-savings").addEventListener("click", function () {
+        const form = document.getElementById("staffing-savings-form");
+        form.reset();
+      });
+
+      document.getElementById("calculate-staffing-savings").addEventListener("click", function () {
+        const weeksPerYear = 52;
+
+        const form = document.getElementById("staffing-savings-form");
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const staff = Number(document.getElementById("staff-count").value);
+        const wage = Number(document.getElementById("staff-hourly-wage").value);
+        const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
+        const staffSavings = staff * wage * saved * weeksPerYear;
+        document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
+      });
+    </script>
+  </form>
+
+  <form id="forecast-trends-form">
+    <h3 class="title">Profit by forecasting trends or attracting business</h3>
+
+    <fieldset>
+      <label for="profit-opportunity">Profit opportunity:</label>
+      <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" required />
+    </fieldset>
+
+    <fieldset>
+      <label for="profit-opportunity-yearly">Profit opportunities per year:</label>
+      <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" required />
+    </fieldset>
+
+    <fieldset>
+      <label for="software-accuracy">Estimate software accuracy or likelihood of success:</label>
+      <input id="software-accuracy" name="software-accuracy" type="range" step="0.01" placeholder="0.5" min="0"
+        max="1" />
+      <output id="software-accuracy-display"></output>
+    </fieldset>
+
+    <fieldset>
+      <input id="calculate-forecast-trends" type="button" value="Calculate" class="btn btn-primary" />
+      <input id="reset-forecast-trends" type="button" value="Reset" class="btn btn-accent" />
+    </fieldset>
+
+    <fieldset>
+      <h4 class="title">Yearly estimate</h3>
+        <p>Profit: <span id="software-profit">$0.00</span></p>
+    </fieldset>
+
+    <script>
+      document.getElementById("software-accuracy").addEventListener("input", function (event) {
+        const output = document.getElementById("software-accuracy-display");
+        const percent = Number(event.target.value) * 100;
+        output.innerText = percent + "%";
+      });
+
+      document.getElementById("reset-forecast-trends").addEventListener("click", function () {
+        const form = document.getElementById("forecast-trends-form");
+        form.reset();
+      });
+
+      document.getElementById("calculate-forecast-trends").addEventListener("click", function () {
+        const form = document.getElementById("forecast-trends-form");
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
+        const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
+        const accuracy = Number(document.getElementById("software-accuracy").value);
+
+        const profit = profitOpportunity * profitOpportunityYearly * accuracy;
+        document.getElementById("software-profit").innerText = currencyFormat.format(profit);
+      });
+    </script>
+  </form>
+
+  <h2 class="title">Cost</h2>
+
+  <ul>
+    <li>Staffing</li>
+    <li>Resources</li>
+    <li>Licenses</li>
+  </ul>
+
+  <form id="staffing-cost-form">
+    <h3 class="title">Staffing</h3>
+
+    <fieldset id="developers-fieldset">
+      <label for="developers">Developers:</label>
+      <input id="developers" name="developers" type="number" placeholder="2" required />
+
+      <label for="developer-wage">Developer wage:</label>
+      <input id="developer-wage" name="developer-wage" type="number" placeholder="50" required />
+
+      <label for="developer-weekly-hours">Developer hours per week:</label>
+      <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" required />
+    </fieldset>
+
+    <fieldset id="qas-fieldset">
+      <label for="qas">QAs:</label>
+      <input id="qas" name="qas" type="number" placeholder="2" required />
+
+      <label for="qa-wage">QA wage:</label>
+      <input id="qa-wage" name="qa-wage" type="number" placeholder="50" required />
+
+      <label for="qa-weekly-hours">QA hours per week:</label>
+      <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" required />
+    </fieldset>
+
+    <fieldset id="platform-engineers-fieldset">
+      <label for="platform-engineers">Platform engineers:</label>
+      <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" required />
+
+      <label for="platform-engineer-wage">Platform engineer wage:</label>
+      <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" required />
+
+      <label for="platform-engineer-weekly-hours">Platform engineer hours per week:</label>
+      <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40" required />
+    </fieldset>
+
+    <fieldset id="dbas-fieldset">
+      <label for="dbas">DBAs:</label>
+      <input id="dbas" name="dbas" type="number" placeholder="1" required />
+
+      <label for="dba-wage">DBA wage:</label>
+      <input id="dba-wage" name="dba-wage" type="number" placeholder="50" required />
+
+      <label for="dba-weekly-hours">DBA hours per week:</label>
+      <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" required />
+    </fieldset>
+
+    <fieldset id="analysts-fieldset">
+      <label for="analysts">Analysts:</label>
+      <input id="analysts" name="analysts" type="number" placeholder="1" required />
+
+      <label for="analyst-wage">Analyst wage:</label>
+      <input id="analyst-wage" name="analyst-wage" type="number" placeholder="50" required />
+
+      <label for="analyst-weekly-hours">Analyst hours per week:</label>
+      <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" required />
+    </fieldset>
+
+    <fieldset>
+      <input id="calculate-staffing-cost" type="button" value="Calculate" class="btn btn-primary" />
+      <input id="reset-staffing-cost" type="button" value="Reset" class="btn btn-accent" />
+    </fieldset>
+
+    <fieldset>
+      <h4 class="title">Yearly estimate</h3>
+        <p>Staff cost: <span id="staff-cost">$0.00</span></p>
+    </fieldset>
+
+    <script>
+      document.getElementById("reset-staffing-cost").addEventListener("click", function () {
+        const form = document.getElementById("staffing-cost-form");
+        form.reset();
+      });
+
+      document.getElementById("calculate-staffing-cost").addEventListener("click", function () {
+        const weeksPerYear = 52;
+
+        const form = document.getElementById("staffing-cost-form");
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const analysts = Number(document.getElementById("analysts").value);
+        const analystWage = Number(document.getElementById("analyst-wage").value);
+        const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
+        const analystCost = analysts * analystWage * analystWeeklyHours * weeksPerYear;
+
+        const dbas = Number(document.getElementById("dbas").value);
+        const dbaWage = Number(document.getElementById("dba-wage").value);
+        const dbaWeeklyHours = Number(document.getElementById("dba-weekly-hours").value);
+        const dbaCost = dbas * dbaWage * dbaWeeklyHours * weeksPerYear;
+
+        const platformEngineers = Number(document.getElementById("platform-engineers").value);
+        const platformEngineerWage = Number(document.getElementById("platform-engineer-wage").value);
+        const platformEngineerWeeklyHours = Number(document.getElementById("platform-engineer-weekly-hours").value);
+        const platformEngineerCost = platformEngineers * platformEngineerWage * platformEngineerWeeklyHours * weeksPerYear;
+
+        const qas = Number(document.getElementById("qas").value);
+        const qaWage = Number(document.getElementById("qa-wage").value);
+        const qaWeeklyHours = Number(document.getElementById("qa-weekly-hours").value);
+        const qaCost = qas * qaWage * qaWeeklyHours * weeksPerYear;
+
+        const developers = Number(document.getElementById("developers").value);
+        const developerWage = Number(document.getElementById("developer-wage").value);
+        const developerWeeklyHours = Number(document.getElementById("developer-weekly-hours").value);
+        const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
+
+        const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
+
+        document.getElementById("staff-cost").innerText = currencyFormat.format(staffCost);
+      });
+    </script>
+  </form>
+
+  <form id="resource-cost-form">
+    <h3 class="title">Resources</h3>
+    <fieldset>
+      <label for="web-server">Individual web server costs per year:</label>
+      <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500"
+        max="1500" />
+      <output id="web-server-display"></output>
+
+      <label for="development-server">Development server:</label>
+      <input id="development-server" type="checkbox" />
+
+      <label for="test-server">Test server:</label>
+      <input id="test-server" type="checkbox" />
+    </fieldset>
+
+    <fieldset>
+      <input id="calculate-resource-cost" type="button" value="Calculate" class="btn btn-primary" />
+      <input id="reset-resource-cost" type="button" value="Reset" class="btn btn-accent" />
+    </fieldset>
+
+    <fieldset>
+      <h4 class="title">Yearly estimate</h3>
+        <p>Resource cost: <span id="resource-cost">$0.00</span></p>
+    </fieldset>
+
+    <script>
+      document.getElementById("web-server").addEventListener("input", function (event) {
+        const output = document.getElementById("web-server-display");
+        output.innerText = currencyFormat.format(event.target.value);
+      });
+
+      document.getElementById("reset-resource-cost").addEventListener("click", function () {
+        const form = document.getElementById("resource-cost-form");
+        form.reset();
+      });
+
+      document.getElementById("calculate-resource-cost").addEventListener("click", function () {
+        const form = document.getElementById("resource-cost-form");
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const webServer = Number(document.getElementById("web-server").value);
+
+        const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
+        const developmentWebServer = includeDevelopmentServer ? webServer : 0;
+        
+        const includeTestServer = Boolean(document.getElementById("test-server").checked);
+        const testWebServer = includeTestServer ? webServer : 0;
+
+        const resourceCost = webServer + developmentWebServer + testWebServer;
+        document.getElementById("resource-cost").innerText = currencyFormat.format(resourceCost);
+      });
+    </script>
+  </form>
+
+  <form id="license-cost-form">
+    <h3 class="title">Licenses</h3>
+    <fieldset>
+      <label for="database">Database:</label>
+      <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0"
+        max="10000" />
+      <output id="database-display"></output>
+
+      <label for="ide">IDE:</label>
+      <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0"
+        max="2000" />
+      <output id="ide-display"></output>
+    </fieldset>
+
+    <fieldset>
+      <input id="calculate-license-cost" type="button" value="Calculate" class="btn btn-primary" />
+      <input id="reset-license-cost" type="button" value="Reset" class="btn btn-accent" />
+    </fieldset>
+
+    <fieldset>
+      <h4 class="title">Yearly estimate</h3>
+        <p>License cost: <span id="license-cost">$0.00</span></p>
+    </fieldset>
+
+    <script>
+      document.getElementById("database").addEventListener("input", function (event) {
+        const output = document.getElementById("database-display");
+        output.innerText = currencyFormat.format(event.target.value);
+      });
+
+      document.getElementById("ide").addEventListener("input", function (event) {
+        const output = document.getElementById("ide-display");
+        output.innerText = currencyFormat.format(event.target.value);
+      });
+
+      document.getElementById("reset-license-cost").addEventListener("click", function () {
+        const form = document.getElementById("resource-cost-form");
+        form.reset();
+      });
+
+      document.getElementById("calculate-license-cost").addEventListener("click", function () {
+        const form = document.getElementById("license-cost-form");
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const database = Number(document.getElementById("database").value);
+        const ide = Number(document.getElementById("ide").value);
+
+        const licenseCost = database + ide;
+        document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
+      });
+    </script>
+  </form>
+
+</body>
+
+</html>
