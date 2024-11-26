@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #0366d6;
+    --color-primary: mediumaquamarine;
     --color-accent: white;
 }
 
@@ -23,6 +23,7 @@ body {
 :popover-open {
     max-width: 50vw;
     padding: 15px;
+    border-color: var(--color-primary);
 }
 
 .blog-date {
@@ -71,6 +72,7 @@ output {
 .txt-primary {
     color: var(--color-primary);
     background-color: unset;
+    font-weight: bold;
 }
 
 .txt-accent {
