@@ -17,15 +17,13 @@
 </head>
 
 <body>
-  <h1 class="title">Cost/Benefit analysis of enterprise web application software</h1>
+  <h1 class="txt-primary">Cost/Benefit analysis of enterprise web application software</h1>
 
-  <h2 class="title">Benefit</h2>
+  <h2 class="txt-primary">Benefit</h2>
 
   <form id="staffing-savings-form">
-    <h3>Save on staffing cost by optimizing processes</h3>
-
     <fieldset>
-      <legend>Staff</legend>
+      <legend>Save on staffing cost by optimizing processes</legend>
       <label for="staff-count">Staff</label>
       <input id="staff-count" name="staff-count" type="number" placeholder="100" />
 
@@ -37,10 +35,7 @@
         staff member per week.</label>
       <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="hours-saved-tooltip" />
-    </fieldset>
-
-    <fieldset>
-      <span class="title">Yearly estimate: <span id="software-savings">$0.00</span></span>
+      <span class="txt-primary break">Yearly estimate: <span id="software-savings">$0.00</span></span>
     </fieldset>
     <script>
       document.getElementById("staffing-savings-form").addEventListener("input", function () {
@@ -61,10 +56,8 @@
   </form>
 
   <form id="forecast-trends-form">
-    <h3>Profit by forecasting trends or attracting business</h3>
-
     <fieldset>
-      <legend>Profit opportunity</legend>
+      <legend>Profit by forecasting trends or attracting business</legend>
       <label for="profit-opportunity">Profit</label>
       <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
         software.</label>
@@ -80,10 +73,7 @@
       <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="software-accuracy-tooltip" />
       <output id="software-accuracy-display">50%</output>
-    </fieldset>
-
-    <fieldset>
-      <span class="title">Yearly estimate: <span id="software-profit">$0.00</span></span>
+      <span class="txt-primary break">Yearly estimate: <span id="software-profit">$0.00</span></span>
     </fieldset>
 
     <script>
@@ -109,13 +99,12 @@
     </script>
   </form>
 
-  <h2 class="title">Cost</h2>
+  <h2 class="txt-primary">Cost</h2>
 
   <form id="staffing-cost-form">
-    <h3>Staffing</h3>
-
-    <fieldset id="developers-fieldset">
-      <legend>Developers</legend>
+    <fieldset>
+      <legend>Staffing</legend>
+      <span class="txt-primary break">Developers</span>
       <label for="developers">Staff</label>
       <input id="developers" name="developers" type="number" placeholder="2" />
 
@@ -124,10 +113,8 @@
 
       <label for="developer-weekly-hours">Hours</label>
       <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" />
-    </fieldset>
-
-    <fieldset id="qas-fieldset">
-      <legend>QAs</legend>
+      
+      <span class="txt-primary break">QAs</span>
       <label for="qas">Staff</label>
       <input id="qas" name="qas" type="number" placeholder="2" />
 
@@ -136,10 +123,8 @@
 
       <label for="qa-weekly-hours">Hours</label>
       <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" />
-    </fieldset>
 
-    <fieldset id="platform-engineers-fieldset">
-      <legend>Platform engineers</legend>
+      <span class="txt-primary break">Platform engineers</span>
       <label for="platform-engineers">Staff</label>
       <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" />
 
@@ -149,10 +134,8 @@
       <label for="platform-engineer-weekly-hours">Hours</label>
       <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40"
         />
-    </fieldset>
-
-    <fieldset id="dbas-fieldset">
-      <legend>DBAs</legend>
+      
+      <span class="txt-primary break">DBAs</span>
       <label for="dbas">Staff</label>
       <input id="dbas" name="dbas" type="number" placeholder="1" />
 
@@ -161,10 +144,8 @@
 
       <label for="dba-weekly-hours">Hours</label>
       <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" />
-    </fieldset>
 
-    <fieldset id="analysts-fieldset">
-      <legend>Analysts</legend>
+      <span class="txt-primary break">Analysts</span>
       <label for="analysts">Staff</label>
       <input id="analysts" name="analysts" type="number" placeholder="1" />
 
@@ -173,10 +154,7 @@
 
       <label for="analyst-weekly-hours">Hours</label>
       <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
-    </fieldset>
-
-    <fieldset>
-      <span class="title">Yearly estimate: <span id="staff-cost">$0.00</span></span>
+      <span class="txt-primary break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
     </fieldset>
 
     <script>
@@ -221,8 +199,8 @@
   </form>
 
   <form id="resource-cost-form">
-    <h3>Resources</h3>
     <fieldset>
+      <legend>Resources</legend>
       <label for="web-server">Yearly web server cost</label>
       <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500" max="1500" />
       <output id="web-server-display">$1000.00</output>
@@ -232,10 +210,7 @@
 
       <input id="test-server" type="checkbox" />
       <label for="test-server">Test server</label>
-    </fieldset>
-
-    <fieldset>
-      <span class="title">Yearly estimate: <span id="resource-cost">$0.00</span></span>
+      <span class="txt-primary break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
     </fieldset>
 
     <script>
@@ -265,8 +240,8 @@
   </form>
 
   <form id="license-cost-form">
-    <h3>Licenses</h3>
     <fieldset>
+      <legend>Licenses</legend>
       <label for="database">Database</label>
       <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0" max="10000" />
       <output id="database-display">$1000.00</output>
@@ -274,10 +249,7 @@
       <label for="ide">IDE</label>
       <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000" />
       <output id="ide-display">$1000.00</output>
-    </fieldset>
-
-    <fieldset>
-      <span class="title">Yearly estimate: <span id="license-cost">$0.00</span></span>
+      <span class="txt-primary break">Yearly estimate: <span id="license-cost">$0.00</span></span>
     </fieldset>
 
     <script>
