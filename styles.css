@@ -1,5 +1,5 @@
 :root {
-    --color-primary: white;
+    --color-primary: #0366d6;
     --color-accent: whitesmoke;
 }
 
@@ -9,7 +9,7 @@ body {
 }
 
 .title {
-    background: gainsboro;
+    background: var(--color-primary);
     padding: 10px;
 }
 
