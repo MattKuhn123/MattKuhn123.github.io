@@ -153,6 +153,9 @@
     <fieldset class="my-fieldset">
       <input id="save-btn" class="btn btn-primary" type="button" value="Save" />
       <input id="load-btn" class="btn btn-accent" type="button" value="Load" />
+      
+      <span id="report-name"></span>
+      <input id="delete-btn" class="btn btn-accent" type="button" value="Delete" hidden />
     </fieldset>
   </form>
 
@@ -180,6 +183,17 @@
     </fieldset>
   </dialog>
 
+  <dialog id="delete-dialog">
+    <h3 class="txt-primary">Delete report</h3>
+    <fieldset>
+      <span>Confirm delete <span id="confirm-report-name"></span>?</span>
+    </fieldset>
+    <fieldset>
+      <input id="delete-confirm-btn" class="btn btn-primary" type="button" value="Yes" />
+      <input id="delete-decline-btn" class="btn btn-accent" type="button" value="No" />
+    </fieldset>
+  </dialog>
+
   <script>
     const currencyFormat = new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -190,35 +204,107 @@
 
     const reportsKey = "reports";
 
-    document.getElementById("software-accuracy").addEventListener("input", function (event) {
-      const output = document.getElementById("software-accuracy-display");
-      const percent = Number(event.target.value) * 100;
-      output.innerText = percent + "%";
-    });
+    const getStaffSoftwareSaving = function () { return Number(document.getElementById("staff-count").value); }
+    const setStaffSoftwareSaving = function (val) { document.getElementById("staff-count").value = val; }
+    const getWageSoftwareSaving = function () { return Number(document.getElementById("staff-hourly-wage").value); }
+    const setWageSoftwareSaving = function (val) { document.getElementById("staff-hourly-wage").value = val; }
+    const getHourlySoftwareSaving = function () { return Number(document.getElementById("staff-weekly-hours-saved").value); }
+    const setHourlySoftwareSaving = function (val) { document.getElementById("staff-weekly-hours-saved").value = val }
 
-    document.getElementById("web-server").addEventListener("input", function (event) {
+    const getProfitOpportunity = function () { return Number(document.getElementById("profit-opportunity").value); }
+    const setProfitOpportunity = function(val) { document.getElementById("profit-opportunity").value = val }
+    const getProfitOpportunityYearly = function () { return Number(document.getElementById("profit-opportunity-yearly").value); }
+    const setProfitOpportunityYearly = function (val) { document.getElementById("profit-opportunity-yearly").value = val; }
+    const getAccuracy = function () { return Number(document.getElementById("software-accuracy").value); }
+    const setAccuracy = function (val) { document.getElementById("software-accuracy").value = val; }
+    
+    const getFineOpportunity = function() { return Number(document.getElementById("fine-opportunity").value); }
+    const setFineOpportunity = function(val) { document.getElementById("fine-opportunity").value = val; }
+    const getFineOpportunityYearly = function () { return Number(document.getElementById("fine-opportunity-yearly").value); }
+    const setFineOpportunityYearly = function (val) { document.getElementById("fine-opportunity-yearly").value = val; }
+
+    const getAnalysts = function () { return Number(document.getElementById("analysts").value); }
+    const setAnalysts = function (val) { document.getElementById("analysts").value = val; }
+    const getAnalystWage = function () { return Number(document.getElementById("analyst-wage").value); }
+    const setAnalystWage = function (val) { document.getElementById("analyst-wage").value = val; }
+    const getAnalystHours = function () { return Number(document.getElementById("analyst-weekly-hours").value); }
+    const setAnalystHours = function (val) { document.getElementById("analyst-weekly-hours").value = val }
+    const getDbas = function () { return Number(document.getElementById("dbas").value); }
+    const setDbas = function (val) { document.getElementById("dbas").value = val; }
+    const getDbaWage = function () { return Number(document.getElementById("dba-wage").value); }
+    const setDbaWage = function (val) { document.getElementById("dba-wage").value = val; }
+    const getDbaHours = function () { return Number(document.getElementById("dba-weekly-hours").value); }
+    const setDbaHours = function (val) { document.getElementById("dba-weekly-hours").value = val }
+    const getPlatformEngineers = function () { return Number(document.getElementById("platform-engineers").value); }
+    const setPlatformEngineers = function (val) { document.getElementById("platform-engineers").value = val; }
+    const getPlatformEngineerWage = function () { return Number(document.getElementById("platform-engineer-wage").value); }
+    const setPlatformEngineerWage = function (val) { document.getElementById("platform-engineer-wage").value = val; }
+    const getPlatformEngineerHours = function () { return Number(document.getElementById("platform-engineer-weekly-hours").value); }
+    const setPlatformEngineerHours = function (val) { document.getElementById("platform-engineer-weekly-hours").value = val }
+    const getQas = function () { return Number(document.getElementById("qas").value); }
+    const setQas = function (val) { document.getElementById("qas").value = val; }
+    const getQaWage = function () { return Number(document.getElementById("qa-wage").value); }
+    const setQaWage = function (val) { document.getElementById("qa-wage").value = val; }
+    const getQaHours = function () { return Number(document.getElementById("qa-weekly-hours").value); }
+    const setQaHours = function (val) { document.getElementById("qa-weekly-hours").value = val }
+    const getDevelopers = function () { return Number(document.getElementById("developers").value); }
+    const setDevelopers = function (val) { document.getElementById("developers").value = val; }
+    const getDeveloperWage = function () { return Number(document.getElementById("developer-wage").value); }
+    const setDeveloperWage = function (val) { document.getElementById("developer-wage").value = val; }
+    const getDeveloperHours = function () { return Number(document.getElementById("developer-weekly-hours").value); }
+    const setDeveloperHours = function (val) { document.getElementById("developer-weekly-hours").value = val }
+
+    const getWebServer = function () { return Number(document.getElementById("web-server").value); }
+    const setWebServer = function (val) { document.getElementById("web-server").value = val; }
+
+    const getWebServerDev = function () { return Boolean(document.getElementById("development-server").checked); }
+    const setWebServerDev = function (val) { document.getElementById("development-server").checked = val; }
+
+    const getWebServerTest = function () { return Boolean(document.getElementById("test-server").checked); }
+    const setWebServerTest = function (val) { document.getElementById("test-server").checked = val; }
+
+    const getDatabase = function () { return Number(document.getElementById("database").value); }
+    const setDatabase = function (val) { document.getElementById("database").value = val; }
+
+    const getIde = function () { return Number(document.getElementById("ide").value); }
+    const setIde = function (val) { document.getElementById("ide").value = val; }
+
+    const syncSoftwareAccuracySlider = function () {
+      const output = document.getElementById("software-accuracy-display");
+      const percent = getAccuracy() * 100;
+      output.innerText = percent + "%";
+    }
+
+    const syncWebServerSlider = function () {
       const output = document.getElementById("web-server-display");
-      output.innerText = currencyFormat.format(event.target.value);
+      output.innerText = currencyFormat.format(getWebServer());
+    }
+
+    const syncDatabaseSlider = function () {
+      const output = document.getElementById("database-display");
+      output.innerText = currencyFormat.format(getDatabase());
+    }
+
+    const syncIdeSlider = function () {
+      const output = document.getElementById("ide-display");
+      output.innerText = currencyFormat.format(getIde());
+    }
+
+    document.getElementById("software-accuracy").addEventListener("input", function (event) {
+      syncSoftwareAccuracySlider();
+    });
+    
+    document.getElementById("web-server").addEventListener("input", function (event) {
+      syncWebServerSlider();
     });
 
     document.getElementById("database").addEventListener("input", function (event) {
-      const output = document.getElementById("database-display");
-      output.innerText = currencyFormat.format(event.target.value);
+      syncDatabaseSlider();
     });
 
     document.getElementById("ide").addEventListener("input", function (event) {
-      const output = document.getElementById("ide-display");
-      output.innerText = currencyFormat.format(event.target.value);
+      syncIdeSlider();
     });
-
-    const getStaffSoftwareSaving = function () { return Number(document.getElementById("staff-count").value); }
-    const setStaffSoftwareSaving = function (val) { document.getElementById("staff-count").value = val; }
-    
-    const getWageSoftwareSaving = function () { return Number(document.getElementById("staff-hourly-wage").value); }
-    const setWageSoftwareSaving = function (val) { document.getElementById("staff-hourly-wage").value = val; }
-    
-    const getHourlySoftwareSaving = function () { return Number(document.getElementById("staff-weekly-hours-saved").value); }
-    const setHourlySoftwareSaving = function (val) { document.getElementById("staff-weekly-hours-saved").value = val }
 
     const softwareSavings = function() {
       const staff = getStaffSoftwareSaving();
@@ -229,16 +315,16 @@
     }
 
     const forecastProfit = function () {
-      const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
-      const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
-      const accuracy = Number(document.getElementById("software-accuracy").value);
+      const profitOpportunity = getProfitOpportunity();
+      const profitOpportunityYearly = getProfitOpportunityYearly();
+      const accuracy = getAccuracy();
       const profit = profitOpportunity * profitOpportunityYearly * accuracy;
       document.getElementById("software-profit").innerText = currencyFormat.format(profit);
     }
 
     const regulatoryCompliance = function () {
-      const fineOpportunity = Number(document.getElementById("fine-opportunity").value);
-      const fineOpportunityYearly = Number(document.getElementById("fine-opportunity-yearly").value);
+      const fineOpportunity = getFineOpportunity();
+      const fineOpportunityYearly = getFineOpportunityYearly();
       const profit = fineOpportunity * fineOpportunityYearly;
       document.getElementById("regulatory-compliance").innerText = currencyFormat.format(profit);
     }
@@ -275,12 +361,12 @@
     }
 
     const resourceCost = function () {
-      const webServer = Number(document.getElementById("web-server").value);
+      const webServer = getWebServer();
 
-      const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
+      const includeDevelopmentServer = getWebServerDev();
       const developmentWebServer = includeDevelopmentServer ? webServer : 0;
 
-      const includeTestServer = Boolean(document.getElementById("test-server").checked);
+      const includeTestServer = getWebServerTest();
       const testWebServer = includeTestServer ? webServer : 0;
 
       const resourceCost = webServer + developmentWebServer + testWebServer;
@@ -288,8 +374,8 @@
     }
 
     const licenseCost = function () {
-      const database = Number(document.getElementById("database").value);
-      const ide = Number(document.getElementById("ide").value);
+      const database = getDatabase();
+      const ide = getIde();
 
       const licenseCost = database + ide;
       document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
@@ -311,17 +397,26 @@
       staffCost();
       resourceCost();
       licenseCost();
+
+      syncSoftwareAccuracySlider();
+      syncWebServerSlider();
+      syncDatabaseSlider();
+      syncIdeSlider();
     }
 
     document.getElementById("save-btn").addEventListener("click", function () {
       document.getElementById("save-dialog").showModal();
+      document.getElementById("save-name").value = document.getElementById("report-name").innerText;
+      document.getElementById("delete-btn").hidden = false;
+
     });
 
     document.getElementById("load-btn").addEventListener("click", function () {
-      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? {});
+      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? "{}");
       const reportsOptions = Object.keys(reports);
 
       const reportsList = document.getElementById("reports-list");
+      reportsList.innerHTML = "";
 
       reportsOptions.forEach(reportItem => {
         const option = document.createElement("option");
@@ -336,14 +431,46 @@
       const report = {
         staffSoftwareSaving: getStaffSoftwareSaving(),
         wageSoftwareSaving: getWageSoftwareSaving(),
-        hourlySoftwareSaving: getHourlySoftwareSaving() 
+        hourlySoftwareSaving: getHourlySoftwareSaving(),
+
+        profitOpportunity: getProfitOpportunity(),
+        profitOpportunityYearly: getProfitOpportunityYearly(),
+        accuracy: getAccuracy(),
+
+        fineOpportunity: getFineOpportunity(),
+        fineOpportunityYearly: getFineOpportunityYearly(),
+
+        analysts: getAnalysts(),
+        analystWage: getAnalystWage(),
+        analystHours: getAnalystHours(),
+        dbas: getDbas(),
+        dbaWage: getDbaWage(),
+        dbaHours: getDbaHours(),
+        platformEngineers: getPlatformEngineers(),
+        platformEngineerWage: getPlatformEngineerWage(),
+        platformEngineerHours: getPlatformEngineerHours(),
+        qas: getQas(),
+        qaWage: getQaWage(),
+        qaHours: getQaHours(),
+        developers: getDevelopers(),
+        developerWage: getDeveloperWage(),
+        developerHours: getDeveloperHours(),
+
+        webServer: getWebServer(),
+        webServerDev: getWebServerDev(),
+        webServerTest: getWebServerTest(),
+
+        database: getDatabase(),
+        ide: getIde()
       };
 
       const saveAs = document.getElementById("save-name").value;
-      const reports = localStorage.getItem(reportsKey) ?? {};
+      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? "{}");
       reports[saveAs] = report;
       localStorage.setItem(reportsKey, JSON.stringify(reports));
       document.getElementById("save-dialog").close();
+      document.getElementById("report-name").innerText = saveAs;
+      document.getElementById("delete-btn").hidden = false;
     });
 
     document.getElementById("save-decline-btn").addEventListener("click", function () {
@@ -351,13 +478,50 @@
     });
 
     document.getElementById("load-confirm-btn").addEventListener("click", function () {
-      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? {});
+      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? "{}");
       const loadAs = document.getElementById("reports-list").value;
+      if (!loadAs) {
+        document.getElementById("load-dialog").close();
+        return;
+      }
+
+      document.getElementById("report-name").innerText = loadAs;
+      document.getElementById("delete-btn").hidden = false;
       const report = reports[loadAs];
 
       setStaffSoftwareSaving(report.staffSoftwareSaving);
       setWageSoftwareSaving(report.wageSoftwareSaving);
       setHourlySoftwareSaving(report.hourlySoftwareSaving);
+
+      setProfitOpportunity(report.profitOpportunity);
+      setProfitOpportunityYearly(report.profitOpportunityYearly);
+      setAccuracy(report.accuracy);
+
+      setFineOpportunity(report.fineOpportunity);
+      setFineOpportunityYearly(report.fineOpportunityYearly);
+
+      setAnalysts(report.analysts);
+      setAnalystWage(report.analystWage);
+      setAnalystHours(report.analystHours);
+      setDbas(report.dbas);
+      setDbaWage(report.dbaWage);
+      setDbaHours(report.dbaHours);
+      setPlatformEngineers(report.platformEngineers);
+      setPlatformEngineerWage(report.platformEngineerWage);
+      setPlatformEngineerHours(report.platformEngineerHours);
+      setQas(report.qas);
+      setQaWage(report.qaWage);
+      setQaHours(report.qaHours);
+      setDevelopers(report.developers);
+      setDeveloperWage(report.developerWage);
+      setDeveloperHours(report.developerHours);
+
+      setWebServer(report.webServer);
+      setWebServerDev(report.webServerDev);
+      setWebServerTest(report.webServerTest);
+
+      setDatabase(report.database);
+      setIde(report.ide);
 
       document.getElementById("load-dialog").close();
 
@@ -366,6 +530,33 @@
 
     document.getElementById("load-decline-btn").addEventListener("click", function () {
       document.getElementById("load-dialog").close();
+    });
+  
+    document.getElementById("delete-btn").addEventListener("click", function () {
+      const reportName = document.getElementById("report-name").innerText;
+      if (!reportName) {
+        return;
+      }
+
+      document.getElementById("delete-dialog").showModal();
+      document.getElementById("confirm-report-name").innerText = document.getElementById("report-name").innerText;
+    });
+
+    document.getElementById("delete-confirm-btn").addEventListener("click", function () {
+      const reportName = document.getElementById("confirm-report-name").innerText;
+      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? "{}");
+      delete reports[reportName];
+      localStorage.setItem(reportsKey, JSON.stringify(reports));
+
+      document.getElementById("delete-dialog").close();
+      document.getElementById("form").reset();
+
+      document.getElementById("delete-btn").hidden = true;
+      document.getElementById("report-name").innerText = "";
+    });
+
+    document.getElementById("delete-decline-btn").addEventListener("click", function () {
+      document.getElementById("delete-dialog").close();
     });
   </script>
 
