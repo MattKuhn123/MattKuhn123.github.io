@@ -27,30 +27,23 @@
     <fieldset>
       <legend>Staff</legend>
       <label for="staff-count">Staff</label>
-      <input id="staff-count" name="staff-count" type="number" placeholder="100" required />
+      <input id="staff-count" name="staff-count" type="number" placeholder="100" />
 
       <label for="staff-hourly-wage">Wage</label>
-      <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" required />
+      <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" />
 
       <label for="staff-weekly-hours-saved">Hours saved weekly</label>
       <label for="staff-weekly-hours-saved" popover id="hours-saved-tooltip">The number of hours the software saves the
         staff member per week.</label>
-      <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" required />
+      <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="hours-saved-tooltip" />
     </fieldset>
 
     <fieldset>
-      <input id="calculate-staffing-savings" type="button" value="Calculate" class="btn btn-primary" />
-      <input id="reset-staffing-savings" type="button" value="Reset" class="btn btn-accent" />
       <span class="title">Yearly estimate: <span id="software-savings">$0.00</span></span>
     </fieldset>
     <script>
-      document.getElementById("reset-staffing-savings").addEventListener("click", function () {
-        const form = document.getElementById("staffing-savings-form");
-        form.reset();
-      });
-
-      document.getElementById("calculate-staffing-savings").addEventListener("click", function () {
+      document.getElementById("staffing-savings-form").addEventListener("input", function () {
         const weeksPerYear = 52;
 
         const form = document.getElementById("staffing-savings-form");
@@ -75,11 +68,11 @@
       <label for="profit-opportunity">Profit</label>
       <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
         software.</label>
-      <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" required />
+      <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="profit-opportunity-tooltip" />
 
       <label for="profit-opportunity-yearly">Yearly opportunities</label>
-      <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" required />
+      <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
 
       <label for="software-accuracy">Estimated software accuracy</label>
       <label for="profit-opportunity" popover id="software-accuracy-tooltip">The likelihood that the software will
@@ -90,8 +83,6 @@
     </fieldset>
 
     <fieldset>
-      <input id="calculate-forecast-trends" type="button" value="Calculate" class="btn btn-primary" />
-      <input id="reset-forecast-trends" type="button" value="Reset" class="btn btn-accent" />
       <span class="title">Yearly estimate: <span id="software-profit">$0.00</span></span>
     </fieldset>
 
@@ -102,12 +93,7 @@
         output.innerText = percent + "%";
       });
 
-      document.getElementById("reset-forecast-trends").addEventListener("click", function () {
-        const form = document.getElementById("forecast-trends-form");
-        form.reset();
-      });
-
-      document.getElementById("calculate-forecast-trends").addEventListener("click", function () {
+      document.getElementById("forecast-trends-form").addEventListener("input", function () {
         const form = document.getElementById("forecast-trends-form");
         if (!form.reportValidity()) {
           return;
@@ -131,77 +117,70 @@
     <fieldset id="developers-fieldset">
       <legend>Developers</legend>
       <label for="developers">Staff</label>
-      <input id="developers" name="developers" type="number" placeholder="2" required />
+      <input id="developers" name="developers" type="number" placeholder="2" />
 
       <label for="developer-wage">Wage</label>
-      <input id="developer-wage" name="developer-wage" type="number" placeholder="50" required />
+      <input id="developer-wage" name="developer-wage" type="number" placeholder="50" />
 
       <label for="developer-weekly-hours">Hours</label>
-      <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" required />
+      <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" />
     </fieldset>
 
     <fieldset id="qas-fieldset">
       <legend>QAs</legend>
       <label for="qas">Staff</label>
-      <input id="qas" name="qas" type="number" placeholder="2" required />
+      <input id="qas" name="qas" type="number" placeholder="2" />
 
       <label for="qa-wage">Wage</label>
-      <input id="qa-wage" name="qa-wage" type="number" placeholder="50" required />
+      <input id="qa-wage" name="qa-wage" type="number" placeholder="50" />
 
       <label for="qa-weekly-hours">Hours</label>
-      <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" required />
+      <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" />
     </fieldset>
 
     <fieldset id="platform-engineers-fieldset">
       <legend>Platform engineers</legend>
       <label for="platform-engineers">Staff</label>
-      <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" required />
+      <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" />
 
       <label for="platform-engineer-wage">Wage</label>
-      <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" required />
+      <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" />
 
       <label for="platform-engineer-weekly-hours">Hours</label>
       <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40"
-        required />
+        />
     </fieldset>
 
     <fieldset id="dbas-fieldset">
       <legend>DBAs</legend>
       <label for="dbas">Staff</label>
-      <input id="dbas" name="dbas" type="number" placeholder="1" required />
+      <input id="dbas" name="dbas" type="number" placeholder="1" />
 
       <label for="dba-wage">Wage</label>
-      <input id="dba-wage" name="dba-wage" type="number" placeholder="50" required />
+      <input id="dba-wage" name="dba-wage" type="number" placeholder="50" />
 
       <label for="dba-weekly-hours">Hours</label>
-      <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" required />
+      <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" />
     </fieldset>
 
     <fieldset id="analysts-fieldset">
       <legend>Analysts</legend>
       <label for="analysts">Staff</label>
-      <input id="analysts" name="analysts" type="number" placeholder="1" required />
+      <input id="analysts" name="analysts" type="number" placeholder="1" />
 
       <label for="analyst-wage">Wage</label>
-      <input id="analyst-wage" name="analyst-wage" type="number" placeholder="50" required />
+      <input id="analyst-wage" name="analyst-wage" type="number" placeholder="50" />
 
       <label for="analyst-weekly-hours">Hours</label>
-      <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" required />
+      <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
     </fieldset>
 
     <fieldset>
-      <input id="calculate-staffing-cost" type="button" value="Calculate" class="btn btn-primary" />
-      <input id="reset-staffing-cost" type="button" value="Reset" class="btn btn-accent" />
       <span class="title">Yearly estimate: <span id="staff-cost">$0.00</span></span>
     </fieldset>
 
     <script>
-      document.getElementById("reset-staffing-cost").addEventListener("click", function () {
-        const form = document.getElementById("staffing-cost-form");
-        form.reset();
-      });
-
-      document.getElementById("calculate-staffing-cost").addEventListener("click", function () {
+      document.getElementById("staffing-cost-form").addEventListener("input", function () {
         const weeksPerYear = 52;
 
         const form = document.getElementById("staffing-cost-form");
@@ -256,8 +235,6 @@
     </fieldset>
 
     <fieldset>
-      <input id="calculate-resource-cost" type="button" value="Calculate" class="btn btn-primary" />
-      <input id="reset-resource-cost" type="button" value="Reset" class="btn btn-accent" />
       <span class="title">Yearly estimate: <span id="resource-cost">$0.00</span></span>
     </fieldset>
 
@@ -267,12 +244,7 @@
         output.innerText = currencyFormat.format(event.target.value);
       });
 
-      document.getElementById("reset-resource-cost").addEventListener("click", function () {
-        const form = document.getElementById("resource-cost-form");
-        form.reset();
-      });
-
-      document.getElementById("calculate-resource-cost").addEventListener("click", function () {
+      document.getElementById("resource-cost-form").addEventListener("input", function () {
         const form = document.getElementById("resource-cost-form");
         if (!form.reportValidity()) {
           return;
@@ -305,8 +277,6 @@
     </fieldset>
 
     <fieldset>
-      <input id="calculate-license-cost" type="button" value="Calculate" class="btn btn-primary" />
-      <input id="reset-license-cost" type="button" value="Reset" class="btn btn-accent" />
       <span class="title">Yearly estimate: <span id="license-cost">$0.00</span></span>
     </fieldset>
 
@@ -321,12 +291,7 @@
         output.innerText = currencyFormat.format(event.target.value);
       });
 
-      document.getElementById("reset-license-cost").addEventListener("click", function () {
-        const form = document.getElementById("resource-cost-form");
-        form.reset();
-      });
-
-      document.getElementById("calculate-license-cost").addEventListener("click", function () {
+      document.getElementById("license-cost-form").addEventListener("input", function () {
         const form = document.getElementById("license-cost-form");
         if (!form.reportValidity()) {
           return;
