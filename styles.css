@@ -27,10 +27,10 @@ details summary span.sub-title {
 }
 
 details summary ~ * {
-    transition: margin-bottom 250ms ease-out;
-    margin-bottom: 0px;
+    transition: opacity 250ms ease-out;
+    opacity: 0;
 }
 
 details[open] summary ~ * {
-    margin-bottom: 10px;
+    opacity: 100;
 }
