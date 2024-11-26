@@ -149,7 +149,36 @@
       <output id="ide-display">$1000.00</output>
       <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
     </fieldset>
+
+    <fieldset class="my-fieldset">
+      <input id="save-btn" class="btn btn-primary" type="button" value="Save" />
+      <input id="load-btn" class="btn btn-accent" type="button" value="Load" />
+    </fieldset>
   </form>
+
+  <dialog id="save-dialog">
+    <h3 class="txt-primary">Save this report?</h3>
+    <fieldset>
+      <label for="save-name">Save as...</label>
+      <input id="save-name" type="text" placeholder="my-report" />
+    </fieldset>
+    <fieldset>
+      <input id="save-confirm-btn" class="btn btn-primary" type="button" value="Yes" />
+      <input id="save-decline-btn" class="btn btn-accent" type="button" value="No" />
+    </fieldset>
+  </dialog>
+  
+  <dialog id="load-dialog">
+    <h3 class="txt-primary">Load report</h3>
+    <fieldset>
+      <label for="report-list">Load report</label>
+      <select id="reports-list" class="full-width"></select>
+    </fieldset>
+    <fieldset>
+      <input id="load-confirm-btn" class="btn btn-primary" type="button" value="Load" />
+      <input id="load-decline-btn" class="btn btn-accent" type="button" value="Cancel" />
+    </fieldset>
+  </dialog>
 
   <script>
     const currencyFormat = new Intl.NumberFormat('en-US', {
@@ -158,6 +187,8 @@
     });
 
     const weeksPerYear = 52;
+
+    const reportsKey = "reports";
 
     document.getElementById("software-accuracy").addEventListener("input", function (event) {
       const output = document.getElementById("software-accuracy-display");
@@ -180,10 +211,19 @@
       output.innerText = currencyFormat.format(event.target.value);
     });
 
+    const getStaffSoftwareSaving = function () { return Number(document.getElementById("staff-count").value); }
+    const setStaffSoftwareSaving = function (val) { document.getElementById("staff-count").value = val; }
+    
+    const getWageSoftwareSaving = function () { return Number(document.getElementById("staff-hourly-wage").value); }
+    const setWageSoftwareSaving = function (val) { document.getElementById("staff-hourly-wage").value = val; }
+    
+    const getHourlySoftwareSaving = function () { return Number(document.getElementById("staff-weekly-hours-saved").value); }
+    const setHourlySoftwareSaving = function (val) { document.getElementById("staff-weekly-hours-saved").value = val }
+
     const softwareSavings = function() {
-      const staff = Number(document.getElementById("staff-count").value);
-      const wage = Number(document.getElementById("staff-hourly-wage").value);
-      const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
+      const staff = getStaffSoftwareSaving();
+      const wage = getWageSoftwareSaving();
+      const saved = getHourlySoftwareSaving();
       const staffSavings = staff * wage * saved * weeksPerYear;
       document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
     }
@@ -261,12 +301,71 @@
         return;
       }
 
+      recalculate();
+    });
+
+    const recalculate = function () {
       softwareSavings();
       forecastProfit();
       regulatoryCompliance();
       staffCost();
       resourceCost();
       licenseCost();
+    }
+
+    document.getElementById("save-btn").addEventListener("click", function () {
+      document.getElementById("save-dialog").showModal();
+    });
+
+    document.getElementById("load-btn").addEventListener("click", function () {
+      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? {});
+      const reportsOptions = Object.keys(reports);
+
+      const reportsList = document.getElementById("reports-list");
+
+      reportsOptions.forEach(reportItem => {
+        const option = document.createElement("option");
+        option.innerText = reportItem;
+        reportsList.appendChild(option);
+      });
+
+      document.getElementById("load-dialog").showModal();
+    });
+
+    document.getElementById("save-confirm-btn").addEventListener("click", function () {
+      const report = {
+        staffSoftwareSaving: getStaffSoftwareSaving(),
+        wageSoftwareSaving: getWageSoftwareSaving(),
+        hourlySoftwareSaving: getHourlySoftwareSaving() 
+      };
+
+      const saveAs = document.getElementById("save-name").value;
+      const reports = localStorage.getItem(reportsKey) ?? {};
+      reports[saveAs] = report;
+      localStorage.setItem(reportsKey, JSON.stringify(reports));
+      document.getElementById("save-dialog").close();
+    });
+
+    document.getElementById("save-decline-btn").addEventListener("click", function () {
+      document.getElementById("save-dialog").close();
+    });
+
+    document.getElementById("load-confirm-btn").addEventListener("click", function () {
+      const reports = JSON.parse(localStorage.getItem(reportsKey) ?? {});
+      const loadAs = document.getElementById("reports-list").value;
+      const report = reports[loadAs];
+
+      setStaffSoftwareSaving(report.staffSoftwareSaving);
+      setWageSoftwareSaving(report.wageSoftwareSaving);
+      setHourlySoftwareSaving(report.hourlySoftwareSaving);
+
+      document.getElementById("load-dialog").close();
+
+      recalculate();
+    });
+
+    document.getElementById("load-decline-btn").addEventListener("click", function () {
+      document.getElementById("load-dialog").close();
     });
   </script>
 

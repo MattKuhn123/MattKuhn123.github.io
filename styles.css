@@ -104,3 +104,7 @@ output {
     color: var(--color-primary);
     background-color: var(--color-accent);
 }
+
+.full-width {
+    width: 100%;
+}
