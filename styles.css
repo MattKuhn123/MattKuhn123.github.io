@@ -22,16 +22,8 @@ body {
     float: right;
 }
 
-.blog-author {
-    float: left;
-}
-
 .blog-date {
     float: right;
-}
-
-.blog-link {
-    float: left;
 }
 
 details {
