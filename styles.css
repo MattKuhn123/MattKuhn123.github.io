@@ -8,9 +8,29 @@ body {
     background-color: var(--color-accent);
 }
 
-h1.title {
+title {
     background: gainsboro;
     padding: 10px;
+}
+
+blog-title {
+    font-weight: bolder;
+}
+
+blog-sub-title {
+    font-style: italic;
+}
+
+blog-author {
+    float: left;
+}
+
+blog-date {
+    float: right;
+}
+
+blog-link {
+    float: left;
 }
 
 details {
@@ -21,14 +41,6 @@ details {
 
 details summary {
     cursor: pointer;
-}
-
-details summary span.title {
-    font-weight: bolder;
-}
-
-details summary span.sub-title {
-    font-style: italic;
 }
 
 details summary ~ * {
