@@ -11,8 +11,9 @@ body {
     margin-left: auto;
 }
 
-body::selection {
-  background-color: var(--color-accent);
+::selection {
+    color: var(--color-accent);
+    background-color: var(--color-primaru);
 }
 
 .title {
