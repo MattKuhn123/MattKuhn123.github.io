@@ -19,6 +19,7 @@ blog-title {
 
 blog-sub-title {
     font-style: italic;
+    float: right;
 }
 
 blog-author {
