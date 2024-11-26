@@ -90,7 +90,7 @@
         forecast correctly or attract business as anticipated.</label>
       <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="software-accuracy-tooltip" />
-      <output id="software-accuracy-display"></output>
+      <output id="software-accuracy-display">$0.00</output>
     </fieldset>
 
     <fieldset>
@@ -254,15 +254,15 @@
   <form id="resource-cost-form">
     <h3>Resources</h3>
     <fieldset>
-      <label for="web-server">Individual web server costs per year</label>
+      <label for="web-server">Yearly web server cost</label>
       <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500" max="1500" />
-      <output id="web-server-display"></output>
+      <output id="web-server-display">$1000.00</output>
 
-      <label for="development-server">Development server</label>
       <input id="development-server" type="checkbox" />
+      <label for="development-server">Development server</label>
 
-      <label for="test-server">Test server</label>
       <input id="test-server" type="checkbox" />
+      <label for="test-server">Test server</label>
     </fieldset>
 
     <fieldset>
@@ -310,11 +310,11 @@
     <fieldset>
       <label for="database">Database</label>
       <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0" max="10000" />
-      <output id="database-display"></output>
+      <output id="database-display">$1000.00</output>
 
       <label for="ide">IDE</label>
       <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000" />
-      <output id="ide-display"></output>
+      <output id="ide-display">$1000.00</output>
     </fieldset>
 
     <fieldset>

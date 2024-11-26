@@ -49,7 +49,7 @@ details[open] summary ~ * {
 }
 
 output {
-    display: block;
+    display: inline-block;
 }
 
 .btn {
