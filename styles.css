@@ -18,6 +18,14 @@ details summary {
     cursor: pointer;
 }
 
+details summary span.title {
+    font-weight: bolder;
+}
+
+details summary span.sub-title {
+    font-style: italic;
+}
+
 details summary ~ * {
     transition: margin-bottom 250ms ease-out;
     margin-bottom: 0px;
