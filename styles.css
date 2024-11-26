@@ -8,6 +8,11 @@ body {
     background-color: var(--color-accent);
 }
 
+h1.title {
+    background: gainsboro;
+    padding: 10px;
+}
+
 details {
     padding: 10px;
     border: 1px solid black;
