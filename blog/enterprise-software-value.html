@@ -15,7 +15,7 @@
   <form id="form">
     <h2 class="txt-primary">Benefit</h2>
     
-    <fieldset>
+    <fieldset class="my-fieldset">
       <legend>Save on staffing cost by optimizing processes</legend>
       <label for="staff-count">Staff</label>
       <input id="staff-count" name="staff-count" type="number" placeholder="100" />
@@ -28,10 +28,10 @@
         staff member per week.</label>
       <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="hours-saved-tooltip" />
-      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
+      <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="my-fieldset">
       <legend>Profit by forecasting trends or attracting business</legend>
       <label for="profit-opportunity">Profit</label>
       <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
@@ -40,7 +40,9 @@
       <input type="button" class="btn btn-accent" value="?" popovertarget="profit-opportunity-tooltip" />
 
       <label for="profit-opportunity-yearly">Yearly opportunities</label>
+      <label for="profit-opportunity-yearly" popover id="profit-opportunity-yearly-tooltip">How many times per year does this opportunity arise?</label>
       <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
+      <input type="button" class="btn btn-accent" value="?" popovertarget="profit-opportunity-yearly-tooltip" />
 
       <label for="software-accuracy">Estimated software accuracy</label>
       <label for="profit-opportunity" popover id="software-accuracy-tooltip">The likelihood that the software will
@@ -48,12 +50,27 @@
       <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="software-accuracy-tooltip" />
       <output id="software-accuracy-display">50%</output>
-      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
+      <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
+    </fieldset>
+
+    <fieldset class="my-fieldset">
+      <legend>Regulatory compliance</legend>
+      <label for="fine-opportunity">Fine</label>
+      <label for="fine-opportunity" popover id="fine-opportunity-tooltip">What could your business be fined by not complying to this standard? (Being spared a fine is an odd but effective way to consider the value that regulatory compliance brings to the business).</label>
+      <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
+      <input type="button" class="btn btn-accent" value="?" popovertarget="fine-opportunity-tooltip" />
+      
+      <label for="fine-opportunity-yearly">Yearly opportunities</label>
+      <label for="fine-opportunity-yearly" popover id="fine-opportunity-yearly-tooltip">How many times per year can this fine apply?</label>
+      <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
+      <input type="button" class="btn btn-accent" value="?" popovertarget="fine-opportunity-yearly-tooltip" />
+
+      <span class="txt-padding txt-break">Yearly estimate: <span id="regulatory-compliance">$0.00</span></span>
     </fieldset>
 
     <h2 class="txt-primary">Cost</h2>
 
-    <fieldset>
+    <fieldset class="my-fieldset">
       <legend>Staffing</legend>
       <span class="txt-primary txt-break">Developers</span>
       <label for="developers">Staff</label>
@@ -104,10 +121,10 @@
 
       <label for="analyst-weekly-hours">Hours</label>
       <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
-      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
+      <span class="txt-padding txt-break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="my-fieldset">
       <legend>Resources</legend>
       <label for="web-server">Yearly web server cost</label>
       <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500" max="1500" />
@@ -118,10 +135,10 @@
 
       <input id="test-server" type="checkbox" />
       <label for="test-server">Test server</label>
-      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
+      <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="my-fieldset">
       <legend>Licenses</legend>
       <label for="database">Database</label>
       <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0" max="10000" />
@@ -130,7 +147,7 @@
       <label for="ide">IDE</label>
       <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000" />
       <output id="ide-display">$1000.00</output>
-      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
+      <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
     </fieldset>
   </form>
 
@@ -177,6 +194,13 @@
       const accuracy = Number(document.getElementById("software-accuracy").value);
       const profit = profitOpportunity * profitOpportunityYearly * accuracy;
       document.getElementById("software-profit").innerText = currencyFormat.format(profit);
+    }
+
+    const regulatoryCompliance = function () {
+      const fineOpportunity = Number(document.getElementById("fine-opportunity").value);
+      const fineOpportunityYearly = Number(document.getElementById("fine-opportunity-yearly").value);
+      const profit = fineOpportunity * fineOpportunityYearly;
+      document.getElementById("regulatory-compliance").innerText = currencyFormat.format(profit);
     }
 
     const staffCost = function () {
@@ -239,6 +263,7 @@
 
       softwareSavings();
       forecastProfit();
+      regulatoryCompliance();
       staffCost();
       resourceCost();
       licenseCost();

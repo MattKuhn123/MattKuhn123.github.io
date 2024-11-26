@@ -16,6 +16,16 @@ body {
     background-color: var(--color-primary);
 }
 
+::backdrop {
+    backdrop-filter: blur(3px);
+}
+
+:popover-open {
+    max-width: 50vw;
+    padding: 15px;
+}
+
+
 .sub-title {
     font-style: italic;
     float: right;
@@ -35,12 +45,12 @@ details summary {
     cursor: pointer;
 }
 
-details summary ~ * {
+details summary~* {
     transition: opacity 250ms ease-out;
     opacity: 0;
 }
 
-details[open] summary ~ * {
+details[open] summary~* {
     opacity: 100;
 }
 
@@ -52,6 +62,11 @@ output {
     input {
         display: block;
     }
+}
+
+.my-fieldset {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .txt-primary {
