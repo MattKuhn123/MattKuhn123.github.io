@@ -29,7 +29,7 @@ body {
     float: right;
 }
 
-details {
+.blog-post {
     padding: 10px;
     border: 1px solid black;
     border-radius: 2px;
@@ -50,6 +50,12 @@ details[open] summary ~ * {
 
 output {
     display: inline-block;
+}
+
+@media (orientation: portrait) {
+    input {
+        display: block;
+    }
 }
 
 .btn {
