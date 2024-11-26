@@ -16,11 +16,11 @@ details summary {
     cursor: pointer;
 }
 
-details summary * {
+details summary ~ * {
     transition: opacity 150ms ease-out;
     opacity: 0;
 }
 
-details[open] summary * {
+details[open] summary ~ * {
     opacity: 100;
 }
