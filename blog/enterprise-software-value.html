@@ -7,21 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../styles.css">
-
-  <script>
-    const currencyFormat = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    });
-  </script>
 </head>
 
 <body>
   <h1 class="txt-primary">Cost/Benefit analysis of enterprise web application software</h1>
 
-  <h2 class="txt-primary">Benefit</h2>
-
-  <form id="staffing-savings-form">
+  <form id="form">
+    <h2 class="txt-primary">Benefit</h2>
+    
     <fieldset>
       <legend>Save on staffing cost by optimizing processes</legend>
       <label for="staff-count">Staff</label>
@@ -35,27 +28,9 @@
         staff member per week.</label>
       <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="hours-saved-tooltip" />
-      <span class="txt-primary break">Yearly estimate: <span id="software-savings">$0.00</span></span>
+      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
     </fieldset>
-    <script>
-      document.getElementById("staffing-savings-form").addEventListener("input", function () {
-        const weeksPerYear = 52;
 
-        const form = document.getElementById("staffing-savings-form");
-        if (!form.reportValidity()) {
-          return;
-        }
-
-        const staff = Number(document.getElementById("staff-count").value);
-        const wage = Number(document.getElementById("staff-hourly-wage").value);
-        const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
-        const staffSavings = staff * wage * saved * weeksPerYear;
-        document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
-      });
-    </script>
-  </form>
-
-  <form id="forecast-trends-form">
     <fieldset>
       <legend>Profit by forecasting trends or attracting business</legend>
       <label for="profit-opportunity">Profit</label>
@@ -73,38 +48,14 @@
       <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
       <input type="button" class="btn btn-accent" value="?" popovertarget="software-accuracy-tooltip" />
       <output id="software-accuracy-display">50%</output>
-      <span class="txt-primary break">Yearly estimate: <span id="software-profit">$0.00</span></span>
+      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
     </fieldset>
 
-    <script>
-      document.getElementById("software-accuracy").addEventListener("input", function (event) {
-        const output = document.getElementById("software-accuracy-display");
-        const percent = Number(event.target.value) * 100;
-        output.innerText = percent + "%";
-      });
+    <h2 class="txt-primary">Cost</h2>
 
-      document.getElementById("forecast-trends-form").addEventListener("input", function () {
-        const form = document.getElementById("forecast-trends-form");
-        if (!form.reportValidity()) {
-          return;
-        }
-
-        const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
-        const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
-        const accuracy = Number(document.getElementById("software-accuracy").value);
-
-        const profit = profitOpportunity * profitOpportunityYearly * accuracy;
-        document.getElementById("software-profit").innerText = currencyFormat.format(profit);
-      });
-    </script>
-  </form>
-
-  <h2 class="txt-primary">Cost</h2>
-
-  <form id="staffing-cost-form">
     <fieldset>
       <legend>Staffing</legend>
-      <span class="txt-primary break">Developers</span>
+      <span class="txt-primary txt-break">Developers</span>
       <label for="developers">Staff</label>
       <input id="developers" name="developers" type="number" placeholder="2" />
 
@@ -113,8 +64,8 @@
 
       <label for="developer-weekly-hours">Hours</label>
       <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" />
-      
-      <span class="txt-primary break">QAs</span>
+
+      <span class="txt-primary txt-break">QAs</span>
       <label for="qas">Staff</label>
       <input id="qas" name="qas" type="number" placeholder="2" />
 
@@ -124,7 +75,7 @@
       <label for="qa-weekly-hours">Hours</label>
       <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" />
 
-      <span class="txt-primary break">Platform engineers</span>
+      <span class="txt-primary txt-break">Platform engineers</span>
       <label for="platform-engineers">Staff</label>
       <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" />
 
@@ -132,10 +83,9 @@
       <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" />
 
       <label for="platform-engineer-weekly-hours">Hours</label>
-      <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40"
-        />
-      
-      <span class="txt-primary break">DBAs</span>
+      <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40" />
+
+      <span class="txt-primary txt-break">DBAs</span>
       <label for="dbas">Staff</label>
       <input id="dbas" name="dbas" type="number" placeholder="1" />
 
@@ -145,7 +95,7 @@
       <label for="dba-weekly-hours">Hours</label>
       <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" />
 
-      <span class="txt-primary break">Analysts</span>
+      <span class="txt-primary txt-break">Analysts</span>
       <label for="analysts">Staff</label>
       <input id="analysts" name="analysts" type="number" placeholder="1" />
 
@@ -154,51 +104,9 @@
 
       <label for="analyst-weekly-hours">Hours</label>
       <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
-      <span class="txt-primary break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
+      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
     </fieldset>
 
-    <script>
-      document.getElementById("staffing-cost-form").addEventListener("input", function () {
-        const weeksPerYear = 52;
-
-        const form = document.getElementById("staffing-cost-form");
-        if (!form.reportValidity()) {
-          return;
-        }
-
-        const analysts = Number(document.getElementById("analysts").value);
-        const analystWage = Number(document.getElementById("analyst-wage").value);
-        const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
-        const analystCost = analysts * analystWage * analystWeeklyHours * weeksPerYear;
-
-        const dbas = Number(document.getElementById("dbas").value);
-        const dbaWage = Number(document.getElementById("dba-wage").value);
-        const dbaWeeklyHours = Number(document.getElementById("dba-weekly-hours").value);
-        const dbaCost = dbas * dbaWage * dbaWeeklyHours * weeksPerYear;
-
-        const platformEngineers = Number(document.getElementById("platform-engineers").value);
-        const platformEngineerWage = Number(document.getElementById("platform-engineer-wage").value);
-        const platformEngineerWeeklyHours = Number(document.getElementById("platform-engineer-weekly-hours").value);
-        const platformEngineerCost = platformEngineers * platformEngineerWage * platformEngineerWeeklyHours * weeksPerYear;
-
-        const qas = Number(document.getElementById("qas").value);
-        const qaWage = Number(document.getElementById("qa-wage").value);
-        const qaWeeklyHours = Number(document.getElementById("qa-weekly-hours").value);
-        const qaCost = qas * qaWage * qaWeeklyHours * weeksPerYear;
-
-        const developers = Number(document.getElementById("developers").value);
-        const developerWage = Number(document.getElementById("developer-wage").value);
-        const developerWeeklyHours = Number(document.getElementById("developer-weekly-hours").value);
-        const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
-
-        const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
-
-        document.getElementById("staff-cost").innerText = currencyFormat.format(staffCost);
-      });
-    </script>
-  </form>
-
-  <form id="resource-cost-form">
     <fieldset>
       <legend>Resources</legend>
       <label for="web-server">Yearly web server cost</label>
@@ -210,36 +118,9 @@
 
       <input id="test-server" type="checkbox" />
       <label for="test-server">Test server</label>
-      <span class="txt-primary break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
+      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
     </fieldset>
 
-    <script>
-      document.getElementById("web-server").addEventListener("input", function (event) {
-        const output = document.getElementById("web-server-display");
-        output.innerText = currencyFormat.format(event.target.value);
-      });
-
-      document.getElementById("resource-cost-form").addEventListener("input", function () {
-        const form = document.getElementById("resource-cost-form");
-        if (!form.reportValidity()) {
-          return;
-        }
-
-        const webServer = Number(document.getElementById("web-server").value);
-
-        const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
-        const developmentWebServer = includeDevelopmentServer ? webServer : 0;
-
-        const includeTestServer = Boolean(document.getElementById("test-server").checked);
-        const testWebServer = includeTestServer ? webServer : 0;
-
-        const resourceCost = webServer + developmentWebServer + testWebServer;
-        document.getElementById("resource-cost").innerText = currencyFormat.format(resourceCost);
-      });
-    </script>
-  </form>
-
-  <form id="license-cost-form">
     <fieldset>
       <legend>Licenses</legend>
       <label for="database">Database</label>
@@ -249,34 +130,120 @@
       <label for="ide">IDE</label>
       <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000" />
       <output id="ide-display">$1000.00</output>
-      <span class="txt-primary break">Yearly estimate: <span id="license-cost">$0.00</span></span>
+      <span class="txt-accent txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
     </fieldset>
-
-    <script>
-      document.getElementById("database").addEventListener("input", function (event) {
-        const output = document.getElementById("database-display");
-        output.innerText = currencyFormat.format(event.target.value);
-      });
-
-      document.getElementById("ide").addEventListener("input", function (event) {
-        const output = document.getElementById("ide-display");
-        output.innerText = currencyFormat.format(event.target.value);
-      });
-
-      document.getElementById("license-cost-form").addEventListener("input", function () {
-        const form = document.getElementById("license-cost-form");
-        if (!form.reportValidity()) {
-          return;
-        }
-
-        const database = Number(document.getElementById("database").value);
-        const ide = Number(document.getElementById("ide").value);
-
-        const licenseCost = database + ide;
-        document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
-      });
-    </script>
   </form>
+
+  <script>
+    const currencyFormat = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
+
+    const weeksPerYear = 52;
+
+    document.getElementById("software-accuracy").addEventListener("input", function (event) {
+      const output = document.getElementById("software-accuracy-display");
+      const percent = Number(event.target.value) * 100;
+      output.innerText = percent + "%";
+    });
+
+    document.getElementById("web-server").addEventListener("input", function (event) {
+      const output = document.getElementById("web-server-display");
+      output.innerText = currencyFormat.format(event.target.value);
+    });
+
+    document.getElementById("database").addEventListener("input", function (event) {
+      const output = document.getElementById("database-display");
+      output.innerText = currencyFormat.format(event.target.value);
+    });
+
+    document.getElementById("ide").addEventListener("input", function (event) {
+      const output = document.getElementById("ide-display");
+      output.innerText = currencyFormat.format(event.target.value);
+    });
+
+    const softwareSavings = function() {
+      const staff = Number(document.getElementById("staff-count").value);
+      const wage = Number(document.getElementById("staff-hourly-wage").value);
+      const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
+      const staffSavings = staff * wage * saved * weeksPerYear;
+      document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
+    }
+
+    const forecastProfit = function () {
+      const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
+      const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
+      const accuracy = Number(document.getElementById("software-accuracy").value);
+      const profit = profitOpportunity * profitOpportunityYearly * accuracy;
+      document.getElementById("software-profit").innerText = currencyFormat.format(profit);
+    }
+
+    const staffCost = function () {
+      const analysts = Number(document.getElementById("analysts").value);
+      const analystWage = Number(document.getElementById("analyst-wage").value);
+      const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
+      const analystCost = analysts * analystWage * analystWeeklyHours * weeksPerYear;
+
+      const dbas = Number(document.getElementById("dbas").value);
+      const dbaWage = Number(document.getElementById("dba-wage").value);
+      const dbaWeeklyHours = Number(document.getElementById("dba-weekly-hours").value);
+      const dbaCost = dbas * dbaWage * dbaWeeklyHours * weeksPerYear;
+
+      const platformEngineers = Number(document.getElementById("platform-engineers").value);
+      const platformEngineerWage = Number(document.getElementById("platform-engineer-wage").value);
+      const platformEngineerWeeklyHours = Number(document.getElementById("platform-engineer-weekly-hours").value);
+      const platformEngineerCost = platformEngineers * platformEngineerWage * platformEngineerWeeklyHours * weeksPerYear;
+
+      const qas = Number(document.getElementById("qas").value);
+      const qaWage = Number(document.getElementById("qa-wage").value);
+      const qaWeeklyHours = Number(document.getElementById("qa-weekly-hours").value);
+      const qaCost = qas * qaWage * qaWeeklyHours * weeksPerYear;
+
+      const developers = Number(document.getElementById("developers").value);
+      const developerWage = Number(document.getElementById("developer-wage").value);
+      const developerWeeklyHours = Number(document.getElementById("developer-weekly-hours").value);
+      const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
+
+      const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
+
+      document.getElementById("staff-cost").innerText = currencyFormat.format(staffCost);
+    }
+
+    const resourceCost = function () {
+      const webServer = Number(document.getElementById("web-server").value);
+
+      const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
+      const developmentWebServer = includeDevelopmentServer ? webServer : 0;
+
+      const includeTestServer = Boolean(document.getElementById("test-server").checked);
+      const testWebServer = includeTestServer ? webServer : 0;
+
+      const resourceCost = webServer + developmentWebServer + testWebServer;
+      document.getElementById("resource-cost").innerText = currencyFormat.format(resourceCost);
+    }
+
+    const licenseCost = function () {
+      const database = Number(document.getElementById("database").value);
+      const ide = Number(document.getElementById("ide").value);
+
+      const licenseCost = database + ide;
+      document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
+    }
+
+    document.getElementById("form").addEventListener("input", function () {
+      const form = document.getElementById("form");
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      softwareSavings();
+      forecastProfit();
+      staffCost();
+      resourceCost();
+      licenseCost();
+    });
+  </script>
 
 </body>
 
