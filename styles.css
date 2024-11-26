@@ -11,12 +11,17 @@ body {
     margin-left: auto;
 }
 
+body::selection {
+  background-color: var(--color-accent);
+}
+
 .title {
     color: var(--color-primary);
     padding: 10px;
 }
 
 .blog-title {
+    color: var(--color-primary);
     font-weight: bolder;
 }
 
