@@ -25,11 +25,6 @@ body {
     padding: 15px;
 }
 
-.sub-title {
-    font-style: italic;
-    float: right;
-}
-
 .blog-date {
     float: right;
 }
@@ -61,6 +56,11 @@ output {
     input {
         display: block;
     }
+}
+
+.my-summary {
+    display: flex;
+    justify-content: space-between;
 }
 
 .my-fieldset {
