@@ -52,12 +52,9 @@ output {
     display: block;
 }
 
-fieldset label + input {
-    display: block;
-}
-
 .btn {
     padding: 5px;
+    border: 1px;
 }
 
 .btn-primary {
