@@ -7,3 +7,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-accent);
 }
+
+details summary {
+  cursor: pointer;
+  transition: margin 150ms ease-out;
+}
+
+details[open] summary {
+  margin-bottom: 10px;
+}
