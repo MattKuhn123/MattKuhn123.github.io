@@ -1,11 +1,16 @@
 :root {
-    --color-primary: whitesmoke;
-    --color-accent: white;
+    --color-primary: white;
+    --color-accent: whitesmoke;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-accent);
+}
+
+details {
+  background: var(--color-accent);
+  padding: 10px;
 }
 
 details summary {
