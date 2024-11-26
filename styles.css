@@ -1,17 +1,18 @@
 :root {
     --color-primary: #0366d6;
     --color-accent: white;
-    --color-accent-100: whitesmoke;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-accent);
+    max-width: 80vw;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .title {
     color: var(--color-primary);
-    background: var(--color-accent-100);
     padding: 10px;
 }
 
