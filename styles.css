@@ -9,15 +9,15 @@ body {
 }
 
 details {
-  background: var(--color-accent);
-  padding: 10px;
+    background: var(--color-primary);
 }
 
 details summary {
-  cursor: pointer;
-  transition: margin 150ms ease-out;
+    cursor: pointer;
+    transition: opacity 150ms ease-out;
+    opacity: 0;
 }
 
 details[open] summary {
-  margin-bottom: 10px;
+    opacity: 100;
 }
