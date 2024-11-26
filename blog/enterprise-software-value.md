@@ -1,5 +1,7 @@
 # The value, risk, and cost of enterprise web application software
 
+I recently spent some time thinking about the value, risk, and cost of the software that I've produced in my career. At a high level, I've come up with the following:
+
 ## Value
 
 - Mitigate risk of human error.
@@ -17,7 +19,14 @@
 
 ## Cost
 
-_(This cost may be distributed across a family of applications owned by a team)._
+I can attempt to estimate the cost of an application by:
+
+1. Estimating the members of the team and their wages.
+2. Estimating management and their wages.
+3. Estimating possible license fees.
+4. Estimating possible resource usage.
+
+Err'ig on the less-expensive side:
 
 | Role                | Cost per hour | Cost per day | Cost per week | Cost per year |
 | ------------------- | :------------ | :----------- | :------------ | :------------ |
@@ -40,3 +49,8 @@ _(This cost may be distributed across a family of applications owned by a team).
 |                     |               |              |               |               |
 | **TOTAL**           |               |              |               | **$819,000**  |
 
+## Conclusion
+
+- Software can provide value when a simple task is identified that is repeated at a large scale and can be automated.
+- Because software only becomes useful at such a large scale, the risk is higher as well.
+- The entry-level cost of basic enterprise-level web application software _(the software that I'm accustomed to working on)_ can easily reach $1 million.
