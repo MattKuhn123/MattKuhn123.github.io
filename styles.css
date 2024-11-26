@@ -8,29 +8,29 @@ body {
     background-color: var(--color-accent);
 }
 
-title {
+.title {
     background: gainsboro;
     padding: 10px;
 }
 
-blog-title {
+.blog-title {
     font-weight: bolder;
 }
 
-blog-sub-title {
+.blog-sub-title {
     font-style: italic;
     float: right;
 }
 
-blog-author {
+.blog-author {
     float: left;
 }
 
-blog-date {
+.blog-date {
     float: right;
 }
 
-blog-link {
+.blog-link {
     float: left;
 }
 
