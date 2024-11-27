@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <title>MattKuhn123</title>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./styles.css">
-  <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.3"
+    integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <main>
-    <nav hx-get="./nav.html" hx-trigger="load" hx-swap="outerHTML" class="my-nav"></nav>
-    <h1 class="txt-primary">Articles</h1>
-    <details class="article-post">
-      <summary class="my-summary">
-        <span class="txt-primary">Cost/Benefit analysis</span>
-        <span>of enterprise web application software<span>
-      </summary>
-      <article>
-        <p><span name="article-author">Matt Kuhn</span><span class="article-date">11/25/2024</span></p>
-        <a class="btn btn-accent" name="article-link" href="./articles/cost-benefit-analysis.html">Go</a>
-      </article>
-    </details>
+  <nav class="my-nav">
+    <section>
+      <a class="btn btn-primary" href="https://github.com/MattKuhn123">Github</a>
+      <select hx-get="" hx-target="main" hx-on::config-request="event.detail.path = this.value" aria-label="articles list" name="articles-list" class="btn btn-primary">
+        <option class="btn btn-accent" value="/home.html">Home</option>
+        <option class="btn btn-accent" value="/articles/cost-benefit-analysis.html">Cost/Benefit</option>
+      </select>
+    </section>
+    <span class="txt-primary">MattKuhn123</span>
+  </nav>
+
+  <main hx-trigger="load" hx-get="/home.html">
   </main>
+
+  <footer class="my-footer">
+    <span class="txt-primary">MattKuhn123</span>
+  </footer>
 </body>
+
 </html>

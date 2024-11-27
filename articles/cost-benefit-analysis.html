@@ -1,163 +1,308 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<script>
+  currencyFormat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  });
 
-<head>
-  <title>Cost/Benefit analysis of enterprise web application software | MattKuhn123</title>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
-</head>
+  weeksPerYear = 52;
+  reportsKey = "reports";
 
-<body>
-  <nav hx-get="../nav.html" hx-trigger="load" hx-swap="outerHTML" class="my-nav"></nav>
+  function getAccuracy() { return Number(document.getElementById("software-accuracy").value); }
+  function getWebServer() { return Number(document.getElementById("web-server").value); }
+  function getDatabase() { return Number(document.getElementById("database").value); }
+  function getIde() { return Number(document.getElementById("ide").value); }
+
+  function syncSoftwareAccuracySlider() {
+    const output = document.getElementById("software-accuracy-display");
+    const percent = getAccuracy() * 100;
+    output.innerText = percent + "%";
+  }
+
+  function syncWebServerSlider() {
+    const output = document.getElementById("web-server-display");
+    output.innerText = currencyFormat.format(getWebServer());
+  }
+
+  function syncDatabaseSlider() {
+    const output = document.getElementById("database-display");
+    output.innerText = currencyFormat.format(getDatabase());
+  }
+
+  function syncIdeSlider() {
+    const output = document.getElementById("ide-display");
+    output.innerText = currencyFormat.format(getIde());
+  }
+
+  function softwareSavings() {
+    const staff = Number(document.getElementById("staff-count").value);
+    const wage = Number(document.getElementById("staff-hourly-wage").value);
+    const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
+    const staffSavings = staff * wage * saved * weeksPerYear;
+    document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
+  }
+
+  function forecastProfit() {
+    const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
+    const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
+    const accuracy = getAccuracy();
+    const profit = profitOpportunity * profitOpportunityYearly * accuracy;
+    document.getElementById("software-profit").innerText = currencyFormat.format(profit);
+  }
+
+  function regulatoryCompliance() {
+    const fineOpportunity = Number(document.getElementById("fine-opportunity").value);
+    const fineOpportunityYearly = Number(document.getElementById("fine-opportunity-yearly").value);
+    const profit = fineOpportunity * fineOpportunityYearly;
+    document.getElementById("regulatory-compliance").innerText = currencyFormat.format(profit);
+  }
+
+  function staffCost() {
+    const analysts = Number(document.getElementById("analysts").value);
+    const analystWage = Number(document.getElementById("analyst-wage").value);
+    const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
+    const analystCost = analysts * analystWage * analystWeeklyHours * weeksPerYear;
+
+    const dbas = Number(document.getElementById("dbas").value);
+    const dbaWage = Number(document.getElementById("dba-wage").value);
+    const dbaWeeklyHours = Number(document.getElementById("dba-weekly-hours").value);
+    const dbaCost = dbas * dbaWage * dbaWeeklyHours * weeksPerYear;
+
+    const platformEngineers = Number(document.getElementById("platform-engineers").value);
+    const platformEngineerWage = Number(document.getElementById("platform-engineer-wage").value);
+    const platformEngineerWeeklyHours = Number(document.getElementById("platform-engineer-weekly-hours").value);
+    const platformEngineerCost = platformEngineers * platformEngineerWage * platformEngineerWeeklyHours * weeksPerYear;
+
+    const qas = Number(document.getElementById("qas").value);
+    const qaWage = Number(document.getElementById("qa-wage").value);
+    const qaWeeklyHours = Number(document.getElementById("qa-weekly-hours").value);
+    const qaCost = qas * qaWage * qaWeeklyHours * weeksPerYear;
+
+    const developers = Number(document.getElementById("developers").value);
+    const developerWage = Number(document.getElementById("developer-wage").value);
+    const developerWeeklyHours = Number(document.getElementById("developer-weekly-hours").value);
+    const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
+
+    const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
+
+    document.getElementById("staff-cost").innerText = currencyFormat.format(staffCost);
+  }
+
+  function resourceCost() {
+    const webServer = getWebServer();
+
+    const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
+    const developmentWebServer = includeDevelopmentServer ? webServer : 0;
+
+    const includeTestServer = Boolean(document.getElementById("test-server").checked);
+    const testWebServer = includeTestServer ? webServer : 0;
+
+    const resourceCost = webServer + developmentWebServer + testWebServer;
+    document.getElementById("resource-cost").innerText = currencyFormat.format(resourceCost);
+  }
+
+  function licenseCost() {
+    const database = getDatabase();
+    const ide = getIde();
+
+    const licenseCost = database + ide;
+    document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
+  }
+
+  function onSubmit(event) {
+    const formData = new FormData(event.target);
+    const report = {}
+    for (var [key, value] of formData.entries()) {
+      report[key] = value;
+    }
+
+    localStorage.setItem(reportsKey, JSON.stringify(report));
+    event.preventDefault();
+
+    document.getElementById("save-dialog").showModal();
+  }
+
+  function onLoad() {
+    const json = localStorage.getItem(reportsKey);
+    if (!json) {
+      return;
+    }
+
+    const report = JSON.parse(json ?? "{}");
+    const reportKeys = Object.keys(report);
+    reportKeys.forEach(reportKey => {
+      document.getElementsByName(reportKey)[0].value = report[reportKey];
+    });
+
+    document.getElementById("load-dialog").showModal();
+  }
+
+  function recalculate() {
+    softwareSavings();
+    forecastProfit();
+    regulatoryCompliance();
+    staffCost();
+    resourceCost();
+    licenseCost();
+
+    syncSoftwareAccuracySlider();
+    syncWebServerSlider();
+    syncDatabaseSlider();
+    syncIdeSlider();
+  }
+</script>
+
+<form id="form" oninput="recalculate()" onsubmit="onSubmit(event)">
   <h1 class="txt-primary">Cost/Benefit analysis of enterprise web application software</h1>
+  <h2 class="txt-primary">Benefit</h2>
 
-  <form id="form">
-    <h2 class="txt-primary">Benefit</h2>
-    
-    <fieldset class="my-fieldset">
-      <legend>Save on staffing cost by optimizing processes</legend>
-      <label for="staff-count">Staff</label>
-      <input id="staff-count" name="staff-count" type="number" placeholder="100" />
+  <fieldset class="my-fieldset">
+    <legend>Save on staffing cost by optimizing processes</legend>
+    <label for="staff-count">Staff</label>
+    <input id="staff-count" name="staff-count" type="number" placeholder="100" />
 
-      <label for="staff-hourly-wage">Wage</label>
-      <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" />
+    <label for="staff-hourly-wage">Wage</label>
+    <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" />
 
-      <label for="staff-weekly-hours-saved">Hours saved weekly</label>
-      <label for="staff-weekly-hours-saved" popover id="hours-saved-tooltip">The number of hours the software saves the
-        staff member per week.</label>
-      <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
-      <button type="button" class="btn btn-accent" popovertarget="hours-saved-tooltip">?</button>
-      <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
-    </fieldset>
+    <label for="staff-weekly-hours-saved">Hours saved weekly</label>
+    <label for="staff-weekly-hours-saved" popover id="hours-saved-tooltip">The number of hours the software saves the
+      staff member per week.</label>
+    <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
+    <button type="button" class="btn btn-accent" popovertarget="hours-saved-tooltip">?</button>
+    <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
+  </fieldset>
 
-    <fieldset class="my-fieldset">
-      <legend>Profit by forecasting trends or attracting business</legend>
-      <label for="profit-opportunity">Profit</label>
-      <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
-        software.</label>
-      <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
-      <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-tooltip">?</button>
+  <fieldset class="my-fieldset">
+    <legend>Profit by forecasting trends or attracting business</legend>
+    <label for="profit-opportunity">Profit</label>
+    <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
+      software.</label>
+    <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
+    <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-tooltip">?</button>
 
-      <label for="profit-opportunity-yearly">Yearly opportunities</label>
-      <label for="profit-opportunity-yearly" popover id="profit-opportunity-yearly-tooltip">How many times per year does this opportunity arise?</label>
-      <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
-      <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-yearly-tooltip">?</button>
+    <label for="profit-opportunity-yearly">Yearly opportunities</label>
+    <label for="profit-opportunity-yearly" popover id="profit-opportunity-yearly-tooltip">How many times per year does
+      this opportunity arise?</label>
+    <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
+    <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-yearly-tooltip">?</button>
 
-      <label for="software-accuracy">Estimated software accuracy</label>
-      <label for="profit-opportunity" popover id="software-accuracy-tooltip">The likelihood that the software will
-        forecast correctly or attract business as anticipated.</label>
-      <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
-      <button type="button" class="btn btn-accent" popovertarget="software-accuracy-tooltip">?</button>
-      <output id="software-accuracy-display">50%</output>
-      <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
-    </fieldset>
+    <label for="software-accuracy">Estimated software accuracy</label>
+    <label for="profit-opportunity" popover id="software-accuracy-tooltip" oninput="syncSoftwareAccuracySlider()">The
+      likelihood that the software will
+      forecast correctly or attract business as anticipated.</label>
+    <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
+    <button type="button" class="btn btn-accent" popovertarget="software-accuracy-tooltip">?</button>
+    <output id="software-accuracy-display">50%</output>
+    <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
+  </fieldset>
 
-    <fieldset class="my-fieldset">
-      <legend>Regulatory compliance</legend>
-      <label for="fine-opportunity">Fine</label>
-      <label for="fine-opportunity" popover id="fine-opportunity-tooltip">What could your business be fined by not complying to this standard? (Being spared a fine is an odd but effective way to consider the value that regulatory compliance brings to the business).</label>
-      <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
-      <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-tooltip">?</button>
-      
-      <label for="fine-opportunity-yearly">Yearly opportunities</label>
-      <label for="fine-opportunity-yearly" popover id="fine-opportunity-yearly-tooltip">How many times per year can this fine apply?</label>
-      <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
-      <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-yearly-tooltip">?</button>
+  <fieldset class="my-fieldset">
+    <legend>Regulatory compliance</legend>
+    <label for="fine-opportunity">Fine</label>
+    <label for="fine-opportunity" popover id="fine-opportunity-tooltip">What could your business be fined by not
+      complying to this standard? (Being spared a fine is an odd but effective way to consider the value that regulatory
+      compliance brings to the business).</label>
+    <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
+    <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-tooltip">?</button>
 
-      <span class="txt-padding txt-break">Yearly estimate: <span id="regulatory-compliance">$0.00</span></span>
-    </fieldset>
+    <label for="fine-opportunity-yearly">Yearly opportunities</label>
+    <label for="fine-opportunity-yearly" popover id="fine-opportunity-yearly-tooltip">How many times per year can this
+      fine apply?</label>
+    <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
+    <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-yearly-tooltip">?</button>
 
-    <h2 class="txt-primary">Cost</h2>
+    <span class="txt-padding txt-break">Yearly estimate: <span id="regulatory-compliance">$0.00</span></span>
+  </fieldset>
 
-    <fieldset class="my-fieldset">
-      <legend>Staffing</legend>
-      <span class="txt-primary txt-break">Developers</span>
-      <label for="developers">Staff</label>
-      <input id="developers" name="developers" type="number" placeholder="2" />
+  <h2 class="txt-primary">Cost</h2>
 
-      <label for="developer-wage">Wage</label>
-      <input id="developer-wage" name="developer-wage" type="number" placeholder="50" />
+  <fieldset class="my-fieldset">
+    <legend>Staffing</legend>
+    <span class="txt-primary txt-break">Developers</span>
+    <label for="developers">Staff</label>
+    <input id="developers" name="developers" type="number" placeholder="2" />
 
-      <label for="developer-weekly-hours">Hours</label>
-      <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" />
+    <label for="developer-wage">Wage</label>
+    <input id="developer-wage" name="developer-wage" type="number" placeholder="50" />
 
-      <span class="txt-primary txt-break">QAs</span>
-      <label for="qas">Staff</label>
-      <input id="qas" name="qas" type="number" placeholder="2" />
+    <label for="developer-weekly-hours">Hours</label>
+    <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" />
 
-      <label for="qa-wage">Wage</label>
-      <input id="qa-wage" name="qa-wage" type="number" placeholder="50" />
+    <span class="txt-primary txt-break">QAs</span>
+    <label for="qas">Staff</label>
+    <input id="qas" name="qas" type="number" placeholder="2" />
 
-      <label for="qa-weekly-hours">Hours</label>
-      <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" />
+    <label for="qa-wage">Wage</label>
+    <input id="qa-wage" name="qa-wage" type="number" placeholder="50" />
 
-      <span class="txt-primary txt-break">Platform engineers</span>
-      <label for="platform-engineers">Staff</label>
-      <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" />
+    <label for="qa-weekly-hours">Hours</label>
+    <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" />
 
-      <label for="platform-engineer-wage">Wage</label>
-      <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" />
+    <span class="txt-primary txt-break">Platform engineers</span>
+    <label for="platform-engineers">Staff</label>
+    <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" />
 
-      <label for="platform-engineer-weekly-hours">Hours</label>
-      <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40" />
+    <label for="platform-engineer-wage">Wage</label>
+    <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" />
 
-      <span class="txt-primary txt-break">DBAs</span>
-      <label for="dbas">Staff</label>
-      <input id="dbas" name="dbas" type="number" placeholder="1" />
+    <label for="platform-engineer-weekly-hours">Hours</label>
+    <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40" />
 
-      <label for="dba-wage">Wage</label>
-      <input id="dba-wage" name="dba-wage" type="number" placeholder="50" />
+    <span class="txt-primary txt-break">DBAs</span>
+    <label for="dbas">Staff</label>
+    <input id="dbas" name="dbas" type="number" placeholder="1" />
 
-      <label for="dba-weekly-hours">Hours</label>
-      <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" />
+    <label for="dba-wage">Wage</label>
+    <input id="dba-wage" name="dba-wage" type="number" placeholder="50" />
 
-      <span class="txt-primary txt-break">Analysts</span>
-      <label for="analysts">Staff</label>
-      <input id="analysts" name="analysts" type="number" placeholder="1" />
+    <label for="dba-weekly-hours">Hours</label>
+    <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" />
 
-      <label for="analyst-wage">Wage</label>
-      <input id="analyst-wage" name="analyst-wage" type="number" placeholder="50" />
+    <span class="txt-primary txt-break">Analysts</span>
+    <label for="analysts">Staff</label>
+    <input id="analysts" name="analysts" type="number" placeholder="1" />
 
-      <label for="analyst-weekly-hours">Hours</label>
-      <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
-      <span class="txt-padding txt-break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
-    </fieldset>
+    <label for="analyst-wage">Wage</label>
+    <input id="analyst-wage" name="analyst-wage" type="number" placeholder="50" />
 
-    <fieldset class="my-fieldset">
-      <legend>Resources</legend>
-      <label for="web-server">Yearly web server cost</label>
-      <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500" max="1500" />
-      <output id="web-server-display">$1000.00</output>
+    <label for="analyst-weekly-hours">Hours</label>
+    <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
+    <span class="txt-padding txt-break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
+  </fieldset>
 
-      <input id="development-server" type="checkbox" />
-      <label for="development-server">Development server</label>
+  <fieldset class="my-fieldset">
+    <legend>Resources</legend>
+    <label for="web-server">Yearly web server cost</label>
+    <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500" max="1500"
+      oninput="syncWebServerSlider()" />
+    <output id="web-server-display">$1000.00</output>
 
-      <input id="test-server" type="checkbox" />
-      <label for="test-server">Test server</label>
-      <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
-    </fieldset>
+    <input id="development-server" type="checkbox" />
+    <label for="development-server">Development server</label>
 
-    <fieldset class="my-fieldset">
-      <legend>Licenses</legend>
-      <label for="database">Database</label>
-      <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0" max="10000" />
-      <output id="database-display">$1000.00</output>
+    <input id="test-server" type="checkbox" />
+    <label for="test-server">Test server</label>
+    <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
+  </fieldset>
 
-      <label for="ide">IDE</label>
-      <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000" />
-      <output id="ide-display">$1000.00</output>
-      <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
-    </fieldset>
+  <fieldset class="my-fieldset">
+    <legend>Licenses</legend>
+    <label for="database">Database</label>
+    <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0" max="10000"
+      oninput="syncDatabaseSlider()" />
+    <output id="database-display">$1000.00</output>
 
-    <fieldset class="my-fieldset">
-      <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-      <button class="btn btn-primary" type="submit">Save</button>
-      <button id="load-btn" class="btn btn-primary" type="button">Load</button>
-    </fieldset>
-  </form>
+    <label for="ide">IDE</label>
+    <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000"
+      oninput="syncIdeSlider()" />
+    <output id="ide-display">$1000.00</output>
+    <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
+  </fieldset>
+
+  <fieldset class="my-fieldset">
+    <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+    <button class="btn btn-primary" type="submit">Save</button>
+    <button id="load-btn" class="btn btn-primary" type="button" onclick="onLoad()">Load</button>
+  </fieldset>
 
   <dialog id="save-dialog">
     <form method="dialog">
@@ -172,179 +317,4 @@
       <button class="btn btn-primary">OK</button>
     </form>
   </dialog>
-
-  <script>
-    const currencyFormat = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    });
-
-    const weeksPerYear = 52;
-    const reportsKey = "reports";
-
-    const getAccuracy = function () { return Number(document.getElementById("software-accuracy").value); }
-    const getWebServer = function () { return Number(document.getElementById("web-server").value); }
-    const getDatabase = function () { return Number(document.getElementById("database").value); }
-    const getIde = function () { return Number(document.getElementById("ide").value); }
-
-    const syncSoftwareAccuracySlider = function () {
-      const output = document.getElementById("software-accuracy-display");
-      const percent = getAccuracy() * 100;
-      output.innerText = percent + "%";
-    }
-
-    const syncWebServerSlider = function () {
-      const output = document.getElementById("web-server-display");
-      output.innerText = currencyFormat.format(getWebServer());
-    }
-
-    const syncDatabaseSlider = function () {
-      const output = document.getElementById("database-display");
-      output.innerText = currencyFormat.format(getDatabase());
-    }
-
-    const syncIdeSlider = function () {
-      const output = document.getElementById("ide-display");
-      output.innerText = currencyFormat.format(getIde());
-    }
-
-    document.getElementById("software-accuracy").addEventListener("input", function (event) {
-      syncSoftwareAccuracySlider();
-    });
-    
-    document.getElementById("web-server").addEventListener("input", function (event) {
-      syncWebServerSlider();
-    });
-
-    document.getElementById("database").addEventListener("input", function (event) {
-      syncDatabaseSlider();
-    });
-
-    document.getElementById("ide").addEventListener("input", function (event) {
-      syncIdeSlider();
-    });
-
-    const softwareSavings = function() {
-      const staff = Number(document.getElementById("staff-count").value);
-      const wage = Number(document.getElementById("staff-hourly-wage").value);
-      const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
-      const staffSavings = staff * wage * saved * weeksPerYear;
-      document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
-    }
-
-    const forecastProfit = function () {
-      const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
-      const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
-      const accuracy = getAccuracy();
-      const profit = profitOpportunity * profitOpportunityYearly * accuracy;
-      document.getElementById("software-profit").innerText = currencyFormat.format(profit);
-    }
-
-    const regulatoryCompliance = function () {
-      const fineOpportunity = Number(document.getElementById("fine-opportunity").value);
-      const fineOpportunityYearly = Number(document.getElementById("fine-opportunity-yearly").value);
-      const profit = fineOpportunity * fineOpportunityYearly;
-      document.getElementById("regulatory-compliance").innerText = currencyFormat.format(profit);
-    }
-
-    const staffCost = function () {
-      const analysts = Number(document.getElementById("analysts").value);
-      const analystWage = Number(document.getElementById("analyst-wage").value);
-      const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
-      const analystCost = analysts * analystWage * analystWeeklyHours * weeksPerYear;
-
-      const dbas = Number(document.getElementById("dbas").value);
-      const dbaWage = Number(document.getElementById("dba-wage").value);
-      const dbaWeeklyHours = Number(document.getElementById("dba-weekly-hours").value);
-      const dbaCost = dbas * dbaWage * dbaWeeklyHours * weeksPerYear;
-
-      const platformEngineers = Number(document.getElementById("platform-engineers").value);
-      const platformEngineerWage = Number(document.getElementById("platform-engineer-wage").value);
-      const platformEngineerWeeklyHours = Number(document.getElementById("platform-engineer-weekly-hours").value);
-      const platformEngineerCost = platformEngineers * platformEngineerWage * platformEngineerWeeklyHours * weeksPerYear;
-
-      const qas = Number(document.getElementById("qas").value);
-      const qaWage = Number(document.getElementById("qa-wage").value);
-      const qaWeeklyHours = Number(document.getElementById("qa-weekly-hours").value);
-      const qaCost = qas * qaWage * qaWeeklyHours * weeksPerYear;
-
-      const developers = Number(document.getElementById("developers").value);
-      const developerWage = Number(document.getElementById("developer-wage").value);
-      const developerWeeklyHours = Number(document.getElementById("developer-weekly-hours").value);
-      const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
-
-      const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
-
-      document.getElementById("staff-cost").innerText = currencyFormat.format(staffCost);
-    }
-
-    const resourceCost = function () {
-      const webServer = getWebServer();
-
-      const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
-      const developmentWebServer = includeDevelopmentServer ? webServer : 0;
-
-      const includeTestServer = Boolean(document.getElementById("test-server").checked);
-      const testWebServer = includeTestServer ? webServer : 0;
-
-      const resourceCost = webServer + developmentWebServer + testWebServer;
-      document.getElementById("resource-cost").innerText = currencyFormat.format(resourceCost);
-    }
-
-    const licenseCost = function () {
-      const database = getDatabase();
-      const ide = getIde();
-
-      const licenseCost = database + ide;
-      document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
-    }
-
-    document.getElementById("form").addEventListener("input", function () {
-      recalculate();
-    });
-
-    const recalculate = function () {
-      softwareSavings();
-      forecastProfit();
-      regulatoryCompliance();
-      staffCost();
-      resourceCost();
-      licenseCost();
-
-      syncSoftwareAccuracySlider();
-      syncWebServerSlider();
-      syncDatabaseSlider();
-      syncIdeSlider();
-    }
-
-    document.getElementById("form").addEventListener("submit", function (event) {
-      const formData = new FormData(event.target);
-      const report = {}
-      for (var [key, value] of formData.entries()) { 
-        report[key] = value;
-      }
-
-      localStorage.setItem(reportsKey, JSON.stringify(report));
-      event.preventDefault();
-
-      document.getElementById("save-dialog").showModal();
-    });
-    
-    document.getElementById("load-btn").addEventListener("click", function () {
-      const json = localStorage.getItem(reportsKey);
-      if (!json) {
-        return;
-      }
-      
-      const report = JSON.parse(json ?? "{}");
-      const reportKeys = Object.keys(report);
-      reportKeys.forEach(reportKey => {
-        document.getElementsByName(reportKey)[0].value = report[reportKey];
-      });
-
-      document.getElementById("load-dialog").showModal();
-    });
-  </script>
-</body>
-
-</html>
+</form>
