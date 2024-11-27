@@ -9,7 +9,7 @@
 
   function getAccuracy() { return Number(document.getElementById("software-accuracy").value); }
   function getWebServer() { return Number(document.getElementById("web-server").value); }
-  function getDatabase() { return Number(document.getElementById("database").value); }
+  function getParty() { return Number(document.getElementById("party").value); }
   function getIde() { return Number(document.getElementById("ide").value); }
 
   function syncSoftwareAccuracySlider() {
@@ -23,9 +23,9 @@
     output.innerText = currencyFormat.format(getWebServer());
   }
 
-  function syncDatabaseSlider() {
-    const output = document.getElementById("database-display");
-    output.innerText = currencyFormat.format(getDatabase());
+  function syncPartySlider() {
+    const output = document.getElementById("party-display");
+    output.innerText = currencyFormat.format(getParty());
   }
 
   function syncIdeSlider() {
@@ -101,10 +101,10 @@
   }
 
   function licenseCost() {
-    const database = getDatabase();
+    const party = getParty();
     const ide = getIde();
 
-    const licenseCost = database + ide;
+    const licenseCost = party + ide;
     document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
   }
 
@@ -147,7 +147,7 @@
 
     syncSoftwareAccuracySlider();
     syncWebServerSlider();
-    syncDatabaseSlider();
+    syncPartySlider();
     syncIdeSlider();
   }
 </script>
@@ -287,10 +287,10 @@
 
   <fieldset class="my-fieldset">
     <legend>Licenses</legend>
-    <label for="database">Database</label>
-    <input id="database" name="database" type="range" step="1000" placeholder="1000" min="0" max="10000"
-      oninput="syncDatabaseSlider()" />
-    <output id="database-display">$1000.00</output>
+    <label for="party">3rd party software</label>
+    <input id="party" name="party" type="range" step="1000" placeholder="1000" min="0" max="50000"
+      oninput="syncPartySlider()" />
+    <output id="party-display">$1000.00</output>
 
     <label for="ide">IDE</label>
     <input id="ide" name="ide" type="range" step="100" placeholder="1000" min="0" max="2000"
