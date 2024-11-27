@@ -2,6 +2,7 @@
     --color-primary: mediumaquamarine;
     --color-accent: white;
     --color-accent-100: whitesmoke;
+    --color-warn: firebrick;
 }
 
 body {
@@ -33,35 +34,12 @@ dialog {
     border-color: var(--color-primary);
 }
 
-.article-date {
-    float: right;
-}
-
-.article-post {
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 2px;
-}
-
-details summary {
-    cursor: pointer;
-}
-
-details summary~* {
-    transition: opacity 250ms ease-out;
-    opacity: 0;
-}
-
-details[open] summary~* {
-    opacity: 100;
-}
-
 output {
     display: inline-block;
 }
 
 @media (orientation: portrait) {
-    input {
+    input:no-button {
         display: block;
     }
 }
@@ -89,6 +67,12 @@ output {
     padding: 5px;
 }
 
+.split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .my-table td, th {
     border-width: 1px;
     border-bottom-style: solid;
@@ -101,6 +85,12 @@ output {
 
 .txt-primary {
     color: var(--color-primary);
+    background-color: unset;
+    font-weight: bold;
+}
+
+.txt-warn {
+    color: var(--color-warn);
     background-color: unset;
     font-weight: bold;
 }
@@ -121,6 +111,7 @@ output {
 }
 
 .btn {
+    text-decoration: none;
     padding: 5px;
     border: 1px;
 }

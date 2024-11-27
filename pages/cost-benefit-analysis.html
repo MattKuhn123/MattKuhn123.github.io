@@ -33,30 +33,42 @@
     output.innerText = currencyFormat.format(getIde());
   }
 
-  function softwareSavings() {
+  function getSoftwareSavings() {
     const staff = Number(document.getElementById("staff-count").value);
     const wage = Number(document.getElementById("staff-hourly-wage").value);
     const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
     const staffSavings = staff * wage * saved * weeksPerYear;
-    document.getElementById("software-savings").innerText = currencyFormat.format(staffSavings);
+    return staffSavings;
   }
 
-  function forecastProfit() {
+  function softwareSavings() {
+    document.getElementById("software-savings").innerText = currencyFormat.format(getSoftwareSavings());
+  }
+
+  function getForecastProfit() {
     const profitOpportunity = Number(document.getElementById("profit-opportunity").value);
     const profitOpportunityYearly = Number(document.getElementById("profit-opportunity-yearly").value);
     const accuracy = getAccuracy();
     const profit = profitOpportunity * profitOpportunityYearly * accuracy;
-    document.getElementById("software-profit").innerText = currencyFormat.format(profit);
+    return profit;
   }
 
-  function regulatoryCompliance() {
+  function forecastProfit() {
+    document.getElementById("software-profit").innerText = currencyFormat.format(getForecastProfit());
+  }
+
+  function getRegulatoryCompliance() {
     const fineOpportunity = Number(document.getElementById("fine-opportunity").value);
     const fineOpportunityYearly = Number(document.getElementById("fine-opportunity-yearly").value);
     const profit = fineOpportunity * fineOpportunityYearly;
-    document.getElementById("regulatory-compliance").innerText = currencyFormat.format(profit);
+    return profit;
   }
 
-  function staffCost() {
+  function regulatoryCompliance() {
+    document.getElementById("regulatory-compliance").innerText = currencyFormat.format(getRegulatoryCompliance());
+  }
+
+  function getStaffCost() {
     const analysts = Number(document.getElementById("analysts").value);
     const analystWage = Number(document.getElementById("analyst-wage").value);
     const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
@@ -83,58 +95,120 @@
     const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
 
     const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
+    return staffCost;
+  }
 
-    document.getElementById("staff-cost").innerText = currencyFormat.format(staffCost);
+  function staffCost() {
+    document.getElementById("staff-cost").innerText = currencyFormat.format(getStaffCost());
+  }
+
+  function getResourceCost() {
+    const webServer = getWebServer();
+    const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
+    const developmentWebServer = includeDevelopmentServer ? webServer : 0;
+    const includeTestServer = Boolean(document.getElementById("test-server").checked);
+    const testWebServer = includeTestServer ? webServer : 0;
+    const resourceCost = webServer + developmentWebServer + testWebServer;
+    return resourceCost;
   }
 
   function resourceCost() {
-    const webServer = getWebServer();
+    document.getElementById("resource-cost").innerText = currencyFormat.format(getResourceCost());
+  }
 
-    const includeDevelopmentServer = Boolean(document.getElementById("development-server").checked);
-    const developmentWebServer = includeDevelopmentServer ? webServer : 0;
-
-    const includeTestServer = Boolean(document.getElementById("test-server").checked);
-    const testWebServer = includeTestServer ? webServer : 0;
-
-    const resourceCost = webServer + developmentWebServer + testWebServer;
-    document.getElementById("resource-cost").innerText = currencyFormat.format(resourceCost);
+  function getLicenseCost() {
+    const party = getParty();
+    const ide = getIde();
+    const licenseCost = party + ide;
+    return licenseCost;
   }
 
   function licenseCost() {
-    const party = getParty();
-    const ide = getIde();
-
-    const licenseCost = party + ide;
-    document.getElementById("license-cost").innerText = currencyFormat.format(licenseCost);
+    document.getElementById("license-cost").innerText = currencyFormat.format(getLicenseCost());
   }
 
-  function onSubmit(event) {
-    const formData = new FormData(event.target);
+  function updateNet() {
+    const softwareSavings = getSoftwareSavings();
+    const profit = getForecastProfit();
+    const compliance = getRegulatoryCompliance();
+    const benefit = softwareSavings + profit + compliance;
+
+    document.getElementById("benefit-amount").innerText = currencyFormat.format(benefit);
+    
+    const staffCost = getStaffCost();
+    const resourceCost = getResourceCost();
+    const licenseCost = getLicenseCost();
+    const cost = staffCost + resourceCost + licenseCost;
+
+    document.getElementById("cost-amount").innerText = currencyFormat.format(cost);
+    
+    const net = benefit - cost;
+    const netElement = document.getElementById("net-amount");
+    netElement.innerText = currencyFormat.format(net);
+    netElement.className = net > 0 ? "txt-primary" : "txt-warn";
+  }
+
+  function getFormData() {
+    const formData = new FormData(document.getElementById("form"));
     const report = {}
     for (var [key, value] of formData.entries()) {
       report[key] = value;
     }
 
-    localStorage.setItem(reportsKey, JSON.stringify(report));
-    event.preventDefault();
+    return report;
+  }
 
+  function onClickSave() {
+    const report = getFormData();
+    localStorage.setItem(reportsKey, JSON.stringify(report));
     document.getElementById("save-dialog").showModal();
   }
 
-  function onLoad() {
+  function onClickLoad() {
     const json = localStorage.getItem(reportsKey);
     if (!json) {
       return;
     }
 
     const report = JSON.parse(json ?? "{}");
+    loadPreset(report);
+    document.getElementById("load-dialog").showModal();
+  }
+
+  function onUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const fileContent = e.target.result;
+      const report = JSON.parse(fileContent);
+      loadPreset(report);
+
+      document.getElementById("load-dialog").showModal();
+      document.getElementById("uLoad-btn").value = null;
+    };
+
+    reader.readAsText(file);
+  }
+
+  async function onChangePreset() {
+    const preset = document.getElementById("presets").value;
+    if (!preset) {
+      return;
+    }
+
+    const result = await fetch("/data/" + preset);
+    const report = await result.json();
+    loadPreset(report);
+    document.getElementById("load-dialog").showModal();
+  }
+
+  function loadPreset(report) {
     const reportKeys = Object.keys(report);
     reportKeys.forEach(reportKey => {
       document.getElementsByName(reportKey)[0].value = report[reportKey];
     });
 
     recalculate();
-    document.getElementById("load-dialog").showModal();
   }
 
   function recalculate() {
@@ -145,14 +219,21 @@
     resourceCost();
     licenseCost();
 
+    updateNet();
+
     syncSoftwareAccuracySlider();
     syncWebServerSlider();
     syncPartySlider();
     syncIdeSlider();
+
+    const data = JSON.stringify(getFormData());
+    const blob = new Blob([data], { type: "text/plain" });
+    const jsonObjectUrl = URL.createObjectURL(blob);
+    document.getElementById("dLoad-btn").setAttribute("href", jsonObjectUrl);
   }
 </script>
 
-<form id="form" oninput="recalculate()" onsubmit="onSubmit(event)">
+<form id="form" oninput="recalculate()">
   <h1 class="txt-primary">Cost/Benefit analysis of enterprise web application software</h1>
   <h2 class="txt-primary">Benefit</h2>
 
@@ -300,9 +381,29 @@
   </fieldset>
 
   <fieldset class="my-fieldset">
-    <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-    <button class="btn btn-primary" type="submit">Save</button>
-    <button id="load-btn" class="btn btn-primary" type="button" onclick="onLoad()">Load</button>
+    <legend>Net</legend>
+    <p>Benefit: <span id="benefit-amount" class="txt-primary"></span>
+    Cost: <span id="cost-amount" class="txt-warn"></span>
+    Net: <span id="net-amount" class=""></span></p>
+  </fieldset>
+
+  <fieldset class="my-fieldset split">
+    <section>
+      <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+      <button id="save-btn" class="btn btn-primary" type="button" onclick="onClickSave()">Save</button>
+      <button id="load-btn" class="btn btn-primary" type="button" onclick="onClickLoad()">Load</button>
+    </section>
+    <section>
+      <a id="dLoad-btn" class="btn btn-primary" href="" download="cost-benefit-report.json">Download</a>
+      <input id="uLoad-btn" type="file" class="btn btn-primary" value="Upload" onchange="onUpload(event)" />
+      <label for="presets">Presets</label>
+      <select id="presets" aria-label="presets" onchange="onChangePreset()">
+        <option value=""></option>
+        <option value="permitting-web-app.json">Permitting web app</option>
+        <option value="cms-web-app.json">CMS web app</option>
+        <option value="erp-desktop-app.json">ERP desktop app</option>
+      </select>
+    </section>
   </fieldset>
 
   <dialog id="save-dialog">
@@ -319,3 +420,7 @@
     </form>
   </dialog>
 </form>
+
+<script>
+  recalculate();
+</script>
