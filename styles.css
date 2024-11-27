@@ -1,6 +1,7 @@
 :root {
     --color-primary: mediumaquamarine;
     --color-accent: white;
+    --color-accent-100: whitesmoke;
 }
 
 body {
@@ -86,6 +87,16 @@ output {
     border-color: var(--color-primary);
     border-top-style: solid;
     padding: 5px;
+}
+
+.my-table td, th {
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-color: var(--color-primary);
+}
+
+.my-table tr:nth-child(even) {
+    background-color: var(--color-accent-100);
 }
 
 .txt-primary {
