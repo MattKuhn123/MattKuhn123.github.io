@@ -75,6 +75,15 @@ output {
     margin-bottom: 5px;
 }
 
+.my-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-nav ul {
+    list-style-type: none;
+}
+
 .txt-primary {
     color: var(--color-primary);
     background-color: unset;
