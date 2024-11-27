@@ -205,7 +205,12 @@
   function loadPreset(report) {
     const reportKeys = Object.keys(report);
     reportKeys.forEach(reportKey => {
-      document.getElementsByName(reportKey)[0].value = report[reportKey];
+      const elt = document.getElementsByName(reportKey)[0];
+      if (elt.getAttribute("type") == "checkbox") {
+        elt.setAttribute("checked", report[reportKey] === "on");
+      } else {
+        elt.value = report[reportKey];
+      }
     });
 
     recalculate();
@@ -358,10 +363,10 @@
       oninput="syncWebServerSlider()" />
     <output id="web-server-display">$1000.00</output>
 
-    <input id="development-server" type="checkbox" />
+    <input id="development-server" name="development-environment" type="checkbox" />
     <label for="development-server">Development environment</label>
 
-    <input id="test-server" type="checkbox" />
+    <input id="test-server" name="test-environment" type="checkbox" />
     <label for="test-server">Test environment</label>
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>

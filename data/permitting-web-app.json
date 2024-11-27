@@ -25,5 +25,7 @@
     "web-server": "500",
     "party": "10000",
     "ide": "0",
-    "report-name": "Permitting web app"
+    "report-name": "Permitting web app",
+    "development-environment": "on",
+    "test-environment": "on"
 }

@@ -25,5 +25,7 @@
     "web-server": "500",
     "party": "500",
     "ide": "0",
-    "report-name": "CMS web app"
+    "report-name": "CMS web app",
+    "development-environment": "on",
+    "test-environment": "on"
 }

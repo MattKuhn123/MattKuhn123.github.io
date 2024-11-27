@@ -25,5 +25,7 @@
     "web-server": "500",
     "party": "10000",
     "ide": "2000",
-    "report-name": "ERP desktop app"
+    "report-name": "ERP desktop app",
+    "development-environment": "on",
+    "test-environment": "on"
 }
