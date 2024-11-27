@@ -272,16 +272,16 @@
 
   <fieldset class="my-fieldset">
     <legend>Resources</legend>
-    <label for="web-server">Yearly web server cost</label>
+    <label for="web-server">Yearly infrastructure cost</label>
     <input id="web-server" name="web-server" type="range" step="100" placeholder="1000" min="500" max="1500"
       oninput="syncWebServerSlider()" />
     <output id="web-server-display">$1000.00</output>
 
     <input id="development-server" type="checkbox" />
-    <label for="development-server">Development server</label>
+    <label for="development-server">Development environment</label>
 
     <input id="test-server" type="checkbox" />
-    <label for="test-server">Test server</label>
+    <label for="test-server">Test environment</label>
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>
 
