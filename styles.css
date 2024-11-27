@@ -77,10 +77,11 @@ output {
     align-items: center;
 }
 
-.my-table td, th {
+.my-table td, .my-table th {
     border-width: 1px;
     border-bottom-style: solid;
     border-color: var(--color-primary);
+    padding: 5px;
 }
 
 .my-table tr:nth-child(even) {
