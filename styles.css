@@ -5,16 +5,25 @@
     --color-warn: firebrick;
 }
 
-a.btn {
-    font-size: 0.835em;
-}
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-accent);
-    max-width: 80vw;
-    margin-right: auto;
-    margin-left: auto;
+}
+
+@media (orientation: landscape) {
+    body {
+        max-width: 80vw;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (orientation: portrait) {
+    body {
+        max-width: 90vw;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 ::selection {
@@ -38,14 +47,32 @@ dialog {
     border-color: var(--color-primary);
 }
 
-output {
-    display: inline-block;
+@media (orientation: portrait) {
+    output {
+        display: block;
+    }
+}
+
+@media (orientation: landscape) {
+    output {
+        display: inline-block;
+    }
 }
 
 @media (orientation: portrait) {
-    input:no-button {
+    input:not([type="image" i], [type="range" i], [type="radio" i], [type="button" i]) {
         display: block;
     }
+}
+
+.space-children-100 * {
+    margin: 5px;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .my-fieldset {
@@ -119,6 +146,7 @@ output {
     text-decoration: none;
     padding: 5px;
     border: 1px;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -129,8 +157,4 @@ output {
 .btn-accent {
     color: var(--color-primary);
     background-color: var(--color-accent);
-}
-
-.full-width {
-    width: 100%;
 }

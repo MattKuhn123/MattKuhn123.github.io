@@ -253,8 +253,8 @@
     <label for="staff-weekly-hours-saved">Hours saved weekly</label>
     <label for="staff-weekly-hours-saved" popover id="hours-saved-tooltip">The number of hours the software saves the
       staff member per week.</label>
-    <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
     <button type="button" class="btn btn-accent" popovertarget="hours-saved-tooltip">?</button>
+    <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
   </fieldset>
 
@@ -263,21 +263,21 @@
     <label for="profit-opportunity">Profit</label>
     <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
       software.</label>
-    <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
     <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-tooltip">?</button>
+    <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
 
     <label for="profit-opportunity-yearly">Yearly opportunities</label>
     <label for="profit-opportunity-yearly" popover id="profit-opportunity-yearly-tooltip">How many times per year does
       this opportunity arise?</label>
-    <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
     <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-yearly-tooltip">?</button>
+    <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
 
     <label for="software-accuracy">Estimated software accuracy</label>
     <label for="profit-opportunity" popover id="software-accuracy-tooltip" oninput="syncSoftwareAccuracySlider()">The
-      likelihood that the software will
+      likelihood the software will
       forecast correctly or attract business as anticipated.</label>
-    <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
     <button type="button" class="btn btn-accent" popovertarget="software-accuracy-tooltip">?</button>
+    <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
     <output id="software-accuracy-display">50%</output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
   </fieldset>
@@ -285,17 +285,16 @@
   <fieldset class="my-fieldset">
     <legend>Regulatory compliance</legend>
     <label for="fine-opportunity">Fine</label>
-    <label for="fine-opportunity" popover id="fine-opportunity-tooltip">What could your business be fined by not
-      complying to this standard? (Being spared a fine is an odd but effective way to consider the value that regulatory
-      compliance brings to the business).</label>
-    <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
+    <label for="fine-opportunity" popover id="fine-opportunity-tooltip">What is the fine for not
+      complying with this regulation?.</label>
     <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-tooltip">?</button>
+    <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
 
     <label for="fine-opportunity-yearly">Yearly opportunities</label>
     <label for="fine-opportunity-yearly" popover id="fine-opportunity-yearly-tooltip">How many times per year can this
       fine apply?</label>
-    <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
     <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-yearly-tooltip">?</button>
+    <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
 
     <span class="txt-padding txt-break">Yearly estimate: <span id="regulatory-compliance">$0.00</span></span>
   </fieldset>
@@ -363,11 +362,11 @@
       oninput="syncWebServerSlider()" />
     <output id="web-server-display">$1000.00</output>
 
-    <input id="development-server" name="development-environment" type="checkbox" />
     <label for="development-server">Development environment</label>
+    <input id="development-server" name="development-environment" type="checkbox" />
 
-    <input id="test-server" name="test-environment" type="checkbox" />
     <label for="test-server">Test environment</label>
+    <input id="test-server" name="test-environment" type="checkbox" />
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>
 
@@ -392,15 +391,22 @@
     Net: <span id="net-amount" class=""></span></p>
   </fieldset>
 
-  <fieldset class="my-fieldset split">
-    <section>
+  <fieldset class="my-fieldset flex-wrap">
+    <legend>Save and load report</legend>
+    <section class="space-children-100">
       <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-      <button id="save-btn" class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
-      <button id="load-btn" class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
     </section>
-    <section>
-      <a id="dLoad-btn" class="btn btn-primary" href="" download="cost-benefit-report.json">Download</a>
-      <input id="uLoad-btn" type="file" class="btn btn-primary" value="Upload" onchange="onUpload(event)" />
+    <section class="space-children-100">
+      <button id="save-btn" class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
+      <button id="save-btn" class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
+      <a style="display: none;" id="dLoad-btn" href="" download="cost-benefit-report.json"></a>
+    </section>
+    <section class="space-children-100">
+      <button id="load-btn" class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
+      <button id="load-btn" class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
+      <input style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
+    </section>
+    <section class="space-children-100">
       <label for="presets">Presets</label>
       <select id="presets" aria-label="presets" onchange="onChangePreset()" class="btn btn-primary">
         <option value=""></option>
