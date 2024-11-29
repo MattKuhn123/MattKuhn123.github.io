@@ -26,6 +26,7 @@
     "party": "10000",
     "ide": "2000",
     "report-name": "ERP desktop app",
+    "report-description": "Streamlines processes and scheduling to keep multiple parties in sync.",
     "development-environment": "on",
     "test-environment": "on"
 }

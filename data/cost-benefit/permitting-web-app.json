@@ -26,6 +26,7 @@
     "party": "10000",
     "ide": "0",
     "report-name": "Permitting web app",
+    "report-description": "Provides a means for a public individual to request to do construction on public property.",
     "development-environment": "on",
     "test-environment": "on"
 }

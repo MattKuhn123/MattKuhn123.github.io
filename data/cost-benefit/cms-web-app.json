@@ -26,6 +26,7 @@
     "party": "500",
     "ide": "0",
     "report-name": "CMS web app",
+    "report-description": "Keeps track of parcels and contacts.",
     "development-environment": "on",
     "test-environment": "on"
 }
