@@ -15,8 +15,10 @@
   <nav class="my-nav">
     <section>
       <a class="btn btn-primary" href="https://github.com/MattKuhn123">Github</a>
-      <select hx-get="" hx-target="main" hx-on::config-request="event.detail.path = this.value" aria-label="pages list" name="pages-list" class="btn btn-primary">
-        <option class="btn btn-accent" value="/pages/resume.html">Home</option>
+      <select hx-get="" hx-target="main" hx-on::config-request="event.detail.path = this.value" aria-label="pages list"
+        hx-push-url="true" hx-params="{}" name="pages-list" class="btn btn-primary">
+        <option class="btn btn-accent" value="">(Choose)</option>
+        <option class="btn btn-accent" value="/pages/resume.html">Resume</option>
         <option class="btn btn-accent" value="/pages/cost-benefit-analysis.html">Cost/Benefit</option>
         <option class="btn btn-accent" value="/pages/time-estimate.html">Time estimate</option>
       </select>
@@ -24,12 +26,23 @@
     <span class="txt-primary">MattKuhn123</span>
   </nav>
 
-  <main hx-trigger="load" hx-get="/pages/resume.html">
+  <main>
+    <div hx-trigger="load" hx-get="/pages/resume.html" hx-swap="outerHTML"></div>
   </main>
 
   <footer class="my-footer">
     <span class="txt-primary">MattKuhn123</span>
   </footer>
 </body>
+
+<script>
+  window.addEventListener("popstate", (event) => {
+    event.preventDefault();
+    const pathname = document.location.pathname;
+    if (event.state.htmx && pathname !== "/") {
+      htmx.ajax('GET', pathname, { target:'main' });
+    }
+  });
+</script>
 
 </html>
