@@ -179,16 +179,20 @@ dialog {
 .btn {
     text-decoration: none;
     padding: 5px;
-    border: 1px;
+    border-width: none;
     cursor: pointer;
+    border-width: 1px;
+    border-radius: 1px;
 }
 
 .btn-primary {
     color: var(--color-accent);
     background-color: var(--color-primary);
+    border-color: var(--color-accent);
 }
 
 .btn-accent {
     color: var(--color-primary);
     background-color: var(--color-accent);
+    border-color: var(--color-primary);
 }
