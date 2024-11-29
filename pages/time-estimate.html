@@ -1,0 +1,225 @@
+<script>
+  localStorageKey = "time-estimate";
+  hoursPerWeek = 40;
+  baseHourCoefficient = 1.5;
+
+  function getRoles() { return Number(document.getElementById("r").value); }
+  function getDuties() { return Number(document.getElementById("d").value); }
+  function getCertainty() { return Number(document.getElementById("c").value); }
+  function getTeamwork() { return Number(document.getElementById("t").value); }
+  function getMastery() { return Number(document.getElementById("m").value); }
+
+  function recalculate() {
+    const r = getRoles();
+    const d = getDuties();
+    const u = getCertainty();
+    const t = getTeamwork();
+    const m = getMastery();
+
+    const baseHours = baseHourCoefficient * (r * d);
+    const masteryGap = (baseHours * (1 - m));
+    const teamworkGap = (baseHours * (1 - t));
+    const hours = baseHours + masteryGap + teamworkGap;
+
+    const estimate = Math.round(hours * 2);
+    const hourRange = Math.round((1 - u) * estimate);
+
+    const lowerHours = estimate - hourRange;
+    document.getElementById("lower-hours").innerText = lowerHours;
+    const upperHours = estimate + hourRange;
+    document.getElementById("upper-hours").innerText = upperHours;
+    const lowerWeeks = lowerHours / hoursPerWeek;
+    document.getElementById("lower-weeks").innerText = lowerWeeks;
+    const upperWeeks = upperHours / hoursPerWeek;
+    document.getElementById("upper-weeks").innerText = upperWeeks;
+
+    updateDownloadLink();
+  }
+
+  function updateDownloadLink() {
+    const data = JSON.stringify(getFormData());
+    const blob = new Blob([data], { type: "text/plain" });
+    const jsonObjectUrl = URL.createObjectURL(blob);
+    document.getElementById("dLoad-btn").setAttribute("href", jsonObjectUrl);
+  }
+
+  function getFormData() {
+    const formData = new FormData(document.getElementById("time-estimate-form"));
+    const report = {}
+    for (var [key, value] of formData.entries()) {
+      report[key] = value;
+    }
+
+    return report;
+  }
+
+  function onClickSave() {
+    const report = getFormData();
+    localStorage.setItem(localStorageKey, JSON.stringify(report));
+    document.getElementById("save-dialog").showModal();
+  }
+
+  function onClickLoad() {
+    const json = localStorage.getItem(localStorageKey);
+    if (!json) {
+      return;
+    }
+
+    const report = JSON.parse(json ?? "{}");
+    loadExample(report);
+    document.getElementById("load-dialog").showModal();
+  }
+
+  function onUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const fileContent = e.target.result;
+      const report = JSON.parse(fileContent);
+      loadExample(report);
+
+      document.getElementById("load-dialog").showModal();
+      document.getElementById("uLoad-btn").value = null;
+    };
+
+    reader.readAsText(file);
+  }
+
+  async function onChangeExample() {
+    const example = document.getElementById("examples").value;
+    if (!example) {
+      return;
+    }
+
+    const result = await fetch("/data/"+ localStorageKey + "/" + example);
+    const report = await result.json();
+    loadExample(report);
+    document.getElementById("load-dialog").showModal();
+  }
+
+  function loadExample(report) {
+    const reportKeys = Object.keys(report);
+    reportKeys.forEach(reportKey => {
+      const elt = document.getElementsByName(reportKey)[0];
+      if (elt.getAttribute("type") == "checkbox") {
+        elt.setAttribute("checked", report[reportKey] === "on");
+      } else {
+        elt.value = report[reportKey];
+      }
+    });
+
+    recalculate();
+  }
+
+</script>
+<form id="time-estimate-form" oninput="recalculate()">
+  <h1 class="txt-primary">Time estimate</h1>
+  <fieldset class="my-fieldset">
+    <legend>Roles <button type="button" class="btn btn-accent" popovertarget="r-tip">?</button></legend>
+    <label for="r" popover id="r-tip">
+      How many roles are involved in the system? (e.g, driver, lab tech, accountant).
+    </label>
+    
+    <input id="r" name="r" type="number" placeholder="3" />
+    <input name="roles-description" placeholder="description" maxlength="128"/>
+  </fieldset>
+  <fieldset class="my-fieldset">
+    <legend>Duties <button type="button" class="btn btn-accent" popovertarget="d-tip">?</button></legend>
+    <label for="d" popover id="d-tip">
+      How many "things" is the system doing? (e.g, sending an email, extracting data from an image,
+      calculating a value...). This is just an estimate, but be an granular as possible.
+    </label>
+    
+    <input id="d" name="d" type="number" placeholder="10" />
+    <input name="duties-description" placeholder="description" maxlength="128"/>
+  </fieldset>
+  <fieldset class="my-fieldset">
+    <legend>Certainty <button type="button" class="btn btn-accent" popovertarget="c-tip">?</button></legend>
+    <label for="c" popover id="c-tip">How much uncertainty is there in the project? (This is just a gut check).</label>
+    <div class="my-vertical-range">
+      <input id="c" name="c" type="range" value="0.6" class="vertical" list="c-values" min="0" max="1" step="0.2"/>
+      <datalist id="c-values">
+        <option value="0.0" label="Project is uncharted territory."></option>
+        <option value="0.2" label="Project is experimental."></option>
+        <option value="0.4" label="Project common in industry."></option>
+        <option value="0.6" label="Project has been done before."></option>
+        <option value="0.8" label="Project is routine."></option>
+        <option value="1.0" label="Project can be done blindfolded."></option>
+      </datalist>
+    </div>
+  </fieldset>
+  <fieldset class="my-fieldset">
+    <legend>Teamwork <button type="button" class="btn btn-accent" popovertarget="t-tip">?</button></legend>
+    <label for="t" popover id="t-tip">How effective is the teamwork between the developers and the client?</label>
+    <div class="my-vertical-range">
+      <input id="t" name="t" type="range" value="0.6" class="vertical" list="t-values" min="0" max="1" step="0.2"/>
+      <datalist id="t-values">
+        <option value="0.0" label="Client lives in secluded village."></option>
+        <option value="0.2" label="Client responds to emails weekly."></option>
+        <option value="0.4" label="Client responds to IMs daily."></option>
+        <option value="0.6" label="Client reaches out and asks for demos."></option>
+        <option value="0.8" label="Client standing over developer's shoulder."></option>
+        <option value="1.0" label="Client is also developer."></option>
+      </datalist>
+    </div>
+  </fieldset>
+  <fieldset class="my-fieldset">
+    <legend>Mastery <button type="button" class="btn btn-accent" popovertarget="m-tip">?</button></legend>
+    <label for="m" popover id="m-tip">How well have the developers mastered the system?</label>
+    <div class="my-vertical-range">
+      <input id="m" name="m" type="range" value="0.6" class="vertical" list="m-values" min="0" max="1" step="0.2"/>
+      <datalist id="m-values">
+        <option value="0.0" label="Devs cannot run application."></option>
+        <option value="0.2" label="Devs familiar with stack."></option>
+        <option value="0.4" label="Devs familiar with modules."></option>
+        <option value="0.6" label="Devs know where to look to find answers."></option>
+        <option value="0.8" label="Devs write unit tests."></option>
+        <option value="1.0" label="Devs can compile code in their brains."></option>
+      </datalist>
+    </div>
+  </fieldset>
+  <fieldset class="my-fieldset">
+    <legend class="txt-primary">Estimate</legend>
+    <p><span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours</p>
+    <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
+  </fieldset>
+
+  <fieldset class="my-fieldset flex-wrap">
+    <legend>Save and load report</legend>
+    <section class="space-children-100 vertical">
+      <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+      <textarea name="report-description" placeholder="description" minlength="10" maxlength="128"></textarea>
+    </section>
+    <section class="space-children-100">
+      <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
+      <a style="display: none;" id="dLoad-btn" href="" download="time-estimate-report.json"></a>
+    </section>
+    <section class="space-children-100">
+      <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
+      <input style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
+    </section>
+    <section class="space-children-100">
+      <label for="examples">Examples</label>
+      <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
+        <option value="">(Choose)</option>
+        <option value="sla-buffer.json">SLA Buffer</option>
+      </select>
+    </section>
+  </fieldset>
+
+  <dialog id="save-dialog">
+    <form method="dialog">
+      <h3 class="txt-primary">Report saved!</h3>
+      <button class="btn btn-primary">OK</button>
+    </form>
+  </dialog>
+
+  <dialog id="load-dialog">
+    <form method="dialog">
+      <h3 class="txt-primary">Report loaded!</h3>
+      <button class="btn btn-primary">OK</button>
+    </form>
+  </dialog>
+</form>

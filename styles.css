@@ -5,9 +5,23 @@
     --color-warn: firebrick;
 }
 
-body {
+body, select, textarea {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-accent);
+}
+
+.my-vertical-range {
+  display: flex;
+}
+
+.my-vertical-range input[type="range"] {
+  writing-mode: vertical-lr;
+}
+
+.my-vertical-range datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (orientation: landscape) {
@@ -65,6 +79,11 @@ dialog {
     }
 }
 
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
 .space-children-100 * {
     margin: 5px;
 }
@@ -101,7 +120,6 @@ dialog {
 .split {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 @media (orientation: portrait) {

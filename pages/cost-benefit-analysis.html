@@ -1,12 +1,12 @@
 <script>
+  localStorageKey = "cost-benefit";
   currencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
   });
 
   weeksPerYear = 52;
-  reportsKey = "reports";
-
+  
   function getAccuracy() { return Number(document.getElementById("software-accuracy").value); }
   function getWebServer() { return Number(document.getElementById("web-server").value); }
   function getParty() { return Number(document.getElementById("party").value); }
@@ -148,6 +148,13 @@
     netElement.className = net > 0 ? "txt-primary" : "txt-warn";
   }
 
+  function updateDownloadLink() {
+    const data = JSON.stringify(getFormData());
+    const blob = new Blob([data], { type: "text/plain" });
+    const jsonObjectUrl = URL.createObjectURL(blob);
+    document.getElementById("dLoad-btn").setAttribute("href", jsonObjectUrl);
+  }
+
   function getFormData() {
     const formData = new FormData(document.getElementById("form"));
     const report = {}
@@ -160,18 +167,18 @@
 
   function onClickSave() {
     const report = getFormData();
-    localStorage.setItem(reportsKey, JSON.stringify(report));
+    localStorage.setItem(localStorageKey, JSON.stringify(report));
     document.getElementById("save-dialog").showModal();
   }
 
   function onClickLoad() {
-    const json = localStorage.getItem(reportsKey);
+    const json = localStorage.getItem(localStorageKey);
     if (!json) {
       return;
     }
 
     const report = JSON.parse(json ?? "{}");
-    loadPreset(report);
+    loadExample(report);
     document.getElementById("load-dialog").showModal();
   }
 
@@ -181,7 +188,7 @@
     reader.onload = function(e) {
       const fileContent = e.target.result;
       const report = JSON.parse(fileContent);
-      loadPreset(report);
+      loadExample(report);
 
       document.getElementById("load-dialog").showModal();
       document.getElementById("uLoad-btn").value = null;
@@ -190,19 +197,19 @@
     reader.readAsText(file);
   }
 
-  async function onChangePreset() {
-    const preset = document.getElementById("presets").value;
-    if (!preset) {
+  async function onChangeExample() {
+    const example = document.getElementById("examples").value;
+    if (!example) {
       return;
     }
 
-    const result = await fetch("/data/" + preset);
+    const result = await fetch("/data/"+ localStorageKey + "/" + example);
     const report = await result.json();
-    loadPreset(report);
+    loadExample(report);
     document.getElementById("load-dialog").showModal();
   }
 
-  function loadPreset(report) {
+  function loadExample(report) {
     const reportKeys = Object.keys(report);
     reportKeys.forEach(reportKey => {
       const elt = document.getElementsByName(reportKey)[0];
@@ -231,10 +238,7 @@
     syncPartySlider();
     syncIdeSlider();
 
-    const data = JSON.stringify(getFormData());
-    const blob = new Blob([data], { type: "text/plain" });
-    const jsonObjectUrl = URL.createObjectURL(blob);
-    document.getElementById("dLoad-btn").setAttribute("href", jsonObjectUrl);
+    updateDownloadLink();
   }
 </script>
 
@@ -385,7 +389,7 @@
   </fieldset>
 
   <fieldset class="my-fieldset">
-    <legend>Net</legend>
+    <legend class="txt-primary">Net</legend>
     <p>Benefit: <span id="benefit-amount" class="txt-primary"></span>
     Cost: <span id="cost-amount" class="txt-warn"></span>
     Net: <span id="net-amount" class=""></span></p>
@@ -393,23 +397,24 @@
 
   <fieldset class="my-fieldset flex-wrap">
     <legend>Save and load report</legend>
-    <section class="space-children-100">
+    <section class="space-children-100 vertical">
       <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+      <textarea name="report-description" placeholder="description" required minlength="10" maxlength="128"></textarea>
     </section>
     <section class="space-children-100">
-      <button id="save-btn" class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
-      <button id="save-btn" class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
+      <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
       <a style="display: none;" id="dLoad-btn" href="" download="cost-benefit-report.json"></a>
     </section>
     <section class="space-children-100">
-      <button id="load-btn" class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
-      <button id="load-btn" class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
+      <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
       <input style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
     </section>
     <section class="space-children-100">
-      <label for="presets">Presets</label>
-      <select id="presets" aria-label="presets" onchange="onChangePreset()" class="btn btn-primary">
-        <option value=""></option>
+      <label for="examples">Examples</label>
+      <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
+        <option value="">(Choose)</option>
         <option value="permitting-web-app.json">Permitting web app</option>
         <option value="cms-web-app.json">CMS web app</option>
         <option value="erp-desktop-app.json">ERP desktop app</option>
