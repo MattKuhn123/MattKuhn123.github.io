@@ -43,6 +43,15 @@
       htmx.ajax('GET', pathname, { target:'main' });
     }
   });
+
+  window.onload = function(e) {
+    const htmxIdx = window.location.href.indexOf("?htmx=");
+    const isHtmxRedirect = htmxIdx > 0;
+    if (isHtmxRedirect) {
+      const page = window.location.href.substring(htmxIdx+"?htmx=".length);
+      htmx.ajax('GET', page, { target:'main' });
+    }
+  }
 </script>
 
 </html>

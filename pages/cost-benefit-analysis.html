@@ -439,4 +439,8 @@
 
 <script>
   recalculate();
+
+  window.onload = function(e) {
+    window.location.href = window.location.origin+"?htmx="+window.location.pathname;
+  }
 </script>

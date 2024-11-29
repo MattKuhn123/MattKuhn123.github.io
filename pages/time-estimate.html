@@ -91,7 +91,7 @@
       return;
     }
 
-    const result = await fetch("/data/"+ localStorageKey + "/" + example);
+    const result = await fetch("/data/" + localStorageKey + "/" + example);
     const report = await result.json();
     loadExample(report);
     document.getElementById("load-dialog").showModal();
@@ -119,9 +119,9 @@
     <label for="r" popover id="r-tip">
       How many roles are involved in the system? (e.g, driver, lab tech, accountant).
     </label>
-    
+
     <input id="r" name="r" type="number" placeholder="3" />
-    <input name="roles-description" placeholder="description" maxlength="128"/>
+    <input name="roles-description" placeholder="description" maxlength="128" />
   </fieldset>
   <fieldset class="my-fieldset">
     <legend>Duties <button type="button" class="btn btn-accent" popovertarget="d-tip">?</button></legend>
@@ -129,15 +129,15 @@
       How many "things" is the system doing? (e.g, sending an email, extracting data from an image,
       calculating a value...). This is just an estimate, but be an granular as possible.
     </label>
-    
+
     <input id="d" name="d" type="number" placeholder="10" />
-    <input name="duties-description" placeholder="description" maxlength="128"/>
+    <input name="duties-description" placeholder="description" maxlength="128" />
   </fieldset>
   <fieldset class="my-fieldset">
     <legend>Certainty <button type="button" class="btn btn-accent" popovertarget="c-tip">?</button></legend>
     <label for="c" popover id="c-tip">How much uncertainty is there in the project? (This is just a gut check).</label>
     <div class="my-vertical-range">
-      <input id="c" name="c" type="range" value="0.6" class="vertical" list="c-values" min="0" max="1" step="0.2"/>
+      <input id="c" name="c" type="range" value="0.6" class="vertical" list="c-values" min="0" max="1" step="0.2" />
       <datalist id="c-values">
         <option value="0.0" label="Project is uncharted territory."></option>
         <option value="0.2" label="Project is experimental."></option>
@@ -152,7 +152,7 @@
     <legend>Teamwork <button type="button" class="btn btn-accent" popovertarget="t-tip">?</button></legend>
     <label for="t" popover id="t-tip">How effective is the teamwork between the developers and the client?</label>
     <div class="my-vertical-range">
-      <input id="t" name="t" type="range" value="0.6" class="vertical" list="t-values" min="0" max="1" step="0.2"/>
+      <input id="t" name="t" type="range" value="0.6" class="vertical" list="t-values" min="0" max="1" step="0.2" />
       <datalist id="t-values">
         <option value="0.0" label="Client lives in secluded village."></option>
         <option value="0.2" label="Client responds to emails weekly."></option>
@@ -167,7 +167,7 @@
     <legend>Mastery <button type="button" class="btn btn-accent" popovertarget="m-tip">?</button></legend>
     <label for="m" popover id="m-tip">How well have the developers mastered the system?</label>
     <div class="my-vertical-range">
-      <input id="m" name="m" type="range" value="0.6" class="vertical" list="m-values" min="0" max="1" step="0.2"/>
+      <input id="m" name="m" type="range" value="0.6" class="vertical" list="m-values" min="0" max="1" step="0.2" />
       <datalist id="m-values">
         <option value="0.0" label="Devs cannot run application."></option>
         <option value="0.2" label="Devs familiar with stack."></option>
@@ -192,12 +192,14 @@
     </section>
     <section class="space-children-100">
       <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
-      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
+      <button class="btn btn-accent" type="button"
+        onclick="document.getElementById('dLoad-btn').click()">Download</button>
       <a style="display: none;" id="dLoad-btn" href="" download="time-estimate-report.json"></a>
     </section>
     <section class="space-children-100">
       <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
-      <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
+      <button class="btn btn-accent" type="button"
+        onclick="document.getElementById('uLoad-btn').click()">Upload</button>
       <input style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
     </section>
     <section class="space-children-100">
@@ -223,3 +225,9 @@
     </form>
   </dialog>
 </form>
+
+<script>
+  window.onload = function(e) {
+    window.location.href = window.location.origin+"?htmx="+window.location.pathname;
+  }
+</script>
