@@ -216,7 +216,7 @@
   <h1 class="txt-primary">Cost/Benefit analysis</h1>
   <h2 class="txt-primary">Benefit</h2>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend>Cut staffing cost by optimizing processes</legend>
     <label for="staff-count">Staff</label>
     <input id="staff-count" name="staff-count" type="number" placeholder="100" />
@@ -235,7 +235,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend>Profit by forecasting trends or attracting business</legend>
     <label for="profit-opportunity" aria-describedby="profit-opportunity-tooltip">
       Profit
@@ -267,7 +267,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend>Regulatory compliance</legend>
     <label for="fine-opportunity" aria-describedby="fine-opportunity-tooltip">
       Fine
@@ -291,7 +291,7 @@
 
   <h2 class="txt-primary">Cost</h2>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend>Labor</legend>
     <label for="laborers" aria-describedby="laborers-tooltip">
       Team
@@ -322,7 +322,7 @@
     <span class="txt-padding txt-break">Estimate: <span id="staff-cost">$0.00</span></span>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend>Infrastructure</legend>
     <label for="web-server">Yearly infrastructure cost</label>
     <input id="web-server" name="web-server" type="range" step="1000" placeholder="1000" min="0" max="50000"/>
@@ -336,7 +336,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend>Licenses</legend>
     <label for="labor-hours" aria-describedby="labor-hours-tooltip">
       Hours
@@ -350,14 +350,14 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span
   </fieldset>
 
-  <fieldset>
+  <fieldset class="my-fieldset">
     <legend class="txt-primary">Net</legend>
     <p>Benefit: <span id="benefit-amount" class="txt-primary"></span>
     Cost: <span id="cost-amount" class="txt-warn"></span>
     Net: <span id="net-amount" class=""></span></p>
   </fieldset>
 
-  <fieldset class="my-fieldset flex-row-wrap">
+  <fieldset class="my-fieldset" class="my-fieldset flex-row-wrap">
     <legend>Save and load report</legend>
     <section class="space-children-100 flex-column">
       <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />

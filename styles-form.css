@@ -27,3 +27,7 @@ input:read-only {
 .fill-space {
   flex: 1;
 }
+
+.my-fieldset {
+  margin: 10px 0px 10px 0px;
+}

@@ -116,7 +116,7 @@
 </script>
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
-  <fieldset id="roles" class="flex-row-wrap">
+  <fieldset class="my-fieldset" id="roles" class="flex-row-wrap">
     <legend aria-describedby="r-tip">
       Roles
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -128,7 +128,7 @@
     <input id="r" name="r" type="number" placeholder="3" />
     <input name="roles-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
-  <fieldset id="duties" class="flex-row-wrap">
+  <fieldset class="my-fieldset" id="duties" class="flex-row-wrap">
     <legend aria-describedby="d-tip">
       Duties
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -141,7 +141,7 @@
     <input id="d" name="d" type="number" placeholder="10" />
     <input name="duties-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
-  <fieldset id="size">
+  <fieldset class="my-fieldset" id="size">
     <legend aria-describedby="s-tip">
       Business unit size
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -161,7 +161,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset id="teamwork">
+  <fieldset class="my-fieldset" id="teamwork">
     <legend aria-describedby="t-tip">
       Teamwork
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -181,7 +181,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset id="mastery">
+  <fieldset class="my-fieldset" id="mastery">
     <legend aria-describedby="m-tip">
       Mastery
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -201,7 +201,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset id="uncertainty">
+  <fieldset class="my-fieldset" id="uncertainty">
     <legend aria-describedby="c-tip">
       Certainty
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -221,7 +221,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset id="estimate">
+  <fieldset class="my-fieldset" id="estimate">
     <legend aria-describedby="estimate-tip">
       Estimate
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -253,7 +253,7 @@ upperHours = estimate + hrRange
     <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
   </fieldset>
 
-  <fieldset class="flex-row-wrap">
+  <fieldset class="my-fieldset" class="flex-row-wrap">
     <legend>Save and load report</legend>
     <section class="space-children-100 flex-column">
       <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
