@@ -1,0 +1,8 @@
+.my-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: var(--color-primary);
+  border-bottom-style: solid;
+  padding: 5px;
+}
