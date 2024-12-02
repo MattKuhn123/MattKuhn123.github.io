@@ -1,13 +1,14 @@
 <script>
   localStorageKey = "time-estimate";
   hoursPerWeek = 40;
-  baseHourCoefficient = 1.5;
+  baseHourCoefficient = 1;
 
   function getRoles() { return Number(document.getElementById("r").value); }
   function getDuties() { return Number(document.getElementById("d").value); }
   function getCertainty() { return Number(document.getElementById("c").value); }
   function getTeamwork() { return Number(document.getElementById("t").value); }
   function getMastery() { return Number(document.getElementById("m").value); }
+  function getSize() { return Number(document.getElementById("s").value); }
 
   function recalculate() {
     const r = getRoles();
@@ -15,11 +16,13 @@
     const u = getCertainty();
     const t = getTeamwork();
     const m = getMastery();
+    const s = getSize();
 
     const baseHours = baseHourCoefficient * (r * d);
     const masteryGap = (baseHours * (1 - m));
     const teamworkGap = (baseHours * (1 - t));
-    const hours = baseHours + masteryGap + teamworkGap;
+    const size = (baseHours * (s))
+    const hours = baseHours + masteryGap + teamworkGap + size;
 
     const estimate = Math.round(hours * 2);
     const hourRange = Math.round((1 - u) * estimate);
@@ -114,9 +117,9 @@
 </script>
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
-  <fieldset>
+  <fieldset id="roles">
     <legend aria-describedby="r-tip">
-      Roles 
+      Roles
       <button type="button" class="btn btn-accent btn-icon">?</button>
       <div role="tooltip" id="r-tip">
         How many roles are involved in the system? (e.g, driver, lab tech, accountant).
@@ -126,9 +129,9 @@
     <input id="r" name="r" type="number" placeholder="3" />
     <input name="roles-description" placeholder="description" maxlength="128" />
   </fieldset>
-  <fieldset>
+  <fieldset id="duties">
     <legend aria-describedby="d-tip">
-      Duties 
+      Duties
       <button type="button" class="btn btn-accent btn-icon">?</button>
       <div role="tooltip" id="d-tip">
         How many "things" is the system doing? (e.g, sending an email, extracting data from an image,
@@ -139,27 +142,27 @@
     <input id="d" name="d" type="number" placeholder="10" />
     <input name="duties-description" placeholder="description" maxlength="128" />
   </fieldset>
-  <fieldset>
-    <legend aria-describedby="c-tip">
-      Certainty
+  <fieldset id="size">
+    <legend aria-describedby="s-tip">
+      Size
       <button type="button" class="btn btn-accent btn-icon">?</button>
-      <div role="tooltip" id="c-tip">
-        How much uncertainty is there in the project? (This is just a gut check).
+      <div role="tooltip" id="t-tip">
+        How big is the network (the business unit, supporting teams) that the application is for?
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="c" name="c" type="range" value="0.6" class="flex-column" list="c-values" min="0" max="1" step="0.2" />
-      <datalist id="c-values">
-        <option value="0.0" label="Project is uncharted territory."></option>
-        <option value="0.2" label="Project is experimental."></option>
-        <option value="0.4" label="Project common in industry."></option>
-        <option value="0.6" label="Project has been done before."></option>
-        <option value="0.8" label="Project is routine."></option>
-        <option value="1.0" label="Project can be done blindfolded."></option>
+      <input id="s" name="s" type="range" value="0.6" class="flex-column" list="s-values" min="0" max="1" step="0.2" />
+      <datalist id="s-values">
+        <option value="0.0" label="One person."></option>
+        <option value="0.2" label="Small company (0-20 people)."></option>
+        <option value="0.4" label="Medium company (21-75 people)."></option>
+        <option value="0.6" label="Large company (76-150 people)."></option>
+        <option value="0.8" label="Enterprise."></option>
+        <option value="1.0" label="Government."></option>
       </datalist>
     </div>
   </fieldset>
-  <fieldset>
+  <fieldset id="teamwork">
     <legend aria-describedby="t-tip">
       Teamwork
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -179,10 +182,10 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset>
+  <fieldset id="mastery">
     <legend aria-describedby="m-tip">
       Mastery
-      <button type="button" class="btn btn-accent btn-icon" >?</button>
+      <button type="button" class="btn btn-accent btn-icon">?</button>
       <div role="tooltip" id="m-tip">
         How well have the developers mastered the system?
       </div>
@@ -196,6 +199,26 @@
         <option value="0.6" label="Devs know where to look to find answers."></option>
         <option value="0.8" label="Devs write unit tests."></option>
         <option value="1.0" label="Devs can compile code in their brains."></option>
+      </datalist>
+    </div>
+  </fieldset>
+  <fieldset id="uncertainty">
+    <legend aria-describedby="c-tip">
+      Certainty
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="c-tip">
+        How much uncertainty is there in the project? (This is just a gut check).
+      </div>
+    </legend>
+    <div class="my-vertical-range">
+      <input id="c" name="c" type="range" value="0.6" class="flex-column" list="c-values" min="0" max="1" step="0.2" />
+      <datalist id="c-values">
+        <option value="0.0" label="Project is uncharted territory."></option>
+        <option value="0.2" label="Project is experimental."></option>
+        <option value="0.4" label="Project common in industry."></option>
+        <option value="0.6" label="Project has been done before."></option>
+        <option value="0.8" label="Project is routine."></option>
+        <option value="1.0" label="Project can be done blindfolded."></option>
       </datalist>
     </div>
   </fieldset>
@@ -248,7 +271,7 @@
 </form>
 
 <script>
-  window.onload = function(e) {
-    window.location.href = window.location.origin+"?htmx="+window.location.pathname;
+  window.onload = function (e) {
+    window.location.href = window.location.origin + "?htmx=" + window.location.pathname;
   }
 </script>

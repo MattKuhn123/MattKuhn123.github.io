@@ -1,1 +1,1 @@
-{"r":"3","roles-description":"Applicant, Co-Owners, NR staff","d":"10","duties-description":"Work flow, lock-state, timing","c":"0.4","t":"0.2","m":"0.8","report-name":"sla-buffer","report-description":"Delay timer start until after data validated."}
+{"r":"3","roles-description":"Applicant, Co-Owners, NR staff","d":"10","duties-description":"Work flow, lock-state, timing","s":"1","c":"0.4","t":"0.2","m":"0.8","report-name":"sla-buffer","report-description":"Delay timer start until after data validated."}
