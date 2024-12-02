@@ -117,7 +117,7 @@
 </script>
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
-  <fieldset id="roles">
+  <fieldset id="roles" class="space-children-100">
     <legend aria-describedby="r-tip">
       Roles
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -129,7 +129,7 @@
     <input id="r" name="r" type="number" placeholder="3" />
     <input name="roles-description" placeholder="description" maxlength="128" />
   </fieldset>
-  <fieldset id="duties">
+  <fieldset id="duties" class="space-children-100">
     <legend aria-describedby="d-tip">
       Duties
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -177,7 +177,7 @@
         <option value="0.2" label="Client responds to emails weekly."></option>
         <option value="0.4" label="Client responds to IMs daily."></option>
         <option value="0.6" label="Client reaches out and asks for demos."></option>
-        <option value="0.8" label="Client standing over developer's shoulder."></option>
+        <option value="0.8" label="Client also uses devops platform."></option>
         <option value="1.0" label="Client is also developer."></option>
       </datalist>
     </div>
@@ -196,9 +196,9 @@
         <option value="0.0" label="Devs cannot run application."></option>
         <option value="0.2" label="Devs familiar with stack."></option>
         <option value="0.4" label="Devs familiar with modules."></option>
-        <option value="0.6" label="Devs know where to look to find answers."></option>
+        <option value="0.6" label="Devs know where to find answers."></option>
         <option value="0.8" label="Devs write unit tests."></option>
-        <option value="1.0" label="Devs can compile code in their brains."></option>
+        <option value="1.0" label="Devs compile code in their brains."></option>
       </datalist>
     </div>
   </fieldset>
@@ -222,7 +222,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset>
+  <fieldset id="estimate">
     <legend class="txt-primary">Estimate</legend>
     <p><span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours</p>
     <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
@@ -230,7 +230,7 @@
 
   <fieldset class="my-fieldset flex-row-wrap">
     <legend>Save and load report</legend>
-    <section class="space-children-100 vertical">
+    <section class="space-children-100 flex-column">
       <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
       <textarea name="report-description" placeholder="description" minlength="10" maxlength="128"></textarea>
     </section>
