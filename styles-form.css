@@ -10,6 +10,7 @@
 
 input:read-only {
   color: gray;
+  font-style: italic;
 }
 
 .flex-column {
