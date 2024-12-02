@@ -179,10 +179,14 @@ dialog {
 .btn {
     text-decoration: none;
     padding: 5px;
-    border-width: none;
     cursor: pointer;
     border-width: 1px;
     border-radius: 1px;
+}
+
+.btn-icon {
+  padding: 2px;
+  border: none;
 }
 
 .btn-primary {

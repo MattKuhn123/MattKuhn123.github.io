@@ -254,33 +254,44 @@
     <label for="staff-hourly-wage">Wage</label>
     <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" />
 
-    <label for="staff-weekly-hours-saved">Hours saved weekly</label>
-    <label for="staff-weekly-hours-saved" popover id="hours-saved-tooltip">The number of hours the software saves the
-      staff member per week.</label>
-    <button type="button" class="btn btn-accent" popovertarget="hours-saved-tooltip">?</button>
+    <label for="staff-weekly-hours-saved" aria-describedby="hours-saved-tooltip">
+      Hours saved weekly
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="hours-saved-tooltip">
+        How many hours per week can the software save each member of the staff?
+      </div>
+    </label>
     <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
   </fieldset>
 
   <fieldset class="my-fieldset">
     <legend>Profit by forecasting trends or attracting business</legend>
-    <label for="profit-opportunity">Profit</label>
-    <label for="profit-opportunity" popover id="profit-opportunity-tooltip">The amount you stand to gain with this
-      software.</label>
-    <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-tooltip">?</button>
+    <label for="profit-opportunity" aria-describedby="profit-opportunity-tooltip">
+      Profit
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="profit-opportunity-tooltip">
+        What is your possible profit with this software?
+      </div>
+    </label>
     <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
 
-    <label for="profit-opportunity-yearly">Yearly opportunities</label>
-    <label for="profit-opportunity-yearly" popover id="profit-opportunity-yearly-tooltip">How many times per year does
-      this opportunity arise?</label>
-    <button type="button" class="btn btn-accent" popovertarget="profit-opportunity-yearly-tooltip">?</button>
+    <label for="profit-opportunity-yearly" aria-describedby="profit-opportunity-yearly-tooltip">
+      Yearly opportunities
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="profit-opportunity-yearly-tooltip">
+        How many times per year does this opportunity arise?
+      </div>
+    </label>
     <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
 
-    <label for="software-accuracy">Estimated software accuracy</label>
-    <label for="profit-opportunity" popover id="software-accuracy-tooltip" oninput="syncSoftwareAccuracySlider()">The
-      likelihood the software will
-      forecast correctly or attract business as anticipated.</label>
-    <button type="button" class="btn btn-accent" popovertarget="software-accuracy-tooltip">?</button>
+    <label for="software-accuracy" aria-describedby="software-accuracy-tooltip">
+      Estimated software accuracy
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="software-accuracy-tooltip" >
+        What is the likelihood the software will forecast correctly or attract business as anticipated?
+      </div>
+    </label>
     <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
     <output id="software-accuracy-display">50%</output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
@@ -288,18 +299,23 @@
 
   <fieldset class="my-fieldset">
     <legend>Regulatory compliance</legend>
-    <label for="fine-opportunity">Fine</label>
-    <label for="fine-opportunity" popover id="fine-opportunity-tooltip">What is the fine for not
-      complying with this regulation?</label>
-    <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-tooltip">?</button>
+    <label for="fine-opportunity" aria-describedby="fine-opportunity-tooltip">
+      Fine
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="fine-opportunity-tooltip">
+        What is the fine for not complying with this regulation?
+      </div>
+    </label>
     <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
 
-    <label for="fine-opportunity-yearly">Yearly opportunities</label>
-    <label for="fine-opportunity-yearly" popover id="fine-opportunity-yearly-tooltip">How many times per year can this
-      fine apply?</label>
-    <button type="button" class="btn btn-accent" popovertarget="fine-opportunity-yearly-tooltip">?</button>
+    <label for="fine-opportunity-yearly" aria-describedby="fine-opportunity-yearly-tooltip">
+      Yearly opportunities
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="fine-opportunity-yearly-tooltip">
+        How many times per year can this fine apply?
+      </div>
+    </label>
     <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
-
     <span class="txt-padding txt-break">Yearly estimate: <span id="regulatory-compliance">$0.00</span></span>
   </fieldset>
 
