@@ -1,0 +1,26 @@
+.txt-primary {
+  color: var(--color-primary);
+  background-color: unset;
+  font-weight: bold;
+}
+
+.txt-warn {
+  color: var(--color-warn);
+  background-color: unset;
+  font-weight: bold;
+}
+
+.txt-accent {
+  color: var(--color-accent);
+  background-color: var(--color-primary);
+}
+
+.txt-padding {
+  padding: 5px;
+}
+
+.txt-break {
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}

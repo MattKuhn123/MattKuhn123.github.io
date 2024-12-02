@@ -10,22 +10,9 @@ body, select, textarea {
     background-color: var(--color-accent);
 }
 
-.my-vertical-range {
-  display: flex;
-}
-
-input[type="range"] {
-  accent-color: var(--color-primary);
-}
-
-.my-vertical-range input[type="range"] {
-  writing-mode: vertical-lr;
-}
-
-.my-vertical-range datalist {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+::selection {
+  color: var(--color-accent);
+  background-color: var(--color-primary);
 }
 
 @media (orientation: landscape) {
@@ -44,37 +31,32 @@ input[type="range"] {
     }
 }
 
-::selection {
-    color: var(--color-accent);
-    background-color: var(--color-primary);
-}
-
 ::backdrop {
     backdrop-filter: blur(3px);
 }
 
-:popover-open {
-    max-width: 50vw;
-    padding: 15px;
-    border-color: var(--color-primary);
+.my-dialog {
+  max-width: 50vw;
+  padding: 15px;
+  border-color: var(--color-primary);
 }
 
-dialog {
-    max-width: 50vw;
-    padding: 15px;
-    border-color: var(--color-primary);
+.my-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: var(--color-primary);
+  border-bottom-style: solid;
+  padding: 5px;
 }
 
-@media (orientation: portrait) {
-    output {
-        display: block;
-    }
-}
-
-@media (orientation: landscape) {
-    output {
-        display: inline-block;
-    }
+.my-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: var(--color-primary);
+  border-top-style: solid;
+  padding: 5px;
 }
 
 @media (orientation: portrait) {
@@ -83,120 +65,17 @@ dialog {
     }
 }
 
-.vertical {
-  display: flex;
-  flex-direction: column;
-}
-
 .space-children-100 * {
     margin: 5px;
 }
 
-.flex-wrap {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
-.my-fieldset {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.my-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-color: var(--color-primary);
-    border-bottom-style: solid;
-    padding: 5px;
-}
-
-.my-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-color: var(--color-primary);
-    border-top-style: solid;
-    padding: 5px;
-}
-
-.split {
-    display: flex;
-    justify-content: space-between;
-}
-
-@media (orientation: portrait) {
-    .my-table {
-        display: block;
-        max-width: -moz-fit-content;
-        max-width: fit-content;
-        margin: 0 auto;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-}
-
-.my-table td,
-.my-table th {
-    border-width: 1px;
-    border-bottom-style: solid;
-    border-color: var(--color-primary);
-    padding: 5px;
-}
-
-.my-table tr:nth-child(even) {
-    background-color: var(--color-accent-100);
-}
-
-.txt-primary {
-    color: var(--color-primary);
-    background-color: unset;
-    font-weight: bold;
-}
-
-.txt-warn {
-    color: var(--color-warn);
-    background-color: unset;
-    font-weight: bold;
-}
-
-.txt-accent {
-    color: var(--color-accent);
-    background-color: var(--color-primary);
-}
-
-.txt-padding {
-    padding: 5px;
-}
-
-.txt-break {
-    display: block;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.btn {
-    text-decoration: none;
-    padding: 5px;
-    cursor: pointer;
-    border-width: 1px;
-    border-radius: 1px;
-}
-
-.btn-icon {
-  padding: 2px;
-  border: none;
-}
-
-.btn-primary {
-    color: var(--color-accent);
-    background-color: var(--color-primary);
-    border-color: var(--color-accent);
-}
-
-.btn-accent {
-    color: var(--color-primary);
-    background-color: var(--color-accent);
-    border-color: var(--color-primary);
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

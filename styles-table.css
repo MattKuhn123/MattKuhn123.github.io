@@ -1,0 +1,22 @@
+@media (orientation: portrait) {
+  .my-table {
+      display: block;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+}
+
+.my-table td,
+.my-table th {
+  border-width: 1px;
+  border-bottom-style: solid;
+  border-color: var(--color-primary);
+  padding: 5px;
+}
+
+.my-table tr:nth-child(even) {
+  background-color: var(--color-accent-100);
+}

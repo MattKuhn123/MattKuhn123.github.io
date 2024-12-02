@@ -114,7 +114,7 @@
 </script>
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
-  <fieldset class="my-fieldset">
+  <fieldset>
     <legend aria-describedby="r-tip">
       Roles 
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -126,7 +126,7 @@
     <input id="r" name="r" type="number" placeholder="3" />
     <input name="roles-description" placeholder="description" maxlength="128" />
   </fieldset>
-  <fieldset class="my-fieldset">
+  <fieldset>
     <legend aria-describedby="d-tip">
       Duties 
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -139,7 +139,7 @@
     <input id="d" name="d" type="number" placeholder="10" />
     <input name="duties-description" placeholder="description" maxlength="128" />
   </fieldset>
-  <fieldset class="my-fieldset">
+  <fieldset>
     <legend aria-describedby="c-tip">
       Certainty
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -148,7 +148,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="c" name="c" type="range" value="0.6" class="vertical" list="c-values" min="0" max="1" step="0.2" />
+      <input id="c" name="c" type="range" value="0.6" class="flex-column" list="c-values" min="0" max="1" step="0.2" />
       <datalist id="c-values">
         <option value="0.0" label="Project is uncharted territory."></option>
         <option value="0.2" label="Project is experimental."></option>
@@ -159,7 +159,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset class="my-fieldset">
+  <fieldset>
     <legend aria-describedby="t-tip">
       Teamwork
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -168,7 +168,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="t" name="t" type="range" value="0.6" class="vertical" list="t-values" min="0" max="1" step="0.2" />
+      <input id="t" name="t" type="range" value="0.6" class="flex-column" list="t-values" min="0" max="1" step="0.2" />
       <datalist id="t-values">
         <option value="0.0" label="Client lives in secluded village."></option>
         <option value="0.2" label="Client responds to emails weekly."></option>
@@ -179,7 +179,7 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset class="my-fieldset">
+  <fieldset>
     <legend aria-describedby="m-tip">
       Mastery
       <button type="button" class="btn btn-accent btn-icon" >?</button>
@@ -188,7 +188,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="m" name="m" type="range" value="0.6" class="vertical" list="m-values" min="0" max="1" step="0.2" />
+      <input id="m" name="m" type="range" value="0.6" class="flex-column" list="m-values" min="0" max="1" step="0.2" />
       <datalist id="m-values">
         <option value="0.0" label="Devs cannot run application."></option>
         <option value="0.2" label="Devs familiar with stack."></option>
@@ -199,13 +199,13 @@
       </datalist>
     </div>
   </fieldset>
-  <fieldset class="my-fieldset">
+  <fieldset>
     <legend class="txt-primary">Estimate</legend>
     <p><span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours</p>
     <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
   </fieldset>
 
-  <fieldset class="my-fieldset flex-wrap">
+  <fieldset class="my-fieldset flex-row-wrap">
     <legend>Save and load report</legend>
     <section class="space-children-100 vertical">
       <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
@@ -232,14 +232,14 @@
     </section>
   </fieldset>
 
-  <dialog id="save-dialog">
+  <dialog class="my-dialog" id="save-dialog">
     <form method="dialog">
       <h3 class="txt-primary">Report saved!</h3>
       <button class="btn btn-primary">OK</button>
     </form>
   </dialog>
 
-  <dialog id="load-dialog">
+  <dialog class="my-dialog" id="load-dialog">
     <form method="dialog">
       <h3 class="txt-primary">Report loaded!</h3>
       <button class="btn btn-primary">OK</button>

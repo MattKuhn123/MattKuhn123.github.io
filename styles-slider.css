@@ -1,0 +1,29 @@
+.my-vertical-range {
+  display: flex;
+}
+
+input[type="range"] {
+  accent-color: var(--color-primary);
+}
+
+.my-vertical-range input[type="range"] {
+  writing-mode: vertical-lr;
+}
+
+.my-vertical-range datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (orientation: portrait) {
+  input[type="range"] + output {
+      display: block;
+  }
+}
+
+@media (orientation: landscape) {
+  input[type="range"] + output {
+      display: inline-block;
+  }
+}

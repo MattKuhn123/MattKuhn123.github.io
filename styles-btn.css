@@ -1,0 +1,24 @@
+.btn {
+  text-decoration: none;
+  padding: 5px;
+  cursor: pointer;
+  border-width: 1px;
+  border-radius: 1px;
+}
+
+.btn-icon {
+  padding: 2px;
+  border: none;
+}
+
+.btn-primary {
+  color: var(--color-accent);
+  background-color: var(--color-primary);
+  border-color: var(--color-accent);
+}
+
+.btn-accent {
+  color: var(--color-primary);
+  background-color: var(--color-accent);
+  border-color: var(--color-primary);
+}
