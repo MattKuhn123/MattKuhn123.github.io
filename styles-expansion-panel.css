@@ -1,0 +1,36 @@
+details.expansion-panel {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary.expansion-panel {
+  height: 18vmax;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  background-size: cover;
+  background-position: center;
+  background-clip: content-box;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hand-shake {
+  background-image: linear-gradient(to left, rgba(255,255,255,0) 20%,rgba(255,255,255,1)),
+    url('../images/hand-shake.jpg');
+}
+
+.hand-keyboard {
+  background-image: 
+    linear-gradient(to left, rgba(255,255,255,0) 20%,rgba(255,255,255,1)),
+    url('../images/hand-keyboard.jpg');
+}
+
+details.expansion-panel[open] {
+  padding: 0.5em;
+}
+
+details.expansion-panel[open] summary.expansion-panel {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
