@@ -117,7 +117,7 @@
 </script>
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
-  <fieldset id="roles" class="space-children-100">
+  <fieldset id="roles" class="space-children-100 flex-row-wrap">
     <legend aria-describedby="r-tip">
       Roles
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -127,9 +127,9 @@
     </legend>
 
     <input id="r" name="r" type="number" placeholder="3" />
-    <input name="roles-description" placeholder="description" maxlength="128" />
+    <input name="roles-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
-  <fieldset id="duties" class="space-children-100">
+  <fieldset id="duties" class="space-children-100 flex-row-wrap">
     <legend aria-describedby="d-tip">
       Duties
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -140,7 +140,7 @@
     </legend>
 
     <input id="d" name="d" type="number" placeholder="10" />
-    <input name="duties-description" placeholder="description" maxlength="128" />
+    <input name="duties-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
   <fieldset id="size">
     <legend aria-describedby="s-tip">

@@ -18,3 +18,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.fill-space {
+  flex: 1;
+}
