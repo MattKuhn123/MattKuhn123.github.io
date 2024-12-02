@@ -2,7 +2,7 @@
   visibility: hidden;
   position: absolute;
   padding: 2px;
-  top: 2rem;
+  top: 1rem;
   left: 1rem;
   color: var(--color-accent);
   background-color: var(--color-primary);
@@ -15,6 +15,7 @@
 [aria-describedby]:focus {
   position: relative;
 }
+[role="tooltip"]:hover,
 [aria-describedby]:hover [role="tooltip"],
 [aria-describedby]:focus [role="tooltip"] {
   visibility: visible;

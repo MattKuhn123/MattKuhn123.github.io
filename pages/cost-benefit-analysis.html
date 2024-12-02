@@ -10,7 +10,6 @@
   function getAccuracy() { return Number(document.getElementById("software-accuracy").value); }
   function getWebServer() { return Number(document.getElementById("web-server").value); }
   function getParty() { return Number(document.getElementById("party").value); }
-  function getIde() { return Number(document.getElementById("ide").value); }
 
   function syncSoftwareAccuracySlider() {
     const output = document.getElementById("software-accuracy-display");
@@ -26,11 +25,6 @@
   function syncPartySlider() {
     const output = document.getElementById("party-display");
     output.innerText = currencyFormat.format(getParty());
-  }
-
-  function syncIdeSlider() {
-    const output = document.getElementById("ide-display");
-    output.innerText = currencyFormat.format(getIde());
   }
 
   function getSoftwareSavings() {
@@ -68,38 +62,16 @@
     document.getElementById("regulatory-compliance").innerText = currencyFormat.format(getRegulatoryCompliance());
   }
 
-  function getStaffCost() {
-    const analysts = Number(document.getElementById("analysts").value);
-    const analystWage = Number(document.getElementById("analyst-wage").value);
-    const analystWeeklyHours = Number(document.getElementById("analyst-weekly-hours").value);
-    const analystCost = analysts * analystWage * analystWeeklyHours * weeksPerYear;
-
-    const dbas = Number(document.getElementById("dbas").value);
-    const dbaWage = Number(document.getElementById("dba-wage").value);
-    const dbaWeeklyHours = Number(document.getElementById("dba-weekly-hours").value);
-    const dbaCost = dbas * dbaWage * dbaWeeklyHours * weeksPerYear;
-
-    const platformEngineers = Number(document.getElementById("platform-engineers").value);
-    const platformEngineerWage = Number(document.getElementById("platform-engineer-wage").value);
-    const platformEngineerWeeklyHours = Number(document.getElementById("platform-engineer-weekly-hours").value);
-    const platformEngineerCost = platformEngineers * platformEngineerWage * platformEngineerWeeklyHours * weeksPerYear;
-
-    const qas = Number(document.getElementById("qas").value);
-    const qaWage = Number(document.getElementById("qa-wage").value);
-    const qaWeeklyHours = Number(document.getElementById("qa-weekly-hours").value);
-    const qaCost = qas * qaWage * qaWeeklyHours * weeksPerYear;
-
-    const developers = Number(document.getElementById("developers").value);
-    const developerWage = Number(document.getElementById("developer-wage").value);
-    const developerWeeklyHours = Number(document.getElementById("developer-weekly-hours").value);
-    const developerCost = developers * developerWage * developerWeeklyHours * weeksPerYear;
-
-    const staffCost = analystCost + dbaCost + platformEngineerCost + qaCost + developerCost;
-    return staffCost;
+  function getLaborCost() {
+    const laborers = Number(document.getElementById("laborers").value);
+    const laborerWage = Number(document.getElementById("labor-wage").value);
+    const projectHours = Number(document.getElementById("labor-hours").value);
+    const laborCost = laborers * laborerWage * projectHours;
+    return laborCost;
   }
 
-  function staffCost() {
-    document.getElementById("staff-cost").innerText = currencyFormat.format(getStaffCost());
+  function laborCost() {
+    document.getElementById("staff-cost").innerText = currencyFormat.format(getLaborCost());
   }
 
   function getResourceCost() {
@@ -118,8 +90,7 @@
 
   function getLicenseCost() {
     const party = getParty();
-    const ide = getIde();
-    const licenseCost = party + ide;
+    const licenseCost = party;
     return licenseCost;
   }
 
@@ -135,10 +106,10 @@
 
     document.getElementById("benefit-amount").innerText = currencyFormat.format(benefit);
     
-    const staffCost = getStaffCost();
+    const laborCost = getLaborCost();
     const resourceCost = getResourceCost();
     const licenseCost = getLicenseCost();
-    const cost = staffCost + resourceCost + licenseCost;
+    const cost = laborCost + resourceCost + licenseCost;
 
     document.getElementById("cost-amount").innerText = currencyFormat.format(cost);
     
@@ -227,7 +198,7 @@
     softwareSavings();
     forecastProfit();
     regulatoryCompliance();
-    staffCost();
+    laborCost();
     resourceCost();
     licenseCost();
 
@@ -236,7 +207,6 @@
     syncSoftwareAccuracySlider();
     syncWebServerSlider();
     syncPartySlider();
-    syncIdeSlider();
 
     updateDownloadLink();
   }
@@ -322,64 +292,40 @@
   <h2 class="txt-primary">Cost</h2>
 
   <fieldset>
-    <legend>Staffing</legend>
-    <span class="txt-primary txt-break">Developers</span>
-    <label for="developers">Staff</label>
-    <input id="developers" name="developers" type="number" placeholder="2" />
+    <legend>Labor</legend>
+    <label for="laborers" aria-describedby="laborers-tooltip">
+      Team
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="laborers-tooltip">
+        How many team members will be involved? Developers, QA, analysts, etc.
+      </div>
+    </label>
+    <input id="laborers" name="laborers" type="number" placeholder="1" />
 
-    <label for="developer-wage">Wage</label>
-    <input id="developer-wage" name="developer-wage" type="number" placeholder="50" />
+    <label for="labor-wage" aria-describedby="labor-wage-tooltip">
+      Hourly rate
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="labor-wage-tooltip">
+        Our estimated average hourly rate.
+      </div>
+    </label>
+    <input readonly id="labor-wage" name="labor-wage" type="number" value="50" />
 
-    <label for="developer-weekly-hours">Hours</label>
-    <input id="developer-weekly-hours" name="developer-weekly-hours" type="number" placeholder="40" />
-
-    <span class="txt-primary txt-break">QAs</span>
-    <label for="qas">Staff</label>
-    <input id="qas" name="qas" type="number" placeholder="2" />
-
-    <label for="qa-wage">Wage</label>
-    <input id="qa-wage" name="qa-wage" type="number" placeholder="50" />
-
-    <label for="qa-weekly-hours">Hours</label>
-    <input id="qa-weekly-hours" name="qa-weekly-hours" type="number" placeholder="40" />
-
-    <span class="txt-primary txt-break">Platform engineers</span>
-    <label for="platform-engineers">Staff</label>
-    <input id="platform-engineers" name="platform-engineers" type="number" placeholder="1" />
-
-    <label for="platform-engineer-wage">Wage</label>
-    <input id="platform-engineer-wage" name="platform-engineer-wage" type="number" placeholder="50" />
-
-    <label for="platform-engineer-weekly-hours">Hours</label>
-    <input id="platform-engineer-weekly-hours" name="platform-engineer-weekly-hours" type="number" placeholder="40" />
-
-    <span class="txt-primary txt-break">DBAs</span>
-    <label for="dbas">Staff</label>
-    <input id="dbas" name="dbas" type="number" placeholder="1" />
-
-    <label for="dba-wage">Wage</label>
-    <input id="dba-wage" name="dba-wage" type="number" placeholder="50" />
-
-    <label for="dba-weekly-hours">Hours</label>
-    <input id="dba-weekly-hours" name="dba-weekly-hours" type="number" placeholder="40" />
-
-    <span class="txt-primary txt-break">Analysts</span>
-    <label for="analysts">Staff</label>
-    <input id="analysts" name="analysts" type="number" placeholder="1" />
-
-    <label for="analyst-wage">Wage</label>
-    <input id="analyst-wage" name="analyst-wage" type="number" placeholder="50" />
-
-    <label for="analyst-weekly-hours">Hours</label>
-    <input id="analyst-weekly-hours" name="analyst-weekly-hours" type="number" placeholder="40" />
-    <span class="txt-padding txt-break">Yearly estimate: <span id="staff-cost">$0.00</span></span>
+    <label for="labor-hours" aria-describedby="labor-hours-tooltip">
+      Hours
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="labor-hours-tooltip">
+        Hour many hours do we estimate? (calculator available <a href="./pages/time-estimate.html" target="_blank">here</a>)
+      </div>
+    </label>
+    <input id="labor-hours" name="labor-hours" type="number" placeholder="40" />
+    <span class="txt-padding txt-break">Estimate: <span id="staff-cost">$0.00</span></span>
   </fieldset>
 
   <fieldset>
     <legend>Infrastructure</legend>
     <label for="web-server">Yearly infrastructure cost</label>
-    <input id="web-server" name="web-server" type="range" step="1000" placeholder="1000" min="0" max="50000"
-      oninput="syncWebServerSlider()" />
+    <input id="web-server" name="web-server" type="range" step="1000" placeholder="1000" min="0" max="50000"/>
     <output id="web-server-display">$1000.00</output>
 
     <label for="development-server">Development environment</label>
@@ -392,16 +338,16 @@
 
   <fieldset>
     <legend>Licenses</legend>
-    <label for="party">3rd party software</label>
-    <input id="party" name="party" type="range" step="1000" placeholder="1000" min="0" max="50000"
-      oninput="syncPartySlider()" />
+    <label for="labor-hours" aria-describedby="labor-hours-tooltip">
+      Hours
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="labor-hours-tooltip">
+        Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)?
+      </div>
+    </label>
+    <input id="party" name="party" type="range" step="1000" placeholder="1000" min="0" max="50000"/>
     <output id="party-display">$1000.00</output>
-
-    <label for="ide">Development software</label>
-    <input id="ide" name="ide" type="range" step="1000" placeholder="1000" min="0" max="50000"
-      oninput="syncIdeSlider()" />
-    <output id="ide-display">$1000.00</output>
-    <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
+    <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span
   </fieldset>
 
   <fieldset>
