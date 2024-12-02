@@ -3,12 +3,10 @@
   position: absolute;
   padding: 2px;
   top: 2rem;
-  left: 2rem;
+  left: 1rem;
   color: var(--color-accent);
   background-color: var(--color-primary);
-  /* TODO : tooltip width */
-  width: calc-size(max-content, size / 2);
-  max-width: calc-size(max-content, size / 2);
+  inline-size: 15em;
   border-style: solid;
   border-width: 2px;
   border-color: black;
@@ -17,7 +15,7 @@
 [aria-describedby]:focus {
   position: relative;
 }
-[aria-describedby]:hover  [role="tooltip"],
-[aria-describedby]:focus  [role="tooltip"] {
+[aria-describedby]:hover [role="tooltip"],
+[aria-describedby]:focus [role="tooltip"] {
   visibility: visible;
 }
