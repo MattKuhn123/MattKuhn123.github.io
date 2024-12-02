@@ -1,7 +1,6 @@
 <script>
   localStorageKey = "time-estimate";
   hoursPerWeek = 40;
-  baseHourCoefficient = 1;
 
   function getRoles() { return Number(document.getElementById("r").value); }
   function getDuties() { return Number(document.getElementById("d").value); }
@@ -18,7 +17,7 @@
     const m = getMastery();
     const s = getSize();
 
-    const baseHours = baseHourCoefficient * (r * d);
+    const baseHours = (r * d);
     const masteryGap = (baseHours * (1 - m));
     const teamworkGap = (baseHours * (1 - t));
     const size = (baseHours * (s))
@@ -117,7 +116,7 @@
 </script>
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
-  <fieldset id="roles" class="space-children-100 flex-row-wrap">
+  <fieldset id="roles" class="flex-row-wrap">
     <legend aria-describedby="r-tip">
       Roles
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -129,7 +128,7 @@
     <input id="r" name="r" type="number" placeholder="3" />
     <input name="roles-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
-  <fieldset id="duties" class="space-children-100 flex-row-wrap">
+  <fieldset id="duties" class="flex-row-wrap">
     <legend aria-describedby="d-tip">
       Duties
       <button type="button" class="btn btn-accent btn-icon">?</button>
@@ -144,10 +143,10 @@
   </fieldset>
   <fieldset id="size">
     <legend aria-describedby="s-tip">
-      Size
+      Business unit size
       <button type="button" class="btn btn-accent btn-icon">?</button>
       <div role="tooltip" id="t-tip">
-        How big is the network (the business unit, supporting teams) that the application is for?
+        How big is the business unit that the application is for?
       </div>
     </legend>
     <div class="my-vertical-range">
@@ -174,11 +173,11 @@
       <input id="t" name="t" type="range" value="0.6" class="flex-column" list="t-values" min="0" max="1" step="0.2" />
       <datalist id="t-values">
         <option value="0.0" label="Developer works 100% remote."></option>
-        <option value="0.2" label="Client responds to emails weekly."></option>
-        <option value="0.4" label="Client responds to IMs daily."></option>
-        <option value="0.6" label="Client reaches out and asks for demos."></option>
-        <option value="0.8" label="Client also uses devops platform."></option>
-        <option value="1.0" label="Client is also developer."></option>
+        <option value="0.2" label="Developer/Client respond to emails weekly."></option>
+        <option value="0.4" label="Developer/Client respond to IMs daily."></option>
+        <option value="0.6" label="Developer/Client reach out to demo."></option>
+        <option value="0.8" label="Developer/Client primarily use the same work platform."></option>
+        <option value="1.0" label="Client is one of the developers."></option>
       </datalist>
     </div>
   </fieldset>
@@ -187,11 +186,11 @@
       Mastery
       <button type="button" class="btn btn-accent btn-icon">?</button>
       <div role="tooltip" id="m-tip">
-        How well have the developers mastered the system?
+        How well have your developers mastered the system? (If unknown or not applicable, set to '0').
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="m" name="m" type="range" value="0.6" class="flex-column" list="m-values" min="0" max="1" step="0.2" />
+      <input id="m" name="m" type="range" value="0.0" class="flex-column" list="m-values" min="0" max="1" step="0.2" />
       <datalist id="m-values">
         <option value="0.0" label="Devs cannot run application."></option>
         <option value="0.2" label="Devs familiar with stack."></option>
@@ -223,7 +222,33 @@
     </div>
   </fieldset>
   <fieldset id="estimate">
-    <legend class="txt-primary">Estimate</legend>
+    <legend aria-describedby="estimate-tip">
+      Estimate
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="estimate-tip">
+          For the above estimate, we used the following formula:
+          <pre>
+            <code>
+r = roles
+d = duties
+m = mastery
+t = teamwork
+s = business-unit-size
+u = uncertainty
+bHrs = (r * d)
+mGap = (bHrs * (1 - m))
+tGap = (bHrs * (1 - t))
+sAdd = (bHrs * (s))
+hrs = bHrs + mGap + tGap + sAdd
+
+estimate = hrs * 2
+hrRange = (1 - u) * estimate
+lowerHours = estimate - hrRange
+upperHours = estimate + hrRange
+            </code>
+          </pre>
+      </div>
+    </legend>
     <p><span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours</p>
     <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
   </fieldset>
