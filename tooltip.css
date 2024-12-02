@@ -1,5 +1,4 @@
-[role="tooltip"],
-.hide-tooltip.hide-tooltip.hide-tooltip + [role="tooltip"] {
+[role="tooltip"] {
   visibility: hidden;
   position: absolute;
   padding: 2px;
@@ -7,6 +6,9 @@
   left: 2rem;
   color: var(--color-accent);
   background-color: var(--color-primary);
+  /* TODO : tooltip width */
+  width: calc-size(max-content, size / 2);
+  max-width: calc-size(max-content, size / 2);
   border-style: solid;
   border-width: 2px;
   border-color: black;

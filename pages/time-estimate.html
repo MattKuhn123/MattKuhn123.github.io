@@ -115,27 +115,38 @@
 <form id="time-estimate-form" oninput="recalculate()">
   <h1 class="txt-primary">Time estimate</h1>
   <fieldset class="my-fieldset">
-    <legend>Roles <button type="button" class="btn btn-accent" popovertarget="r-tip">?</button></legend>
-    <label for="r" popover id="r-tip">
-      How many roles are involved in the system? (e.g, driver, lab tech, accountant).
-    </label>
+    <legend aria-describedby="r-tip">
+      Roles 
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="r-tip">
+        How many roles are involved in the system? (e.g, driver, lab tech, accountant).
+      </div>
+    </legend>
 
     <input id="r" name="r" type="number" placeholder="3" />
     <input name="roles-description" placeholder="description" maxlength="128" />
   </fieldset>
   <fieldset class="my-fieldset">
-    <legend>Duties <button type="button" class="btn btn-accent" popovertarget="d-tip">?</button></legend>
-    <label for="d" popover id="d-tip">
-      How many "things" is the system doing? (e.g, sending an email, extracting data from an image,
-      calculating a value...). This is just an estimate, but be an granular as possible.
-    </label>
+    <legend aria-describedby="d-tip">
+      Duties 
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="d-tip">
+        How many "things" is the system doing? (e.g, sending an email, extracting data from an image,
+        calculating a value...). This is just an estimate, but be an granular as possible.
+      </div>
+    </legend>
 
     <input id="d" name="d" type="number" placeholder="10" />
     <input name="duties-description" placeholder="description" maxlength="128" />
   </fieldset>
   <fieldset class="my-fieldset">
-    <legend>Certainty <button type="button" class="btn btn-accent" popovertarget="c-tip">?</button></legend>
-    <label for="c" popover id="c-tip">How much uncertainty is there in the project? (This is just a gut check).</label>
+    <legend aria-describedby="c-tip">
+      Certainty
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="c-tip">
+        How much uncertainty is there in the project? (This is just a gut check).
+      </div>
+    </legend>
     <div class="my-vertical-range">
       <input id="c" name="c" type="range" value="0.6" class="vertical" list="c-values" min="0" max="1" step="0.2" />
       <datalist id="c-values">
@@ -149,8 +160,13 @@
     </div>
   </fieldset>
   <fieldset class="my-fieldset">
-    <legend>Teamwork <button type="button" class="btn btn-accent" popovertarget="t-tip">?</button></legend>
-    <label for="t" popover id="t-tip">How effective is the teamwork between the developers and the client?</label>
+    <legend aria-describedby="t-tip">
+      Teamwork
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="t-tip">
+        How effective is the teamwork between the developers and the client?
+      </div>
+    </legend>
     <div class="my-vertical-range">
       <input id="t" name="t" type="range" value="0.6" class="vertical" list="t-values" min="0" max="1" step="0.2" />
       <datalist id="t-values">
@@ -164,8 +180,13 @@
     </div>
   </fieldset>
   <fieldset class="my-fieldset">
-    <legend>Mastery <button type="button" class="btn btn-accent" popovertarget="m-tip">?</button></legend>
-    <label for="m" popover id="m-tip">How well have the developers mastered the system?</label>
+    <legend aria-describedby="m-tip">
+      Mastery
+      <button type="button" class="btn btn-accent btn-icon" >?</button>
+      <div role="tooltip" id="m-tip">
+        How well have the developers mastered the system?
+      </div>
+    </legend>
     <div class="my-vertical-range">
       <input id="m" name="m" type="range" value="0.6" class="vertical" list="m-values" min="0" max="1" step="0.2" />
       <datalist id="m-values">
