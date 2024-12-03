@@ -9,7 +9,7 @@
   inline-size: 15em;
   border-style: solid;
   border-width: 2px;
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-100);
 }
 [aria-describedby]:hover,
 [aria-describedby]:focus {
