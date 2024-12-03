@@ -1,0 +1,15 @@
+.banner-left-accent {
+  background-image: linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent));
+}
+
+.banner-right-accent {
+  background-image: linear-gradient(to right, var(--color-accent-transparent) 20%,var(--color-accent));
+}
+
+.banner-left-primary {
+  background-image: linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-primary));
+}
+
+.banner-right-primary {
+  background-image: linear-gradient(to right, var(--color-accent-transparent) 20%,var(--color-primary));
+}
