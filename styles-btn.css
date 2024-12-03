@@ -6,6 +6,10 @@
   border-radius: 1px;
 }
 
+li a.btn {
+  padding: 0px;
+}
+
 .btn-icon {
   padding: 2px;
   border: none;

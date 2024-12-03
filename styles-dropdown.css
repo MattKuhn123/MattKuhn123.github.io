@@ -1,0 +1,32 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-accent);
+  width: max-content;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--color-primary);
+}
+
+.dropdown-content ul {
+  padding: 8px 12px;
+}
+
+.dropdown-content ul li {
+  list-style-type: none;
+}
+
+.dropdown-content ul li {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--color-primary);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

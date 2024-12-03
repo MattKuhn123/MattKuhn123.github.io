@@ -5,17 +5,18 @@
   <title>MattKuhn123</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./styles-tooltip.css">
-  <link rel="stylesheet" href="./styles-expansion-panel.css">
-  <link rel="stylesheet" href="./styles-table.css">
-  <link rel="stylesheet" href="./styles-txt.css">
   <link rel="stylesheet" href="./styles-btn.css">
-  <link rel="stylesheet" href="./styles-slider.css">
   <link rel="stylesheet" href="./styles-dialog.css">
-  <link rel="stylesheet" href="./styles-nav.css">
+  <link rel="stylesheet" href="./styles-dropdown.css">
+  <link rel="stylesheet" href="./styles-expansion-panel.css">
   <link rel="stylesheet" href="./styles-footer.css">
   <link rel="stylesheet" href="./styles-form.css">
+  <link rel="stylesheet" href="./styles-nav.css">
+  <link rel="stylesheet" href="./styles-slider.css">
+  <link rel="stylesheet" href="./styles-table.css">
+  <link rel="stylesheet" href="./styles-tooltip.css">
+  <link rel="stylesheet" href="./styles-txt.css">
+  <link rel="stylesheet" href="./styles.css">
   <script src="https://unpkg.com/htmx.org@2.0.3"
     integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
     crossorigin="anonymous"></script>
@@ -25,14 +26,17 @@
   <nav class="my-nav">
     <section>
       <a class="btn btn-primary" href="https://github.com/MattKuhn123">Github</a>
-      <select hx-get="" hx-target="main" hx-on::config-request="event.detail.path = this.value" aria-label="pages list"
-        hx-push-url="true" hx-params="{}" name="pages-list" class="btn btn-primary">
-        <option class="btn btn-accent" value="">(Choose)</option>
-        <option class="btn btn-accent" value="/pages/resume.html">Resume</option>
-        <option class="btn btn-accent" value="/pages/cost-benefit-analysis.html">Cost/Benefit</option>
-        <option class="btn btn-accent" value="/pages/time-estimate.html">Time estimate</option>
-        <option class="btn btn-accent" value="/pages/our-promise.html">Our promise</option>
-      </select>
+      <div class="dropdown">
+        <span>Articles</span>
+        <div class="dropdown-content">
+          <ul>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/resume.html" hx-target="main">Resume</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/cost-benefit-analysis.html" hx-target="main">Cost/Benefit</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/time-estimate.html" hx-target="main">Time estimate</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/our-promise.html" hx-target="main">Our promise</a></li>
+          </ul>
+        </div>
+      </div>
     </section>
     <span class="txt-primary">MattKuhn123</span>
   </nav>
@@ -42,6 +46,10 @@
   </main>
 
   <footer class="my-footer">
+    <ul>
+      <li>TEST</li>
+      <li>TEST2</li>
+    </ul>
     <span class="txt-primary">MattKuhn123</span>
   </footer>
 </body>
