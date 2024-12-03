@@ -19,6 +19,10 @@
   padding: 5px;
 }
 
+.txt-margin {
+  margin: 5px;
+}
+
 .txt-break {
   display: block;
   margin-top: 2px;

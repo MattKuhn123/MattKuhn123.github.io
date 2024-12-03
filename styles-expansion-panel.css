@@ -16,13 +16,14 @@ summary.expansion-panel {
 }
 
 .hand-shake {
-  background-image: linear-gradient(to left, rgba(255,255,255,0) 20%,rgba(255,255,255,1)),
+  background-image: 
+    linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),
     url('../images/hand-shake.jpg');
 }
 
 .hand-keyboard {
   background-image: 
-    linear-gradient(to left, rgba(255,255,255,0) 20%,rgba(255,255,255,1)),
+    linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),
     url('../images/hand-keyboard.jpg');
 }
 
