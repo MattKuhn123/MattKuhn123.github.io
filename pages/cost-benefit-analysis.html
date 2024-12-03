@@ -315,7 +315,7 @@
       Hours
       <button type="button" class="btn btn-accent btn-icon">?</button>
       <div role="tooltip" id="labor-hours-tooltip">
-        Hour many hours do we estimate? (calculator available <a href="./pages/time-estimate.html" target="_blank">here</a>)
+        Hour many hours do we estimate? (calculator available <a href="./pages/time-estimate.html" target="_blank">here</a>) 
       </div>
     </label>
     <input id="labor-hours" name="labor-hours" type="number" placeholder="40" />
@@ -324,9 +324,16 @@
 
   <fieldset class="my-fieldset">
     <legend>Infrastructure</legend>
-    <label for="web-server">Yearly infrastructure cost</label>
-    <input id="web-server" name="web-server" type="range" step="1000" placeholder="1000" min="0" max="50000"/>
-    <output id="web-server-display">$1000.00</output>
+    <label for="web-server" aria-describedby="infrastructure-tooltip">
+      Yearly infrastructure cost
+      <button type="button" class="btn btn-accent btn-icon">?</button>
+      <div role="tooltip" id="infrastructure-tooltip">
+        Do we need to scaffold any resources like web servers or web storage? If unknown or not applicable, leave at 0.
+      </div>
+    </label>
+    </label>
+    <input id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
+    <output id="web-server-display">0.00</output>
 
     <label for="development-server">Development environment</label>
     <input id="development-server" name="development-environment" type="checkbox" />
@@ -338,15 +345,15 @@
 
   <fieldset class="my-fieldset">
     <legend>Licenses</legend>
-    <label for="labor-hours" aria-describedby="labor-hours-tooltip">
+    <label for="licenses" aria-describedby="licenses-tooltip">
       Licenses
       <button type="button" class="btn btn-accent btn-icon">?</button>
-      <div role="tooltip" id="labor-hours-tooltip">
-        Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)?
+      <div role="tooltip" id="licenses-tooltip">
+        Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <input id="party" name="party" type="range" step="1000" placeholder="1000" min="0" max="50000"/>
-    <output id="party-display">$1000.00</output>
+    <input id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
+    <output id="party-display">$0.00</output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
   </fieldset>
 
