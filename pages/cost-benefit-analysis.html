@@ -4,8 +4,6 @@
     style: 'currency',
     currency: 'USD'
   });
-
-  weeksPerYear = 52;
   
   function getAccuracy() { return Number(document.getElementById("software-accuracy").value); }
   function getWebServer() { return Number(document.getElementById("web-server").value); }
@@ -28,6 +26,7 @@
   }
 
   function getSoftwareSavings() {
+    const weeksPerYear = 52;
     const staff = Number(document.getElementById("staff-count").value);
     const wage = Number(document.getElementById("staff-hourly-wage").value);
     const saved = Number(document.getElementById("staff-weekly-hours-saved").value);
