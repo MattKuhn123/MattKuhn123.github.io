@@ -1,38 +1,25 @@
 <script>
-  localStorageKey = "time-estimate";
-  hoursPerWeek = 40;
+  localStorageTimeEstimate = "time-estimate";
 
-  function getRoles() { return Number(document.getElementById("r").value); }
-  function getDuties() { return Number(document.getElementById("d").value); }
   function getCertainty() { return Number(document.getElementById("c").value); }
-  function getTeamwork() { return Number(document.getElementById("t").value); }
+  function getDuties() { return Number(document.getElementById("d").value); }
   function getMastery() { return Number(document.getElementById("m").value); }
+  function getRoles() { return Number(document.getElementById("r").value); }
   function getSize() { return Number(document.getElementById("s").value); }
+  function getTeamwork() { return Number(document.getElementById("t").value); }
 
   function recalculate() {
-    const r = getRoles();
+    const c = getCertainty();
     const d = getDuties();
-    const u = getCertainty();
-    const t = getTeamwork();
     const m = getMastery();
+    const r = getRoles();
     const s = getSize();
+    const t = getTeamwork();
+    const { upperHours, upperWeeks, lowerHours, lowerWeeks } = calculateTime(c, d, m, r, s, t);
 
-    const baseHours = (r * d);
-    const masteryGap = (baseHours * (1 - m));
-    const teamworkGap = (baseHours * (1 - t));
-    const size = (baseHours * (s))
-    const hours = baseHours + masteryGap + teamworkGap + size;
-
-    const estimate = Math.round(hours * 2);
-    const hourRange = Math.round((1 - u) * estimate);
-
-    const lowerHours = estimate - hourRange;
     document.getElementById("lower-hours").innerText = lowerHours;
-    const upperHours = estimate + hourRange;
     document.getElementById("upper-hours").innerText = upperHours;
-    const lowerWeeks = lowerHours / hoursPerWeek;
     document.getElementById("lower-weeks").innerText = lowerWeeks;
-    const upperWeeks = upperHours / hoursPerWeek;
     document.getElementById("upper-weeks").innerText = upperWeeks;
 
     updateDownloadLink();
@@ -57,12 +44,12 @@
 
   function onClickSave() {
     const report = getFormData();
-    localStorage.setItem(localStorageKey, JSON.stringify(report));
+    localStorage.setItem(localStorageTimeEstimate, JSON.stringify(report));
     document.getElementById("save-dialog").showModal();
   }
 
   function onClickLoad() {
-    const json = localStorage.getItem(localStorageKey);
+    const json = localStorage.getItem(localStorageTimeEstimate);
     if (!json) {
       return;
     }
@@ -93,7 +80,7 @@
       return;
     }
 
-    const result = await fetch("/data/" + localStorageKey + "/" + example);
+    const result = await fetch("/data/" + localStorageTimeEstimate + "/" + example);
     const report = await result.json();
     loadExample(report);
     document.getElementById("load-dialog").showModal();
@@ -229,12 +216,12 @@
           For the above estimate, we used the following formula:
           <pre>
             <code>
-r = roles
+c = certainty
 d = duties
 m = mastery
-t = teamwork
+r = roles
 s = business-unit-size
-u = uncertainty
+t = teamwork
 bHrs = (r * d)
 mGap = (bHrs * (1 - m))
 tGap = (bHrs * (1 - t))
@@ -242,7 +229,7 @@ sAdd = (bHrs * (s))
 hrs = bHrs + mGap + tGap + sAdd
 
 estimate = hrs * 2
-hrRange = (1 - u) * estimate
+hrRange = (1 - c) * estimate
 lowerHours = estimate - hrRange
 upperHours = estimate + hrRange
             </code>

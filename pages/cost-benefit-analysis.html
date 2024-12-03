@@ -1,5 +1,5 @@
 <script>
-  localStorageKey = "cost-benefit";
+  localStorageCostBenefit = "cost-benefit";
   currencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -63,10 +63,9 @@
   }
 
   function getLaborCost() {
-    const laborers = Number(document.getElementById("laborers").value);
-    const laborerWage = Number(document.getElementById("labor-wage").value);
+    const laborerWage = Number(document.getElementById("hourly-wage").value);
     const projectHours = Number(document.getElementById("labor-hours").value);
-    const laborCost = laborers * laborerWage * projectHours;
+    const laborCost = laborerWage * projectHours;
     return laborCost;
   }
 
@@ -138,12 +137,12 @@
 
   function onClickSave() {
     const report = getFormData();
-    localStorage.setItem(localStorageKey, JSON.stringify(report));
+    localStorage.setItem(localStorageCostBenefit, JSON.stringify(report));
     document.getElementById("save-dialog").showModal();
   }
 
   function onClickLoad() {
-    const json = localStorage.getItem(localStorageKey);
+    const json = localStorage.getItem(localStorageCostBenefit);
     if (!json) {
       return;
     }
@@ -168,16 +167,43 @@
     reader.readAsText(file);
   }
 
+  function onUploadHoursEstimate(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const fileContent = e.target.result;
+      const est = JSON.parse(fileContent);
+      const { upperHours, upperWeeks, lowerHours, lowerWeeks } = calculateTime(est.c, est.d, est.m, est.r, est.s, est.t);
+      const avg = (upperHours + lowerHours) / 2;
+      document.getElementById("labor-hours").value = avg;
+
+      document.getElementById("load-dialog").showModal();
+      document.getElementById("uLoad-btn").value = null;
+    };
+
+    reader.readAsText(file);
+  }
+
   async function onChangeExample() {
     const example = document.getElementById("examples").value;
     if (!example) {
       return;
     }
 
-    const result = await fetch("/data/"+ localStorageKey + "/" + example);
+    const result = await fetch("/data/"+ localStorageCostBenefit + "/" + example);
     const report = await result.json();
     loadExample(report);
     document.getElementById("load-dialog").showModal();
+  }
+
+  function updateHourlyRate() {
+    fetch("/data/cost-benefit/hourly-rate.json").then(function(result) {
+      result.json().then(function(json) {
+        const hourlyRate =  Number(json.hourlyRate);
+        document.getElementById("hourly-wage").value = hourlyRate;
+        recalculate();
+      });
+    });
   }
 
   function loadExample(report) {
@@ -292,24 +318,14 @@
   <h2 class="txt-primary">Cost</h2>
 
   <fieldset class="my-fieldset">
-    <legend>Labor</legend>
-    <label for="laborers" aria-describedby="laborers-tooltip">
-      Team
-      <button type="button" class="btn btn-accent btn-icon">?</button>
-      <div role="tooltip" id="laborers-tooltip">
-        How many team members will be involved? Developers, QA, analysts, etc.
-      </div>
-    </label>
-    <input id="laborers" name="laborers" type="number" placeholder="1" />
-
-    <label for="labor-wage" aria-describedby="labor-wage-tooltip">
+    <label for="hourly-wage" aria-describedby="hourly-wage-tooltip">
       Hourly rate
       <button type="button" class="btn btn-accent btn-icon">?</button>
-      <div role="tooltip" id="labor-wage-tooltip">
+      <div role="tooltip" id="hourly-wage-tooltip">
         Our estimated average hourly rate.
       </div>
     </label>
-    <input readonly id="labor-wage" name="labor-wage" type="number" value="50" />
+    <input readonly id="hourly-wage" name="hourly-wage" type="number" value="0" />
 
     <label for="labor-hours" aria-describedby="labor-hours-tooltip">
       Hours
@@ -318,7 +334,11 @@
         Hour many hours do we estimate? (calculator available <a href="./pages/time-estimate.html" target="_blank">here</a>) 
       </div>
     </label>
+    
     <input id="labor-hours" name="labor-hours" type="number" placeholder="40" />
+    <button class="btn btn-primary" type="button" onclick="document.getElementById('estULoad-btn').click()">Upload estimate</button>
+    <input style="display: none;" id="estULoad-btn" type="file" onchange="onUploadHoursEstimate(event)" />
+
     <span class="txt-padding txt-break">Estimate: <span id="staff-cost">$0.00</span></span>
   </fieldset>
 
@@ -359,9 +379,11 @@
 
   <fieldset class="my-fieldset">
     <legend class="txt-primary">Net</legend>
-    <p>Benefit: <span id="benefit-amount" class="txt-primary"></span>
-    Cost: <span id="cost-amount" class="txt-warn"></span>
-    Net: <span id="net-amount" class=""></span></p>
+    <p>
+      Benefit: <span id="benefit-amount" class="txt-primary"></span>
+      Cost: <span id="cost-amount" class="txt-warn"></span>
+      Net: <span id="net-amount" class=""></span>
+    </p>
   </fieldset>
 
   <fieldset class="my-fieldset" class="my-fieldset flex-row-wrap">
@@ -407,6 +429,7 @@
 </form>
 
 <script>
+  updateHourlyRate();
   recalculate();
 
   window.onload = function(e) {
