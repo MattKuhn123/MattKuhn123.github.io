@@ -1,13 +1,17 @@
 :root {
-    --color-primary: mediumaquamarine;
-    --color-accent: white;
-    --color-accent-100: whitesmoke;
-    --color-warn: firebrick;
+  color-scheme: light dark;
+
+  --color-primary: light-dark(mediumaquamarine, mediumaquamarine);
+  --color-accent: light-dark(white, black);
+  --color-accent-100: whitesmoke;
+  --color-warn: firebrick;
 }
 
-body, select, textarea {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--color-accent);
+body,
+select,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-accent);
 }
 
 ::selection {
@@ -16,17 +20,17 @@ body, select, textarea {
 }
 
 @media (orientation: landscape) {
-    body {
-        max-width: 80vw;
-        margin-right: auto;
-        margin-left: auto;
-    }
+  body {
+    max-width: 80vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 @media (orientation: portrait) {
-    body {
-        max-width: 90vw;
-        margin-right: auto;
-        margin-left: auto;
-    }
+  body {
+    max-width: 90vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
