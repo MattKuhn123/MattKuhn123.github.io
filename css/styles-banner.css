@@ -1,3 +1,7 @@
+.banner {
+  padding: 1rem;
+}
+
 .banner-left-accent {
   background-image: linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent));
 }
