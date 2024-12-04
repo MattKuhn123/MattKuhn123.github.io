@@ -13,6 +13,16 @@ input:read-only {
   font-style: italic;
 }
 
+input,
+textarea {
+  padding: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline-color: var(--color-primary);
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
