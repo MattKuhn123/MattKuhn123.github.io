@@ -15,7 +15,7 @@ input:read-only {
 
 input,
 textarea {
-  padding: 2px;
+  padding: 5px;
 }
 
 input:focus-visible,
