@@ -1,3 +1,4 @@
+/* TODO : Checkbox and range are ugly */
 input.my-input:not([type="image" i], [type="radio" i], [type="button" i]) {
   display: block;
   box-sizing: border-box;
