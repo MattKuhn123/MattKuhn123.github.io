@@ -1,9 +1,25 @@
 :root {
+  /* START INPUT */
+  --color-primary-light: mediumaquamarine;
+  --color-accent-light: white;
+  --color-warn-light: indianred;
+  
+  --color-primary-dark: mediumaquamarine;
+  --color-accent-dark: black;
+  --color-warn-dark: firebrick;
+  /* END INPUT */
+  
+  /* NO NEED TO MODIFY VALUES BELOW */
   color-scheme: light dark;
 
-  --color-primary: light-dark(mediumaquamarine, mediumaquamarine);
-  --color-accent: light-dark(white, black);
-  --color-accent-transparent: light-dark(rgba(255,255,255,0), rgba(0,0,0,0));
-  --color-accent-100: light-dark(whitesmoke, dimgrey);
-  --color-warn: firebrick;
+  --color-accent-light-100: hsl(from var(--color-accent-light) h s calc(l - 5));
+  --color-accent-dark-100: hsl(from var(--color-accent-dark) h s calc(l + 15));
+  --color-accent-light-transparent: rgb(from var(--color-accent-light) r g b / 0);
+  --color-accent-dark-transparent: rgb(from var(--color-accent-dark) r g b / 0);
+
+  --color-primary: light-dark(var(--color-primary-light), var(--color-primary-dark));
+  --color-accent: light-dark(var(--color-accent-light), var(--color-accent-dark));
+  --color-accent-transparent: light-dark(var(--color-accent-light-transparent), var(--color-accent-dark-transparent));
+  --color-accent-100: light-dark(var(--color-accent-light-100), var(--color-accent-dark-100));
+  --color-warn: light-dark(var(--color-warn-light), var(--color-warn-dark));
 }
