@@ -23,6 +23,6 @@ li a.btn {
 
 .btn-accent {
   color: var(--color-primary);
-  background-color: var(--color-accent-100);
+  background-color: var(--color-accent);
   border-color: var(--color-primary);
 }
