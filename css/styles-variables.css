@@ -1,0 +1,9 @@
+:root {
+  color-scheme: light dark;
+
+  --color-primary: light-dark(mediumaquamarine, mediumaquamarine);
+  --color-accent: light-dark(white, black);
+  --color-accent-transparent: light-dark(rgba(255,255,255,0), rgba(0,0,0,0));
+  --color-accent-100: light-dark(whitesmoke, dimgrey);
+  --color-warn: firebrick;
+}

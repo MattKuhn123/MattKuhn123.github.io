@@ -1,0 +1,27 @@
+body,
+select,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-accent);
+}
+
+::selection {
+  color: var(--color-accent);
+  background-color: var(--color-primary);
+}
+
+@media (orientation: landscape) {
+  body {
+    max-width: 80vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    max-width: 90vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
