@@ -1,26 +1,31 @@
-@media (orientation: portrait) {
-  input:not([type="image" i], [type="range" i], [type="radio" i], [type="button" i]) {
-    display: block;
-  }
+input.my-input:not([type="image" i], [type="radio" i], [type="button" i]) {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .space-children-100 * {
   margin: 5px;
 }
 
-input:read-only {
+input.my-input:read-only {
   color: gray;
   font-style: italic;
 }
 
-input,
-textarea {
+input.my-input,
+textarea.my-input {
+  margin: 5px 0px 10px 0px;
   padding: 5px;
+  border-style: solid;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-fade-10);
 }
 
-input:focus-visible,
-textarea:focus-visible {
-  outline-color: var(--color-primary);
+input.my-input:focus-visible,
+textarea.my-input:focus-visible {
+  outline: unset;
+  box-shadow: 0px 5px 5px var(--color-primary);
 }
 
 .flex-column {
@@ -40,4 +45,8 @@ textarea:focus-visible {
 
 .my-fieldset {
   margin: 10px 0px 10px 0px;
+  border-style: solid;
+  border-color: var(--color-primary);
+  border-radius: 5px;
+  box-shadow: 0px 5px 5px var(--color-primary);
 }

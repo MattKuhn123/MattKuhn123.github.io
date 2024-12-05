@@ -12,12 +12,24 @@
   /* NO NEED TO MODIFY VALUES BELOW */
   color-scheme: light dark;
 
+  --color-primary-light-fade-20: hsl(from var(--color-primary-light) h s l / .2);
+  --color-primary-dark-fade-20: hsl(from var(--color-primary-dark) h s l / .2);
+
+  --color-primary-light-fade-10: hsl(from var(--color-primary-light) h s l / .1);
+  --color-primary-dark-fade-10: hsl(from var(--color-primary-dark) h s l / .1);
+
+  --color-primary-light-fade-00: hsl(from var(--color-primary-light) h s l / 0);
+  --color-primary-dark-fade-00: hsl(from var(--color-primary-dark) h s l / 0);
+
   --color-accent-light-100: hsl(from var(--color-accent-light) h s calc(l - 5));
   --color-accent-dark-100: hsl(from var(--color-accent-dark) h s calc(l + 15));
   --color-accent-light-transparent: rgb(from var(--color-accent-light) r g b / 0);
   --color-accent-dark-transparent: rgb(from var(--color-accent-dark) r g b / 0);
 
   --color-primary: light-dark(var(--color-primary-light), var(--color-primary-dark));
+  --color-primary-fade-20: light-dark(var(--color-primary-light-fade-20), var(--color-primary-dark-fade-20));
+  --color-primary-fade-10: light-dark(var(--color-primary-light-fade-10), var(--color-primary-dark-fade-10));
+  --color-primary-fade-00: light-dark(var(--color-primary-light-fade-00), var(--color-primary-dark-fade-00));
   --color-accent: light-dark(var(--color-accent-light), var(--color-accent-dark));
   --color-accent-transparent: light-dark(var(--color-accent-light-transparent), var(--color-accent-dark-transparent));
   --color-accent-100: light-dark(var(--color-accent-light-100), var(--color-accent-dark-100));

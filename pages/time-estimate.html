@@ -112,8 +112,8 @@
       </div>
     </legend>
 
-    <input id="r" name="r" type="number" placeholder="3" />
-    <input name="roles-description" placeholder="description" maxlength="128" class="fill-space" />
+    <input class="my-input" id="r" name="r" type="number" placeholder="3" />
+    <input class="my-input" name="roles-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
   <fieldset class="my-fieldset" id="duties" class="flex-row-wrap">
     <legend aria-describedby="d-tip">
@@ -125,8 +125,8 @@
       </div>
     </legend>
 
-    <input id="d" name="d" type="number" placeholder="10" />
-    <input name="duties-description" placeholder="description" maxlength="128" class="fill-space" />
+    <input class="my-input" id="d" name="d" type="number" placeholder="10" />
+    <input class="my-input" name="duties-description" placeholder="description" maxlength="128" class="fill-space" />
   </fieldset>
   <fieldset class="my-fieldset" id="size">
     <legend aria-describedby="s-tip">
@@ -137,7 +137,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="s" name="s" type="range" value="0.6" class="flex-column" list="s-values" min="0" max="1" step="0.2" />
+      <input class="my-input" id="s" name="s" type="range" value="0.6" class="flex-column" list="s-values" min="0" max="1" step="0.2" />
       <datalist id="s-values">
         <option value="0.0" label="One person."></option>
         <option value="0.2" label="Small company (0-20 people)."></option>
@@ -157,7 +157,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="t" name="t" type="range" value="0.6" class="flex-column" list="t-values" min="0" max="1" step="0.2" />
+      <input class="my-input" id="t" name="t" type="range" value="0.6" class="flex-column" list="t-values" min="0" max="1" step="0.2" />
       <datalist id="t-values">
         <option value="0.0" label="Developer works 100% remote."></option>
         <option value="0.2" label="Developer/Client email weekly."></option>
@@ -177,7 +177,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="m" name="m" type="range" value="0.0" class="flex-column" list="m-values" min="0" max="1" step="0.2" />
+      <input class="my-input" id="m" name="m" type="range" value="0.0" class="flex-column" list="m-values" min="0" max="1" step="0.2" />
       <datalist id="m-values">
         <option value="0.0" label="Devs cannot run application."></option>
         <option value="0.2" label="Devs familiar with stack."></option>
@@ -197,7 +197,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input id="c" name="c" type="range" value="0.6" class="flex-column" list="c-values" min="0" max="1" step="0.2" />
+      <input class="my-input" id="c" name="c" type="range" value="0.6" class="flex-column" list="c-values" min="0" max="1" step="0.2" />
       <datalist id="c-values">
         <option value="0.0" label="Project is uncharted territory."></option>
         <option value="0.2" label="Project is experimental."></option>
@@ -243,8 +243,8 @@ upperHours = estimate + hrRange
   <fieldset class="my-fieldset" class="flex-row-wrap">
     <legend>Save and load report</legend>
     <section class="space-children-100 flex-column">
-      <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-      <textarea name="report-description" placeholder="description" minlength="10" maxlength="128"></textarea>
+      <input class="my-input" name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+      <textarea class="my-input" name="report-description" placeholder="description" minlength="10" maxlength="128"></textarea>
     </section>
     <section class="space-children-100">
       <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
@@ -256,7 +256,7 @@ upperHours = estimate + hrRange
       <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
       <button class="btn btn-accent" type="button"
         onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-      <input style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
+      <input class="my-input" style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
     </section>
     <section class="space-children-100">
       <label for="examples">Examples</label>

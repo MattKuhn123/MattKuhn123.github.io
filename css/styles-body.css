@@ -1,8 +1,6 @@
-body,
-select,
-textarea {
+body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--color-accent);
+  background-image: linear-gradient(to top left, var(--color-primary-fade-20) 02%, var(--color-primary-fade-00));
 }
 
 ::selection {

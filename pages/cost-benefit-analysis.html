@@ -244,10 +244,10 @@
   <fieldset class="my-fieldset">
     <legend>Cut staffing cost by optimizing processes</legend>
     <label for="staff-count">Staff</label>
-    <input id="staff-count" name="staff-count" type="number" placeholder="100" />
+    <input class="my-input" id="staff-count" name="staff-count" type="number" placeholder="100" />
 
     <label for="staff-hourly-wage">Wage</label>
-    <input id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" />
+    <input class="my-input" id="staff-hourly-wage" name="staff-hourly-wage" type="number" placeholder="25.00" />
 
     <label for="staff-weekly-hours-saved" aria-describedby="hours-saved-tooltip">
       Hours saved weekly
@@ -256,7 +256,7 @@
         How many hours per week can the software save an individual member of the staff?
       </div>
     </label>
-    <input id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
+    <input class="my-input" id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number" placeholder="2" />
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
   </fieldset>
 
@@ -269,7 +269,7 @@
         What is your possible profit with this software?
       </div>
     </label>
-    <input id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
+    <input class="my-input" id="profit-opportunity" name="profit-opportunity" type="number" placeholder="10000" />
 
     <label for="profit-opportunity-yearly" aria-describedby="profit-opportunity-yearly-tooltip">
       Yearly opportunities
@@ -278,7 +278,7 @@
         How many times per year does this opportunity arise?
       </div>
     </label>
-    <input id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
+    <input class="my-input" id="profit-opportunity-yearly" name="profit-opportunity-yearly" type="number" placeholder="2" />
 
     <label for="software-accuracy" aria-describedby="software-accuracy-tooltip">
       Estimated software accuracy
@@ -287,7 +287,7 @@
         What is the likelihood the software will forecast correctly or attract business as anticipated?
       </div>
     </label>
-    <input id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
+    <input class="my-input" id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
     <output id="software-accuracy-display">50%</output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
   </fieldset>
@@ -301,7 +301,7 @@
         What is the fine for not complying with this regulation?
       </div>
     </label>
-    <input id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
+    <input class="my-input" id="fine-opportunity" name="fine-opportunity" type="number" placeholder="10000" />
 
     <label for="fine-opportunity-yearly" aria-describedby="fine-opportunity-yearly-tooltip">
       Yearly opportunities
@@ -310,7 +310,7 @@
         How many times per year can this fine apply?
       </div>
     </label>
-    <input id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
+    <input class="my-input" id="fine-opportunity-yearly" name="fine-opportunity-yearly" type="number" placeholder="2" />
     <span class="txt-padding txt-break">Yearly estimate: <span id="regulatory-compliance">$0.00</span></span>
   </fieldset>
 
@@ -324,7 +324,7 @@
         Our estimated average hourly rate.
       </div>
     </label>
-    <input readonly id="hourly-wage" name="hourly-wage" type="number" value="0" />
+    <input class="my-input" readonly id="hourly-wage" name="hourly-wage" type="number" value="0" />
 
     <label for="labor-hours" aria-describedby="labor-hours-tooltip">
       Hours
@@ -334,9 +334,9 @@
       </div>
     </label>
     
-    <input id="labor-hours" name="labor-hours" type="number" placeholder="40" />
+    <input class="my-input" id="labor-hours" name="labor-hours" type="number" placeholder="40" />
     <button class="btn btn-primary" type="button" onclick="document.getElementById('estULoad-btn').click()">Upload estimate</button>
-    <input style="display: none;" id="estULoad-btn" type="file" onchange="onUploadHoursEstimate(event)" />
+    <input class="my-input" style="display: none;" id="estULoad-btn" type="file" onchange="onUploadHoursEstimate(event)" />
 
     <span class="txt-padding txt-break">Estimate: <span id="staff-cost">$0.00</span></span>
   </fieldset>
@@ -351,14 +351,14 @@
       </div>
     </label>
     </label>
-    <input id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
+    <input class="my-input" id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
     <output id="web-server-display">0.00</output>
 
     <label for="development-server">Development environment</label>
-    <input id="development-server" name="development-environment" type="checkbox" />
+    <input class="my-input" id="development-server" name="development-environment" type="checkbox" />
 
     <label for="test-server">Test environment</label>
-    <input id="test-server" name="test-environment" type="checkbox" />
+    <input class="my-input" id="test-server" name="test-environment" type="checkbox" />
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>
 
@@ -371,7 +371,7 @@
         Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <input id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
+    <input class="my-input" id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
     <output id="party-display">$0.00</output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
   </fieldset>
@@ -388,8 +388,8 @@
   <fieldset class="my-fieldset" class="my-fieldset flex-row-wrap">
     <legend>Save and load report</legend>
     <section class="space-children-100 flex-column">
-      <input name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-      <textarea name="report-description" placeholder="description" required minlength="10" maxlength="128"></textarea>
+      <input class="my-input" name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+      <textarea class="my-input" name="report-description" placeholder="description" required minlength="10" maxlength="128"></textarea>
     </section>
     <section class="space-children-100">
       <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
@@ -399,7 +399,7 @@
     <section class="space-children-100">
       <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
       <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-      <input style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
+      <input class="my-input" style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
     </section>
     <section class="space-children-100">
       <label for="examples">Examples</label>
