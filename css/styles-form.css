@@ -1,3 +1,4 @@
+textarea,
 input.my-input:not([type="image" i], [type="radio" i], [type="button" i], [type="checkbox" i]) {
   display: block;
   box-sizing: border-box;
