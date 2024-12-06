@@ -1,12 +1,12 @@
 {
-  "c": "0.4",
+  "r": "5",
+  "roles-description": "Applicant, Co-Owners, NR staff",
   "d": "10",
   "duties-description": "Work flow, lock-state, timing",
-  "m": "0.8",
-  "r": "3",
-  "report-description": "Delay timer start until after data validated.",
-  "report-name": "sla-buffer",
-  "roles-description": "Applicant, Co-Owners, NR staff",
   "s": "1",
-  "t": "0.2"
+  "t": "0.2",
+  "m": "0.8",
+  "c": "0.4",
+  "report-name": "sla-buffer",
+  "report-description": "Delay timer start until after data validated."
 }

@@ -393,40 +393,40 @@
       Net: <span id="net-amount" class=""></span>
     </p>
   </fieldset>
+  
+  <button class="btn btn-primary fixed-save-btn" type="button" onclick="openReportDialog()">
+  </button>
+  
+  <dialog id="report-dialog" class="my-dialog">
+    <button type="button" class="x btn btn-accent" onclick="closeReportDialog()">
+      X
+    </button>
+    <h3 class="txt-primary banner">Save and load report</h3>
+    <section class="space-children-100 banner">
+      <input class="my-input" name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+      <textarea class="my-input" name="report-description" placeholder="description" required minlength="10" maxlength="128"></textarea>
+    </section>
+    <section class="space-children-100 banner">
+      <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
+      <a style="display: none;" id="dLoad-btn" href="" download="cost-benefit-report.json"></a>
+      <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
+      <input class="my-input" style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
+      <span id="report-action-result"> </span>
+    </section>
+    <details class="space-children-100">
+      <summary class="txt-primary">Examples</summary>
+      <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
+        <option value="">(Choose)</option>
+        <option value="permitting-web-app.json">Permitting web app</option>
+        <option value="cms-web-app.json">CMS web app</option>
+        <option value="erp-desktop-app.json">ERP desktop app</option>
+      </select>
+    </details>
+  </dialog>
 </form>
 
-<button class="btn btn-primary fixed-save-btn" type="button" onclick="openReportDialog()">
-</button>
-
-<dialog id="report-dialog" class="my-dialog">
-  <button type="button" class="x btn btn-accent" onclick="closeReportDialog()">
-    X
-  </button>
-  <h3 class="txt-primary banner">Save and load report</h3>
-  <section class="space-children-100 banner">
-    <input class="my-input" name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-    <textarea class="my-input" name="report-description" placeholder="description" required minlength="10" maxlength="128"></textarea>
-  </section>
-  <section class="space-children-100 banner">
-    <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
-    <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
-    <a style="display: none;" id="dLoad-btn" href="" download="cost-benefit-report.json"></a>
-    <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
-    <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-    <input class="my-input" style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
-    <span id="report-action-result"> </span>
-  </section>
-  <details class="space-children-100">
-    <summary class="txt-primary">Examples</summary>
-    <label for="examples">Examples</label>
-    <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
-      <option value="">(Choose)</option>
-      <option value="permitting-web-app.json">Permitting web app</option>
-      <option value="cms-web-app.json">CMS web app</option>
-      <option value="erp-desktop-app.json">ERP desktop app</option>
-    </select>
-  </details>
-</dialog>
 
 <script>
   updateHourlyRate();
