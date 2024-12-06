@@ -1,19 +1,9 @@
 .banner {
-  padding: 1rem;
-}
-
-.banner-left-accent {
-  background-image: linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent));
-}
-
-.banner-right-accent {
-  background-image: linear-gradient(to right, var(--color-accent-transparent) 20%,var(--color-accent));
-}
-
-.banner-left-primary {
-  background-image: linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-primary));
-}
-
-.banner-right-primary {
-  background-image: linear-gradient(to right, var(--color-accent-transparent) 20%,var(--color-primary));
+  border: 3px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(to left, var(--color-primary-fade-00) 20%,var(--color-primary));
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
 }
