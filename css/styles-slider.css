@@ -9,6 +9,8 @@ input[type="range"] {
 .my-vertical-range input[type="range"] {
   writing-mode: vertical-lr;
   width: unset; /* Do not want width to be 100%, want to use default value */
+  margin: initial;
+  padding: initial;
 }
 
 .my-vertical-range datalist {
