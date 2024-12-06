@@ -20,13 +20,13 @@ textarea.my-input {
   padding: 5px;
   border-style: solid;
   border-color: var(--color-primary);
-  background-color: var(--color-primary-fade-10);
 }
 
 input.my-input:focus-visible,
 textarea.my-input:focus-visible {
   outline: unset;
   box-shadow: 0px 2px 2px var(--color-primary);
+  background-color: var(--color-primary-fade-10);
 }
 
 .flex-column {
