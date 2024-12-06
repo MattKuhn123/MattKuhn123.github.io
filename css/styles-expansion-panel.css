@@ -1,18 +1,25 @@
+details.expansion-panel summary + div {
+  padding: 5px;
+}
+
 details.expansion-panel {
   border: 1px solid #aaa;
   border-radius: 4px;
-  padding: 0.5em 0.5em 0;
 }
 
-summary.expansion-panel {
+details.expansion-panel summary {
   height: 18vmax;
-  margin: -0.5em -0.5em 0;
-  padding: 0.5em;
   background-size: cover;
   background-position: center;
   background-clip: content-box;
   display: flex;
   align-items: flex-end;
+
+  transition: margin 150ms ease-out;
+}
+
+details[open].expansion-panel summary {
+  margin-bottom: 10px;
 }
 
 .hand-shake {
@@ -25,13 +32,4 @@ summary.expansion-panel {
   background-image: 
     linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),
     url('../images/hand-keyboard.jpg');
-}
-
-details.expansion-panel[open] {
-  padding: 0.5em;
-}
-
-details.expansion-panel[open] summary.expansion-panel {
-  border-bottom: 1px solid #aaa;
-  margin-bottom: 0.5em;
 }
