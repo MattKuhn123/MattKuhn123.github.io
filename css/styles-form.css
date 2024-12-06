@@ -49,5 +49,5 @@ textarea.my-input:focus-visible {
   border-style: solid;
   border-color: var(--color-primary);
   border-radius: 5px;
-  box-shadow: 0px 5px 5px var(--color-primary);
+  box-shadow: 0px 2px 5px var(--color-primary);
 }
