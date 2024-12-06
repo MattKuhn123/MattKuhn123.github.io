@@ -51,3 +51,9 @@ textarea.my-input:focus-visible {
   border-radius: 5px;
   box-shadow: 0px 1px 1px var(--color-primary);
 }
+
+.sticky-bottom {
+  position: sticky;
+  bottom: 0px;
+  background-color: var(--color-accent);
+}

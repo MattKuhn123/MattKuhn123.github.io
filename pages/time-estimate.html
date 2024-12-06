@@ -222,36 +222,12 @@
     </div>
   </fieldset>
 
-  <fieldset class="my-fieldset" id="estimate">
-    <legend aria-describedby="estimate-tip">
-      Estimate
-      <button type="button" class="btn btn-accent btn-icon">?</button>
-      <div role="tooltip" id="estimate-tip">
-          For the above estimate, we used the following formula:
-          <pre>
-            <code>
-c = certainty
-d = duties
-m = mastery
-r = roles
-s = business-unit-size
-t = teamwork
-bHrs = (r * d)
-mGap = (bHrs * (1 - m))
-tGap = (bHrs * (1 - t))
-sAdd = (bHrs * (s))
-hrs = bHrs + mGap + tGap + sAdd
-
-estimate = hrs * 2
-hrRange = (1 - c) * estimate
-lowerHours = estimate - hrRange
-upperHours = estimate + hrRange
-            </code>
-          </pre>
-      </div>
-    </legend>
-    <p><span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours</p>
-    <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
+  <fieldset class="my-fieldset sticky-bottom" id="estimate">
+    <h3 class="txt-primary banner">Estimate</h3>
+    <p>
+      <span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours
+      <span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks
+    </p>
   </fieldset>
   
   <button class="btn btn-primary fixed-save-btn" type="button" onclick="openReportDialog()">
