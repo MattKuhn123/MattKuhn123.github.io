@@ -253,40 +253,40 @@ upperHours = estimate + hrRange
     <p><span id="lower-hours">0</span> - <span id="upper-hours">0</span> hours</p>
     <p><span id="lower-weeks">0</span> - <span id="upper-weeks">0</span> weeks</p>
   </fieldset>
-
-  <button class="btn btn-primary fixed-save-btn" type="button" onclick="openReportDialog()">
-  </button>
-
-  <dialog id="report-dialog" class="my-dialog">
-    <button type="button" class="x btn btn-accent" onclick="closeReportDialog()">
-      X
-    </button>
-    <h3 class="txt-primary banner">Save and load report</h3>
-    <section class="space-children-100 flex-column banner">
-      <input class="my-input" name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
-      <textarea class="my-input" name="report-description" placeholder="description" minlength="10" maxlength="128"></textarea>
-    </section>
-    <section class="space-children-100 banner">
-      <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
-      <button class="btn btn-accent" type="button"
-        onclick="document.getElementById('dLoad-btn').click()">Download</button>
-      <a style="display: none;" id="dLoad-btn" href="" download="time-estimate-report.json"></a>
-      <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
-      <button class="btn btn-accent" type="button"
-        onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-      <input class="my-input" style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
-      <span id="report-action-result"> </span>
-    </section>
-    <details class="space-children-100">
-      <summary>Examples</summary>
-      <label for="examples">Examples</label>
-      <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
-        <option value="">(Choose)</option>
-        <option value="sla-buffer.json">SLA Buffer</option>
-      </select>
-    </details>
-  </dialog>
 </form>
+
+<button class="btn btn-primary fixed-save-btn" type="button" onclick="openReportDialog()">
+</button>
+
+<dialog id="report-dialog" class="my-dialog">
+  <button type="button" class="x btn btn-accent" onclick="closeReportDialog()">
+    X
+  </button>
+  <h3 class="txt-primary banner">Save and load report</h3>
+  <section class="space-children-100 flex-column banner">
+    <input class="my-input" name="report-name" type="text" placeholder="my-report-name" required minlength="3" maxlength="20" />
+    <textarea class="my-input" name="report-description" placeholder="description" minlength="10" maxlength="128"></textarea>
+  </section>
+  <section class="space-children-100 banner">
+    <button class="btn btn-primary" type="button" onclick="onClickSave()">Quick save</button>
+    <button class="btn btn-accent" type="button"
+      onclick="document.getElementById('dLoad-btn').click()">Download</button>
+    <a style="display: none;" id="dLoad-btn" href="" download="time-estimate-report.json"></a>
+    <button class="btn btn-primary" type="button" onclick="onClickLoad()">Quick load</button>
+    <button class="btn btn-accent" type="button"
+      onclick="document.getElementById('uLoad-btn').click()">Upload</button>
+    <input class="my-input" style="display: none;" id="uLoad-btn" type="file" onchange="onUpload(event)" />
+    <span id="report-action-result"> </span>
+  </section>
+  <details class="space-children-100">
+    <summary>Examples</summary>
+    <label for="examples">Examples</label>
+    <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
+      <option value="">(Choose)</option>
+      <option value="sla-buffer.json">SLA Buffer</option>
+    </select>
+  </details>
+</dialog>
 
 <script>
   window.onload = function (e) {
