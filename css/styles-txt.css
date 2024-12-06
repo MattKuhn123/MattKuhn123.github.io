@@ -28,3 +28,7 @@
   margin-top: 2px;
   margin-bottom: 2px;
 }
+
+.txt-font-accent {
+  font-family: var(--font-accent);
+}
