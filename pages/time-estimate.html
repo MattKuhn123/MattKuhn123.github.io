@@ -80,7 +80,7 @@
       return;
     }
 
-    const result = await fetch("/data/" + localStorageTimeEstimate + "/" + example);
+    const result = await fetch(example);
     const report = await result.json();
     loadExample(report);
     document.getElementById("report-action-result").innerText = "Report loaded!"
@@ -257,7 +257,7 @@
       <summary class="txt-primary">Examples</summary>
       <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
         <option value="">(Choose)</option>
-        <option value="sla-buffer.json">SLA Buffer</option>
+        <option value="/data/time-estimate/sla-buffer.json">SLA Buffer</option>
       </select>
     </details>
   </dialog>

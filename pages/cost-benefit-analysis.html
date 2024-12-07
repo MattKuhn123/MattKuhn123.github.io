@@ -189,7 +189,7 @@
       return;
     }
 
-    const result = await fetch("/data/"+ localStorageCostBenefit + "/" + example);
+    const result = await fetch(example);
     const report = await result.json();
     loadExample(report);
     document.getElementById("report-action-result").innerText = "Report loaded!"
@@ -419,9 +419,9 @@
       <summary class="txt-primary">Examples</summary>
       <select id="examples" aria-label="examples" onchange="onChangeExample()" class="btn btn-primary">
         <option value="">(Choose)</option>
-        <option value="permitting-web-app.json">Permitting web app</option>
-        <option value="cms-web-app.json">CMS web app</option>
-        <option value="erp-desktop-app.json">ERP desktop app</option>
+        <option value="/data/cost-benefit/permitting-web-app.json">Permitting web app</option>
+        <option value="/data/cost-benefit/cms-web-app.json">CMS web app</option>
+        <option value="/data/cost-benefit/erp-desktop-app.json">ERP desktop app</option>
       </select>
     </details>
   </dialog>
