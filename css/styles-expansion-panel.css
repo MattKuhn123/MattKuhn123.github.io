@@ -22,6 +22,12 @@ details[open].expansion-panel summary {
   margin-bottom: 10px;
 }
 
+.the-oath {
+  background-image: 
+    linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),
+    url('../images/the-oath-zoom.jpg');
+}
+
 .hand-shake {
   background-image: 
     linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),

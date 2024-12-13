@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="./css/styles-footer.css">
   <link rel="stylesheet" href="./css/styles-form.css">
   <link rel="stylesheet" href="./css/styles-nav.css">
+  <link rel="stylesheet" href="./css/styles-quote.css">
   <link rel="stylesheet" href="./css/styles-slider.css">
   <link rel="stylesheet" href="./css/styles-table.css">
   <link rel="stylesheet" href="./css/styles-tooltip.css">
@@ -34,16 +35,23 @@
         <div class="dropdown-content">
           <ul>
             <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/resume.html" hx-target="main">Our people</a></li>
-            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/our-promise.html" hx-target="main">Our promise</a></li>
           </ul>
         </div>
       </div>
       <div class="btn btn-primary dropdown">
-        <span>Hire us!</span>
+        <span>Project tools</span>
         <div class="dropdown-content">
           <ul>
             <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/time-estimate.html" hx-target="main">Time estimate</a></li>
             <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/cost-benefit-analysis.html" hx-target="main">Cost/Benefit</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="btn btn-accent dropdown">
+        <span>Thoughts</span>
+        <div class="dropdown-content">
+          <ul>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/the-oath.html" hx-target="main">The Oath</a></li>
           </ul>
         </div>
       </div>
@@ -52,7 +60,7 @@
   </nav>
 
   <main>
-    <div hx-trigger="load" hx-get="/pages/our-promise.html" hx-swap="outerHTML"></div>
+    <div hx-trigger="load" hx-get="/pages/the-oath.html" hx-swap="outerHTML"></div>
   </main>
 
   <footer class="my-footer">

@@ -1,0 +1,8 @@
+blockquote.my-quote {
+  padding: 5px;
+  border-radius: 2px;
+  background-color: var(--color-primary-fade-10);
+  box-shadow: 
+     1px  1px 3px var(--color-primary), 
+    -1px -1px 3px var(--color-primary);
+}
