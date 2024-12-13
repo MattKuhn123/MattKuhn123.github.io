@@ -149,7 +149,7 @@
     </section>
     <section class="space-children-100 banner">
       <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
-      <a style="display: none;" id="dLoad-btn" :href="URL.createObjectURL(new Blob([JSON.stringify($data)], { type: 'text/plain' }))" download="cost-benefit-report.json"></a>
+      <a style="display: none;" id="dLoad-btn" :href="URL.createObjectURL(new Blob([JSON.stringify($data)], { type: 'text/plain' }))" download="time-estimate.json"></a>
       <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
       <input class="my-input" style="display: none;" id="uLoad-btn" type="file" x-on:change="copyOntoRefs($refs, await jsonFromFile(event))"/>
     </section>
