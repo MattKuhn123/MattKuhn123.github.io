@@ -226,7 +226,7 @@
   }
 </script>
 
-<form id="cost-estimate-form" oninput="recalculate()">
+<form id="cost-estimate-form" oninput="recalculate()" x-data="{ accuracy: 50, infrastructure: 0, licenses: 0 }">
   <h1 class="txt-primary banner">Cost/Benefit analysis</h1>
   <h2 class="txt-primary">Benefit</h2>
 
@@ -249,7 +249,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
   </fieldset>
 
-  <fieldset class="my-fieldset" x-data="{ accuracy: 50 }">
+  <fieldset class="my-fieldset"">
     <legend>Profit by forecasting trends or attracting business</legend>
     <label for="profit-opportunity" aria-describedby="profit-opportunity-tooltip">
       Profit
@@ -330,7 +330,7 @@
     <span class="txt-padding txt-break">Estimate: <span id="staff-cost">$0.00</span></span>
   </fieldset>
 
-  <fieldset class="my-fieldset" x-data="{ val: 0 }">
+  <fieldset class="my-fieldset">
     <legend>Infrastructure</legend>
     <label for="web-server" aria-describedby="infrastructure-tooltip">
       Yearly infrastructure cost
@@ -340,8 +340,8 @@
       </div>
     </label>
     </label>
-    <input x-on:input="val=Number($event.target.value)" class="my-input" id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
-    <output id="web-server-display" x-text="currencyFormat.format(val)"></output>
+    <input x-on:input="infrastructure=Number($event.target.value)" class="my-input" id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
+    <output x-text="currencyFormat.format(infrastructure)"></output>
 
     <label for="development-server">Development environment</label>
     <input class="my-input" id="development-server" name="development-environment" type="checkbox" />
@@ -351,7 +351,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>
 
-  <fieldset class="my-fieldset" x-data="{ val: 0 }">
+  <fieldset class="my-fieldset">
     <legend>Licenses</legend>
     <label for="licenses" aria-describedby="licenses-tooltip">
       Licenses
@@ -360,8 +360,8 @@
         Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <input x-on:input="val=Number($event.target.value)" class="my-input" id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
-    <output id="party-display" x-text="currencyFormat.format(val)"></output>
+    <input x-on:input="licenses=Number($event.target.value)" class="my-input" id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
+    <output x-text="currencyFormat.format(licenses)"></output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
   </fieldset>
 
@@ -406,7 +406,6 @@
     </details>
   </dialog>
 </form>
-
 
 <script>
   updateHourlyRate();
