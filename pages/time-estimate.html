@@ -15,7 +15,7 @@
     const r = getRoles();
     const s = getSize();
     const t = getTeamwork();
-    const { upperHours, upperWeeks, lowerHours, lowerWeeks } = calculateTime(c, d, m, r, s, t);
+    const { upperHours, upperWeeks, lowerHours, lowerWeeks } = estimateTime({c, d, m, r, s, t});
 
     document.getElementById("lower-hours").innerText = lowerHours;
     document.getElementById("upper-hours").innerText = upperHours;

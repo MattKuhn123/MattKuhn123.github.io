@@ -9,7 +9,7 @@
  * 
  * @return {{ upperHours: number, upperWeeks: number, lowerHours: number, lowerWeeks: number }} range
  */
-function calculateTime(c, d, m, r, s, t) {
+function estimateTime({c, d, m, r, s, t}) {
   const hoursPerWeek = 40;
 
   c = Number(c);
@@ -32,5 +32,5 @@ function calculateTime(c, d, m, r, s, t) {
   const lowerHours = estimate - hourRange;
   const lowerWeeks = lowerHours / hoursPerWeek;
   const upperWeeks = upperHours / hoursPerWeek;
-  return { upperHours, upperWeeks, lowerHours, lowerWeeks };
+  return { estimate, upperHours, upperWeeks, lowerHours, lowerWeeks };
 }
