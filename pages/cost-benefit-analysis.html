@@ -9,22 +9,6 @@
   function getWebServer() { return Number(document.getElementById("web-server").value); }
   function getParty() { return Number(document.getElementById("party").value); }
 
-  function syncSoftwareAccuracySlider() {
-    const output = document.getElementById("software-accuracy-display");
-    const percent = getAccuracy() * 100;
-    output.innerText = percent + "%";
-  }
-
-  function syncWebServerSlider() {
-    const output = document.getElementById("web-server-display");
-    output.innerText = currencyFormat.format(getWebServer());
-  }
-
-  function syncPartySlider() {
-    const output = document.getElementById("party-display");
-    output.innerText = currencyFormat.format(getParty());
-  }
-
   function getSoftwareSavings() {
     const weeksPerYear = 52;
     const staff = Number(document.getElementById("staff-count").value);
@@ -229,10 +213,6 @@
 
     updateNet();
 
-    syncSoftwareAccuracySlider();
-    syncWebServerSlider();
-    syncPartySlider();
-
     updateDownloadLink();
   }
 
@@ -269,7 +249,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-savings">$0.00</span></span>
   </fieldset>
 
-  <fieldset class="my-fieldset">
+  <fieldset class="my-fieldset" x-data="{ accuracy: 50 }">
     <legend>Profit by forecasting trends or attracting business</legend>
     <label for="profit-opportunity" aria-describedby="profit-opportunity-tooltip">
       Profit
@@ -296,8 +276,8 @@
         What is the likelihood the software will forecast correctly or attract business as anticipated?
       </div>
     </label>
-    <input class="my-input" id="software-accuracy" name="software-accuracy" type="range" step=".1" placeholder=".5" min="0" max="1" />
-    <output id="software-accuracy-display">50%</output>
+    <input x-on:input="accuracy=(Number($event.target.value) * 100)" class="my-input" id="software-accuracy" name="software-accuracy" type="range" step=".1" min="0" max="1" />
+    <output id="software-accuracy-display" x-text="accuracy.toString() + '%'"></output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="software-profit">$0.00</span></span>
   </fieldset>
 
@@ -350,7 +330,7 @@
     <span class="txt-padding txt-break">Estimate: <span id="staff-cost">$0.00</span></span>
   </fieldset>
 
-  <fieldset class="my-fieldset">
+  <fieldset class="my-fieldset" x-data="{ val: 0 }">
     <legend>Infrastructure</legend>
     <label for="web-server" aria-describedby="infrastructure-tooltip">
       Yearly infrastructure cost
@@ -360,8 +340,8 @@
       </div>
     </label>
     </label>
-    <input class="my-input" id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
-    <output id="web-server-display">0.00</output>
+    <input x-on:input="val=Number($event.target.value)" class="my-input" id="web-server" name="web-server" type="range" step="1000" min="0" max="50000" value="0"/>
+    <output id="web-server-display" x-text="currencyFormat.format(val)"></output>
 
     <label for="development-server">Development environment</label>
     <input class="my-input" id="development-server" name="development-environment" type="checkbox" />
@@ -371,7 +351,7 @@
     <span class="txt-padding txt-break">Yearly estimate: <span id="resource-cost">$0.00</span></span>
   </fieldset>
 
-  <fieldset class="my-fieldset">
+  <fieldset class="my-fieldset" x-data="{ val: 0 }">
     <legend>Licenses</legend>
     <label for="licenses" aria-describedby="licenses-tooltip">
       Licenses
@@ -380,8 +360,8 @@
         Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <input class="my-input" id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
-    <output id="party-display">$0.00</output>
+    <input x-on:input="val=Number($event.target.value)" class="my-input" id="party" name="party" type="range" step="1000" min="0" max="50000" value="0"/>
+    <output id="party-display" x-text="currencyFormat.format(val)"></output>
     <span class="txt-padding txt-break">Yearly estimate: <span id="license-cost">$0.00</span></span>
   </fieldset>
 

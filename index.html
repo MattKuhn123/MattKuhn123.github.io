@@ -24,6 +24,7 @@
   <script src="https://unpkg.com/htmx.org@2.0.3"
     integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
     crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="./scripts/time-estimate.js"></script>
 </head>
 
@@ -34,7 +35,8 @@
         <span>About</span>
         <div class="dropdown-content">
           <ul>
-            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/resume.html" hx-target="main">Our people</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/resume.html"
+                hx-target="main">Our people</a></li>
           </ul>
         </div>
       </div>
@@ -42,8 +44,10 @@
         <span>Project tools</span>
         <div class="dropdown-content">
           <ul>
-            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/time-estimate.html" hx-target="main">Time estimate</a></li>
-            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/cost-benefit-analysis.html" hx-target="main">Cost/Benefit</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/time-estimate.html"
+                hx-target="main">Time estimate</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/cost-benefit-analysis.html"
+                hx-target="main">Cost/Benefit</a></li>
           </ul>
         </div>
       </div>
@@ -51,7 +55,8 @@
         <span>Thoughts</span>
         <div class="dropdown-content">
           <ul>
-            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/the-oath.html" hx-target="main">The Oath</a></li>
+            <li><a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/the-oath.html"
+                hx-target="main">The Oath</a></li>
           </ul>
         </div>
       </div>
@@ -73,16 +78,16 @@
     event.preventDefault();
     const pathname = document.location.pathname;
     if (event.state.htmx && pathname !== "/") {
-      htmx.ajax('GET', pathname, { target:'main' });
+      htmx.ajax('GET', pathname, { target: 'main' });
     }
   });
 
-  window.onload = function(e) {
+  window.onload = function (e) {
     const htmxIdx = window.location.href.indexOf("?htmx=");
     const isHtmxRedirect = htmxIdx > 0;
     if (isHtmxRedirect) {
-      const page = window.location.href.substring(htmxIdx+"?htmx=".length);
-      htmx.ajax('GET', page, { target:'main' });
+      const page = window.location.href.substring(htmxIdx + "?htmx=".length);
+      htmx.ajax('GET', page, { target: 'main' });
     }
   }
 </script>
