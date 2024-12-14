@@ -29,6 +29,10 @@ textarea.my-input:focus-visible {
   background-color: var(--color-primary-fade-10);
 }
 
+input.my-input[type=checkbox] {
+  accent-color: var(--color-primary);
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
