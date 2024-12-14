@@ -1,13 +1,13 @@
 /**
  * 
- * @param {number | string} c Certainty
- * @param {number | string} d Duties
- * @param {number | string} m Mastery
- * @param {number | string} r Roles
- * @param {number | string} s Size
- * @param {number | string} t Teamwork
+ * @param { number | string } c Certainty
+ * @param { number | string } d Duties
+ * @param { number | string } m Mastery
+ * @param { number | string } r Roles
+ * @param { number | string } s Size
+ * @param { number | string } t Teamwork
  * 
- * @return {{ upperHours: number, upperWeeks: number, lowerHours: number, lowerWeeks: number }} range
+ * @return {{ upperHours: number, upperWeeks: number, lowerHours: number, lowerWeeks: number, estimate: number }} range
  */
 function estimateTime({c, d, m, r, s, t}) {
   const hoursPerWeek = 40;
