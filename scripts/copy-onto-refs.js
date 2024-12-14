@@ -1,7 +1,7 @@
 function copyOntoRefs(refs, data) {
   Object.keys(data).forEach(key => {
     if (!!refs[key]) {
-      refs[key]._x_model.set(data[key]);
+      copyOntoRef(refs, key, data[key]);
     }
   });
 }
