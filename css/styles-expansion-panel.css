@@ -28,6 +28,12 @@ details[open].expansion-panel summary {
     url('../images/the-oath-zoom.jpg');
 }
 
+.lotus {
+  background-image: 
+    linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),
+    url('../images/lotus.jpg');
+}
+
 .hand-shake {
   background-image: 
     linear-gradient(to left, var(--color-accent-transparent) 20%,var(--color-accent)),
