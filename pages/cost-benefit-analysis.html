@@ -101,8 +101,6 @@
       </div>
     </label>
     <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
-    <button class="btn btn-primary" type="button" onclick="document.getElementById('estULoad-btn').click()">Upload estimate</button>
-    <input hidden id="estULoad-btn" type="file" onchange="jsonFromFile(event).then(function(json) { jsonToForm('cost-estimate-form', estimateTime(json)); });"/>
 
     <label for="labor-estimate">Estimate: </label>
     <input class="my-input" id="labor-estimate" name="labor-estimate" mk-func="multiply" mk-args="labor,labor-hours" readonly tabindex="-1" type="number"/>
@@ -167,16 +165,15 @@
       <textarea class="my-input" name="report-description" required minlength="10" maxlength="128"></textarea>
     </section>
     <section class="space-children-100 banner">
-      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').setAttribute('href', jsonToFile('cost-estimate-form')); document.getElementById('dLoad-btn').click();">Download</button>
-      <a style="display: none;" id="dLoad-btn" href="" download="cost-benefit-report.json"></a>
-      <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-      <input hidden id="uLoad-btn" type="file" onchange="jsonFromFile(event).then(function(json) { jsonToForm('cost-estimate-form', json); })"/>
+      <button class="btn btn-accent" type="button" mk-form-to-json-file>Download</button>
+      <button class="btn btn-accent" type="button" mk-json-file-to-form-for="uLoad-btn">Upload</button>
+      <input hidden id="uLoad-btn" type="file" mk-json-file-to-form/>
     </section>
     <details class="space-children-100">
       <summary class="txt-primary">Examples</summary>
-      <select id="examples" aria-label="examples" onchange="jsonFromFetch(event.target.value).then(function(json) { jsonToForm('cost-estimate-form', json); } )" class="btn btn-primary">
+      <select id="examples" aria-label="examples" class="btn btn-primary" mk-json-file-from-fetch>
         <option value="">(Choose)</option>
-        <option value="/data/cost-benefit/web-app.json">web app</option>
+        <option value="/data/time-estimate/sla-buffer.json">web app</option>
       </select>
     </details>
   </dialog>
