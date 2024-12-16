@@ -16,7 +16,7 @@
       const argEls = argNames.split(",").map(x => form.querySelector("[name=" + x + "]"));
       const argVals = argEls.map(x => oneMinus(x) * negate(x));
       elt.value = func(argVals);
-      elt.dispatchEvent(new Event("change", { bubbles: true }))
+      elt.dispatchEvent(new Event("change", { bubbles: true }));
     });
   });
 
