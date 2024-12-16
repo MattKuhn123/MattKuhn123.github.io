@@ -13,12 +13,10 @@
     Array.from(elt).forEach(function(elt) {
       const func = getFunc(elt.getAttribute("mk-func"));
       const argNames = elt.getAttribute("mk-args");
-      if (argNames) {
-        const argEls = argNames.split(",").map(x => form.querySelector("[name=" + x + "]"));
-        const argVals = argEls.map(x => oneMinus(x) * negate(x));
-        elt.value = func(argVals);
-        elt.dispatchEvent(new Event("change", { bubbles: true }))
-      }
+      const argEls = argNames.split(",").map(x => form.querySelector("[name=" + x + "]"));
+      const argVals = argEls.map(x => oneMinus(x) * negate(x));
+      elt.value = func(argVals);
+      elt.dispatchEvent(new Event("change", { bubbles: true }))
     });
   });
 
