@@ -1,20 +1,4 @@
-<form id="time-estimate-form" x-data="{
-  c: 0,
-  d: 0,
-  m: 0,
-  r: 0,
-  s: 0,
-  t: 0,
-  role: 'role description',
-  duty: 'duty description',
-  name: 'name',
-  description: 'description',
-  get timeEstimate() { return estimateTime({ c: this.c, d: this.d, m: this.m, r: this.r, s: this.s, t: this.t }) },
-  get lowerHours() { return this.timeEstimate['lowerHours'] },
-  get upperHours() { return this.timeEstimate['upperHours'] },
-  get lowerWeeks() { return this.timeEstimate['lowerWeeks'] },
-  get upperWeeks() { return this.timeEstimate['upperWeeks'] }
-}">
+<form id="time-estimate-form">
   <h1 class="txt-primary banner">Time estimate</h1>
   <fieldset class="my-fieldset" id="roles" class="flex-row-wrap">
     <legend aria-describedby="r-tip">
@@ -25,8 +9,8 @@
       </div>
     </legend>
 
-    <input x-ref="r" x-model.number="r" class="my-input" id="r" name="r" type="number"/>
-    <input x-ref="role" x-model="role"  class="my-input" name="roles-description" maxlength="128" class="fill-space"/>
+    <input class="my-input" id="r" name="r" type="number"/>
+    <input class="my-input" name="roles-description" maxlength="128" class="fill-space" placeholder="Description"/>
   </fieldset>
 
   <fieldset class="my-fieldset" id="duties" class="flex-row-wrap">
@@ -39,8 +23,8 @@
       </div>
     </legend>
 
-    <input x-ref="d" x-model.number="d" class="my-input" id="d" name="d" type="number"/>
-    <input x-ref="duty" x-model="duty" class="my-input" name="duties-description" maxlength="128" class="fill-space"/>
+    <input class="my-input" id="d" name="d" type="number"/>
+    <input class="my-input" name="duties-description" maxlength="128" class="fill-space" placeholder="Description"/>
   </fieldset>
 
   <fieldset class="my-fieldset" id="size">
@@ -52,7 +36,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input x-ref="s" x-model.number="s" class="my-input" id="s" name="s" type="range" class="flex-column" list="s-values" min="0" max="1" step="0.2"/>
+      <input class="my-input" id="s" name="s" type="range" class="flex-column" list="s-values" min="0" max="1" step="0.2"/>
       <datalist id="s-values">
         <option value="0.0" label="One person."></option>
         <option value="0.2" label="Small company (0-20 people)."></option>
@@ -73,7 +57,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input x-ref="t" x-model.number="t" class="my-input" id="t" name="t" type="range" class="flex-column" list="t-values" min="0" max="1" step="0.2"/>
+      <input class="my-input" id="t" name="t" type="range" class="flex-column" list="t-values" min="0" max="1" step="0.2" mk-one-minus/>
       <datalist id="t-values">
         <option value="0.0" label="Developer works 100% remote."></option>
         <option value="0.2" label="Developer/Client email weekly."></option>
@@ -94,7 +78,7 @@
       </div>
     </legend>
     <div class="my-vertical-range">
-      <input x-ref="m" x-model.number="m" class="my-input" id="m" name="m" type="range" class="flex-column" list="m-values" min="0" max="1" step="0.2"/>
+      <input class="my-input" id="m" name="m" type="range" class="flex-column" list="m-values" min="0" max="1" step="0.2" mk-one-minus/>
       <datalist id="m-values">
         <option value="0.0" label="Devs cannot run application."></option>
         <option value="0.2" label="Devs familiar with stack."></option>
@@ -106,32 +90,17 @@
     </div>
   </fieldset>
 
-  <fieldset class="my-fieldset" id="uncertainty">
-    <legend aria-describedby="c-tip">
-      Certainty
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="c-tip">
-        How much uncertainty is there in the project? (This is just a gut check).
-      </div>
-    </legend>
-    <div class="my-vertical-range">
-      <input x-ref="c" x-model.number="c" class="my-input" id="c" name="c" type="range" class="flex-column" list="c-values" min="0" max="1" step="0.2"/>
-      <datalist id="c-values">
-        <option value="0.0" label="Project is uncharted territory."></option>
-        <option value="0.2" label="Project is experimental."></option>
-        <option value="0.4" label="Project common in industry."></option>
-        <option value="0.6" label="Project has been done before."></option>
-        <option value="0.8" label="Project is routine."></option>
-        <option value="1.0" label="Project can be done blindfolded."></option>
-      </datalist>
-    </div>
-  </fieldset>
-
   <fieldset class="my-fieldset sticky-bottom" id="estimate">
     <h3 class="txt-primary banner">Estimate</h3>
     <p>
-      <span x-text="lowerHours"></span> - <span x-text="upperHours"></span> hours
-      <span x-text="lowerWeeks"></span> - <span x-text="upperWeeks"></span> weeks
+      <input hidden id="base-hours" name="base-hours" type="number" mk-func="multiply" mk-args="r,r,d"/>
+      <input hidden id="mastery-gap" name="mastery-gap" type="number" mk-func="multiply" mk-args="base-hours,m"/>
+      <input hidden id="teamwork-gap" name="teamwork-gap" type="number" mk-func="multiply" mk-args="base-hours,t"/>
+      <input hidden id="size" name="size" type="number" mk-func="multiply" mk-args="base-hours,s"/>
+      <input hidden id="double" name="double" type="number" value=2/>
+
+      <label for="hours">Hours</label>
+      <input class="my-input" readonly tabindex="-1" id="hours" name="size" type="number" mk-func="sum" mk-args="base-hours,mastery-gap,teamwork-gap,size,double"/>
     </p>
   </fieldset>
   
@@ -144,20 +113,20 @@
     </button>
     <h3 class="txt-primary banner">Save and load report</h3>
     <section class="space-children-100 flex-column banner">
-      <input x-ref="name" x-model.number="name" class="my-input" name="report-name" type="text" required minlength="3" maxlength="20"/>
-      <textarea x-ref="description" x-model.number="description" class="my-input" name="report-description" minlength="10" maxlength="128"></textarea>
+      <input class="my-input" name="report-name" type="text" required minlength="3" maxlength="20"/>
+      <textarea class="my-input" name="report-description" minlength="10" maxlength="128"></textarea>
     </section>
     <section class="space-children-100 banner">
-      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
-      <a style="display: none;" id="dLoad-btn" :href="URL.createObjectURL(new Blob([JSON.stringify($data)], { type: 'text/plain' }))" download="time-estimate.json"></a>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').setAttribute('href', jsonToFile('time-estimate-form')); document.getElementById('dLoad-btn').click();">Download</button>
+      <a style="display: none;" id="dLoad-btn" href="" download="time-benefit-report.json"></a>
       <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-      <input class="my-input" style="display: none;" id="uLoad-btn" type="file" x-on:change="copyOntoRefs($refs, await jsonFromFile(event))"/>
+      <input hidden id="uLoad-btn" type="file" onchange="jsonFromFile(event).then(function(json) { jsonToForm('time-estimate-form', json); })"/>
     </section>
     <details class="space-children-100">
       <summary class="txt-primary">Examples</summary>
-      <select id="examples" aria-label="examples" x-on:change="copyOntoRefs($refs, await jsonFromFetch($event.target.value))" class="btn btn-primary">
+      <select id="examples" aria-label="examples" onchange="jsonFromFetch(event.target.value).then(function(json) { jsonToForm('time-estimate-form', json); } )" class="btn btn-primary">
         <option value="">(Choose)</option>
-        <option value="/data/time-estimate/sla-buffer.json">SLA Buffer</option>
+        <option value="/data/time-estimate/sla-buffer.json">web app</option>
       </select>
     </details>
   </dialog>

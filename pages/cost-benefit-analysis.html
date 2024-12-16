@@ -1,31 +1,4 @@
-<form id="cost-estimate-form" x-data="{ 
-  staffCount: 0,
-  staffWage: 0,
-  staffHours: 0,
-  get staffSavings() { return this.staffCount * this.staffWage * this.staffHours * 52; },
-  profit: 0,
-  profitCount: 0,
-  profitChance: .50, 
-  get profitTotal() { return this.profit * this.profitCount * this.profitChance; },
-  fine: 0,
-  fineCount: 0,
-  get fineTotal() { return this.fine * this.fineCount; },
-  get benefit() { return this.staffSavings + this.profitTotal + this.fineTotal; },
-  labor: 50,
-  laborHours: 0,
-  get laborTotal() { return this.labor * this.laborHours; },
-  infrastructure: 0, 
-  dev: true,
-  test: true,
-  get devCost() { return this.dev ? this.infrastructure : 0 },
-  get testCost() { return this.test ? this.infrastructure : 0 },
-  get infrastructureTotal() { return this.infrastructure + this.devCost + this.testCost; },
-  licenses: 0,
-  get cost() { return this.laborTotal + this.infrastructureTotal + this.licenses; },
-  get net() { return this.benefit - this.cost; },
-  name: 'name',
-  description: 'description',
-}">
+<form id="cost-estimate-form">
   <h1 class="txt-primary banner">Cost/Benefit analysis</h1>
 
   <h2 class="txt-primary">Benefit</h2>
@@ -33,10 +6,10 @@
   <fieldset class="my-fieldset" id="staff-fieldset">
     <legend>Staff savings</legend>
     <label for="staff-count">Staff</label>
-    <input x-ref="staffCount" x-model.number="staffCount" class="my-input" id="staff-count" name="staff-count" type="number"/>
+    <input class="my-input" id="staff-count" name="staff-count" type="number"/>
 
     <label for="staff-wage">Wage</label>
-    <input x-ref="staffWage" x-model.number="staffWage" class="my-input" id="staff-wage" name="staff-wage" type="number"/>
+    <input class="my-input" id="staff-wage" name="staff-wage" type="number"/>
 
     <label for="staff-weekly-hours-saved" aria-describedby="hours-saved-tooltip">
       Hours saved weekly
@@ -45,8 +18,10 @@
         How many hours per week can the software save an individual member of the staff?
       </div>
     </label>
-    <input x-ref="staffHours" x-model.number="staffHours" class="my-input" id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number"/>
-    <span class="txt-padding txt-break">Yearly estimate: <span x-text="currencyFormat.format(staffSavings)"></span></span>
+    <input class="my-input" id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number"/>
+    
+    <label for="staff-savings-estimate">Yearly estimate: </label>
+    <input class="my-input" id="staff-savings-estimate" name="staff-savings-estimate" mk-func="multiply" mk-args="staff-count,staff-wage,staff-weekly-hours-saved" readonly tabindex="-1" type="number"/>
   </fieldset>
 
   <fieldset class="my-fieldset" id="profit-fieldset">
@@ -58,7 +33,7 @@
         What is your possible profit with this software?
       </div>
     </label>
-    <input x-ref="profit" x-model.number="profit" class="my-input" id="profit" name="profit" type="number"/>
+    <input class="my-input" id="profit" name="profit" type="number"/>
 
     <label for="profit-count" aria-describedby="profit-count-tooltip">
       Yearly opportunities
@@ -67,7 +42,7 @@
         How many times per year does this opportunity arise?
       </div>
     </label>
-    <input x-ref="profitCount" x-model.number="profitCount" class="my-input" id="profit-count" name="profit-count" type="number"/>
+    <input class="my-input" id="profit-count" name="profit-count" type="number"/>
 
     <label for="profit-chance" aria-describedby="profit-chance-tooltip">
       Estimated software accuracy
@@ -76,9 +51,11 @@
         What is the likelihood the software will forecast correctly or attract business as anticipated?
       </div>
     </label>
-    <input x-ref="profitChance" x-model.number="profitChance" class="my-input" id="profit-chance" name="profit-chance" type="range" step=".1" min="0" max="1"/>
-    <output x-text="(profitChance * 100).toString() + '%'"></output>
-    <span class="txt-padding txt-break">Yearly estimate: <span x-text="currencyFormat.format(profitTotal)"></span></span>
+    <output id="profit-estimate-mask" mk-mask-format="percentage" mk-masks="profit-chance"></output>
+    <input class="my-input" id="profit-chance" name="profit-chance" type="range" step=".1" min="0" max="1"/>
+    
+    <label for="profit-wage">Yearly estimate: </label>
+    <input class="my-input" id="profit-estimate" name="profit-estimate" mk-func="multiply" mk-args="profit,profit-count,profit-chance" readonly tabindex="-1" type="number"/>
   </fieldset>
 
   <fieldset class="my-fieldset" id="regulatory-compliance-fieldset">
@@ -90,7 +67,7 @@
         What is the fine for not complying with this regulation?
       </div>
     </label>
-    <input x-ref="fine" x-model.number="fine" class="my-input" id="fine" name="fine" type="number"/>
+    <input class="my-input" id="fine" name="fine" type="number"/>
 
     <label for="fine-count" aria-describedby="fine-count-tooltip">
       Yearly opportunities
@@ -99,8 +76,9 @@
         How many times per year can this fine apply?
       </div>
     </label>
-    <input x-ref="fineCount" x-model.number="fineCount" class="my-input" id="fine-count" name="fine-count" type="number"/>
-    <span class="txt-padding txt-break">Yearly estimate: <span x-text="currencyFormat.format(fineTotal)"></span></span>
+    <input class="my-input" id="fine-count" name="fine-count" type="number"/>
+    <label for="staff-wage">Yearly estimate: </label>
+    <input class="my-input" id="fine-estimate" name="fine-estimate" mk-func="multiply" mk-args="fine,fine-count" readonly tabindex="-1" type="number"/>
   </fieldset>
 
   <h2 class="txt-primary">Cost</h2>
@@ -113,7 +91,7 @@
         Our estimated average hourly rate.
       </div>
     </label>
-    <input x-ref="labor" x-model.number="labor" class="my-input" readonly id="labor" name="labor" type="number"/>
+    <input class="my-input" readonly tabindex="-1" id="labor" name="labor" type="number" value="50"/>
 
     <label for="labor-hours" aria-describedby="labor-hours-tooltip">
       Hours
@@ -122,37 +100,26 @@
         Hour many hours do we estimate? (calculator available <a href="./pages/time-estimate.html" target="_blank">here</a>) 
       </div>
     </label>
-    
-    <input x-ref="laborHours" x-model.number="laborHours" class="my-input" id="labor-hours" name="labor-hours" type="number"/>
+    <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
     <button class="btn btn-primary" type="button" onclick="document.getElementById('estULoad-btn').click()">Upload estimate</button>
-    <input class="my-input" style="display: none;" id="estULoad-btn" type="file" x-on:change="copyOntoRef($refs, 'laborHours', estimateTime(await jsonFromFile($event))['estimate']);"/>
+    <input hidden id="estULoad-btn" type="file" onchange="jsonFromFile(event).then(function(json) { jsonToForm('cost-estimate-form', estimateTime(json)); });"/>
 
-    <span class="txt-padding txt-break">Estimate: <span x-text="currencyFormat.format(laborTotal)"></span></span>
+    <label for="labor-estimate">Estimate: </label>
+    <input class="my-input" id="labor-estimate" name="labor-estimate" mk-func="multiply" mk-args="labor,labor-hours" readonly tabindex="-1" type="number"/>
   </fieldset>
 
   <fieldset class="my-fieldset" id="infrastructure-fieldset">
     <legend>Infrastructure</legend>
-    <label for="infrastructure-prod" aria-describedby="infrastructure-tooltip">
-      Yearly infrastructure cost
+    <label for="cloud" aria-describedby="cloud-tooltip">
+      Yearly cloud cost
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="infrastructure-tooltip">
-        Do we need to scaffold any resources like web servers or web storage? If unknown or not applicable, leave at 0.
+      <div role="tooltip" id="cloud-tooltip">
+        The cost to run web servers, host web storage, execute compute, etc? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    </label>
-    <input x-ref="infrastructure" x-model.number="infrastructure" class="my-input" id="infrastructure-prod" name="infrastructure-prod" type="range" step="1000" min="0" max="50000"/>
-    <output x-text="currencyFormat.format(infrastructure)"></output>
-
-    <label for="infrastructure-dev">Development environment</label>
-    <input x-ref="dev" x-model.boolean="dev" class="my-input" id="infrastructure-dev" name="development-environment" type="checkbox"/>
-
-    <label for="infrastructure-test">Test environment</label>
-    <input x-ref="test" x-model.boolean="test" class="my-input" id="infrastructure-test" name="test-environment" type="checkbox"/>
-    <span class="txt-padding txt-break">Yearly estimate: <span x-text="currencyFormat.format(infrastructureTotal)"></span></span>
-  </fieldset>
-
-  <fieldset class="my-fieldset" id="license-fieldset">
-    <legend>Licenses</legend>
+    <output id="infrastructure-mask" mk-mask-format="currency" mk-masks="cloud"></output>
+    <input class="my-input" id="cloud" name="cloud" type="range" step="1000" min="0" max="50000"/>
+    
     <label for="licenses" aria-describedby="licenses-tooltip">
       Licenses
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
@@ -160,18 +127,31 @@
         Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <input x-ref="licenses" x-model.number="licenses" class="my-input" id="party" name="party" type="range" step="1000" min="0" max="50000"/>
-    <output x-text="currencyFormat.format(licenses)"></output>
-    <span class="txt-padding txt-break">Yearly estimate: <span x-text="currencyFormat.format(licenses)"></span></span>
+    <output id="license-mask" mk-mask-format="currency" mk-masks="license"></output>
+    <input class="my-input" id="license" name="license" type="range" step="1000" min="0" max="50000"/>
+
+    <label for="infrastructure-estimate">Yearly stage estimate: </label>
+    <input class="my-input" id="infrastructure-stage-estimate" name="infrastructure-stage-estimate" mk-func="sum", mk-args="license,cloud" readonly tabindex="-1" type="number"/>
+
+    <label for="infrastructure-stages" aria-describedby="infrastructure-stages-tooltip">
+      Stages
+      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
+      <div role="tooltip" id="infrastructure-stages-tooltip">
+        How many stages will you need to run your infrastructure in? (Production, Test, QA, Dev, UAT, etc)
+      </div>
+    </label>
+    <input class="my-input" id="infrastructure-stages" name="infrastructure-stages" type="number"/>
+        
+    <label for="infrastructure-estimate">Yearly estimate: </label>
+    <input class="my-input" id="infrastructure-estimate" name="infrastructure-estimate" mk-func="multiply" mk-args="infrastructure-stage-estimate,infrastructure-stages" readonly tabindex="-1" type="number"/>
   </fieldset>
 
   <fieldset class="my-fieldset sticky-bottom" id="net-fieldset">
     <h3 class="txt-primary banner">Net</h3>
-    <p>
-      Benefit: <span x-text="currencyFormat.format(benefit)" class="txt-primary"></span>
-      Cost: <span x-text="currencyFormat.format(cost)" class="txt-warn"></span>
-      Net: <span x-text="currencyFormat.format(net)" class=""></span>
-    </p>
+      <input hidden id="benefit" name="benefit" mk-func="sum" mk-args="staff-savings-estimate,profit-estimate,fine-estimate" type="number"/>
+      <input hidden id="cost" name="cost" mk-func="sum" mk-args="infrastructure-estimate,labor-estimate" mk-negate type="number"/>
+      <input hidden id="net" name="net" mk-func="sum" mk-args="benefit,cost" type="number"/>
+      <span mk-mask-format="currency" mk-masks="net">$0.00</span>
   </fieldset>
   
   <button id="report-dialog-btn" class="btn btn-primary fixed-save-btn" type="button" onclick="document.getElementById('report-dialog').showModal();">
@@ -183,22 +163,20 @@
     </button>
     <h3 class="txt-primary banner">Save and load report</h3>
     <section class="space-children-100 banner">
-      <input x-ref="name" x-model="name" class="my-input" name="report-name" type="text" required minlength="3" maxlength="20"/>
-      <textarea x-ref="description" x-model="description" class="my-input" name="report-description" required minlength="10" maxlength="128"></textarea>
+      <input class="my-input" name="report-name" type="text" required minlength="3" maxlength="20"/>
+      <textarea class="my-input" name="report-description" required minlength="10" maxlength="128"></textarea>
     </section>
     <section class="space-children-100 banner">
-      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').click()">Download</button>
-      <a style="display: none;" id="dLoad-btn" :href="URL.createObjectURL(new Blob([JSON.stringify($data)], { type: 'text/plain' }))" download="cost-benefit-report.json"></a>
+      <button class="btn btn-accent" type="button" onclick="document.getElementById('dLoad-btn').setAttribute('href', jsonToFile('cost-estimate-form')); document.getElementById('dLoad-btn').click();">Download</button>
+      <a style="display: none;" id="dLoad-btn" href="" download="cost-benefit-report.json"></a>
       <button class="btn btn-accent" type="button" onclick="document.getElementById('uLoad-btn').click()">Upload</button>
-      <input class="my-input" style="display: none;" id="uLoad-btn" type="file" x-on:change="copyOntoRefs($refs, await jsonFromFile(event))"/>
+      <input hidden id="uLoad-btn" type="file" onchange="jsonFromFile(event).then(function(json) { jsonToForm('cost-estimate-form', json); })"/>
     </section>
     <details class="space-children-100">
       <summary class="txt-primary">Examples</summary>
-      <select id="examples" aria-label="examples" x-on:change="copyOntoRefs($refs, await jsonFromFetch($event.target.value))" class="btn btn-primary">
+      <select id="examples" aria-label="examples" onchange="jsonFromFetch(event.target.value).then(function(json) { jsonToForm('cost-estimate-form', json); } )" class="btn btn-primary">
         <option value="">(Choose)</option>
-        <option value="/data/cost-benefit/permitting-web-app.json">Permitting web app</option>
-        <option value="/data/cost-benefit/cms-web-app.json">CMS web app</option>
-        <option value="/data/cost-benefit/erp-desktop-app.json">ERP desktop app</option>
+        <option value="/data/cost-benefit/web-app.json">web app</option>
       </select>
     </details>
   </dialog>

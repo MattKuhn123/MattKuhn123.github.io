@@ -1,0 +1,21 @@
+{
+  "staff-count": "1",
+  "staff-wage": "2",
+  "staff-weekly-hours-saved": "3",
+  "profit": "4",
+  "profit-count": "5",
+  "profit-chance": "0.6",
+  "fine": "7",
+  "fine-count": "8",
+  "labor": "50",
+  "labor-hours": "9",
+  "cloud": "0",
+  "party": "1000",
+  "infrastructure-stage-estimate": "1000",
+  "infrastructure-stages": "12",
+  "benefit": "74",
+  "cost": "12450",
+  "net": "-12376",
+  "report-name": "test1123",
+  "report-description": "123"
+}
