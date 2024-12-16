@@ -18,5 +18,4 @@
     const modal = document.querySelector("dialog#"+targetId);
     modal.close();
   });
-
 })();
