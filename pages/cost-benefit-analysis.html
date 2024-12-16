@@ -152,11 +152,11 @@
       <span mk-mask-format="currency" mk-masks="net">$0.00</span>
   </fieldset>
 
-  <button id="report-dialog-btn" class="btn btn-primary fixed-save-btn" type="button" onclick="document.getElementById('report-dialog').showModal();">
+  <button class="btn btn-primary fixed-save-btn" type="button" mk-opens-dialog="report-dialog">
   </button>
   
   <dialog id="report-dialog" class="my-dialog">
-    <button type="button" class="x btn btn-accent" onclick="document.getElementById('report-dialog').close();">
+    <button type="button" class="x btn btn-accent" mk-closes-dialog="report-dialog">
       &#10006;
     </button>
     <h3 class="txt-primary banner">Save and load report</h3>
@@ -173,7 +173,7 @@
       <summary class="txt-primary">Examples</summary>
       <select id="examples" aria-label="examples" class="btn btn-primary" mk-json-file-from-fetch>
         <option value="">(Choose)</option>
-        <option value="/data/time-estimate/sla-buffer.json">web app</option>
+        <option value="/data/cost-benefit/web-app.json">web app</option>
       </select>
     </details>
   </dialog>
