@@ -21,16 +21,11 @@
   });
 
   function negate(x) {
-    return (x.hasAttribute("mk-negate") ? -1 : 1);
+    return x.hasAttribute("mk-negate") ? -1 : 1;
   }
 
   function oneMinus(x) {
-    const result = Number(x.value);
-    if (x.hasAttribute("mk-one-minus")) {
-      return 1 - result;
-    }
-    
-    return result;
+    return x.hasAttribute("mk-one-minus") ? 1 - Number(x.value) : Number(x.value);
   }
 
   function getFunc(func) {
