@@ -27,7 +27,7 @@ li a.btn {
   border-color: var(--color-primary);
 }
 
-.fixed-save-btn {
+.fixed-btn {
   transition: width 0.5s, height 0.5s;
   display: block;
   position: fixed;
@@ -35,14 +35,17 @@ li a.btn {
   right: 5px;
   width: 25px;
   height: 25px;
+}
+
+.fixed-btn:hover {
+  transition: width 0.5s, height 0.5s;
+  width: 45px;
+  height: 45px;
+}
+
+.save-btn {
   background-repeat: no-repeat;
   background-image: url(../images/floppy-disk.svg);
   background-size: contain;
   background-origin: content-box;
-}
-
-.fixed-save-btn:hover {
-  transition: width 0.5s, height 0.5s;
-  width: 45px;
-  height: 45px;
 }
