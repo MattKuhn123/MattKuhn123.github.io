@@ -14,19 +14,16 @@
       const func = getFunc(elt.getAttribute("mk-func"));
       const argNames = elt.getAttribute("mk-args");
       const argEls = argNames.split(",").map(x => form.querySelector("[name=" + x + "]"));
-      const argVals = argEls.map(x => oneMinus(x) * negate(x));
+      const argVals = argEls.map(x => {
+        let value = Number(x.value);
+        value = x.hasAttribute("mk-compliment") ? 1 - value : value;
+        value = x.hasAttribute("mk-negate") ? -1 * value : value;
+        return value;
+      });
       elt.value = func(argVals);
       elt.dispatchEvent(new Event("change", { bubbles: true }));
     });
   });
-
-  function negate(x) {
-    return x.hasAttribute("mk-negate") ? -1 : 1;
-  }
-
-  function oneMinus(x) {
-    return x.hasAttribute("mk-one-minus") ? 1 - Number(x.value) : Number(x.value);
-  }
 
   function getFunc(func) {
     switch(func) {
