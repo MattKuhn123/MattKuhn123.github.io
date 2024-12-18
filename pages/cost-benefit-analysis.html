@@ -21,7 +21,8 @@
     <input class="my-input" id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number"/>
 
     <label for="staff-savings-estimate">Yearly estimate:</label>
-    <input mk-func="multiply" mk-args="staff-count,staff-wage,staff-weekly-hours-saved" class="my-input" id="staff-savings-estimate" name="staff-savings-estimate" readonly tabindex="-1" type="number"/>
+    <output mk-func="multiply" for="staff-count staff-wage staff-weekly-hours-saved" mk-mask="currency" id="staff-savings-estimate" name="staff-savings-estimate">
+    </output>
   </fieldset>
 
   <fieldset class="my-fieldset" id="profit-fieldset">
@@ -51,11 +52,12 @@
         What is the likelihood the software will forecast correctly or attract business as anticipated?
       </div>
     </label>
-    <output id="profit-estimate-mask" mk-mask-format="percentage" mk-masks="profit-chance"></output>
+    <output mk-func="sum" for="profit-chance" mk-mask="percentage"></output>
     <input class="my-input" id="profit-chance" name="profit-chance" type="range" step=".1" min="0" max="1"/>
 
     <label for="profit-wage">Yearly estimate:</label>
-    <input class="my-input" id="profit-estimate" name="profit-estimate" mk-func="multiply" mk-args="profit,profit-count,profit-chance" readonly tabindex="-1" type="number"/>
+    <output mk-func="multiply" for="profit profit-count profit-chance" mk-mask="currency" id="profit-estimate" name="profit-estimate">
+    </output>
   </fieldset>
 
   <fieldset class="my-fieldset" id="regulatory-compliance-fieldset">
@@ -78,7 +80,8 @@
     </label>
     <input class="my-input" id="fine-count" name="fine-count" type="number"/>
     <label for="staff-wage">Yearly estimate:</label>
-    <input class="my-input" id="fine-estimate" name="fine-estimate" mk-func="multiply" mk-args="fine,fine-count" readonly tabindex="-1" type="number"/>
+    <output mk-func="multiply" for="fine fine-count" mk-mask="currency" id="fine-estimate" name="fine-estimate">
+    </output>
   </fieldset>
 
   <h2 class="txt-primary">Cost</h2>
@@ -103,7 +106,8 @@
     <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
 
     <label for="labor-estimate">Estimate:</label>
-    <input class="my-input" id="labor-estimate" name="labor-estimate" mk-func="multiply" mk-args="labor,labor-hours" readonly tabindex="-1" type="number"/>
+    <output mk-func="multiply" for="labor labor-hours" mk-mask="currency" id="labor-estimate" name="labor-estimate">
+    </output>
   </fieldset>
 
   <fieldset class="my-fieldset" id="infrastructure-fieldset">
@@ -115,7 +119,7 @@
         The cost to run web servers, host web storage, execute compute, etc? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <output id="infrastructure-mask" mk-mask-format="currency" mk-masks="cloud"></output>
+    <output mk-func="sum" mk-mask="currency" for="cloud"></output>
     <input class="my-input" id="cloud" name="cloud" type="range" step="1000" min="0" max="50000"/>
 
     <label for="licenses" aria-describedby="licenses-tooltip">
@@ -125,11 +129,12 @@
         Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
       </div>
     </label>
-    <output id="license-mask" mk-mask-format="currency" mk-masks="license"></output>
+    <output mk-func="sum" for="license" mk-mask="currency"></output>
     <input class="my-input" id="license" name="license" type="range" step="1000" min="0" max="50000"/>
 
     <label for="infrastructure-estimate">Yearly stage estimate:</label>
-    <input class="my-input" id="infrastructure-stage-estimate" name="infrastructure-stage-estimate" mk-func="sum", mk-args="license,cloud" readonly tabindex="-1" type="number"/>
+    <output mk-func="sum" for="license cloud" mk-mask="currency" id="infrastructure-stage-estimate" name="infrastructure-stage-estimate">
+    </output>
 
     <label for="infrastructure-stages" aria-describedby="infrastructure-stages-tooltip">
       Stages
@@ -141,15 +146,15 @@
     <input class="my-input" id="infrastructure-stages" name="infrastructure-stages" type="number"/>
 
     <label for="infrastructure-estimate">Yearly estimate:</label>
-    <input class="my-input" id="infrastructure-estimate" name="infrastructure-estimate" mk-func="multiply" mk-args="infrastructure-stage-estimate,infrastructure-stages" readonly tabindex="-1" type="number"/>
+    <output mk-func="multiply" for="infrastructure-stage-estimate infrastructure-stages" mk-mask="currency" id="infrastructure-estimate" name="infrastructure-estimate">
+    </output>
   </fieldset>
 
   <fieldset class="my-fieldset sticky-bottom" id="net-fieldset">
     <h3 class="txt-primary banner">Net</h3>
-      <input hidden id="benefit" name="benefit" mk-func="sum" mk-args="staff-savings-estimate,profit-estimate,fine-estimate" type="number"/>
-      <input hidden id="cost" name="cost" mk-func="sum" mk-args="infrastructure-estimate,labor-estimate" mk-negate type="number"/>
-      <input hidden id="net" name="net" mk-func="sum" mk-args="benefit,cost" type="number"/>
-      <span mk-mask-format="currency" mk-masks="net">$0.00</span>
+      <output hidden id="benefit" name="benefit" mk-func="sum" for="staff-savings-estimate profit-estimate fine-estimate"></output>
+      <output hidden id="cost" name="cost" mk-func="sum" for="infrastructure-estimate labor-estimate" mk-negate></output>
+      <output id="net" name="net" mk-func="sum" for="benefit cost" mk-mask="currency"></output>
   </fieldset>
 
   <button class="btn btn-primary fixed-btn save-btn" type="button" mk-opens-dialog="report-dialog">

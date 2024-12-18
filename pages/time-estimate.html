@@ -93,14 +93,14 @@
   <fieldset class="my-fieldset sticky-bottom" id="estimate">
     <h3 class="txt-primary banner">Estimate</h3>
     <p>
-      <input hidden id="base-hours" name="base-hours" type="number" mk-func="multiply" mk-args="r,r,d"/>
-      <input hidden id="mastery-gap" name="mastery-gap" type="number" mk-func="multiply" mk-args="base-hours,m"/>
-      <input hidden id="teamwork-gap" name="teamwork-gap" type="number" mk-func="multiply" mk-args="base-hours,t"/>
-      <input hidden id="size" name="size" type="number" mk-func="multiply" mk-args="base-hours,s"/>
-      <input hidden id="double" name="double" type="number" value=2/>
+      <output hidden id="base-hours" name="base-hours" mk-func="multiply" for="r r d"></output>
+      <output hidden id="mastery-gap" name="mastery-gap" mk-func="multiply" for="base-hours m"></output>
+      <output hidden id="teamwork-gap" name="teamwork-gap" mk-func="multiply" for="base-hours t"></output>
+      <output hidden id="size" name="size" mk-func="multiply" for="base-hours s"></output>
+      <output hidden id="double" name="double" type="number" value="2"></output>
 
       <label for="hours">Hours</label>
-      <input class="my-input" readonly tabindex="-1" id="hours" name="size" type="number" mk-func="sum" mk-args="base-hours,mastery-gap,teamwork-gap,size,double"/>
+      <output id="hours" name="size" mk-func="sum" for="base-hours mastery-gap teamwork-gap size double"></output>
     </p>
   </fieldset>
 
