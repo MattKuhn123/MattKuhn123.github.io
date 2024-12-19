@@ -19,6 +19,14 @@ input[type="range"] {
   justify-content: space-between;
 }
 
+.reverse.my-vertical-range input[type="range"] {
+  direction: rtl;
+}
+
+.reverse.my-vertical-range datalist {
+  flex-direction: column-reverse;
+}
+
 @media (orientation: portrait) {
   input[type="range"] + output {
       display: block;
