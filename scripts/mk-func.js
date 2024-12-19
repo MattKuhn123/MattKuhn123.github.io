@@ -64,15 +64,10 @@
   }
 
   function currency(value) {
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    });
-
-    return formatter.format(value);
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
   }
 
   function percentage(value) {
-    return (value * 100).toString() + "%";
+    return (value.toFixed(2) * 100).toString() + "%";
   }
 })();
