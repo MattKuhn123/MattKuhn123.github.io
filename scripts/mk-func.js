@@ -13,14 +13,8 @@
     Array.from(elt).forEach(function(elt) {
       const func = getFunc(elt.getAttribute("mk-func"));
       const argNames = elt.getAttribute("for");
-      const argEls = argNames.split(" ").map(x => form.querySelector("[name=" + x + "]"));
-      const argVals = argEls.map(x => {
-        let value = x.tagName.toLowerCase() === "input" ? Number(x.value) : Number(x.getAttribute("data-value"));
-        value = x.hasAttribute("mk-compliment") ? 1 - value : value;
-        value = x.hasAttribute("mk-negate") ? -1 * value : value;
-        return value;
-      });
-
+      const argElts = argNames.split(" ").map(x => form.querySelector("[name=" + x + "]"));
+      const argVals = argElts.map(x => getElementValue(x));
       const dataValue = func(argVals)
       elt.setAttribute("data-value", dataValue);
       elt.dispatchEvent(new Event("change", { bubbles: true }));
@@ -46,6 +40,15 @@
 
   function sum(args) {
     return args.reduce((a, b) => a + b, 0);
+  }
+
+  function getElementValue(x) {
+    let value = x.tagName.toLowerCase() === "input" 
+      ? Number(x.value) 
+      : Number(x.getAttribute("data-value"));
+    value = x.hasAttribute("mk-compliment") ? 1 - value : value;
+    value = x.hasAttribute("mk-negate") ? -1 * value : value;
+    return value;
   }
 
   function getMaskFormatter(mask) {
