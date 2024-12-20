@@ -112,22 +112,22 @@
 
   <fieldset class="my-fieldset" id="infrastructure-fieldset">
     <legend>Infrastructure</legend>
-    <label for="cloud" aria-describedby="cloud-tooltip">
+    <label for="raw-cloud" aria-describedby="raw-cloud-tooltip">
       Yearly cloud cost
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="cloud-tooltip">
+      <div role="tooltip" id="raw-cloud-tooltip">
         The cost to run AWS resources
       </div>
     </label>
     <div class="my-vertical-range reverse">
-      <input class="my-input flex-column" id="cloud" name="cloud" type="range" list="cloud-values"/>
+      <input class="my-input flex-column" id="raw-cloud" name="raw-cloud" type="range" list="cloud-values"/>
       <datalist id="cloud-values">
         <option value="0" label="Efficient (Lambda, DynamoDb)"></option>
         <option value="50" label="Experienced (EC2, MySQL RDS)."></option>
         <option value="100" label="Effortless (Lightsail)"></option>
       </datalist>
     </div>
-    <output for="cloud * cloud" mk-mask="currency"></output>
+    <output for="raw-cloud * raw-cloud" id="cloud" name="cloud" mk-mask="currency"></output>
 
     <label for="cloud-stages" aria-describedby="cloud-stages-tooltip">
       Stages
