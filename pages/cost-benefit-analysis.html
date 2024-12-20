@@ -100,7 +100,7 @@
       Hours
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
       <div role="tooltip" id="labor-hours-tooltip">
-        Hour many hours do we estimate? (calculator available <a href="./pages/time-estimate.html" target="_blank">here</a>) 
+        How long will the project take? (Consider factors such as how many parties are involved, how many functions the application will perform, and the teamwork, mastery, and engagement of the development team).
       </div>
     </label>
     <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
@@ -116,44 +116,39 @@
       Yearly cloud cost
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
       <div role="tooltip" id="cloud-tooltip">
-        The cost to run web servers, host web storage, execute compute, etc? If unknown or not applicable, leave at 0.
+        The cost to run AWS resources
       </div>
     </label>
-    <output for="cloud" mk-mask="currency"></output>
-    <input class="my-input" id="cloud" name="cloud" type="range" step="1000" min="0" max="50000"/>
+    <div class="my-vertical-range reverse">
+      <input class="my-input flex-column" id="cloud" name="cloud" type="range" list="cloud-values"/>
+      <datalist id="cloud-values">
+        <option value="0" label="Efficient (Lambda, DynamoDb)"></option>
+        <option value="50" label="Experienced (EC2, MySQL RDS)."></option>
+        <option value="100" label="Effortless (Lightsail)"></option>
+      </datalist>
+    </div>
+    <output for="cloud * cloud" mk-mask="currency"></output>
 
-    <label for="licenses" aria-describedby="licenses-tooltip">
-      Licenses
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="licenses-tooltip">
-        Are we hooking into any systems that you want to use (e.g. Mail Chimp, Wix, etc)? If unknown or not applicable, leave at 0.
-      </div>
-    </label>
-    <output for="license" mk-mask="currency"></output>
-    <input class="my-input" id="license" name="license" type="range" step="1000" min="0" max="50000"/>
-
-    <label for="infrastructure-estimate">Yearly stage estimate:</label>
-    <output for="license + cloud" mk-mask="currency" id="infrastructure-stage-estimate" name="infrastructure-stage-estimate">
-    </output>
-
-    <label for="infrastructure-stages" aria-describedby="infrastructure-stages-tooltip">
+    <label for="cloud-stages" aria-describedby="cloud-stages-tooltip">
       Stages
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="infrastructure-stages-tooltip">
+      <div role="tooltip" id="cloud-stages-tooltip">
         How many stages will you need to run your infrastructure in? (Production, Test, QA, Dev, UAT, etc)
       </div>
     </label>
-    <input class="my-input" id="infrastructure-stages" name="infrastructure-stages" type="number"/>
 
-    <label for="infrastructure-estimate">Yearly estimate:</label>
-    <output for="infrastructure-stage-estimate * infrastructure-stages" mk-mask="currency" id="infrastructure-estimate" name="infrastructure-estimate">
+    <!-- TODO do something interesting instead of a number input -->
+    <input class="my-input" id="cloud-stages" name="cloud-stages" type="number"/>
+
+    <label for="cloud-estimate">Yearly estimate:</label>
+    <output for="cloud * cloud-stages" mk-mask="currency" id="cloud-estimate" name="cloud-estimate">
     </output>
   </fieldset>
 
   <fieldset class="my-fieldset sticky-bottom" id="net-fieldset">
     <h3 class="txt-primary banner">Net</h3>
       <output for="staff-savings-estimate + profit-estimate + fine-estimate" hidden id="benefit" name="benefit" ></output>
-      <output for="infrastructure-estimate + labor-estimate" hidden id="cost" name="cost"></output>
+      <output for="cloud-estimate + labor-estimate" hidden id="cost" name="cost"></output>
       <output for="benefit - cost" id="net" name="net" mk-mask="currency"></output>
   </fieldset>
 
