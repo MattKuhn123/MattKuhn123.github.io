@@ -15,7 +15,7 @@
       const formula = argNames
       .split(" ")
       .map(x => {
-        return [ "+", "-", "*", "/", "%", "(", ")" ].find(op => op === x) ? x
+        return [ "+", "-", "*", "/", "%", "(", ")", "**" ].find(op => op === x) ? x
           : getElementValue(form.querySelector("[name=" + x + "]"));
       }).join(" ");
 
