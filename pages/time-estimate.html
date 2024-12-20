@@ -93,14 +93,14 @@
   <fieldset class="my-fieldset sticky-bottom" id="estimate">
     <h3 class="txt-primary banner">Estimate</h3>
     <p>
-      <output hidden id="base-hours" name="base-hours" mk-func="multiply" for="r r d"></output>
-      <output hidden id="mastery-gap" name="mastery-gap" mk-func="multiply" for="base-hours m"></output>
-      <output hidden id="teamwork-gap" name="teamwork-gap" mk-func="multiply" for="base-hours t"></output>
-      <output hidden id="size" name="size" mk-func="multiply" for="base-hours s"></output>
-      <output hidden id="double" name="double" type="number" value="2"></output>
+      <output for="r * r * d" hidden id="base-hours" name="base-hours"></output>
+      <output for="base-hours * m" hidden id="mastery-gap" name="mastery-gap"></output>
+      <output for="base-hours * t" hidden id="teamwork-gap" name="teamwork-gap" ></output>
+      <output for="base-hours * s" hidden id="size" name="size"></output>
+      <output hidden id="double" name="double" type="number" data-value="2"></output>
 
       <label for="hours">Hours</label>
-      <output id="hours" name="size" mk-func="sum" for="base-hours mastery-gap teamwork-gap size double"></output>
+      <output for="( base-hours + mastery-gap + teamwork-gap + size ) * double" id="hours" name="size"></output>
     </p>
   </fieldset>
 
