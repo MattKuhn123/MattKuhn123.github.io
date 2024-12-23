@@ -51,7 +51,7 @@
     const jsonKeys = Object.keys(json);
     jsonKeys.forEach(key => {
       const elt = form.querySelector("[name="+key+"]");
-      if (elt.getAttribute("type") == "checkbox") {
+      if (elt.getAttribute("type") === "checkbox") {
         elt.setAttribute("checked", json[key] === "on");
       } else {
         elt.value = json[key];
