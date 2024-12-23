@@ -5,7 +5,7 @@ input.my-input:not([type="image" i], [type="radio" i], [type="button" i], [type=
   width: 100%;
 }
 
-.space-children-100 * {
+.margin-5 * {
   margin: 5px;
 }
 

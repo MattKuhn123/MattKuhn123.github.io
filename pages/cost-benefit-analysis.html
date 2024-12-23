@@ -1,5 +1,5 @@
 <form id="cost-estimate-form">
-  <h1 class="txt-primary banner">Cost/Benefit analysis</h1>
+  <h1 class="txt-primary underline-fade">Cost/Benefit analysis</h1>
 
   <h2 class="txt-primary">Benefit</h2>
 
@@ -78,7 +78,7 @@
   </fieldset>
 
   <fieldset class="my-fieldset sticky-bottom" id="net-fieldset">
-    <h3 class="txt-primary banner">Net</h3>
+    <h3 class="txt-primary underline-fade">Net</h3>
       <output for="savings-total + profit-total" hidden id="benefit" name="benefit" ></output>
       <output for="labor-total" hidden id="cost" name="cost"></output>
       <output for="benefit - cost" id="net" name="net" mk-mask="currency"></output>
@@ -91,17 +91,17 @@
     <button type="button" class="x btn btn-accent" mk-closes-dialog="report-dialog">
       &#10006;
     </button>
-    <h3 class="txt-primary banner">Save and load report</h3>
-    <section class="space-children-100 banner">
+    <h3 class="txt-primary underline-fade">Save and load report</h3>
+    <section class="margin-5 underline-fade">
       <input class="my-input" name="report-name" type="text" required minlength="3" maxlength="20"/>
       <textarea class="my-input" name="report-description" required minlength="10" maxlength="128"></textarea>
     </section>
-    <section class="space-children-100 banner">
+    <section class="margin-5 underline-fade">
       <button class="btn btn-accent" type="button" mk-form-to-json-file>Download</button>
       <button class="btn btn-accent" type="button" mk-json-file-to-form-for="uLoad-btn">Upload</button>
       <input hidden id="uLoad-btn" type="file" mk-json-file-to-form/>
     </section>
-    <details class="space-children-100">
+    <details class="margin-5">
       <summary class="txt-primary">Examples</summary>
       <select id="examples" aria-label="examples" class="btn btn-primary" mk-json-file-from-fetch>
         <option value="">(Choose)</option>
