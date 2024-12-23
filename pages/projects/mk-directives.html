@@ -21,7 +21,7 @@
     <input class="my-input" id="hours-saved" name="hours-saved" type="number"/>
 
     <label for="savings-total">Yearly total:</label>
-    <output for="staff-count * wage * hours-saved" mk-mask="currency" id="savings-total" name="savings-total">
+    <output mk-formula="staff-count * wage * hours-saved" mk-mask="currency" id="savings-total" name="savings-total">
     </output>
   </fieldset>
 
@@ -43,11 +43,11 @@
         What is the likelihood the software will forecast correctly or attract business as anticipated?
       </div>
     </label>
-    <output for="profit-chance" mk-mask="percentage"></output>
+    <output mk-formula="profit-chance" mk-mask="percentage"></output>
     <input class="my-input" id="profit-chance" name="profit-chance" type="range" step=".1" min="0" max="1"/>
 
     <label for="profit-wage">Yearly total:</label>
-    <output for="profit * profit-chance" mk-mask="currency" id="profit-total" name="profit-total">
+    <output mk-formula="profit * profit-chance" mk-mask="currency" id="profit-total" name="profit-total">
     </output>
   </fieldset>
 
@@ -73,15 +73,15 @@
     <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
 
     <label for="labor-total">Total:</label>
-    <output for="labor * labor-hours" mk-mask="currency" id="labor-total" name="labor-total">
+    <output mk-formula="labor * labor-hours" mk-mask="currency" id="labor-total" name="labor-total">
     </output>
   </fieldset>
 
   <fieldset class="my-fieldset sticky-bottom" id="net-fieldset">
     <h3 class="txt-primary underline-fade">Net</h3>
-      <output for="savings-total + profit-total" hidden id="benefit" name="benefit" ></output>
-      <output for="labor-total" hidden id="cost" name="cost"></output>
-      <output for="benefit - cost" id="net" name="net" mk-mask="currency"></output>
+      <output mk-formula="savings-total + profit-total" hidden id="benefit" name="benefit" ></output>
+      <output mk-formula="labor-total" hidden id="cost" name="cost"></output>
+      <output mk-formula="benefit - cost" id="net" name="net" mk-mask="currency"></output>
   </fieldset>
 
   <button class="btn btn-primary fixed-btn save-btn" type="button" mk-opens-dialog="save-dialog">

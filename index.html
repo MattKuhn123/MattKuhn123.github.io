@@ -30,41 +30,41 @@
 <body>
   <nav class="my-nav">
     <section>
-      <div class="btn btn-accent dropdown">
+      <div id="about-dropdown" class="btn btn-accent dropdown">
         <span>About</span>
         <div class="dropdown-content">
           <ul>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/resume.html"hx-target="main">
+              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/about/resume.html"hx-target="main">
                 Resume
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="btn btn-primary dropdown">
-        <span>Project tools</span>
+      <div id="projects-dropdown" class="btn btn-primary dropdown">
+        <span>Projects</span>
         <div class="dropdown-content">
           <ul>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/cost-benefit-analysis.html" hx-target="main">
-                Cost/Benefit
+              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/projects/mk-directives.html" hx-target="main">
+                MK directives
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="btn btn-accent dropdown">
+      <div id="thoughts-fieldset" class="btn btn-accent dropdown">
         <span>Thoughts</span>
         <div class="dropdown-content">
           <ul>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/the-oath.html" hx-target="main">
+              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/thoughts/the-oath.html" hx-target="main">
                 The Oath
               </a>
             </li>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/javascript.html" hx-target="main">
+              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/thoughts/javascript.html" hx-target="main">
                 JavaScript
               </a>
             </li>
@@ -76,7 +76,7 @@
   </nav>
 
   <main>
-    <div hx-trigger="load" hx-get="/pages/the-oath.html" hx-swap="outerHTML"></div>
+    <div hx-trigger="load" hx-get="/pages/thoughts/the-oath.html" hx-swap="outerHTML"></div>
   </main>
 
   <footer class="my-footer">

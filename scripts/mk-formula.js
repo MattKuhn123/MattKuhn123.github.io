@@ -9,9 +9,9 @@
 
   on(document, 'input', 'form', (event) => {
     const form = event.target.closest("form");
-    const outputs = form.querySelectorAll("output[for]");
+    const outputs = form.querySelectorAll("output[mk-formula]");
     Array.from(outputs).forEach((output) => {
-      const fnPieces = output.getAttribute("for").split(" ");
+      const fnPieces = output.getAttribute("mk-formula").split(" ");
       const fnString = "return " + fnPieces.map(x => !isOp(x) && !isNum(x) ? `fnParams["${x}"]` : x).join(" ");
       const fnParams = { };
       for (const x of fnPieces.filter(x => !isOp(x) && !isNum(x))) {
