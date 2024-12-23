@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="./scripts/libs/htmx.js"></script>
+  <script src="/scripts/libs/htmx.js"></script>
+  <script src="/scripts/mk-dialog.js"></script>
+  <script src="/scripts/mk-formula.js"></script>
+  <script src="/scripts/mk-json.js"></script>
+  <script src="/tests//utils/utils.js"></script>
 <head>
   <title>TEST</title>
 </head>
@@ -13,11 +17,11 @@
   htmx.ajax('GET', "/pages/projects/mk-directives.html", { target: 'body' }).then(executeTests);
 
   function executeTests() {
-    test_openReportDialog();
+    test_openDialog();
   }
 
-  function test_openReportDialog() {
-    $("#report-dialog-btn").click();
-    assertElementExists("#report-dialog[open]");
+  function test_openDialog() {
+    document.querySelector("[mk-opens-dialog]").click();
+    assertElementExists("#save-dialog[open]");
   }
 </script>
