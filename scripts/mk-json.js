@@ -25,12 +25,12 @@
 
   on(document, 'change', 'input[mk-json-file-to-form]', (event) => {
     const form = event.target.closest("form");
-    jsonFromFile(event).then(function(json) { jsonToForm(form, json); })
+    jsonFromFile(event).then((json) => jsonToForm(form, json))
   });
   
   on(document, 'change', 'select[mk-json-file-from-fetch]', (event) => {
     const form = event.target.closest("form");
-    jsonFromFetch(event.target.value).then(function(json) { jsonToForm(form, json); } );
+    jsonFromFetch(event.target.value).then((json) => jsonToForm(form, json));
   });
 
   function jsonToFile(form) {
