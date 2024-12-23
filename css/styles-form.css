@@ -44,10 +44,6 @@ input.my-input[type=checkbox] {
   flex-wrap: wrap;
 }
 
-.fill-space {
-  flex: 1;
-}
-
 .my-fieldset {
   margin: 10px 0px 10px 0px;
   border-style: solid;
