@@ -84,22 +84,22 @@
       <output for="benefit - cost" id="net" name="net" mk-mask="currency"></output>
   </fieldset>
 
-  <button class="btn btn-primary fixed-btn save-btn" type="button" mk-opens-dialog="report-dialog">
+  <button class="btn btn-primary fixed-btn save-btn" type="button" mk-opens-dialog="save-dialog">
   </button>
   
-  <dialog id="report-dialog" class="my-dialog">
-    <button type="button" class="x btn btn-accent" mk-closes-dialog="report-dialog">
+  <dialog id="save-dialog" class="my-dialog">
+    <button type="button" class="x btn btn-accent" mk-closes-dialog="save-dialog">
       &#10006;
     </button>
-    <h3 class="txt-primary underline-fade">Save and load report</h3>
+    <h3 class="txt-primary underline-fade">Save</h3>
     <section class="margin-5 underline-fade">
-      <input class="my-input" name="report-name" type="text" required minlength="3" maxlength="20"/>
-      <textarea class="my-input" name="report-description" required minlength="10" maxlength="128"></textarea>
+      <input class="my-input" name="save-name" type="text" required minlength="3" maxlength="20"/>
+      <textarea class="my-input" name="save-description" required minlength="10" maxlength="128"></textarea>
     </section>
     <section class="margin-5 underline-fade">
       <button class="btn btn-accent" type="button" mk-form-to-json-file>Download</button>
-      <button class="btn btn-accent" type="button" mk-json-file-to-form-for="uLoad-btn">Upload</button>
-      <input hidden id="uLoad-btn" type="file" mk-json-file-to-form/>
+      <button class="btn btn-accent" type="button" mk-json-file-to-form-for="load-btn">Upload</button>
+      <input hidden id="load-btn" type="file" mk-json-file-to-form/>
     </section>
     <details class="margin-5">
       <summary class="txt-primary">Examples</summary>
