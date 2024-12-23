@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <script src="./scripts/libs/htmx.js"></script>
-  <script src="./scripts/libs/alpine.js"></script>
 <head>
   <title>TEST</title>
 </head>
@@ -11,7 +10,7 @@
 </html>
 
 <script>
-  htmx.ajax('GET', "/pages/cost-benefit-analysis.html", { target: 'body' }).then(executeTests);
+  htmx.ajax('GET', "/pages/projects/mk-directives.html", { target: 'body' }).then(executeTests);
 
   function executeTests() {
     test_openReportDialog();
