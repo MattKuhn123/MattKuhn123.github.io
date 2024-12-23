@@ -9,25 +9,23 @@
 
   on(document, 'input', 'form', (event) => {
     const form = event.target.closest("form");
-    const elt = form.querySelectorAll("output[for]");
-    Array.from(elt).forEach(function(elt) {
-      const argNames = elt.getAttribute("for");
-      const formula = argNames
-      .split(" ")
-      .map(x => {
-        return isOperator(x) || isNumber(x)
-          ? x
-          : getElementValue(form.querySelector("[name=" + x + "]"));
-      }).join(" ");
+    const outputs = form.querySelectorAll("output[for]");
+    Array.from(outputs).forEach((output) => {
+      const formulaPieces = output.getAttribute("for").split(" ");
+      const formulaString = "return " + formulaPieces.map(x => !isOperator(x) && !isNumber(x) ? `args["${x}"]` : x).join(" ");
+      const args = { };
+      for (const x of formulaPieces.filter(x => !isOperator(x) && !isNumber(x))) {
+        args[x] = getElementValue(x);
+      }
 
-      const dataValue = eval(formula);
-      elt.setAttribute("data-value", dataValue);
-      elt.dispatchEvent(new Event("change", { bubbles: true }));
+      const value = new Function('args', formulaString)(args);
+      output.setAttribute("data-value", value);
+      output.dispatchEvent(new Event("change", { bubbles: true }));
 
-      const maskFormat = elt.getAttribute("mk-mask");
+      const maskFormat = output.getAttribute("mk-mask");
       const maskFunc = getMaskFormatter(maskFormat);
-      const maskedValue = maskFunc(dataValue);
-      elt.innerText = maskedValue;
+      const maskedValue = maskFunc(value);
+      output.innerText = maskedValue;
     });
   });
 
@@ -41,10 +39,12 @@
     return result;
   }
 
-  function getElementValue(x) {
-    return x.tagName.toLowerCase() === "input" 
+  function getElementValue(name) {
+    const x = form.querySelector("[name=" + name + "]");
+    const result =  x.tagName.toLowerCase() === "input" 
       ? Number(x.value) 
       : Number(x.getAttribute("data-value"));
+    return result;
   }
 
   function getMaskFormatter(mask) {
