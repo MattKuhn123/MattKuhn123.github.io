@@ -15,7 +15,8 @@
       const formula = argNames
       .split(" ")
       .map(x => {
-        return [ "+", "-", "*", "/", "%", "(", ")", "**" ].find(op => op === x) ? x
+        return isOperator(x) || isNumber(x)
+          ? x
           : getElementValue(form.querySelector("[name=" + x + "]"));
       }).join(" ");
 
@@ -29,6 +30,16 @@
       elt.innerText = maskedValue;
     });
   });
+
+  function isOperator(x) {
+    const result = [ "+", "-", "*", "/", "%", "(", ")", "**", "++", "--" ].find(op => op === x);
+    return result !== undefined;
+  }
+
+  function isNumber(x) {
+    const result = /^[0-9]*$/g.test(x);
+    return result;
+  }
 
   function getElementValue(x) {
     return x.tagName.toLowerCase() === "input" 
