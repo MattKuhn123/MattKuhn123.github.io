@@ -93,20 +93,22 @@
     </button>
     <h3 class="txt-primary underline-fade">Save</h3>
     <section class="margin-5 underline-fade">
-      <input class="my-input" name="save-name" type="text" required minlength="3" maxlength="20"/>
-      <textarea class="my-input" name="save-description" required minlength="10" maxlength="128"></textarea>
+      <input class="my-input" name="save-name" type="text" placeholder="save name" required minlength="3" maxlength="20"/>
+      <textarea class="my-input" name="save-description" placeholder="save description" required minlength="10" maxlength="128"></textarea>
     </section>
-    <section class="margin-5 underline-fade">
+    <section class="margin-5">
       <button class="btn btn-accent" type="button" mk-form-to-json-file>Download</button>
       <button class="btn btn-accent" type="button" mk-json-file-to-form-for="load-btn">Upload</button>
       <input hidden id="load-btn" type="file" mk-json-file-to-form/>
     </section>
-    <details class="margin-5">
+    <details class="margin-5 expansion-panel">
       <summary class="txt-primary">Examples</summary>
-      <select id="examples" aria-label="examples" class="btn btn-primary" mk-json-file-from-fetch>
-        <option value="">(Choose)</option>
-        <option value="/data/web-app.json">web app</option>
-      </select>
+      <div>
+        <select id="examples" aria-label="examples" class="btn btn-primary" mk-json-file-from-fetch>
+          <option value="">(Choose)</option>
+          <option value="/data/web-app.json">web app</option>
+        </select>
+      </div>
     </details>
   </dialog>
 </form>

@@ -1,3 +1,4 @@
+details.expansion-panel summary,
 details.expansion-panel summary + div {
   padding: 5px;
 }
@@ -8,13 +9,11 @@ details.expansion-panel {
 }
 
 details.expansion-panel summary {
-  height: 18vmax;
   background-size: cover;
   background-position: center;
   background-clip: content-box;
   display: flex;
   align-items: flex-end;
-
   transition: margin 150ms ease-out;
 }
 
