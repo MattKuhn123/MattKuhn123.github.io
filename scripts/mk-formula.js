@@ -11,59 +11,55 @@
     const form = event.target.closest("form");
     const outputs = form.querySelectorAll("output[for]");
     Array.from(outputs).forEach((output) => {
-      const formulaPieces = output.getAttribute("for").split(" ");
-      const formulaString = "return " + formulaPieces.map(x => !isOperator(x) && !isNumber(x) ? `args["${x}"]` : x).join(" ");
-      const args = { };
-      for (const x of formulaPieces.filter(x => !isOperator(x) && !isNumber(x))) {
-        args[x] = getElementValue(x);
+      const fnPieces = output.getAttribute("for").split(" ");
+      const fnString = "return " + fnPieces.map(x => !isOp(x) && !isNum(x) ? `fnParams["${x}"]` : x).join(" ");
+      const fnParams = { };
+      for (const x of fnPieces.filter(x => !isOp(x) && !isNum(x))) {
+        fnParams[x] = getValue(form, x);
       }
 
-      const value = new Function('args', formulaString)(args);
+      // Set value
+      const value = new Function('fnParams', fnString)(fnParams);
       output.setAttribute("data-value", value);
       output.dispatchEvent(new Event("change", { bubbles: true }));
 
+      // Set mask
       const maskFormat = output.getAttribute("mk-mask");
-      const maskFunc = getMaskFormatter(maskFormat);
-      const maskedValue = maskFunc(value);
+      const maskedValue = getMaskFormatFn(maskFormat)(value);
       output.innerText = maskedValue;
     });
   });
 
-  function isOperator(x) {
-    const result = [ "+", "-", "*", "/", "%", "(", ")", "**", "++", "--" ].find(op => op === x);
-    return result !== undefined;
-  }
-
-  function isNumber(x) {
-    const result = /^[0-9]*$/g.test(x);
-    return result;
-  }
-
-  function getElementValue(name) {
+  function getValue(form, name) {
     const x = form.querySelector("[name=" + name + "]");
-    const result =  x.tagName.toLowerCase() === "input" 
-      ? Number(x.value) 
-      : Number(x.getAttribute("data-value"));
+    const value =  x.tagName.toLowerCase() === "input" 
+      ? x.value 
+      : x.getAttribute("data-value");
+    
+    const result = Number(value);
+    if (isNaN(result)) {
+      throw new Error(`${name}'s value, ${value}, is not a number`);
+    }
+
     return result;
   }
 
-  function getMaskFormatter(mask) {
+  function isOp(x) {
+    return !![ "+", "-", "*", "/", "%", "(", ")", "**", "++", "--" ].find(op => op === x);
+  }
+
+  function isNum(x) {
+    return /^[0-9]*$/g.test(x);
+  }
+
+  function getMaskFormatFn(mask) {
     switch(mask) {
-      case "currency": return currency;
-      case "percentage": return percentage;
-      default: return noMask;
+      case "currency": 
+        return (x) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(x);
+      case "percentage": 
+        return (x) => (x.toFixed(2) * 100).toString() + "%";
+      default: 
+        return (x) => x;
     }
-  }
-
-  function noMask(value) {
-    return value;
-  }
-
-  function currency(value) {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
-  }
-
-  function percentage(value) {
-    return (value.toFixed(2) * 100).toString() + "%";
   }
 })();

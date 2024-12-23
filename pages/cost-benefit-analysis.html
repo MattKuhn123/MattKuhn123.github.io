@@ -3,30 +3,30 @@
 
   <h2 class="txt-primary">Benefit</h2>
 
-  <fieldset class="my-fieldset" id="staff-fieldset">
-    <legend>Staff savings</legend>
+  <fieldset class="my-fieldset" id="saving-fieldset">
+    <legend>Savings</legend>
     <label for="staff-count">Staff</label>
     <input class="my-input" id="staff-count" name="staff-count" type="number"/>
 
-    <label for="staff-wage">Wage</label>
-    <input class="my-input" id="staff-wage" name="staff-wage" type="number"/>
+    <label for="wage">Wage</label>
+    <input class="my-input" id="wage" name="wage" type="number"/>
 
-    <label for="staff-weekly-hours-saved" aria-describedby="hours-saved-tooltip">
+    <label for="hours-saved" aria-describedby="hours-saved-tooltip">
       Hours saved weekly
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
       <div role="tooltip" id="hours-saved-tooltip">
         How many hours per week can the software save an individual member of the staff?
       </div>
     </label>
-    <input class="my-input" id="staff-weekly-hours-saved" name="staff-weekly-hours-saved" type="number"/>
+    <input class="my-input" id="hours-saved" name="hours-saved" type="number"/>
 
-    <label for="staff-savings-estimate">Yearly estimate:</label>
-    <output for="staff-count * staff-wage * staff-weekly-hours-saved" mk-mask="currency" id="staff-savings-estimate" name="staff-savings-estimate">
+    <label for="savings-total">Yearly total:</label>
+    <output for="staff-count * wage * hours-saved" mk-mask="currency" id="savings-total" name="savings-total">
     </output>
   </fieldset>
 
   <fieldset class="my-fieldset" id="profit-fieldset">
-    <legend>Profit opportunity</legend>
+    <legend>Profit</legend>
     <label for="profit" aria-describedby="profit-tooltip">
       Profit
       <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
@@ -35,15 +35,6 @@
       </div>
     </label>
     <input class="my-input" id="profit" name="profit" type="number"/>
-
-    <label for="profit-count" aria-describedby="profit-count-tooltip">
-      Yearly opportunities
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="profit-count-tooltip">
-        How many times per year does this opportunity arise?
-      </div>
-    </label>
-    <input class="my-input" id="profit-count" name="profit-count" type="number"/>
 
     <label for="profit-chance" aria-describedby="profit-chance-tooltip">
       Estimated software accuracy
@@ -55,32 +46,8 @@
     <output for="profit-chance" mk-mask="percentage"></output>
     <input class="my-input" id="profit-chance" name="profit-chance" type="range" step=".1" min="0" max="1"/>
 
-    <label for="profit-wage">Yearly estimate:</label>
-    <output for="profit * profit-count * profit-chance" mk-mask="currency" id="profit-estimate" name="profit-estimate">
-    </output>
-  </fieldset>
-
-  <fieldset class="my-fieldset" id="regulatory-compliance-fieldset">
-    <legend>Regulatory compliance</legend>
-    <label for="fine" aria-describedby="fine-tooltip">
-      Fine
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="fine-tooltip">
-        What is the fine for not complying with this regulation?
-      </div>
-    </label>
-    <input class="my-input" id="fine" name="fine" type="number"/>
-
-    <label for="fine-count" aria-describedby="fine-count-tooltip">
-      Yearly opportunities
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="fine-count-tooltip">
-        How many times per year can this fine apply?
-      </div>
-    </label>
-    <input class="my-input" id="fine-count" name="fine-count" type="number"/>
-    <label for="staff-wage">Yearly estimate:</label>
-    <output for="fine * fine-count" mk-mask="currency" id="fine-estimate" name="fine-estimate">
+    <label for="profit-wage">Yearly total:</label>
+    <output for="profit * profit-chance" mk-mask="currency" id="profit-total" name="profit-total">
     </output>
   </fieldset>
 
@@ -105,50 +72,15 @@
     </label>
     <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
 
-    <label for="labor-estimate">Estimate:</label>
-    <output for="labor * labor-hours" mk-mask="currency" id="labor-estimate" name="labor-estimate">
-    </output>
-  </fieldset>
-
-  <fieldset class="my-fieldset" id="infrastructure-fieldset">
-    <legend>Infrastructure</legend>
-    <label for="raw-cloud" aria-describedby="raw-cloud-tooltip">
-      Yearly cloud cost
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="raw-cloud-tooltip">
-        The cost to run AWS resources
-      </div>
-    </label>
-    <div class="my-vertical-range reverse">
-      <input class="my-input flex-column" id="raw-cloud" name="raw-cloud" type="range" list="cloud-values"/>
-      <datalist id="cloud-values">
-        <option value="0" label="Efficient (Lambda, DynamoDb)"></option>
-        <option value="50" label="Experienced (EC2, MySQL RDS)."></option>
-        <option value="100" label="Effortless (Lightsail)"></option>
-      </datalist>
-    </div>
-    <output for="raw-cloud * raw-cloud" id="cloud" name="cloud" mk-mask="currency"></output>
-
-    <label for="cloud-stages" aria-describedby="cloud-stages-tooltip">
-      Stages
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="cloud-stages-tooltip">
-        How many stages will you need to run your infrastructure in? (Production, Test, QA, Dev, UAT, etc)
-      </div>
-    </label>
-
-    <!-- TODO do something interesting instead of a number input -->
-    <input class="my-input" id="cloud-stages" name="cloud-stages" type="number"/>
-
-    <label for="cloud-estimate">Yearly estimate:</label>
-    <output for="cloud * cloud-stages" mk-mask="currency" id="cloud-estimate" name="cloud-estimate">
+    <label for="labor-total">Total:</label>
+    <output for="labor * labor-hours" mk-mask="currency" id="labor-total" name="labor-total">
     </output>
   </fieldset>
 
   <fieldset class="my-fieldset sticky-bottom" id="net-fieldset">
     <h3 class="txt-primary banner">Net</h3>
-      <output for="staff-savings-estimate + profit-estimate + fine-estimate" hidden id="benefit" name="benefit" ></output>
-      <output for="cloud-estimate + labor-estimate" hidden id="cost" name="cost"></output>
+      <output for="savings-total + profit-total" hidden id="benefit" name="benefit" ></output>
+      <output for="labor-total" hidden id="cost" name="cost"></output>
       <output for="benefit - cost" id="net" name="net" mk-mask="currency"></output>
   </fieldset>
 
