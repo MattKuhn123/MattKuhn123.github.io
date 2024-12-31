@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="/scripts/libs/htmx.js"></script>
-  <script src="/scripts/mk-dialog.js"></script>
-  <script src="/scripts/mk-formula.js"></script>
-  <script src="/scripts/mk-json.js"></script>
-  <script src="/tests/utils/utils.js"></script>
+  <script src="../scripts/mk-dialog.js"></script>
+  <script src="../scripts/mk-formula.js"></script>
+  <script src="../scripts/mk-json.js"></script>
 <head>
   <title>TEST</title>
 </head>
 
-<body></body>
+<body>
+  <iframe title="test-bed" src="../pages/projects/mk-directives.html"></iframe>
+</body>
 
 </html>
 
 <script>
-  htmx.ajax('GET', "/pages/projects/mk-directives.html", { target: 'body' }).then(executeTests);
-
-  function executeTests() {
-    test_openDialog();
+  function iframeDocument() {
+    const iframe = document.querySelector("iframe"); 
+    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    return iframeDocument;
   }
 
-  function test_openDialog() {
-    document.querySelector("[mk-opens-dialog]").click();
-    assertElementExists("#save-dialog[open]");
+  function test_savingsCalculation() {
+    const doc = iframeDocument();
+    doc.querySelector("#staff-count").value = 10;
+    doc.querySelector("#wage").value = 10;
+    doc.querySelector("#hours-saved").value = 10;
+    
+    // Is there anyway to not need to trigger the input event??
+    doc.querySelector("#hours-saved").dispatchEvent(new Event("input", { bubbles: true }));
+
+    console.assert(Number(doc.querySelector("#savings-total").getAttribute("data-value")) === (10*10*10));
   }
+
+  document.querySelector('iframe').addEventListener("load", () => {
+    test_savingsCalculation();
+  })
+
 </script>

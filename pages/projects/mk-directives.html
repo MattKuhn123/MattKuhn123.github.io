@@ -1,105 +1,95 @@
-<form id="cost-estimate-form">
-  <h1 class="txt-primary underline-fade">Cost/Benefit analysis</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-  <h2 class="txt-primary">Benefit</h2>
+<head>
+  <title>KuhnTech</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/styles-body.css">
+  <link rel="stylesheet" href="../../css/styles-btn.css">
+  <link rel="stylesheet" href="../../css/styles-colors.css">
+  <link rel="stylesheet" href="../../css/styles-dialog.css">
+  <link rel="stylesheet" href="../../css/styles-dropdown.css">
+  <link rel="stylesheet" href="../../css/styles-expansion-panel.css">
+  <link rel="stylesheet" href="../../css/styles-fonts.css">
+  <link rel="stylesheet" href="../../css/styles-footer.css">
+  <link rel="stylesheet" href="../../css/styles-form.css">
+  <link rel="stylesheet" href="../../css/styles-nav.css">
+  <link rel="stylesheet" href="../../css/styles-quote.css">
+  <link rel="stylesheet" href="../../css/styles-slider.css">
+  <link rel="stylesheet" href="../../css/styles-table.css">
+  <link rel="stylesheet" href="../../css/styles-tooltip.css">
+  <link rel="stylesheet" href="../../css/styles-txt.css">
+  <link rel="stylesheet" href="../../css/styles-underline.css">
+  <script src="../../scripts/mk-dialog.js"></script>
+  <script src="../../scripts/mk-formula.js"></script>
+  <script src="../../scripts/mk-json.js"></script>
+</head>
 
-  <fieldset class="my-fieldset" id="saving-fieldset">
-    <legend>Savings</legend>
-    <label for="staff-count">Staff</label>
-    <input class="my-input" id="staff-count" name="staff-count" type="number"/>
+<body>
+  <form id="cost-estimate-form">
+    <h1 class="txt-primary underline-fade">Cost/Benefit analysis</h1>
 
-    <label for="wage">Wage</label>
-    <input class="my-input" id="wage" name="wage" type="number"/>
+    <h2 class="txt-primary">Benefit</h2>
 
-    <label for="hours-saved" aria-describedby="hours-saved-tooltip">
-      Hours saved weekly
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="hours-saved-tooltip">
-        How many hours per week can the software save an individual member of the staff?
-      </div>
-    </label>
-    <input class="my-input" id="hours-saved" name="hours-saved" type="number"/>
+    <fieldset class="my-fieldset" id="saving-fieldset">
+      <legend>Savings</legend>
+      <label for="staff-count">Staff</label>
+      <input class="my-input" id="staff-count" name="staff-count" type="number" />
 
-    <label for="savings-total">Yearly total:</label>
-    <output mk-formula="staff-count * wage * hours-saved" mk-mask="currency" id="savings-total" name="savings-total">
-    </output>
-  </fieldset>
+      <label for="wage">Wage</label>
+      <input class="my-input" id="wage" name="wage" type="number" />
 
-  <fieldset class="my-fieldset" id="profit-fieldset">
-    <legend>Profit</legend>
-    <label for="profit" aria-describedby="profit-tooltip">
-      Profit
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="profit-tooltip">
-        What is your possible profit with this software?
-      </div>
-    </label>
-    <input class="my-input" id="profit" name="profit" type="number"/>
+      <label for="hours-saved" aria-describedby="hours-saved-tooltip">
+        Hours saved weekly
+        <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
+        <div role="tooltip" id="hours-saved-tooltip">
+          How many hours per week can the software save an individual member of the staff?
+        </div>
+      </label>
+      <input class="my-input" id="hours-saved" name="hours-saved" type="number" />
 
-    <label for="profit-chance" aria-describedby="profit-chance-tooltip">
-      Estimated software accuracy
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="profit-chance-tooltip" >
-        What is the likelihood the software will forecast correctly or attract business as anticipated?
-      </div>
-    </label>
-    <output mk-formula="profit-chance" mk-mask="percentage"></output>
-    <input class="my-input" id="profit-chance" name="profit-chance" type="range" step=".1" min="0" max="1"/>
+      <label for="savings-total">Yearly total:</label>
+      <output mk-formula="staff-count * wage * hours-saved" mk-mask="currency" id="savings-total" name="savings-total">
+      </output>
+    </fieldset>
 
-    <label for="profit-wage">Yearly total:</label>
-    <output mk-formula="profit * profit-chance" mk-mask="currency" id="profit-total" name="profit-total">
-    </output>
-  </fieldset>
+    <h2 class="txt-primary">Cost</h2>
 
-  <h2 class="txt-primary">Cost</h2>
+    <fieldset class="my-fieldset" id="labor-fieldset">
+      <label for="labor" aria-describedby="labor-tooltip">
+        Labor
+        <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
+        <div role="tooltip" id="labor-tooltip">
+          Our estimated average hourly rate.
+        </div>
+      </label>
+      <input class="my-input" readonly tabindex="-1" id="labor" name="labor" type="number" value="50" />
 
-  <fieldset class="my-fieldset" id="labor-fieldset">
-    <label for="labor" aria-describedby="labor-tooltip">
-      Labor
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="labor-tooltip">
-        Our estimated average hourly rate.
-      </div>
-    </label>
-    <input class="my-input" readonly tabindex="-1" id="labor" name="labor" type="number" value="50"/>
+      <label for="labor-hours" aria-describedby="labor-hours-tooltip">
+        Hours
+        <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
+        <div role="tooltip" id="labor-hours-tooltip">
+          How long will the project take? (Consider factors such as how many parties are involved, how many functions
+          the application will perform, and the teamwork, mastery, and engagement of the development team).
+        </div>
+      </label>
+      <input class="my-input" id="labor-hours" name="labor-hours" type="number" />
 
-    <label for="labor-hours" aria-describedby="labor-hours-tooltip">
-      Hours
-      <button type="button" class="btn btn-accent btn-icon" tabIndex="-1">?</button>
-      <div role="tooltip" id="labor-hours-tooltip">
-        How long will the project take? (Consider factors such as how many parties are involved, how many functions the application will perform, and the teamwork, mastery, and engagement of the development team).
-      </div>
-    </label>
-    <input class="my-input" id="labor-hours" name="labor-hours" type="number"/>
+      <label for="labor-total">Total:</label>
+      <output mk-formula="labor * labor-hours" mk-mask="currency" id="labor-total" name="labor-total">
+      </output>
+    </fieldset>
 
-    <label for="labor-total">Total:</label>
-    <output mk-formula="labor * labor-hours" mk-mask="currency" id="labor-total" name="labor-total">
-    </output>
-  </fieldset>
+    <fieldset class="my-fieldset" id="net-fieldset">
+      <h3 class="txt-primary underline-fade">Net</h3>
+      <output mk-formula="savings-total - labor-total" id="net" name="net" mk-mask="currency"></output>
+    </fieldset>
 
-  <fieldset class="my-fieldset" id="net-fieldset">
-    <h3 class="txt-primary underline-fade">Net</h3>
-      <output mk-formula="savings-total + profit-total" hidden id="benefit" name="benefit" ></output>
-      <output mk-formula="labor-total" hidden id="cost" name="cost"></output>
-      <output mk-formula="benefit - cost" id="net" name="net" mk-mask="currency"></output>
-  </fieldset>
-
-  <button class="btn btn-primary fixed-btn save-btn" type="button" mk-opens-dialog="save-dialog">
-  </button>
-  
-  <dialog id="save-dialog" class="my-dialog">
-    <button type="button" class="x btn btn-accent" mk-closes-dialog="save-dialog">
-      &#10006;
-    </button>
-    <h3 class="txt-primary underline-fade">Save</h3>
-    <section class="margin-5 underline-fade">
-      <input class="my-input" name="save-name" type="text" placeholder="save name" required minlength="3" maxlength="20"/>
-      <textarea class="my-input" name="save-description" placeholder="save description" required minlength="10" maxlength="128"></textarea>
-    </section>
     <section class="margin-5">
       <button class="btn btn-accent" type="button" mk-form-to-json-file>Download</button>
       <button class="btn btn-accent" type="button" mk-json-file-to-form-for="load-btn">Upload</button>
-      <input hidden id="load-btn" type="file" mk-json-file-to-form/>
+      <input hidden id="load-btn" type="file" mk-json-file-to-form />
     </section>
     <details class="margin-5 expansion-panel">
       <summary class="txt-primary">Examples</summary>
@@ -110,11 +100,7 @@
         </select>
       </div>
     </details>
-  </dialog>
-</form>
+  </form>
+</body>
 
-<script>
-  window.onload = function(e) {
-    window.location.href = window.location.origin+"?htmx="+window.location.pathname;
-  }
-</script>
+</html>

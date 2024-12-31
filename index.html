@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="./css/styles-tooltip.css">
   <link rel="stylesheet" href="./css/styles-txt.css">
   <link rel="stylesheet" href="./css/styles-underline.css">
-  <script src="./scripts/libs/htmx.js"></script>
   <script src="./scripts/mk-dialog.js"></script>
   <script src="./scripts/mk-formula.js"></script>
   <script src="./scripts/mk-json.js"></script>
@@ -35,7 +34,7 @@
         <div class="dropdown-content">
           <ul>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/about/resume.html"hx-target="main">
+              <a class="btn btn-accent" href="./pages/about/resume.html">
                 Resume
               </a>
             </li>
@@ -47,7 +46,7 @@
         <div class="dropdown-content">
           <ul>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/projects/mk-directives.html" hx-target="main">
+              <a class="btn btn-accent" href="./pages/projects/mk-directives.html">
                 MK directives
               </a>
             </li>
@@ -59,12 +58,12 @@
         <div class="dropdown-content">
           <ul>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/thoughts/the-oath.html" hx-target="main">
+              <a class="btn btn-accent" href="./pages/thoughts/the-oath.html">
                 The Oath
               </a>
             </li>
             <li>
-              <a class="btn btn-accent" hx-boost="true" hx-push-url="true" hx-get="/pages/thoughts/javascript.html" hx-target="main">
+              <a class="btn btn-accent" href="./pages/thoughts/javascript.html">
                 JavaScript
               </a>
             </li>
@@ -76,31 +75,12 @@
   </nav>
 
   <main>
-    <div hx-trigger="load" hx-get="/pages/thoughts/the-oath.html" hx-swap="outerHTML"></div>
+    <div>TODO...</div>
   </main>
 
   <footer class="my-footer">
     <span class="txt-primary">KuhnTech</span>
   </footer>
 </body>
-
-<script>
-  window.addEventListener("popstate", (event) => {
-    event.preventDefault();
-    const pathname = document.location.pathname;
-    if (event.state.htmx && pathname !== "/") {
-      htmx.ajax('GET', pathname, { target: 'main' });
-    }
-  });
-
-  window.onload = function (e) {
-    const htmxIdx = window.location.href.indexOf("?htmx=");
-    const isHtmxRedirect = htmxIdx > 0;
-    if (isHtmxRedirect) {
-      const page = window.location.href.substring(htmxIdx + "?htmx=".length);
-      htmx.ajax('GET', page, { target: 'main' });
-    }
-  }
-</script>
 
 </html>
