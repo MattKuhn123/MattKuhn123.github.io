@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="../scripts/mk-dialog.js"></script>
-  <script src="../scripts/mk-formula.js"></script>
-  <script src="../scripts/mk-json.js"></script>
 <head>
   <title>TEST</title>
 </head>
@@ -14,25 +11,25 @@
 </html>
 
 <script>
-  function iframeDocument() {
-    const iframe = document.querySelector("iframe"); 
+  function getTestDocument() {
+    const iframe = document.querySelector("iframe");
     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
     return iframeDocument;
   }
 
   function test_savingsCalculation() {
-    const doc = iframeDocument();
+    const doc = getTestDocument();
     doc.querySelector("#staff-count").value = 10;
+    doc.querySelector("#staff-count").dispatchEvent(new Event("change", { bubbles: true }));
     doc.querySelector("#wage").value = 10;
+    doc.querySelector("#wage").dispatchEvent(new Event("change", { bubbles: true }));
     doc.querySelector("#hours-saved").value = 10;
+    doc.querySelector("#hours-saved").dispatchEvent(new Event("change", { bubbles: true }));
     
-    // Is there anyway to not need to trigger the input event??
-    doc.querySelector("#hours-saved").dispatchEvent(new Event("input", { bubbles: true }));
-
-    console.assert(Number(doc.querySelector("#savings-total").getAttribute("data-value")) === (10*10*10));
+    console.assert(Number(doc.querySelector("#savings-total").getAttribute("value")) === 1000);
   }
 
-  document.querySelector('iframe').addEventListener("load", () => {
+  document.querySelector("iframe").addEventListener("load", () => {
     test_savingsCalculation();
   })
 
