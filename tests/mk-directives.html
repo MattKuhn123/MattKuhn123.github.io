@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>TEST</title>
+  <title>Test</title>
+  <script src="./utils/utils.js"></script>
 </head>
 
 <body>
   <iframe title="test-bed" src="../pages/projects/mk-directives.html"></iframe>
 </body>
 
-</html>
-
 <script>
-  function getTestDocument() {
-    const iframe = document.querySelector("iframe");
-    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-    return iframeDocument;
-  }
-
   function test_savingsCalculation() {
     const doc = getTestDocument();
-    doc.querySelector("#staff-count").value = 10;
-    doc.querySelector("#staff-count").dispatchEvent(new Event("change", { bubbles: true }));
-    doc.querySelector("#wage").value = 10;
-    doc.querySelector("#wage").dispatchEvent(new Event("change", { bubbles: true }));
-    doc.querySelector("#hours-saved").value = 10;
-    doc.querySelector("#hours-saved").dispatchEvent(new Event("change", { bubbles: true }));
-    
-    console.assert(Number(doc.querySelector("#savings-total").getAttribute("value")) === 1000);
+    changeValue(doc, "staff-count", 10);
+    changeValue(doc, "wage", 10);
+    changeValue(doc, "hours-saved", 10);
+
+    const actual = Number(doc.querySelector("[name=savings-total]").getAttribute("data-value"));
+    console.assert(actual === 1000, "%o", { actual, errorMessage: "expected savings-total to be 1000, but was not" });
   }
 
   document.querySelector("iframe").addEventListener("load", () => {
     test_savingsCalculation();
-  })
-
+  });
 </script>
+
+</html>
