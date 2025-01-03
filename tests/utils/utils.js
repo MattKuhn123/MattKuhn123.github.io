@@ -4,8 +4,12 @@ function getTestDocument() {
   return iframeDocument;
 }
 
-function changeValue(parent, name, value) {
+function setAttribute() {
+
+}
+
+function setAndDispatch(parent, name, attribute, value, event) {
   const elt = parent.querySelector(`[name=${name}]`);
-  elt.value = value;
-  elt.dispatchEvent(new Event("change", { bubbles: true }));
+  elt.setAttribute(attribute, value);
+  elt.dispatchEvent(new Event(event, { bubbles: true }));
 }

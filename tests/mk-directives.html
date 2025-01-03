@@ -13,9 +13,9 @@
 <script>
   function test_savingsCalculation() {
     const doc = getTestDocument();
-    changeValue(doc, "staff-count", 10);
-    changeValue(doc, "wage", 10);
-    changeValue(doc, "hours-saved", 10);
+    setAndDispatch(doc, "staff-count",  "value", 10, "change");
+    setAndDispatch(doc, "wage",         "value", 10, "change");
+    setAndDispatch(doc, "hours-saved",  "value", 10, "change");
 
     const actual = Number(doc.querySelector("[name=savings-total]").getAttribute("data-value"));
     console.assert(actual === 1000, "%o", { actual, errorMessage: "expected savings-total to be 1000, but was not" });
