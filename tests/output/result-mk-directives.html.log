@@ -1,0 +1,12 @@
+[13028:3076:0103/105607.786:WARNING:chrome_main_delegate.cc(773)] This is Chrome version 131.0.2903.112 (not a warning)
+[13028:3076:0103/105608.525:WARNING:activity_log_policy.cc(68)] Scheduling init
+[13028:3076:0103/105608.525:WARNING:activity_log_policy.cc(68)] Scheduling init
+[13028:3076:0103/105608.969:WARNING:account_fetcher_service.cc(300)] Should not execute: Tests depending on this function may fail
+[13028:3076:0103/105608.969:WARNING:account_fetcher_service.cc(230)] Should not execute: Tests depending on this function may fail
+[13028:3076:0103/105608.981:WARNING:external_registry_loader_win.cc(280)] Error observing HKLM: 5
+[25360:17476:0103/105609.216:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[25360:17476:0103/105609.222:ERROR:direct_composition_support.cc(1039)] QueryInterface to IDCompositionDevice4 failed: No such interface supported (0x80004002)
+[13028:3076:0103/105609.393:INFO:CONSOLE(22)] "Assertion failed: expected savings-total to be: 1000 but was 1100", source: file:///C:/Users/mlkuhn/source/rogue/MattKuhn123.github.io/tests/pages/mk-directives.html (22)
+[13028:3076:0103/105611.366:WARNING:underside_helper.cc(1563)] If test does not need FrontLoad, this may be expected. SetFrontLoadDecision: 8
+[27260:26796:0103/105611.684:INFO:extractor_impl.cc(983)] ExtractorImpl::SetIsPendingEEConfig : 1
+[13028:3076:0103/105613.016:WARNING:load_error_reporter.cc(72)] Extension error: Your organization blocks Google Docs Offline (extension ID "ghbmnnjooekpmoecnnnilnnbdlolhkhi"). 

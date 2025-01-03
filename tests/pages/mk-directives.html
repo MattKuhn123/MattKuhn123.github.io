@@ -3,22 +3,23 @@
 
 <head>
   <title>Test</title>
-  <script src="./utils/utils.js"></script>
+  <script src="../utils/utils.js"></script>
 </head>
 
 <body>
-  <iframe title="test-bed" src="../pages/projects/mk-directives.html"></iframe>
+  <iframe title="test-bed" src="../../pages/projects/mk-directives.html"></iframe>
 </body>
 
 <script>
   function test_savingsCalculation() {
     const doc = getTestDocument();
-    setAndDispatch(doc, "staff-count",  "value", 10, "change");
+    setAndDispatch(doc, "staff-count",  "value", 11, "change");
     setAndDispatch(doc, "wage",         "value", 10, "change");
     setAndDispatch(doc, "hours-saved",  "value", 10, "change");
 
     const actual = Number(doc.querySelector("[name=savings-total]").getAttribute("data-value"));
-    console.assert(actual === 1000, "%o", { actual, errorMessage: "expected savings-total to be 1000, but was not." });
+    const expected = 10 * 10 * 10;
+    console.assert(actual === expected, `Assertion failed: expected savings-total to be: ${expected} but was ${actual}`);
   }
 
   document.querySelector("iframe").addEventListener("load", () => {
