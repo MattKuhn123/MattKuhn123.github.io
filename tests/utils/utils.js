@@ -4,10 +4,6 @@ function getTestDocument() {
   return iframeDocument;
 }
 
-function setAttribute() {
-
-}
-
 function setAndDispatch(parent, name, attribute, value, event) {
   const elt = parent.querySelector(`[name=${name}]`);
   elt.setAttribute(attribute, value);
