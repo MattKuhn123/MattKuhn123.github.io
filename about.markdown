@@ -4,15 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I'm Matt Kuhn! A Cincinnati-based husband, father, and software developer. I'm most experienced with enterprise-level solutions using the more popular languages like Java and C#. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+- I view software as as a tool for automating well-understood business processes. 
+- I view software engineering as the codification of that knowledge. 
+- I view software engineers as authors of that code. 
+- I view code as literature (like an instruction manual or a textbook).
