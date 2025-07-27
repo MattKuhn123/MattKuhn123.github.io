@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "C# vs Java for web developers"
-date:   2025-03-29 08:00:00 -0400
+date:   2025-07-27 08:00:00 -0400
 categories: c# java
 ---
 # C\# vs Java for web developers (and .NET vs Spring)
