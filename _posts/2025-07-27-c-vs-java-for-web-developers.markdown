@@ -43,11 +43,11 @@ using Microsoft.AspNetCore.Mvc;
 [Route("/My")]
 public class MyController: ControllerBase
 {
-[HttpPost("/myPost")]
-public string MyPost([FromBody] Dictionary<string, string> requestBody)
-{
- // ...
-}
+ [HttpPost("/myPost")]
+ public string MyPost([FromBody] Dictionary<string, string> requestBody)
+ {
+  // ...
+ }
 }
 
 ```
@@ -83,18 +83,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 class MyControllerTest {
 
-@InjectMocks
-MyController real;
-MockMvc mock;
-
-@BeforeEach
-void setUp() { mock = MockMvcBuilders.standaloneSetup(real).build(); }
-
-@ParameterizedTest
-@CsvSource({"/My/myPost,200", "/not/real,404"})
-void test_urls(String url, int xpctd) throws Exception {
-mock.perform(post(url)).andExpect(status().is(xpctd)).andReturn();
-}
+ @InjectMocks
+ MyController real;
+ MockMvc mock;
+ 
+ @BeforeEach
+ void setUp() { mock = MockMvcBuilders.standaloneSetup(real).build(); }
+ 
+  @ParameterizedTest
+  @CsvSource({"/My/myPost,200", "/not/real,404"})
+  void test_urls(String url, int xpctd) throws Exception {
+  mock.perform(post(url)).andExpect(status().is(xpctd)).andReturn();
+ }
 }
 
 ```
@@ -104,13 +104,13 @@ using Microsoft.AspNetCore.Mvc.Testing;
 
 public class MyControllerTest(WebApplicationFactory<Program> factory) : IClassFixture<WebApplicationFactory<Program>>
 {
-[Theory]
-[InlineData("My/myPost", 200)] [InlineData("not/real", 404)]
-public async Task Test_Urls(string url, int xpctd)
-{
-var response = await factory.CreateClient().PostAsync(url, null);
-Assert.Equal(((int) response.StatusCode), xpctd);
-}
+ [Theory]
+ [InlineData("My/myPost", 200)] [InlineData("not/real", 404)]
+ public async Task Test_Urls(string url, int xpctd)
+ {
+  var response = await factory.CreateClient().PostAsync(url, null);
+  Assert.Equal(((int) response.StatusCode), xpctd);
+ }
 }
 
 ```
@@ -135,20 +135,20 @@ import java.util.Collection;
 import java.util.Optional;
 
 public class PersonCollection {
-private final Collection<Person> ppl;
-public PersonCollection(Collection<Person> ppl) {
-this.ppl = ppl;
-}
-
-public int getAverageAge() {
-int total = ppl.stream()
-.reduce(0, (subttl, x) -> subttl + x.age(), Integer::sum);
-return total / ppl.size();
-}
-
-public Optional<Person> query(String q) {
-return ppl.stream().filter(x -> x.name().contains(q)).findFirst();
-}
+ private final Collection<Person> ppl;
+ public PersonCollection(Collection<Person> ppl) {
+  this.ppl = ppl;
+ }
+ 
+ public int getAverageAge() {
+  int total = ppl.stream()
+   .reduce(0, (subttl, x) -> subttl + x.age(), Integer::sum);
+  return total / ppl.size();
+ }
+ 
+ public Optional<Person> query(String q) {
+  return ppl.stream().filter(x -> x.name().contains(q)).findFirst();
+ }
 }
 
 ```
@@ -156,22 +156,22 @@ return ppl.stream().filter(x -> x.name().contains(q)).findFirst();
 ``` csharp
 public class PersonCollection
 {
-private readonly IEnumerable<Person> Ppl;
-public PersonCollection(params Person[] ppl)
-{
-Ppl = ppl;
-}
-
-public int GetAverageAge()
-{
-int total = Ppl.Sum(x => x.Age);
-return total / Ppl.Count();
-}
-
-public Person? Query(string q)
-{
-return Ppl.FirstOrDefault(x => x.Name.IndexOf(q) > 0);
-}
+ private readonly IEnumerable<Person> Ppl;
+ public PersonCollection(params Person[] ppl)
+ {
+  Ppl = ppl;
+ }
+ 
+ public int GetAverageAge()
+ {
+  int total = Ppl.Sum(x => x.Age);
+  return total / Ppl.Count();
+ }
+ 
+ public Person? Query(string q)
+ {
+  return Ppl.FirstOrDefault(x => x.Name.IndexOf(q) > 0);
+ }
 }
 
 ```
@@ -190,19 +190,19 @@ So, if we were to make an application (*a console application in this case, even
 import java.util.Optional;
 
 public class PersonProgram {
-private final UserInterface ui;
-public PersonProgram(UserInterface ui) { this.ui = ui; }
-
-public void run(PersonCollection pc) {
-ui.printf("Who would you like to search for?%n");
-String q = ui.getInputFromUser();
-ui.printf("Searching for: %s%n", q);
-Optional<Person> p = pc.query(q); // null wrapped in Optional<T>
-p.ifPresentOrElse(
-x -> ui.printf(x + "%n"),
-() -> ui.printf("Person not found %s%n", q)
-);
-}
+ private final UserInterface ui;
+ public PersonProgram(UserInterface ui) { this.ui = ui; }
+ 
+ public void run(PersonCollection pc) {
+  ui.printf("Who would you like to search for?%n");
+  String q = ui.getInputFromUser();
+  ui.printf("Searching for: %s%n", q);
+  Optional<Person> p = pc.query(q); // null wrapped in Optional<T>
+  p.ifPresentOrElse(
+   x -> ui.printf(x + "%n"),
+   () -> ui.printf("Person not found %s%n", q)
+  );
+ }
 }
 
 ```
@@ -210,14 +210,14 @@ x -> ui.printf(x + "%n"),
 ``` csharp
 public class PersonProgram(IUserInterface ui)
 {
-public void Run(PersonCollection pc)
-{
-ui.Print("Who would you like to search for?\n");
-string q = ui.GetInputFromUser();
-ui.Print($"Searching for: {q}");
-Person? p = pc.Query(q); // null indicator with (?)
-ui.Print(p?.ToString() ?? $"Person not found: {q}");
-}
+ public void Run(PersonCollection pc)
+ {
+  ui.Print("Who would you like to search for?\n");
+  string q = ui.GetInputFromUser();
+  ui.Print($"Searching for: {q}");
+  Person? p = pc.Query(q); // null indicator with (?)
+  ui.Print(p?.ToString() ?? $"Person not found: {q}");
+ }
 }
 
 ```
