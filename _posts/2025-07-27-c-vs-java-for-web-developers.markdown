@@ -90,9 +90,9 @@ class MyControllerTest {
  @BeforeEach
  void setUp() { mock = MockMvcBuilders.standaloneSetup(real).build(); }
  
-  @ParameterizedTest
-  @CsvSource({"/My/myPost,200", "/not/real,404"})
-  void test_urls(String url, int xpctd) throws Exception {
+ @ParameterizedTest
+ @CsvSource({"/My/myPost,200", "/not/real,404"})
+ void test_urls(String url, int xpctd) throws Exception {
   mock.perform(post(url)).andExpect(status().is(xpctd)).andReturn();
  }
 }
@@ -234,4 +234,24 @@ In some important considerations of web development, C\# and Java offer similar 
 
 ## Bonus extra topic: Cool language features
 
-Java and C\# seem to also be continuing to evolve in the same direction and adopting similar features. Two of my favorites are Records
+Java and C\# seem to also be continuing to evolve in the same direction and adopting similar features. Two of my favorites are Records and Type inference.
+
+### Records
+
+Both languages have had the Record type (Java since 2021, C# since 2020), which are similar to classes. This isn’t their technical definition, but to me they feel like shorthand notation for declaring a class with properties that have private setters and public getters.
+
+``` java
+public record Person(int age, String name);
+```
+
+### Type inference
+
+Both languages have type inference (Java since 2018, C# since 2007) meaning that you can declare a variable with the “var” keyword and the compiler will “infer” the type. 
+
+``` java
+var age = 32;
+var name = "Matt";
+var person = new Person(age, name);
+var myData = DatabaseUtils.getSomeKindOfData();
+
+```
