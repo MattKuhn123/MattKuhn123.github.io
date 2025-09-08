@@ -31,4 +31,4 @@ For example:
 
 # Conclusion
 
-The attitude I often see in individuals of a product teams is a _"resigned fatalism"_ about how bad the teams' systems are. Perhaps it's okay for us to hold on to the idea that things can (maybe even _should_) be better, **_but_** also to see shortcomings as opportunities for us to show our character in the face of adversity.
+The attitude I often see in individuals of product teams is a _"resigned fatalism"_ about how bad the teams' systems are. Perhaps it's okay for us to hold on to the idea that things can (maybe even _should_) be better, **_but_** also to see shortcomings as opportunities for us to show our character in the face of adversity.
