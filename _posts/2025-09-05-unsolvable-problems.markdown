@@ -25,10 +25,10 @@ I think the concept of _"unsolvable problems"_ translates well to the relationsh
 
 For example: 
 
-1. **How to define work**: Business analysts might find themselves having to divide tasks into ever smaller steps... _OR_ sometimes combine them, according to the apparently arbitrary whims of fickle software engineers.
-2. **How to work together to write code _(how pairing should go, or how to conduct PRs)_**: Experienced engineers may have to find a balance of hands-on and hands-off guidance for the less-experienced engineers. The amount of guidance they need (or want) is a constantly moving target.
-3. **How to format and structure the code**: Software engineers who like to use lambdas may have to stop using them if the _team_ finds them too difficult to debug. Some choices are just a matter of opinion constructed by an individual's priorities and their pragmatic trade-offs.
-4. **How to manage and exercise authority**: Some product teams feel that management acts unfairly, and some managers feel that their product teams have gone rogue!
+- **How to define work**: Business analysts might find themselves having to divide tasks into ever smaller steps... _OR_ sometimes combine them, according to the apparently arbitrary whims of fickle software engineers.
+- **How to work together to write code _(how pairing should go, or how to conduct PRs)_**: Experienced engineers may have to find a balance of hands-on and hands-off guidance for the less-experienced engineers. The amount of guidance they need (or want) is a constantly moving target.
+- **How to format and structure the code**: Software engineers who like to use lambdas may have to stop using them if the _team_ finds them too difficult to debug. Some choices are just a matter of opinion constructed by an individual's priorities and their pragmatic trade-offs.
+- **How to manage and exercise authority**: Some product teams feel that management acts unfairly, and some managers feel that their product teams have gone rogue!
 
 # Character and Resolve
 
