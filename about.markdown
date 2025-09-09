@@ -9,4 +9,4 @@ I'm Matt Kuhn! A Cincinnati-based husband, father, and software developer for th
 - I view software as as a tool for automating well-understood processes. 
 - I view software development as the codification of that knowledge. 
 - I view developers as authors of that code. 
-- I view code as literature (Not necessarily anything too fancy; usually informational like an instruction manual, but sometimes poetic like a haiku!). 
+- I view code as literature (Sometimes informational like an instruction manual, sometimes poetic like a haiku). 
