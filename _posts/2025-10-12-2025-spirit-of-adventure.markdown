@@ -14,7 +14,7 @@ It had never been done before; at least, not exactly the way it needed to be don
 
 You entered uncharted territory, hoping to capture something useful.
 
-This time you were lucky; you were able to write something functional. As a matter of fact, you were _extra_ lucky; it turned out not only to be _functional_, but _useful_ as well! 
+This time you were lucky; as a matter of fact, you were _extra_ lucky; it turned out to be both useful, _and_ functional! 
 
 Congratulations! You have spoken order out of chaos. You've divided the depths. Your code is no longer uncharted territory; it is now mapped in world of Useful Ideas.
 
