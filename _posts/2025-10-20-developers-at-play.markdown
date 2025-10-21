@@ -8,9 +8,9 @@ categories: work
 
 ## Puppies
 
-An Australian Heeler puppy was once playing with her little sister. The two played until a disagreement arose between them. They debated the issue until the older proved herself right and her sister wrong once and for all. The younger sister ran off misty-eyed to her room, bringing an end to their play and leaving the older alone and confused.
+An Australian Heeler puppy was once playing with her little sister. The two played until a disagreement arose between them. They debated the issue until the older proved herself right and her sister wrong once and for all. The younger sister ran misty-eyed off to her room, bringing an end to their play and leaving the older alone and confused.
 
-The older asked their mother what went wrong, and her mother replied _"Well, do you want to be right? Or do you want to keep playing with your sister?"_
+The older asked their mother what went wrong, to which her mother replied _"Well, what do you want to do? Do you want to be right? Or do you want to keep playing with your sister?"_
 
 ## Rats
 
@@ -22,8 +22,8 @@ In our field, we're particular about the verifiability of correctness. Every obs
 
 Sometimes, it is good to allow others to have their way. Is there wiggle room in the way that the code can be written? Can the API design be made slightly flexible to accommodate one of your consumers? If you had the design your way, maybe it would run more efficiently... Or perhaps the code would be more readable... But by how much? Would anyone notice? Also, are you so sure about that? Maybe you should give your teammate more space to flesh-out their idea; you might learn something!
 
-If you happen to be the smartest guy on the whole internet do others see you as a dominating force, or a servant-hearted resource? Do you empower your teammates? Or do you crush them?
+If you happen to be the smartest guy on the whole internet, do others see you as a dominating force, or a servant-hearted resource? Do you empower your teammates, or do you crush them?
 
 ## Conclusion
 
-When cartoon puppies agree with wrestling rats, its time for us all to sit down and listen. Being a software developer is about a lot more than just winning!
+When cartoon puppies agree with wrestling rats, it's time for us all to sit down and listen. The message couldn’t be more clear: being a software developer is about a lot more than just winning!
