@@ -49,7 +49,7 @@ If you can't take on the refactor all at once, you can still incrementally imple
 
 You can create your own class that implements `Map`, and beef it up however you like.
 
-I recommend creating abstract `MapWrapper` class that wraps around your normal `Map`. Then, you can make DTOs and Domain Objects that extend from MapWrapper, and include getters and setters to model the structure of the data.
+You could create an abstract `MapWrapper` class that wraps around your normal `Map`. Then, you can make DTOs and Domain Objects that extend from MapWrapper, and include getters and setters to model the structure of the data.
 
 ``` java
 public abstract class MapWrapper implements Map<String, Object> {
