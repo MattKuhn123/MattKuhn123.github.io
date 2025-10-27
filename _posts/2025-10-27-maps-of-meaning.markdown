@@ -33,7 +33,7 @@ public ResponseEntity<Map<String, Object>> post(@RequestBody Map<String, Object>
 2. The data hasn't been classified, so you can't easily see how it is used throughout the project. 
 3. It's more difficult for developers to discover ways to improve the application based on what the code "speaks" to them (what Kent Beck calls "[The adjacent possible](https://medium.com/@kentbeck_7670/software-design-is-human-relationships-part-1-of-3-perspective-1bcd53855557).")
 4. Modelling the data in a class cuts-down the amount of code that we need to write that *does stuff*. It increases the code's *signal-to-noise* ratio.
-5. You have to write more tests to confirm that your Maps contain the structure of data you expect (which is something that *could* be confirmed *for* you at compile time).
+5. You have to write more tests to confirm that your `Maps` contain the structure of data you expect (which is something that *could* be confirmed *for* you at compile time).
 
 ## What can we do?
 
