@@ -57,6 +57,10 @@ public abstract class MapWrapper implements Map<String, Object> {
         this.innerMap = innerMap;
     }
 
+    public MapWrapper() {
+        innerMap = new HashMap<String, Object>();
+    }
+
     @Override // pass-through to innerMap
     public void put(String key, Object value) { innerMap.put(key, value); }
 
