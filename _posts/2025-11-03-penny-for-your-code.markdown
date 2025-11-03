@@ -12,9 +12,7 @@ Civil engineers, for example, have the up-front costs of supplies and transporta
 
 In his book, *["Modern Software Engineering"](http://modernsoftwareengineering.co.uk/)*, Dave Farley calls this "The problem of production *(is not our problem)*." 
 
-Software engineers don't need to invest in supplies or wait for deliveries before beginning work. Software engineering is more like authorship, where the only raw material required to build are the thoughts in their minds.
-
-The advantage this gives to software engineers is that they can try more ideas with a lower barrier-to-entry. Software engineers can test ideas and, if needed, throw them away at *no cost* (besides a relatively short time investment).
+Software engineers don't need to invest in supplies or wait for deliveries before beginning work. Software engineering is more like authorship, where the only raw material required to build are the thoughts in their minds. This allows software engineers to try more ideas with a lower barrier-to-entry. Software engineers can test ideas and, if needed, throw them away at *no cost* (besides a relatively short time investment).
 
 Practically, in my day-to-day work, reading Dave Farley's perspective about this made me realize that I can be a little less attached to the code that I write, and have more of an "easy come, easy go" mentality. Now, I like to create branches or create projects from scratch *specifically* to test ideas that I know are on the *fringe* side, and I'm satisfied to see whether they are viable or not in that prototype context. Usually, my ideas are bad and don't pan out; but some turn out to be worthwhile that I can share with my team! My team doesn't always embrace them, but I'm okay with that! At least I have something in my back pocket that I can maybe use on a future project.
 
