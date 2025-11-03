@@ -6,8 +6,6 @@ categories: work
 ---
 # Penny for your code
 
-## Penny for your code
-
 One advantage that software engineers enjoy over other fields of engineering is the "cost of production". 
 
 Civil engineers, for example, have the up-front costs of supplies and transportation to start a construction project. Worse, there's no payoff until the construction is complete. Worse *still*, if the project failed and had to be thrown away, it would be a complete disaster.
