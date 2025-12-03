@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "WIP"
+date:   2025-12-04 08:00:00 -0400
+categories: work
+---
+# WIP
+
+Given this unimplemented JavaScript function for getting the min, max, and sum of an array of numbers:
+
+```javascript
+/**
+ * @param {number[]} numbers - An array of numbers
+ * @returns { min: number, max: number, sum: number }
+ */
+function stats(numbers) {
+  // TODO: implement
+}
+```
+
+Which implementation is better?
+
+```javascript
+// Option 1: reduce
+const sum = numbers.reduce((total, num) => total + num, 0);
+const max = Math.max(...numbers);
+const min = Math.min(...numbers);
+return { min, max, sum };
+```
+
+```javascript
+// Option 2: loop
+let sum = 0;
+let min = numbers[0];
+let max = numbers[0];
+for (let i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+  if (min > numbers[i]) {
+    min = numbers[i];
+  }
+
+  if (max < numbers[i]) {
+    max = numbers[i];
+  }
+}
+
+return { min, max, sum };
+```
+
+## Considerations: What makes code "better" than other code?
+
+- Simplicity?
+- Efficiency?
+- Maintainability?
+- Extensibility?
+- Re-usability?
+
+### Simplicity
+
+What makes code simple? 
