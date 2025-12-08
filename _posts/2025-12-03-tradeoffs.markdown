@@ -10,7 +10,7 @@ Given this unimplemented JavaScript function for getting the min, max, and sum o
 
 ```javascript
 /**
- * @param {number[]} numbers - An array of numbers
+ * @param {number[]} numbers
  * @returns { min: number, max: number, sum: number }
  */
 function stats(numbers) {
