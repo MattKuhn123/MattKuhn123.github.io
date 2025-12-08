@@ -23,7 +23,7 @@ And the following test:
 ```javascript
 describe("stats", () => {
   it("should give a result of { min: 1, max: 10, sum: 13 } for an input of [ 1, 2, 10 ], ", () => {
-    const result = sum([1, 2, 10]);
+    const result = sum([ 1, 2, 10 ]);
     expect(result.sum).toBe(13);
     expect(result.min).toBe(1);
     expect(result.max).toBe(10);
