@@ -86,7 +86,7 @@ Now that we have touched on simplicity, let's take another look at correctness.
 
 All code is destined to change as the world around it changes. When the time comes to change _this_ code _(for whatever reason that might be)_, will any of the adjacent functionality break?
 
-Simpler code tends to be safer to change, so I might suggest that there is a correlation between simplicity and correctness _over time_. 
+Simpler code tends to be safer to change, so I might suggest that there is a correlation between simplicity and correctness _over time_. Considering this, the first sample might be a bit better.
 
 ### Efficiency
 
