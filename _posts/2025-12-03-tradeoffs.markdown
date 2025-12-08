@@ -62,6 +62,8 @@ for (let i = 0; i < numbers.length; i++) {
 return { min, max, sum };
 ```
 
+## Considerations
+
 In general, important considerations when writing any unit of code are:
 
 - **Correctness**: because our application should provide the correct output!
