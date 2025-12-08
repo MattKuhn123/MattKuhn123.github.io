@@ -18,7 +18,7 @@ function stats(numbers) {
 }
 ```
 
-These tests should pass:
+This tests should pass:
 
 ```javascript
 describe("stats", () => {
@@ -31,7 +31,7 @@ describe("stats", () => {
 }
 ```
 
-Given the choice between these two correct implementations, which would you prefer to see in your codebase?
+Given the choice between these two implementations, which would you prefer to see in your codebase?
 
 ## Option 1
 
