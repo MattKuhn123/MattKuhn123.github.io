@@ -76,11 +76,11 @@ Both of these implementations are correct! So they are both acceptable.
 
 ### Simplicity
 
-Which code sample is simpler?
+Which code implementation is simpler?
 
-If the reader is familiar with collections and data structures, and if the reader has learned what the **reduce** function does, the first code sample is simpler. It's simpler because it follows the principle of immutability, where each variable is only assigned once. While code like that is occasionally harder to write, it usually easier to read since there is less activity to keep track of.
+If the reader is familiar with collections and data structures, and if the reader has learned what the **reduce** function does, the first code implementation is simpler. It's simpler because it follows the principle of immutability, where each variable is only assigned once. While code like that is occasionally harder to write, it usually easier to read since there is less activity to keep track of.
 
-However, if the reader is unfamiliar with collections and data structures, and if the reader is new to JavaScript, then they might find the second code sample simpler.
+However, if the reader is unfamiliar with collections and data structures, and if the reader is new to JavaScript, then they might find the second code implementation simpler.
 
 ### Correctness - revisited
 
@@ -92,11 +92,11 @@ Simpler code tends to be safer to change, so I might suggest that there is a cor
 
 ### Efficiency
 
-Which code sample is more efficient?
+Which code implementation is more efficient?
 
-The first code samples has a time complexity of O(3n) since it iterates over the array up to three times. The second code sample has a time complexity of O(n) since it iterates over the array only once.
+The first code implementation has a time complexity of O(3n) since it iterates over the array up to three times. The second code implementation has a time complexity of O(n) since it iterates over the array only once.
 
-But is efficiency an important consideration for your codebase? Are large amounts of data passing through it?
+But is efficiency an important consideration for your codebase? Are large amounts of data passing through it? If not, perhaps the simplicity of the code should be a greater consideration than the efficiency.
 
 ## Tradeoffs
 
