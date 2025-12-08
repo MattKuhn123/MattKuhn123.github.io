@@ -18,7 +18,7 @@ function stats(numbers) {
 }
 ```
 
-This tests should pass:
+This test should pass:
 
 ```javascript
 describe("stats", () => {
