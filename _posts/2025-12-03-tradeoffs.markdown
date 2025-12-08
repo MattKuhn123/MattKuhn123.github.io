@@ -18,7 +18,7 @@ function stats(numbers) {
 }
 ```
 
-This test should pass:
+And the following test:
 
 ```javascript
 describe("stats", () => {
@@ -31,9 +31,9 @@ describe("stats", () => {
 }
 ```
 
-Given the choice between these two implementations, which would you prefer to see in your codebase?
+Given the choice between the following two implementations, which would you prefer to see in your codebase?
 
-## Option 1
+- Option 1:
 
 ```javascript
 const sum = numbers.reduce((total, num) => total + num, 0);
@@ -42,7 +42,7 @@ const min = Math.min(...numbers);
 return { min, max, sum };
 ```
 
-## Option 2
+- Option 2:
 
 ```javascript
 let sum = 0;
