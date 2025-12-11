@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Tradeoffs"
-date:   2025-12-011 08:00:00 -0400
+date:   2025-12-11 08:00:00 -0400
 categories: work
 ---
 # AI Adoption And Individual Performance Metrics
