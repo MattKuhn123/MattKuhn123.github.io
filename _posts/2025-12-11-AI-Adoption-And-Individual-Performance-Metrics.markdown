@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tradeoffs"
+title:  "AI Adoption And Individual Performance Metrics"
 date:   2025-12-11 08:00:00 -0400
 categories: work
 ---
