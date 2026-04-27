@@ -23,7 +23,7 @@ I provided a bonus tip advising that *everyone* should consider themselves a gue
 
 Today, I'd like to add nuance to my feelings about "ownership" of a codebase.
 
-Ownership is actually a good thing. But is it something you want for yourself?
+Ownership is actually a good thing. But it's not pleasant.
 
 ### Suffering
 
@@ -47,5 +47,3 @@ In the age of AI, true ownership is more valuable than ever. Engineers can *pote
 
 The best owner of a codebase steps up not because she wants to but because she knows that she has to. She takes blame and shuns credit. She prioritizes reviewing others' code and helping *them* get to production. She seeks permission from others to go to the main branch. She supports testing more than development. She is a servant. 
 
-Is this something you want for yourself?
-'
