@@ -33,7 +33,7 @@ No; with ownership comes suffering. As a matter of fact, it is almost always *pr
 
 One is usually seen as the owner of something when they have established a pattern of being there to fix it when it breaks; to take responsibility for what it does, and to insist on being held accountable.
 
-I can think of a number of projects I published and have abandoned after mere months (or shorter). Ownership requires bondage, which *I've* historically found difficult to willfully submit myself to and imagine others would probably agree.
+I can think of a number of projects I published and have abandoned after mere months (or shorter). Ownership requires bondage, which *I've* historically found difficult to willfully submit myself to and imagine others would probably agree. (By the way, I don’t want to sound overly masochistic; the decision to put yourself in bondage should be grounded in a value judgement: *"is it worth the effort?"*")
 
 When someone sees themselves as an owner of something without having first **suffered** for and served it, people (hopefully) see right through them.
 
