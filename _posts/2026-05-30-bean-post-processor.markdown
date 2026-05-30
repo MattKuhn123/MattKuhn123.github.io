@@ -7,6 +7,15 @@ slides: |
 
   ### How we gave QA a self-service error simulator
 
+  - The problem
+  - The idea
+  - How it works
+  - The code
+  - The result
+  - Wiremock comparison
+  - Tradeoffs
+  - Takeaways
+
   ---
 
   # The problem
