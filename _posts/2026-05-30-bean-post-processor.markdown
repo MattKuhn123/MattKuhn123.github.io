@@ -122,10 +122,11 @@ slides: |
 
   ---
 
-  # Takeaways
+  # The Future and Beyond
 
-  - AI is a great way to learn about unfamiliar APIs — I didn't know what a `BeanPostProcessor` was before this
-  - Improving your team's testing experience is worth engineering effort
-  - A good DX for QA pays off every sprint
+  - AI continues to be a great way to learn and experiment.
+  - QA is grateful, but slowly adopting.
+  - The first iteration wasn't functioning correctly for several weeks before I noticed the issue.
+  - Other devs who didn't participate in the solution didn't know how to use it and didn't really trust it; until they contributed. Then they got excited about it.
 
 ---
