@@ -7,8 +7,6 @@ slides: |
 
   ### How we gave QA a self-service error simulator
 
-  .footnote[Matt Kuhn — 2026]
-
   ---
 
   # The problem
@@ -121,5 +119,4 @@ slides: |
   - Improving your team's testing experience is worth engineering effort
   - A good DX for QA pays off every sprint
 
-  .footnote[Questions?]
 ---
