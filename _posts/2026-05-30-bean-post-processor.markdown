@@ -91,7 +91,7 @@ slides: |
 
   # Isn't this just Wiremock?
 
-  Kind of — and that's a good sign.
+  Kind of — the core idea is the same.
 
   Wiremock sits *outside* the app and intercepts HTTP at the network level.
   This sits *inside* the app and intercepts at the WebClient level.
