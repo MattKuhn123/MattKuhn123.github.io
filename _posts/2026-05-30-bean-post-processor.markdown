@@ -45,10 +45,10 @@ slides: |
 
   1. At startup, **BeanPostProcessor** finds every `WebClient.Builder` bean
   2. It attaches a **FilterFunction** to each one
-  3. On every outgoing request, the filter checks:
-     - Is there a `Simulate-Error` header on the *incoming* request?
+  3. A servlet filter reads the incoming `Simulate-Error` header and stores it in a **ThreadLocal**
+  4. On every outgoing request, the FilterFunction reads from that ThreadLocal:
      - Does the outgoing path match?
-  4. If yes → return a stubbed response with the given status code
+  5. If yes → return a stubbed response with the given status code
 
   No restarts. No config changes. Just a header.
 
