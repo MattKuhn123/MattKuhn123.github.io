@@ -117,9 +117,9 @@ slides: |
 
   # Takeaways
 
-  - `BeanPostProcessor` is a powerful hook for cross-cutting concerns
-  - `FilterFunction` makes WebClient behavior easy to intercept
-  - The best test tools feel invisible to the app
+  - AI is a great way to learn about unfamiliar APIs — I didn't know what a `BeanPostProcessor` was before this
+  - Improving your team's testing experience is worth engineering effort
+  - A good DX for QA pays off every sprint
 
   .footnote[Questions?]
 ---
