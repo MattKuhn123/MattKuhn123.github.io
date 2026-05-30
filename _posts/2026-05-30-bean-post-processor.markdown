@@ -84,6 +84,35 @@ slides: |
 
   ---
 
+  # Isn't this just Wiremock?
+
+  Kind of — and that's a good sign.
+
+  Wiremock sits *outside* the app and intercepts HTTP at the network level.
+  This sits *inside* the app and intercepts at the WebClient level.
+
+  - Same idea: stub a response for a given path
+  - Different tradeoff: no extra process, but only covers WebClient calls
+  - Feels familiar if your team already uses Wiremock
+
+  ---
+
+  # Tradeoffs
+
+  Like any stub, this only tests *your* error handling — not the upstream service.
+
+  **What you gain**
+  - Fast, zero-infrastructure error simulation
+  - Works in any environment, including prod
+
+  **What you give up**
+  - You're not testing the real network path
+  - A stub can't catch upstream changes you didn't anticipate
+
+  Same tradeoff as Wiremock, a mock, or any other test double.
+
+  ---
+
   class: title-slide
 
   # Takeaways
