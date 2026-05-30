@@ -27,6 +27,8 @@ slides: |
 
   # The idea
 
+  We didn't want to scatter changes across the codebase — ideally one small change that applies everywhere.
+
   What if the app could simulate errors *itself*, triggered by a request header?
 
   ```http
