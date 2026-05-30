@@ -79,7 +79,7 @@ slides: |
 
   QA could trigger any error scenario without touching infrastructure.
 
-  - Works in dev, staging, or prod
+  - Works in dev and UAT — disabled in prod
   - No mocks, no Wiremock, no environment-specific config
   - Any team member could use it with a single header
 
