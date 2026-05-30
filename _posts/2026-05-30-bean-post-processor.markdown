@@ -116,8 +116,6 @@ slides: |
 
   ---
 
-  class: title-slide
-
   # Takeaways
 
   - AI is a great way to learn about unfamiliar APIs — I didn't know what a `BeanPostProcessor` was before this
