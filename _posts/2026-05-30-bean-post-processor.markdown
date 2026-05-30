@@ -106,7 +106,7 @@ slides: |
 
   **What you gain**
   - Fast, zero-infrastructure error simulation
-  - Works in any environment, including prod
+  - Available in dev and UAT without any extra setup
 
   **What you give up**
   - You're not testing the real network path
