@@ -3,8 +3,6 @@ layout: slides
 title: "BeanPostProcessor"
 date: 2026-05-30
 slides: |
-  class: title-slide
-
   # BeanPostProcessor
 
   ### How we gave QA a self-service error simulator
