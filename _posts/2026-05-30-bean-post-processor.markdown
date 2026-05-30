@@ -29,9 +29,12 @@ slides: |
 
   What if the app could simulate errors *itself*, triggered by a request header?
 
-  ```
-  Simulate-Error-Path: /payments/submit
-  Simulate-Error-Status: 503
+  ```http
+  POST https://our-app/api/do-something
+  Content-Type: application/json
+  Simulate-Error: /api/contract-get:500
+
+  { "foo": "bar" }
   ```
 
   Send that header on any request → the app stubs that outgoing call.
