@@ -98,7 +98,6 @@ slides: |
 
   - Same idea: stub a response for a given path
   - Different tradeoff: no extra process, but only covers WebClient calls
-  - Feels familiar if your team already uses Wiremock
 
   ---
 
