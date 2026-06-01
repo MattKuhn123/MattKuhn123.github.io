@@ -14,7 +14,7 @@ slides: |
   - The result
   - Wiremock comparison
   - Tradeoffs
-  - Takeaways
+  - The Present, The Future and Beyond
 
   ---
 
@@ -122,11 +122,10 @@ slides: |
 
   ---
 
-  # The Future and Beyond
+  # The Present, The Future and Beyond
 
   - AI continues to be a great way to learn and experiment.
-  - QA is grateful, but slowly adopting.
-  - The first iteration wasn't functioning correctly for several weeks before I noticed the issue.
-  - Other devs who didn't participate in the solution didn't know how to use it and didn't really trust it; until they contributed. Then they got excited about it.
+  - QA is grateful, but it hasn't rocked their world or anything.
+  - Adoption amongst other devs was slow, but picked up after they contributed to it.
 
 ---
