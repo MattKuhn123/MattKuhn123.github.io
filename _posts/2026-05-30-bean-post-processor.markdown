@@ -14,7 +14,7 @@ slides: |
   - The result
   - Wiremock comparison
   - Tradeoffs
-  - The Present, The Future and Beyond
+  - What I learned (or experienced)
 
   ---
 
@@ -122,10 +122,10 @@ slides: |
 
   ---
 
-  # The Present, The Future and Beyond
+  # What I learned (or experienced)
 
   - AI continues to be a great way to learn and experiment.
-  - QA is grateful, but it hasn't rocked their world or anything.
-  - Adoption amongst other devs was slow, but picked up after they contributed to it.
+  - No one was interested in _using_ the tool until others got involved in _developing_ it. (You gotta socialize your features!)
+  - Leadership/management doesn't always know what's easy to deliver, and sometimes it is worth it to just go for it.
 
 ---
