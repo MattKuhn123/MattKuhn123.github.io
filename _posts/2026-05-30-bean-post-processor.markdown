@@ -14,7 +14,7 @@ slides: |
   - The result
   - Wiremock comparison
   - Tradeoffs
-  - What I learned (or experienced)
+  - My takeaways
 
   ---
 
@@ -122,10 +122,10 @@ slides: |
 
   ---
 
-  # What I learned (or experienced)
+  # My takeaways
 
   - AI continues to be a great way to learn and experiment.
-  - No one was interested in _using_ the tool until others got involved in _developing_ it. (You gotta socialize your features!)
-  - Leadership/management doesn't always know what's easy to deliver, and sometimes it is worth it to just go for it.
+  - There wasn't much interest in _using_ the tool until others got involved in _developing_ it. 
+  - Leadership doesn't always know what's easy to deliver, so sometimes it is worth it to just go for it.
 
 ---
