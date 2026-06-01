@@ -125,7 +125,7 @@ slides: |
   # My takeaways
 
   - AI continues to be a great way to learn and experiment.
-  - There wasn't much interest in _using_ the tool until others got involved in _developing_ it. 
-  - Leadership doesn't always know what's easy to deliver, so sometimes it is worth it to just go for it.
+  - Interest in _using_ the tool grew when others got involved in _developing_ it. 
+  - Leadership doesn't always know what's easy to deliver, so sometimes _(sometimes!!)_ it is worth it to just go for it.
 
 ---
