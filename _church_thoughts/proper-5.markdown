@@ -2,7 +2,6 @@
 layout: slides
 title: "Proper 5"
 date: 2026-06-07 08:00:00 -0400
-categories: church-thoughts
 permalink: /church-thoughts/proper-5/
 slides: |
   # Proper 5

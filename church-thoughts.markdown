@@ -4,7 +4,6 @@ title: Church Thoughts
 permalink: /church-thoughts/
 ---
 
-{% assign church_posts = site.posts | where_exp: "post", "post.categories contains 'church-thoughts'" %}
-{% for post in church_posts %}
+{% for post in site.church_thoughts %}
 - [{{ post.title }}]({{ post.url }})
 {% endfor %}
