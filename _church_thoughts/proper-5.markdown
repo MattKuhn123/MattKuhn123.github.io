@@ -148,4 +148,22 @@ Into your hands, O Lord, we commend all for whom we pray, trusting in your mercy
 
 ---
 
+## Lord's Prayer
+
+Our Father, who art in heaven,
+hallowed be thy name,
+thy kingdom come,
+thy will be done,
+on earth as it is in heaven.
+Give us this day our daily bread;
+and forgive us our trespasses,
+as we forgive those who trespass against us;
+and lead us not into temptation,
+but deliver us from evil.
+For thine is the kingdom,
+and the power, and the glory,
+forever and ever. **Amen.**
+
+---
+
 *Scripture quotations are taken from the Holy Bible, New Living Translation, copyright © 1996, 2004, 2015 by Tyndale House Foundation.*
