@@ -1,46 +1,87 @@
 ---
-layout: slides
+layout: page
 title: "Proper 5"
-date: 2026-06-07 08:00:00 -0400
 permalink: /church-thoughts/proper-5/
-slides: |
-  # Proper 5
-
-  ---
-
-  # Liturgical Color
-
-  Green
-
-  ---
-
-  # First Reading
-
-  Genesis 12:1–9
-
-  *or*
-
-  Hosea 5:15–6:6
-
-  ---
-
-  # Psalm
-
-  Psalm 33:1–12
-
-  *or*
-
-  Psalm 50:7–15
-
-  ---
-
-  # Second Reading
-
-  Romans 4:13–25
-
-  ---
-
-  # Gospel
-
-  Matthew 9:9–13, 18–26
 ---
+
+**Liturgical Color:** Green
+
+---
+
+## First Reading
+
+### Genesis 12:1–9 *(or Hosea 5:15–6:6)*
+
+**1** The Lord had said to Abram, "Leave your native country, your relatives, and your father's family, and go to the land that I will show you. **2** I will make you into a great nation. I will bless you and make you famous, and you will be a blessing to others. **3** I will bless those who bless you and curse those who treat you with contempt. All the families on earth will be blessed through you."
+
+**4** So Abram departed as the Lord had instructed, and Lot went with him. Abram was seventy-five years old when he left Haran. **5** He took his wife Sarai, his nephew Lot, and all his wealth—his livestock and all the people he had taken into his household at Haran—and headed for the land of Canaan. When they arrived in Canaan, **6** Abram traveled through the land as far as Shechem. There he set up camp beside the oak of Moreh. At that time, the area was inhabited by Canaanites.
+
+**7** Then the Lord appeared to Abram and said, "I will give this land to your descendants." And Abram built an altar there and dedicated it to the Lord, who had appeared to him. **8** After that, Abram traveled south and set up camp in the hill country, with Bethel to the west and Ai to the east. There he built another altar and dedicated it to the Lord, and he worshiped the Lord. **9** Then Abram continued traveling south by stages toward the Negev.
+
+<details>
+<summary>Hosea 5:15–6:6</summary>
+
+**5:15** "Then I will return to my place until they admit their guilt and turn to me. For as soon as trouble comes, they will earnestly search for me."
+
+**6:1** "Come, let us return to the Lord. He has torn us to pieces; now he will heal us. He has injured us; now he will bandage our wounds. **2** In just a short time he will restore us, so that we may live in his presence. **3** Oh, that we might know the Lord! Let us press on to know him. He will respond to us as surely as the arrival of dawn or the coming of rains in early spring."
+
+**4** "O Israel and Judah, what should I do with you?" asks the Lord. "For your love vanishes like the morning mist and disappears like dew in the sunlight. **5** I sent my prophets to cut you to pieces—to slaughter you with my words, with judgments as inescapable as light. **6** I want you to show love, not offer sacrifices. I want you to know me more than I want burnt offerings."
+
+</details>
+
+---
+
+## Psalm
+
+### Psalm 33:1–12 *(or Psalm 50:7–15)*
+
+**1** Let the godly sing for joy to the Lord; it is fitting for the pure to praise him. **2** Praise the Lord with melodies on the lyre; make music for him on the ten-stringed harp. **3** Sing a new song of praise to him; play skillfully on the harp, and sing with joy. **4** For the word of the Lord holds true, and we can trust everything he does. **5** He loves whatever is just and good; the unfailing love of the Lord fills the earth.
+
+**6** The Lord merely spoke, and the heavens were created. He breathed the word, and all the stars were born. **7** He assigned the sea its boundaries and locked the oceans in vast reservoirs. **8** Let the whole world fear the Lord, and let everyone stand in awe of him. **9** For when he spoke, the world began! It appeared at his command.
+
+**10** The Lord frustrates the plans of the nations and thwarts all their schemes. **11** But the Lord's plans stand firm forever; his intentions can never be shaken. **12** What joy for the nation whose God is the Lord, whose people he has chosen as his inheritance.
+
+<details>
+<summary>Psalm 50:7–15</summary>
+
+**7** "O my people, listen as I speak. Here are my charges against you, O Israel: I am God, your God! **8** I have no complaint about your sacrifices or the burnt offerings you constantly offer. **9** But I do not need the bulls from your barns or the goats from your pens. **10** For all the animals of the forest are mine, and I own the cattle on a thousand hills. **11** I know every bird on the mountains, and all the animals of the field are mine. **12** If I were hungry, I would not tell you, for all the world is mine and everything in it. **13** Do I eat the meat of bulls? Do I drink the blood of goats? **14** Make thankfulness your sacrifice to God, and keep the vows you made to the Most High. **15** Then call on me when you are in trouble, and I will rescue you, and you will give me glory."
+
+</details>
+
+---
+
+## Second Reading
+
+### Romans 4:13–25
+
+**13** Clearly, God's promise to give the whole earth to Abraham and his descendants was based not on his obedience to God's law, but on a right relationship with God that comes by faith. **14** If God's promise is only for those who obey the law, then faith is not necessary and the promise is pointless. **15** For the law always brings punishment on those who try to obey it. (The only way to avoid breaking the law is to have no law to break!)
+
+**16** So the promise is received by faith. It is given as a free gift. And we are all certain to receive it, whether or not we live according to the law of Moses, if we have faith like Abraham's. For Abraham is the father of all who believe. **17** That is what the Scriptures mean when God told him, "I have made you the father of many nations." This happened because Abraham believed in the God who brings the dead back to life and who creates new things out of nothing.
+
+**18** Even when there was no reason for hope, Abraham kept hoping—believing that he would become the father of many nations. For God had said to him, "That is how many descendants you will have!" **19** And Abraham's faith did not weaken, even though, at about 100 years of age, he figured his body was as good as dead—and so was Sarah's womb.
+
+**20** Abraham never wavered in believing God's promise. In fact, his faith grew stronger, and in this he brought glory to God. **21** He was fully convinced that God is able to do whatever he promises. **22** And because of Abraham's faith, God counted him as righteous. **23** And when God counted him as righteous, it wasn't just for Abraham's benefit. It was recorded **24** for our benefit, too, assuring us that God will also count us as righteous if we believe in him who raised Jesus our Lord from the dead. **25** He was handed over to die because of our sins, and he was raised to life to make us right with God.
+
+---
+
+## Gospel
+
+### Matthew 9:9–13, 18–26
+
+**9** As Jesus was walking along, he saw a man named Matthew sitting at his tax collector's booth. "Follow me and be my disciple," Jesus said to him. So Matthew got up and followed him.
+
+**10** Later, Matthew invited Jesus and his disciples to his home as dinner guests, along with many tax collectors and other disreputable sinners. **11** But when the Pharisees saw this, they asked his disciples, "Why does your teacher eat with such scum?"
+
+**12** When Jesus heard this, he said, "Healthy people don't need a doctor—sick people do." **13** Then he added, "Now go and learn the meaning of this Scripture: 'I want you to show mercy, not offer sacrifices.' For I have come to call not those who think they are righteous, but those who know they are sinners."
+
+**18** As Jesus was saying this, the leader of a synagogue came and knelt before him. "My daughter has just died," he said, "but you can bring her back to life again if you just come and lay your hand on her."
+
+**19** So Jesus and his disciples got up and went with him. **20** Just then a woman who had suffered for twelve years with constant bleeding came up behind him. She touched the fringe of his robe, **21** for she thought, "If I can just touch his robe, I will be healed."
+
+**22** Jesus turned around, and when he saw her he said, "Daughter, be encouraged! Your faith has healed you." And the woman was healed at that moment.
+
+**23** When Jesus arrived at the official's home, he saw the noisy crowd and heard the funeral music. **24** "Get out!" he said. "The girl isn't dead; she's only asleep." But the crowd laughed at him. **25** After the crowd was put outside, however, Jesus went in and took the girl by the hand, and she stood up! **26** The report of this miracle swept through the entire countryside.
+
+---
+
+*Scripture quotations are taken from the Holy Bible, New Living Translation, copyright © 1996, 2004, 2015 by Tyndale House Foundation.*
