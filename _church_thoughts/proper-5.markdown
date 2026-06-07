@@ -8,6 +8,23 @@ permalink: /church-thoughts/proper-5/
 
 ---
 
+## Confession and Forgiveness
+
+Most merciful God,
+we confess that we are captive to sin and cannot free ourselves.
+We have sinned against you in thought, word, and deed,
+by what we have done and by what we have left undone.
+We have not loved you with our whole heart;
+we have not loved our neighbors as ourselves.
+For the sake of your Son, Jesus Christ, have mercy on us.
+Forgive us, renew us, and lead us,
+so that we may delight in your will and walk in your ways,
+to the glory of your holy name. **Amen.**
+
+*In the mercy of almighty God, Jesus Christ was given to die for us, and for his sake God forgives us all our sins. To those who believe in Jesus Christ he gives the power to become the children of God and bestows on them the Holy Spirit.* **Amen.**
+
+---
+
 ## First Reading
 
 ### Genesis 12:1–9 *(or Hosea 5:15–6:6)*
@@ -50,6 +67,12 @@ permalink: /church-thoughts/proper-5/
 
 ---
 
+## Offertory
+
+*Blessed are you, Lord our God, maker of all things. Through your goodness you have blessed us with these gifts. With them we offer ourselves to your service and dedicate our lives to the care and redemption of all that you have made, for the sake of him who gave himself for us, Jesus Christ our Lord.* **Amen.**
+
+---
+
 ## Second Reading
 
 ### Romans 4:13–25
@@ -81,6 +104,22 @@ permalink: /church-thoughts/proper-5/
 **22** Jesus turned around, and when he saw her he said, "Daughter, be encouraged! Your faith has healed you." And the woman was healed at that moment.
 
 **23** When Jesus arrived at the official's home, he saw the noisy crowd and heard the funeral music. **24** "Get out!" he said. "The girl isn't dead; she's only asleep." But the crowd laughed at him. **25** After the crowd was put outside, however, Jesus went in and took the girl by the hand, and she stood up! **26** The report of this miracle swept through the entire countryside.
+
+---
+
+## Prayers of Intercession
+
+*For the whole people of God in Christ Jesus, and for all people according to their needs.*
+
+Merciful God, we pray for your church throughout the world — that it may be a faithful witness to your love and a shelter for all who seek you. **Lord, in your mercy, hear our prayer.**
+
+We pray for the leaders of nations and all in authority — that you would grant them wisdom, humility, and a heart for justice. **Lord, in your mercy, hear our prayer.**
+
+We pray for all who are suffering — the sick, the grieving, the lonely, and the poor. Bring healing, comfort, and hope to all who cry out to you. **Lord, in your mercy, hear our prayer.**
+
+We pray for our family. Bind us together in love and patience. Guard us in our going out and our coming in. May your presence be known in our home, and may we reflect your grace to one another and to all we meet. **Lord, in your mercy, hear our prayer.**
+
+Into your hands, O Lord, we commend all for whom we pray, trusting in your mercy, through Jesus Christ our Lord. **Amen.**
 
 ---
 
