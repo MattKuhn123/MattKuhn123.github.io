@@ -6,13 +6,13 @@ permalink: /church-thoughts/proper-5/
 slides: |
   # Proper 5
 
-  ===
+  ---
 
   # Liturgical Color
 
   Green
 
-  ===
+  ---
 
   # First Reading
 
@@ -22,7 +22,7 @@ slides: |
 
   Hosea 5:15–6:6
 
-  ===
+  ---
 
   # Psalm
 
@@ -32,13 +32,13 @@ slides: |
 
   Psalm 50:7–15
 
-  ===
+  ---
 
   # Second Reading
 
   Romans 4:13–25
 
-  ===
+  ---
 
   # Gospel
 
