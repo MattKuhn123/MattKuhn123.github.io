@@ -64,15 +64,28 @@ slides: |
   # The code
 
   ```java
-  @Component
-  public class ErrorSimulatorPostProcessor implements BeanPostProcessor {
-
+  @Configuration
+  @Profile("!prod")
+  class SimulationConfig implements WebMvcConfigurer {
+  
       @Override
-      public Object postProcessAfterInitialization(Object bean, String beanName) {
-          if (bean instanceof WebClient.Builder builder) {
-              builder.filter(errorSimulatorFilter());
-          }
-          return bean;
+      public void addInterceptors(InterceptorRegistry registry) {
+          registry.addInterceptor(new SimulationInterceptor());
+      }
+  
+      @Bean
+      static BeanPostProcessor simulationWebClientPostProcessor() {
+          return new BeanPostProcessor() {
+              private final SimulationExchangeFilter filter = new SimulationExchangeFilter();
+  
+              @Override
+              public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+                  if (bean instanceof WebClient webClient) {
+                      return webClient.mutate().filter(filter).build();
+                  }
+                  return bean;
+              }
+          };
       }
   }
   ```
