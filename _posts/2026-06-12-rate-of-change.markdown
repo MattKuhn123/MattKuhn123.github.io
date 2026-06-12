@@ -60,4 +60,4 @@ Developers must continue to be judicious about whether:
 
 ___
 
-Developers are there to **support** their product owners, program managers, and each other. They are **not** lords of the real estate of the code base they work in.
+Developers should see themselves as being there to **support** their product owners, program managers, and each other.
