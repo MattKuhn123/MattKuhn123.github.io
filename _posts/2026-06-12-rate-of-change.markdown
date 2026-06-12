@@ -4,9 +4,12 @@ title:  "Rate of change"
 date:   2026-06-12 08:00:00 -0400
 categories: programming
 ---
+
+_A software-developer oriented approach to thinking about how valuable rate-of-change is in an enterprise application_
+
 # Hypothesis
 
-One factor of value for the rate at which you change an application **is the rate at which the users can understand the changes.**
+**The rate at which the users can understand change** is a factor of value to consider when considering implementing changes to an application. 
 
 My contention is that going _faster_ is not strictly always _better_.
 
