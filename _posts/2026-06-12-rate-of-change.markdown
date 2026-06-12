@@ -20,13 +20,11 @@ Consider working in an enterprise environment on an established application and 
 
 Those users have an expectation of how the application works and facilitates/automates parts of their job.
 
-## How and why change occurs
+## How and why change occurs**
 
 The application is not perfect; it always needs updating. There are always new demands that need to be fulfilled and outdated functionality that needs to be removed.
 
 The users know this, and they work within their organizational structure to make changes to the application. 
-
-*Side note:* Change is good, but *stability* is also valuable. Stability helps us understand _what_ something _is_. Change keeps it relevant.
 
 ## The necessity for change creates a demand for work
 
@@ -87,6 +85,9 @@ Therefore the most valuable rate of change that an application can have is a rat
 Time should be spent _not only_ on *implementating* changes, but also creating ways to *monitor, test, and communicate* them.
 
 *Specifically for developers* AI should not *only* be used to increase the rate at which they fulfill user stories; but should *also* be used to more thoroughly test changes and find creative ways to simplify how the application is understood to behave. _(I said "creative"... I don't want to get prescriptive here. You should be able to figure something out!)_
+
+___
+** *note:* Change is good, but *stability* is also valuable. Stability helps us understand _what_ something _is_. Change keeps it relevant.
 
 
 
