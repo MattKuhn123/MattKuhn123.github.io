@@ -7,17 +7,15 @@ categories: programming
 
 _A software-developer oriented approach to thinking about how valuable rate-of-change is in an enterprise application_
 
-# Hypothesis
+# In Enterprise
+
+Consider working in an enterprise environment on an established application with a consistent user base. The users have an expectation of how the application works and facilitates/automates parts of their job, but the application always needs to be updated.
+
+## Hypothesis - Rate of Change
 
 **The rate at which the users can understand change** is a factor of value to consider when considering implementing changes to an application. 
 
 My contention is that going _faster_ is not strictly always _better_.
-
-## Enterprise Example
-
-Consider working in an enterprise environment on an established application with a consistent user base. The users have an expectation of how the application works and facilitates/automates parts of their job. 
-
-Any application that is not already **perfect** _(ha)_ will always need to be changed.
 
 ## Change delivery introduces complexity
 
