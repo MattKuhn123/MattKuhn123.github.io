@@ -7,17 +7,17 @@ categories: programming
 
 _A software-developer oriented approach to thinking about how valuable rate-of-change is in an enterprise application_
 
-# In Enterprise
+# In An Enterprise Context
 
 Consider working in an enterprise environment on an established application with a consistent user base. The users have an expectation of how the application works and facilitates/automates parts of their job, but the application always needs to be updated.
 
-## Hypothesis - Rate of Change
+## My Hypothesis about Rate of Change
 
 **The rate at which the users can understand change** is a factor of value to consider when considering implementing changes to an application. 
 
-My contention is that going _faster_ is not strictly always _better_.
+Speed is still the main consideration, but _faster_ is not strictly always _better_.
 
-## Change delivery introduces complexity
+### Change delivery introduces complexity
 
 Usually, the value that a change has is the way it impacts how the system works.
 
@@ -27,7 +27,7 @@ In almost every enterprise application ecosystem, there are business analysts wh
 
 There are two reasons why this is necessary: 
 
-1. Strangely, even though theoretically the application should only do explicitly what the specifications indicated that it should, it doesn't. 
+1. Strangely, even though theoretically the application should only do explicitly what the specifications indicated that it should, **it doesn't**. 
 2. Even if it always did _exactly_ what it was supposed to do, no one can maintain in their mind the minutia of what that entails.
 
 Therefore, business analysts need to constantly update their mental model of how the application works.
@@ -35,9 +35,9 @@ Therefore, business analysts need to constantly update their mental model of how
 - If the application changes more quickly than can be understood, then the value that the application brings to the enterprise degrades.
 - Behaviors of the application that the users do not understand, _even if theoretically desirable,_ don't bring value to anyone.
 
-**This** isn't hypothetical; anyone who has spent time in an enterprise environment knows that a lot of time is spent on activities like triaging incidents.
+We are already living in a world where rate of change is on the fringes of our ability to keep up mentally. Anyone who has spent time in an enterprise environment knows that a lot of time is spent on activities like incident triaging, research, etc.
 
-## There is a name for functionality that is not understood...
+### There is a name for functionality that is not understood...
 
 Functionality that is not understood is called "bloat" or "buggy" or is not acknowledged at all.
 
@@ -45,13 +45,15 @@ If a tree falls in the forest and no one is around to hear it, then **NO**; it e
 
 Functionality that users don't expect (even if _could_ hypothetically be desirable, if the functionality _was_ expected) doesn't deliver value. 
  
-## Implication
+## Implications
+
+### Accountability
 
 Time should be spent _not only_ on *implementating* changes, but also creating ways to *communicate, monitor, test, and demonstrate* them.
 
 *Specifically for developers,* AI should not *only* be used to increase the rate at which they fulfill user stories; but should *also* be used to more thoroughly test changes and find creative ways to simplify how the application is understood to behave. 
 
-## FURTHER Implication
+### Engineering mindset
 
 Developers have a responsibility to not charge ahead on whatever so-called "tech debt" they please, just because they have tools that allow them to do it quicker. 
 
