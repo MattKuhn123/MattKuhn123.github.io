@@ -36,7 +36,9 @@ This shows up to the development team as "user stories" on their task board.
 
 There is almost always a backlog; there is almost always more work than can be realistically achieved. And more urgent demands ALWAYS skip the line and jump to the top of the priority queue _(as they should)_.
 
-## The workflow for implementing change introduces complexity
+## Change is Complexity
+
+### 1 The workflow for implementing change introduces complexity (Application developers)
 
 Many changes are often in-progress at the same time.
 
@@ -50,7 +52,7 @@ Change management is, in itself, complex.
 
 The team that delivers changes cannot deliver them more quickly than they can understand whatever it is that they are delivering.
 
-## Delivering change to the system introduces complexity
+### 2 Delivering change to the system introduces complexity (Application users)
 
 Usually, the value that a change has is the way it impacts how the system works.
 
@@ -64,15 +66,23 @@ There are two reasons why this is necessary:
 
 Therefore, business analysts need to constantly update their mental model of how the application works.
 
-## The rate of change of the application must not exceed the rate at which it can be understood
+## Again: the rate of change of the application must not exceed the rate at which it can be understood
 
 If the application changes more quickly than the business analysts can understand, then the value that the application brings to the enterprise degrades.
 
 If the application behaves in ways that the users do not understand, _even if those new behaviors SHOULD be theoretically desirable_ then it doesn't bring value to anyone.
+
+## Or, rather than "_must_ not", should I say; "_will_ not"!
+
+Application development teams will rightfully resist deploying version of the application that they cannot understand the contents of for fear of damaging the enterprise.
+
+Users still stop using (and never _start_ using) applications that are more confusing than they are useful.
+
+Managing complexity is a necessary pre-requisite to drive adoption and innovation.
  
 ## Conclusion
 
-Therefore the most valuable rate of change that an application can have is a rate of change that matches what the enterprise can understand.
+Therefore the most valuable rate of change that an application can have is a rate of change that matches what the enterprise (both the application developers and the users) can understand.
 
 ## Implication
 
