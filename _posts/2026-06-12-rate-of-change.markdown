@@ -28,6 +28,7 @@ _(As a banal example: updating business rules to change how contracts are assign
 In almost every enterprise application ecosystem, there are business analysts who's responsibility is to interpret what the application does and why.
 
 There are two reasons why this is necessary: 
+
 1. Strangely, even though theoretically the application should only do explicitly what the specifications indicated that it should, it doesn't. 
 2. Even if it always did _exactly_ what it was supposed to do, no one can maintain in their mind the minutia of what that entails.
 
@@ -38,7 +39,7 @@ Therefore, business analysts need to constantly update their mental model of how
 
 **This** isn't hypothetical; anyone who has spent time in an enterprise environment knows that a lot of time is spent on activities like triaging incidents.
 
-## There is a name for functionality that is not understood
+## There is a name for functionality that is not understood...
 
 Functionality that is not understood is called "bloat" or "buggy" or is not acknowledged at all.
 
@@ -64,4 +65,4 @@ Developers must be judicious about whether:
 
 ___
 
-It might be helpful for developers to view their role as playing **support** for their product owners, program managers, and each other.
+It might be helpful for developers to view their role as playing **support** for their product owners, program managers, and each other, as opposed to viewing their role EXCLUSIVELY as feature-shippers.
