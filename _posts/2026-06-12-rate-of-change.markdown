@@ -45,4 +45,16 @@ Time should be spent _not only_ on *implementating* changes, but also creating w
 
 *Specifically for developers,* AI should not *only* be used to increase the rate at which they fulfill user stories; but should *also* be used to more thoroughly test changes and find creative ways to simplify how the application is understood to behave. 
 
-Developers are servants to their product owners, program managers, and each other. They are not lords of the real estate of the code base they work in.
+## FURTHER Implication
+
+Developers have a responsibility to not charge ahead on whatever so-called "tech debt" they please, just because they have tools that allow them to do it quicker. 
+
+Developers must continue to be judicious about whether:
+
+- A particular refactor would facilitate adding value to the application in the future, OR if it's just an aesthetic preference.
+- A particular refactor that simplifies the code is worth the complexity of the refactor.
+- Etc.
+
+___
+
+Developers are there to **support** their product owners, program managers, and each other. They are **not** lords of the real estate of the code base they work in.
