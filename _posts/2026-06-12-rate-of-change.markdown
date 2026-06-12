@@ -32,8 +32,8 @@ There are two reasons why this is necessary:
 
 Therefore, business analysts need to constantly update their mental model of how the application works.
 
-- If the application changes more quickly than the business analysts can understand, then the value that the application brings to the enterprise degrades.
-- If the application behaves in ways that the users do not understand, _even if those new behaviors SHOULD be theoretically desirable_ then it doesn't bring value to anyone.
+- If the application changes more quickly than can be understood, then the value that the application brings to the enterprise degrades.
+- Behaviors of the application that the users do not understand, _even if theoretically desirable,_ don't bring value to anyone.
 
 **This** isn't hypothetical; anyone who has spent time in an enterprise environment knows that a lot of time is spent on activities like triaging incidents.
 
