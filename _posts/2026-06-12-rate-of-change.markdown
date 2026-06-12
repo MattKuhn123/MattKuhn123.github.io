@@ -15,9 +15,9 @@ My contention is that going _faster_ is not strictly always _better_.
 
 ## Enterprise Example
 
-Consider working in an enterprise environment on an established application and user base. The users have an expectation of how the application works and facilitates/automates parts of their job.
+Consider working in an enterprise environment on an established application with a consistent user base. The users have an expectation of how the application works and facilitates/automates parts of their job. 
 
-Any application that is not already **perfect** _(ha)_ will always need to be changed. Enterprises have organizational structures for facilitating change; application development teams with program managers, product owners, analysts, developers, etc. 
+Any application that is not already **perfect** _(ha)_ will always need to be changed.
 
 ## Change delivery introduces complexity
 
