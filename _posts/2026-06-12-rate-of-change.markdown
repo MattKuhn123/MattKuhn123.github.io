@@ -24,8 +24,6 @@ Those users have an expectation of how the application works and facilitates/aut
 
 The application is not perfect; it always needs updating. There are always new demands that need to be fulfilled and outdated functionality that needs to be removed.
 
-The need to update is constant.
-
 The users know this, and they work within their organizational structure to make changes to the application. 
 
 *Side note:* Change is good, but *stability* is also valuable. Stability helps us understand _what_ something _is_. Change keeps it relevant.
