@@ -56,7 +56,7 @@ Time should be spent _not only_ on *implementating* changes, but also creating w
 
 Developers have a responsibility to not charge ahead on whatever so-called "tech debt" they please, just because they have tools that allow them to do it quicker. 
 
-Developers must continue to be judicious about whether:
+Developers must be judicious about whether:
 
 - A particular refactor would facilitate adding value to the application in the future, OR if it's just an aesthetic preference.
 - A particular refactor that simplifies the code is worth the complexity of the refactor.
@@ -64,4 +64,4 @@ Developers must continue to be judicious about whether:
 
 ___
 
-Developers should see themselves as being there to **support** their product owners, program managers, and each other.
+It might be helpful for developers to view their role as playing **support** for their product owners, program managers, and each other.
