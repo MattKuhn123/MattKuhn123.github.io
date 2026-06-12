@@ -34,7 +34,7 @@ The users know this, and they work within their organizational structure to make
 
 This shows up to the development team as "user stories" on their task board.
 
-There is almost always a backlog; there is almost always more work than can be realistically achieved. And more urgent demands ALWAYS skip the line and jump to the top of the priority queue _(as it should)_.
+There is almost always a backlog; there is almost always more work than can be realistically achieved. And more urgent demands ALWAYS skip the line and jump to the top of the priority queue _(as they should)_.
 
 ## The workflow for implementing change introduces complexity
 
