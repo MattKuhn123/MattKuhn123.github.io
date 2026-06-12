@@ -27,7 +27,7 @@ In almost every enterprise application ecosystem, there are business analysts wh
 
 There are two reasons why this is necessary: 
 
-1. Strangely, even though theoretically the application should only do explicitly what the specifications indicated that it should, **it doesn't**. 
+1. Strangely, even though theoretically the application should do what the specifications indicated that it should, **it doesn't**. 
 2. Even if it always did _exactly_ what it was supposed to do, no one can maintain in their mind the minutia of what that entails.
 
 Therefore, business analysts need to constantly update their mental model of how the application works.
@@ -36,6 +36,12 @@ Therefore, business analysts need to constantly update their mental model of how
 - Behaviors of the application that the users do not understand, _even if theoretically desirable,_ don't bring value to anyone.
 
 We are already living in a world where rate of change is on the fringes of our ability to keep up mentally. Anyone who has spent time in an enterprise environment knows that a lot of time is spent on activities like incident triaging, research, etc.
+
+The fact that we are already in this world shows that _even though_ we might interpret application development teams _not keeping pace with business demand_ is evidence that they need to _speed up_, **this is _not_ the case.**
+
+The _truth_ is that there is a tension in the human experience; **a desire for change/improvement versus a desire for stability.**
+
+In other words, we come to know what something is and does by having experiences with it over time. An application that constantly changes is too chaotic to use.
 
 ### There is a name for functionality that is not understood...
 
