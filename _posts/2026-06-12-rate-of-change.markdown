@@ -28,7 +28,7 @@ _(As a banal example: updating business rules to change how contracts are assign
 In almost every enterprise application ecosystem, there are business analysts who's responsibility is to interpret what the application does and why.
 
 There are two reasons why this is necessary: 
-1. Strangely, even though theoretically the application should only do explicitly what the specifications indicated that it should, it doesn't. This can happen for any and every reason.
+1. Strangely, even though theoretically the application should only do explicitly what the specifications indicated that it should, it doesn't. 
 2. Even if it always did _exactly_ what it was supposed to do, no one can maintain in their mind the minutia of what that entails.
 
 Therefore, business analysts need to constantly update their mental model of how the application works.
@@ -36,7 +36,11 @@ Therefore, business analysts need to constantly update their mental model of how
 - If the application changes more quickly than the business analysts can understand, then the value that the application brings to the enterprise degrades.
 - If the application behaves in ways that the users do not understand, _even if those new behaviors SHOULD be theoretically desirable_ then it doesn't bring value to anyone.
 
-## Functionality that is not understood is called "bloat" or "buggy" or is not acknowledged at all.
+**This** isn't hypothetical; anyone who has spent time in an enterprise environment knows that a lot of time is spent on activities like triaging incidents.
+
+## There is a name for functionality that is not understood
+
+Functionality that is not understood is called "bloat" or "buggy" or is not acknowledged at all.
 
 If a tree falls in the forest and no one is around to hear it, then **NO**; it effectively **doesn't** make a sound. _(Here, we are defining sound as only having meaning in the context of human experience)._
 
