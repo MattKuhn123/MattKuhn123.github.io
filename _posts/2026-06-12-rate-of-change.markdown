@@ -6,7 +6,7 @@ categories: programming
 ---
 # Hypothesis
 
-One factor of value for an application **is the rate at which the change rate can be understood by those who use the application.**
+One factor of value for the rate at which you change an application **is the rate at which the users can understand the changes.**
 
 My contention is that going _faster_ is not strictly always _better_.
 
@@ -43,6 +43,6 @@ Functionality that users don't expect (even if _could_ hypothetically be desirab
 
 Time should be spent _not only_ on *implementating* changes, but also creating ways to *communicate, monitor, test, and demonstrate* them.
 
-*Specifically for developers* AI should not *only* be used to increase the rate at which they fulfill user stories; but should *also* be used to more thoroughly test changes and find creative ways to simplify how the application is understood to behave. 
+*Specifically for developers,* AI should not *only* be used to increase the rate at which they fulfill user stories; but should *also* be used to more thoroughly test changes and find creative ways to simplify how the application is understood to behave. 
 
 Developers are servants to their product owners, program managers, and each other. They are not lords of the real estate of the code base they work in.
