@@ -62,24 +62,17 @@ class MyLoggingAnnotationAspect {
 
 ## Pros and Cons of AOP
 
-As demonstrated by the example, there is a lot of plumbing that goes into creating an AOP annotation. 
-Is it worth it?
-That depends on the developer's opinion of how much work is being done, and trading where the complexity lives.
-It might really appeal to developers (like me) who see two lines of code being repeated everywhere, but can envision a way to condense those two lines into one. _(Is that a big deal?)_
+As demonstrated by the example, there is a lot of plumbing that goes into creating an AOP annotation. Is it worth it? That depends on the developer's opinion of how much work is being done, and trading where the complexity lives. It might really appeal to developers (like me) who see two lines of code being repeated everywhere, but can envision a way to condense those two lines into one. _(But is that a big deal?)_
 
 ## Our use case: Monitoring Dashboard
 
-We use a dashboard for monitoring our API's processing of webhook events that come from an ingestion service.
-
-It just so happened that we were in almost the exact scenario that I laid out in the above example; we were bookending method calls, sending logs that say:  
+We use a dashboard for monitoring our API's processing of webhook events that come from an ingestion service. It just so happened that we were in almost the exact scenario that I laid out in the above example; we were bookending method calls, sending logs that say:  
 
 _"we're about to make a request with these parameters to such-and-such service..."_  
 ...  
 _"we successfully got a response with this response body!"_
 
-In my opinion, these glorified logging statements were muddying-up the domain logic of the code.  
-
-So, with my team's permission (and with AI assistance), I started looking into our options, and eventually learned about and implemented this AOP approach. 
+In my opinion, these glorified logging statements were muddying-up the domain logic of the code. So, with my team's permission (and with AI assistance), I started looking into our options, and eventually learned about and implemented this AOP approach. 
 
 ## The Journey
 
@@ -103,7 +96,7 @@ So, with my team's permission (and with AI assistance), I started looking into o
 
 ## Conclusion
 
-This annotation isn't the worst thing in the world, but I'm not sure that I would go back and write it again. I'm honestly not sure if it was worth the effort.
+This annotation isn't the worst thing in the world, but I'm not sure that I would go back and write it again. I'm honestly not sure if it was worth the effort.  
 If it is of any value,  
 If it does save us any time,  
 If it spares us any complexity,  
