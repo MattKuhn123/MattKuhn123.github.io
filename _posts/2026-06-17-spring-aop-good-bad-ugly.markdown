@@ -93,7 +93,7 @@ This isn't some hypothetical thing I'm thinking about doing, nor is it something
 ### The ugly
 
 1. Because of these issues and limitations, usage of the annotation was not 100% adopted through the codebase, meaning that we have _multiple_ ways of sending logs to the monitoring dashboard.
-2. Over time, the completeness of our logging began to degrade, because we start putting logic that modifies the request _inside_ the method that had the annotation.
+2. Over time, the completeness of our logging began to degrade, because we started putting logic that modifies the request _inside_ the method that had the annotation.
 3. Our logging was _too_ complete in some cases. (There were some cases where we didn't _want_ to log the entire response because it's enormous). Handling these on a case-by-case basis in an extremely abstracted solution felt way more complex than was appropriate for the use-case.
 4. I wouldn't say that the team is 100% _comfortable_ with how it works. That's not to say that they don't _know_ how it works; it just feels a bit like a rube goldberg machine.
 
