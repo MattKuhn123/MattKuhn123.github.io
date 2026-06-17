@@ -88,7 +88,7 @@ This isn't some hypothetical thing I'm thinking about doing, nor is it something
 
 1. The annotation only works on method calls that _cross class boundaries_. We didn't realize this at first, and we weren't sending a few of our logging messages in production for a period of time. We were able to implement a solution to ensure this would never happen again, though, using ArchUnit (a testing library).
 2. The way that the logging works _did not work_ for all types of parameters, and silent nullpointers were occuring, preventing some log messages from being sent. We had to handle this on a case-by-case basis.
-3. Whether or not the NAMES of the parameters gets logged depends on how it gets compiled.
+3. Whether or not the NAMES of the parameters gets logged depends on how it gets compiled. (I'm not sure when this started happening. Was it the Java upgrade? Spring upgrade? Dependency upgrade? Something else?)
 
 ### The ugly
 
