@@ -1,0 +1,104 @@
+---
+layout: post
+title:  "Spring AOP: The Good, The Bad, and The Ugly"
+date:   2026-06-18 08:00:00 -0400
+categories: programming
+---
+
+_My experience creating a custom annotation with Spring Aspect Oriented Programming_
+
+## What is Spring AOP?
+
+My experience with Spring's Aspect Oriented Programing is mainly the functionality that it gives me to write code that bookends method calls.
+
+## Example of Spring AOP
+
+For example, without Aspect Oriented Programming, if I wanted to surround a method call with logging statements, I'd have two options:
+
+```java
+// Option 1
+log.info("Calling myMethod()");
+myMethod();
+log.info("Called myMethod()");
+
+// OR Option 2
+void myMethod() {
+  log.info("Entering myMethod()");
+  // ...
+  log.info("Exiting myMethod()");
+}
+```
+
+But **with** Aspect Oriented Programming, I could annotation a method, and the logging functionality could be implemented in the annotation.
+
+```java
+@MyLoggingAnnotation // <--- USING THE ANNOTATION
+void myMethod() {
+  // ...
+}
+
+// In another class...
+@Target(ElementType.METHOD)
+public @interface MyLoggingAnnotation {}
+
+// In yet another class...
+@Aspect
+@Component
+class MyLoggingAnnotationAspect {
+  @Around("@annotation(MyLoggingAnnotation)")
+  public Object handleEvent(ProceedingJoinPoint jp) throws Throwable {
+    log.info("Calling..."); // <--- ANNOTATION IMPLEMENTATION
+    return jp.proceed();
+    log.info("Called...");
+  }
+}
+```
+
+## Pros and Cons of AOP
+
+As demonstrated by the example, there is a lot of plumbing that goes into creating an AOP annotation. 
+Is it worth it?
+That depends on the developer's opinion of how much work is being done, and trading where the complexity lives.
+It might really appeal to developers (like me) who see two lines of code being repeated everywhere, but can envision a way to condense those two lines into one. _(Is that a big deal?)_
+
+## Our use case: Monitoring Dashboard
+
+We use a dashboard for monitoring our API's processing of webhook events that come from an ingestion service.
+
+It just so happened that we were in almost the exact scenario that I laid out in the above example; we were bookending method calls, sending logs that say:  
+
+_"we're about to make a request with these parameters to such-and-such service..."_  
+...  
+_"we successfully got a response with this response body!"_
+
+In my opinion, these glorified logging statements were muddying-up the domain logic of the code.  
+
+So, with my team's permission (and with AI assistance), I started looking into our options, and eventually learned about and implemented this AOP approach. 
+
+## The Journey
+
+### The good
+
+1. We certainly have seen the benefit that our domain logic has less noise, and is less crowded with logging messages.
+2. We immediately starting logging _more_ logs that we had accidentally overlooked up until this point.
+3. Our logging was _more_ complete, accurately logging the entirety of the parameters and response.
+
+### The bad
+
+1. The annotation only works on method calls that _cross class boundaries_. We didn't realize this at first, and we weren't sending a few of our logging messages in production for a period of time. We were able to implement a solution to ensure this would never happen again, though, using ArchUnit (a testing library).
+2. The way that the logging works _did not work_ for all types of parameters, and silent nullpointers were occuring, preventing some log messages from being sent. We had to handle this on a case-by-case basis.
+3. Whether or not the NAMES of the parameters gets logged depends on how it gets compiled.
+
+### The ugly
+
+1. Because of these issues and limitations, usage of the annotation was not 100% adopted through the codebase, meaning that we have _multiple_ ways of sending logs to the monitoring dashboard.
+2. Over time, the completeness of our logging began to degrade, because we start putting logic that modifies the request _inside_ the method that had the annotation.
+3. I wouldn't say that the team is 100% _comfortable_ with how it works. That's not to say that they don't _know_ how it works; it just feels a bit like a rube goldberg machine.
+
+## Conclusion
+
+This annotation isn't the worst thing in the world, but I'm not sure that I would go back and write it again. I'm honestly not sure if it was worth the effort.
+If it is of any value,  
+If it does save us any time,  
+If it spares us any complexity,  
+Then it only does so marginally.
