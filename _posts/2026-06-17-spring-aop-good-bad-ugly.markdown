@@ -115,6 +115,8 @@ One piece of advice I got beforehand was "Simpler tends to be better". I could t
 
 At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, no _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
 
-But, in hindsight, I think that when I'm working in a domain oriented product, I'll tend toward solutions that require the least knowledge of language/framework features.  
+But, in hindsight, I think my anxiety (which I mentioned above) has to do with meeting expectations. In other words; do people _expect_ me to write abstract solutions? Or do people _expect_ me to solve localized problems, even if in a onsie-twosie manner?  
+
+So, when I'm working in a domain oriented product, I'll tend toward solutions that require the least knowledge of language/framework features.  
 
 And I'll save the custom annotation authoring for when I'm explicitly working on developer tooling.  
