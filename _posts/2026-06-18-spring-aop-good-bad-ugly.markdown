@@ -36,10 +36,16 @@ But **with** Aspect Oriented Programming, I could annotation a method, and the l
 void myMethod() {
   // ...
 }
+```
 
+That looks nice, doesn't it? But we're not done; we need to implement the annotation.
+
+```java
 // In another class...
 @Target(ElementType.METHOD)
-public @interface MyLoggingAnnotation {}
+public @interface MyLoggingAnnotation {
+// ...
+}
 
 // In yet another class...
 @Aspect
