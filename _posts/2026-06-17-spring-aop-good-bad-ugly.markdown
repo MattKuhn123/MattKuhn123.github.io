@@ -99,10 +99,22 @@ This isn't some hypothetical thing I'm thinking about doing, nor is it something
 
 The ugliest thing of all; we have crossed over into this AOP way of doing things, and now we are _in it_. I have a mild anxiety about being stuck with it. Sure, we could always change it back the way it was, but I don't like making massive code changes; and _getting here_ was already a massive code change!
 
-## Conclusion
+## Was it worth it?
 
 This annotation isn't the worst thing in the world, but I'm not sure that I would go back and write it again. I'm honestly not sure if it was worth the effort.  
 If it is of any value,  
 If it does save us any time,  
 If it spares us any complexity,  
 Then it only does so marginally.
+
+## My takeaway
+
+Before implementing this solution, I talked it out with a few people. People who I look up to; people with alot of experience in the GAS Lab and beyond.  
+
+One piece of advice I got beforehand was "Simpler tends to be better". I could tell my counselor was trying to dissuade me from implementing this complex solution.  
+
+At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, no _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
+
+But, in hindsight, I think that when I'm working in a domain oriented product, I'll tend toward solutions that require the least knowledge of language/framework features.  
+
+And I'll save the custom annotation authoring for when I'm explicitly working on developer tooling.  
