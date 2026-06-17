@@ -80,7 +80,7 @@ This isn't some hypothetical thing I'm thinking about doing, nor is it something
 
 ### The good
 
-1. We certainly have seen the benefit that our domain logic has less noise, and is less crowded with logging messages.
+1. We certainly have seen the benefit that our domain logic has less noise, and is less crowded with logging statements.
 2. We immediately starting logging _more_ logs that we had accidentally overlooked up until this point.
 3. Our logging was _more_ complete, accurately logging the entirety of the parameters and response.
 
