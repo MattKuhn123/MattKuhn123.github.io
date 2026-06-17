@@ -76,6 +76,8 @@ In my opinion, these glorified logging statements were muddying-up the domain lo
 
 ## The Journey
 
+This isn't some hypothetical thing I'm thinking about doing, nor is it something I just implemented last week. No, we did this several months ago. It is a mature solution, and we have seen good things and bad things come of it.
+
 ### The good
 
 1. We certainly have seen the benefit that our domain logic has less noise, and is less crowded with logging messages.
@@ -92,7 +94,10 @@ In my opinion, these glorified logging statements were muddying-up the domain lo
 
 1. Because of these issues and limitations, usage of the annotation was not 100% adopted through the codebase, meaning that we have _multiple_ ways of sending logs to the monitoring dashboard.
 2. Over time, the completeness of our logging began to degrade, because we start putting logic that modifies the request _inside_ the method that had the annotation.
-3. I wouldn't say that the team is 100% _comfortable_ with how it works. That's not to say that they don't _know_ how it works; it just feels a bit like a rube goldberg machine.
+3. Our logging was _too_ complete in some cases. (There were some cases where we didn't _want_ to log the entire response because it's enormous). Handling these on a case-by-case basis in an extremely abstracted solution felt way more complex than was appropriate for the use-case.
+4. I wouldn't say that the team is 100% _comfortable_ with how it works. That's not to say that they don't _know_ how it works; it just feels a bit like a rube goldberg machine.
+
+The ugliest thing of all; we have crossed over into this AOP way of doing things, and now we are _in it_. I have a mild anxiety about being stuck with it. Sure, we could always change it back the way it was, but I don't like making massive code changes; and _getting here_ was already a massive code change!
 
 ## Conclusion
 
