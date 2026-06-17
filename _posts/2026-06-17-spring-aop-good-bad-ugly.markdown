@@ -76,7 +76,7 @@ In my opinion, these glorified logging statements were muddying-up the domain lo
 
 ## The Journey
 
-This isn't some hypothetical thing I'm thinking about doing, nor is it something I just implemented last week. No, we did this several months ago. It is a mature solution, and we have seen good things and bad things come of it.
+This isn't some hypothetical thing I'm thinking about doing, nor is it something I just implemented last week. I'm not hear to talk about a great successful refactor, and how smart we are on our team. No, we did this several months ago. It is a mature solution, and we have seen good things and bad things come of it.
 
 ### The good
 
