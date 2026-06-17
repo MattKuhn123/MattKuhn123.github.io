@@ -9,7 +9,7 @@ _My experience creating a custom annotation with Spring Aspect Oriented Programm
 
 ## What is Spring AOP?
 
-My experience with Spring's Aspect Oriented Programing is mainly the functionality that it gives me to write code that bookends method calls.
+My understanding of Spring's Aspect Oriented Programing is that it provides functionality to write code that bookends methods.
 
 ## Example of Spring AOP
 
