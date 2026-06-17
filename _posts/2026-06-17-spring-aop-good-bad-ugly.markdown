@@ -111,7 +111,7 @@ Then it only does so marginally.
 
 Before implementing this solution, I talked it out with a few people. People who I look up to; people with alot of experience in the GAS Lab and beyond.  
 
-One piece of advice I got beforehand was "Simpler tends to be better". I could tell my counselor was trying to dissuade me from implementing this complex solution.  
+One piece of advice I got beforehand was "Simpler tends to be better". I could tell my advisor was trying to dissuade me from implementing this complex solution.  
 
 At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, no _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
 
