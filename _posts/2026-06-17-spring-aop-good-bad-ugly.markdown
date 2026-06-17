@@ -29,7 +29,7 @@ void myMethod() {
 }
 ```
 
-But **with** Aspect Oriented Programming, I could annotation a method, and the logging functionality could be implemented in the annotation.
+But **with** Aspect Oriented Programming, I could annotate a method, and the logging functionality could be implemented in the annotation.
 
 ```java
 @MyLoggingAnnotation // <--- USING THE ANNOTATION
