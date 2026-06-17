@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spring AOP: The Good, The Bad, and The Ugly"
-date:   2026-06-18 08:00:00 -0400
+date:   2026-06-17 08:00:00 -0400
 categories: programming
 ---
 
