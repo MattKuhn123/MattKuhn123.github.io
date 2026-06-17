@@ -113,7 +113,7 @@ Before implementing this solution, I talked it out with a few people. People who
 
 One piece of advice I got beforehand was "Simpler tends to be better". I could tell my advisor was trying to dissuade me from implementing this complex solution.  
 
-At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, no _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
+At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, not _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
 
 But, in hindsight, I think my anxiety (which I mentioned above) has to do with meeting expectations. In other words; do people _expect_ me to write abstract solutions? Or do people _expect_ me to solve localized problems, even if in a onsie-twosie manner?  
 
