@@ -76,7 +76,9 @@ In my opinion, these glorified logging statements were muddying-up the domain lo
 
 ## The Journey
 
-This isn't some hypothetical thing I'm thinking about doing, nor is it something I just implemented last week. I'm not here to talk about a great successful refactor, and how smart we are on our team. No, we did this several months ago. It is a mature solution, and we have seen good things and bad things come of it.
+This isn't some hypothetical thing I'm thinking about doing, nor is it something I just implemented last week. I'm not here to talk about a great successful refactor, and how smart we are on our team. No, we did this several months ago. It is a mature solution, and we have seen good things and bad things come of it.  
+
+This turned out to be a solution that solves 80% of the problem space quickly and easily, but the last 20% is a mess.
 
 ### The good
 
@@ -115,8 +117,8 @@ One piece of advice I got beforehand was "Simpler tends to be better". I could t
 
 At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, not _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
 
-But, in hindsight, I think my anxiety (which I mentioned above) has to do with meeting expectations. In other words; do people _expect_ me to write abstract solutions? Or do people _expect_ me to solve localized problems, even if in a onsie-twosie manner?  
+But, in hindsight, I think my anxiety (which I mentioned above) has to do with meeting expectations. In other words; do people _expect/want_ me to write abstract solutions? Or do people _expect/want_ me to solve localized problems, even if in a onsie-twosie manner?  
 
-So, when I'm working in a domain oriented product, I'll tend toward solutions that require the least knowledge of language/framework features.  
+So, when I'm working in a domain oriented product, I'll tend toward solutions that require less knowledge of language/framework features.  
 
-And I'll save the custom annotation authoring for when I'm explicitly working on developer tooling.  
+And I'll save the custom annotation authoring for when I'm working on developer tooling.  
