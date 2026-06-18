@@ -97,7 +97,7 @@ We started development on this almost a year ago, and it's been in production fo
 3. Our logging was _too_ complete in some cases. (There were some cases where we didn't _want_ to log the entire response because it's enormous). Handling these on a case-by-case basis in an extremely abstracted solution felt way more complex than was appropriate for the use-case.
 4. I wouldn't say that the team is 100% _comfortable_ with how it works. That's not to say that they don't _know_ how it works; it just feels a bit like a rube goldberg machine.
 
-The ugliest thing of all; we have crossed over into this AOP way of doing things, and now we are _in it_. I have a mild anxiety about being stuck with it. Sure, we could always change it back the way it was, but I don't like making massive code changes; and _getting here_ was already a massive code change!
+The ugliest thing of all; we have crossed over into this AOP way of doing things, and now we are _in it_. I'm not thrilled about being stuck with it. Sure, we could always change it back the way it was, but I don't like making massive code changes; and _getting here_ was already a massive code change!
 
 ## Was it worth it?
 
@@ -115,8 +115,6 @@ One piece of advice I got beforehand was "Simpler tends to be better". I could t
 
 At the time, though, I rebuffed that advice, thinking the same thing that I already wrote above; that what's _really_ at stake here is deciding _where_ the complexity lives, not _whether_ it's complex or not. So it didn't exactly feel to me like this advice applied.  
 
-But, in hindsight, I think my anxiety (which I mentioned above) has to do with meeting expectations. In other words; do people _expect/want_ me to write abstract solutions? Or do people _expect/want_ me to solve localized problems, even if in a onsie-twosie manner?  
+But, in hindsight, I think my angst (which I mentioned above) has to do with meeting expectations. In other words; do people _expect/want_ me to write abstract solutions? Or do people _expect/want_ me to solve localized problems, even if in a onsie-twosie manner?  
 
-So, when I'm working in a domain oriented product, I'll tend toward solutions that require less knowledge of language/framework features.  
-
-And I'll save the custom annotation authoring for when I'm working on developer tooling.  
+So in the future, when I'm working in a domain oriented product, I'll tend toward solutions that require less knowledge of language/framework features, and I'll save the custom annotation authoring for when I'm working on developer tooling.  
