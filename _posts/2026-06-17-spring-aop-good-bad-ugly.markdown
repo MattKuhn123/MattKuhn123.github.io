@@ -76,9 +76,7 @@ In my opinion, these glorified logging statements were muddying-up the domain lo
 
 ## The Journey
 
-This isn't some hypothetical thing I'm thinking about doing, nor is it something I just implemented last week. I'm not here to talk about a great successful refactor, and how smart we are on our team. No, we did this several months ago. It is a mature solution, and we have seen good things and bad things come of it.  
-
-This turned out to be a solution that solves 80% of the problem space quickly and easily, but the last 20% is a mess.
+We started development on this almost a year ago, and it's been in production for a while. On reflection, I'd say this turned out to be a solution that solves 80% of the problem space quickly and easily, but the last 20% is a mess.
 
 ### The good
 
