@@ -28,7 +28,7 @@ Let's not go too far down the philosophical rabbit hole.
 My main curiosity is whether module complexity can be measured in how many tokens might be theoretically spent to modify it. 
 
 Now, I can clearly see that we'd want to control for:
-1. The technical ability of the human working on it.
+1. The technical ability of the human working on it *(could possibly just be the same human, for convenience sake)*.
 2. The nature of the task.
 3. The nature of the module.
 4. (Possibly even the language the module is written in?)
