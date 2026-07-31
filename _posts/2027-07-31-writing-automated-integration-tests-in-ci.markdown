@@ -177,6 +177,14 @@ Well, this is exactly what I've been trying to get to do!
 
 He worked closely with me from that moment forward, assisting me with writing the code and configuration that could execute this capture/mock strategy.  
 
+**It wasn't all seashells and balloons**
+
+Over the course of our cooperation, he discovered some issues in our codebase, too.  
+
+The main issue he discovered was that our application has what he calls "YAML hell" where our environment properties are split over so many disparate files, its hard to keep them straight. He wanted to clean them up, but I wanted to touch them as minimally as possible to minimize the blast-radius of our changes and keep making fast progress on the testing front.  
+
+In the end, his goal was just to help me as much as I wanted him to and as much as he could. So what if he caught a glimpse in a skeleton in our closet, right??  
+
 ### Conclusion
 
 With the help of this senior architect, and with the capture/mock strategy, I was able to write automated integration tests directly inside the application's test source code that run in the CI/CD pipeline and prevent issues before they happen. 
