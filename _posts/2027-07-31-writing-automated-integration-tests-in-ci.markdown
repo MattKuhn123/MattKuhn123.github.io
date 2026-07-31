@@ -137,7 +137,7 @@ And they have other problems...
 
 So I need to try to solve some of these problems.  
 
-It turns out that our platform operations team has a phase during the CI/CD pipeline where we can run custom smoke tests.  
+It turns out that our platform operations team has a phase during the CI/CD pipeline where we can run **custom smoke tests**.  
 
 I get that this might not be the best place to run a full-blown regression testing suite (which is essentially what I had at this point) but I figure maybe we could still get a win here by selecting a few critical tests and running them here.  
 
@@ -153,15 +153,23 @@ Sometimes, smart people disagree with each other. Sometimes, they're passionate.
 
 I needed help from this senior architect to ensure that the credentials that were injected in my environment had a certain authority so that it could use the "Client-Proxy" header (mentioned way earlier in this article). The senior architect was skeptical that I knew what I was talking about, and flat rejected my request. I immediately asked him to call me. When he did, we had a bit of a laugh about it, and went on to solution the problem together. It was productive!  
 
-**The smoke tests don't take off like I envisioned**
-
 So, in the end, I got what I wanted; the ability to use the custom-smoke-tests phase to run arbitrary requests against my API. 
 
-But I was like a dog that finally caught the car; now what?? 
+**Who gets to decide what tests go in the custom-smoke-tests?**
 
-I can either program it so that smoke test failures would fail the deployment; but that seemed like a bad idea, because they're flakey sometimes. 
-But on the other hand, if I mute the test failures, then no one will know about them, anyway! I pitched the idea to my team that _maybe_ we could get some kind of reporting on it, but that didn't really go anywhere. No one expressed interest, and I wasn't sure if it was possible anyway.
+You don't want these tests running for a long time; everyone is waiting on the deployment to finish!  
 
+I figured that the best people to decide which few tests get executed would be the product owners and managers.  
+
+However; they don't have the technical expertise to write tests. So do we, as a team, really want to encumber them to have this new responsibility? Not only of learning how to write them, but also maintain them? That seems like a lot.
+
+**How do we handle test failures in the custom-smoke-tests?**
+
+What does it mean if the smoke tests fail?  
+
+I can either program it so that smoke test failures would fail the deployment; but that seemed like a bad idea, because they're flakey sometimes.  
+
+But on the other hand, if I mute the test failures, then no one will know about them, anyway! I pitched the idea to my team that _maybe_ we could get some kind of reporting on it, but that didn't really go anywhere. No one expressed interest, and I wasn't sure if it was possible anyway.  
 
 ### Back to the drawing board again!
 
