@@ -23,8 +23,6 @@ So I started to think of the code almost as a black box that had a certain set o
 
 In testing terminology: I started to think of the _application_ as a unit (as opposed to the java classes that the application is composed of).
 
-_By the way, that's what integration testing is, right? When you think of the application as a unit? (I think so!)_
-
 So, to recap; at this point, I'm focusing on writing integration tests for my application, and aiming for an automation scheme. And this is where my journey really starts.
 
 ## Undermining classic unit testing
