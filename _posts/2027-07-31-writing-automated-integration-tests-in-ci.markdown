@@ -49,13 +49,21 @@ Problem solved!
 
 ## Choosing an automation framework
 
-You can write automation tests however you want. Any idiot could do that.
+Any idiot can automate a test. cURL. Playwright.  
 
-But can you automate it in a way that people find _useful_??
+- But how do you run it? 
+- How do you make sure they work as expected?
+- How do you make sure they don't bring down the system?
+- How do you make sure they clean up when they're finished?
+- Where do you put them?
+- How do you make them such that people know what they're for?
+- How do you make them easy to use?
+
+**Can you automate it in a way that people find _useful_??**
 
 I might draw a comparison to Rube Goldberg machines. These overcomplicated monstrosities automate simple tasks that are completely impractical; like lifting a fork to your mouth by using pulley systems, dominoes, and catapults.
 
-So let's say I find out some "framework" for automating tests. Will it be worthwhile? I have to apply a pragmatic engineering perspective.
+So let's say I find out some "framework" for automating tests. Will it be worthwhile?  
 
 At a high level, this framework needs to run the following phases:
 
