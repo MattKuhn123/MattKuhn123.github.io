@@ -189,6 +189,12 @@ I solved many of the problems that I set out to solve:
 - Requiring as little technical knowledge as possible.
 - Keeping the tests discoverable by co-locating them with the application.
 
+I did NOT achieve my goals of:
+
+- Alleviating the testing burden from the PM/PO by increasing their understanding and confidence in our testing framework. (It's Java code, too technical for them to really understand _what_ we're testing and, therefore, what they don't need to test).
+- Writing the tests in a simple, non-technical format.
+- Achieving adoption among my immediate teammates.
+
 As of writing this, I have yet to see if my team mates will adopt this strategy. I'm okay with whatever happens, whether they adopt it or not. I think this is a well-engineered solution. My teammates may disagree, and content themselves to know that I found something that works for me while they continue doing things their own way.  
 
 My aim, all along, was to find ways to serve the team with the extra time in the day that I have.  
