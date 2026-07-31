@@ -9,7 +9,7 @@ My foray into integration testing started when AI enhanced my team's delivery sp
 
 For many, this new free time was spent "verifying" AI code. 
 
-We know the issues with "verifying" code; it can be tedious, especially due to the mountainous volume of code that AI can generate.
+"Verifying" code can be tedious, especially due to the mountainous volume of code that AI can generate.
 
 Look, we're professionals; tedium does _not_ excuse us from attending to our duties.
 
