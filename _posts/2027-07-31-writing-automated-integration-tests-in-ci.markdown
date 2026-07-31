@@ -19,7 +19,7 @@ For me, one thing I noticed about "verifying" code was that I cared *less* about
 
 My new way of thinking became something like: _"Who cares if I read every line of code to verify that the DRY principle wasn't violated. Doesn't it matter more if it does what it is supposed to do? What's the best way to verify **that**?"_
 
-So I started to think of the code almost as a black box that had a certain set of inputs and outputs.
+So I started to think of the code almost as a black box.
 
 In testing terminology: I started to think of the _application_ as a unit (as opposed to the java classes that the application is composed of).
 
