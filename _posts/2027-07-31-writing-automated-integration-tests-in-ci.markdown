@@ -121,6 +121,7 @@ Well, until now, I haven't told you some of the issues I've been having with the
 - It's hard to tell exactly what they're testing sometimes (despite my best efforts to write clear tests).
 - There's no easy way to find them!! Where are they, how do I run them, how do I see what they are...??
 - They don't prevent issues; only discover them (at inconvenient times, too...)
+- There's the matter of trust... How do I know that these automated tests don't do anything unexpected? How do I know they'll properly clean up the test data they create? How do I know I'm running them correctly? A reasonable person would want more assurance than biased anecdotes from the creator.
 - **They're out-of-sync with the actual _application_. They don't live in the code, and they don't run in the CI/CD pipeline**.
 
 ### Postman again; but in the smoke-tests phase of the pipeline
