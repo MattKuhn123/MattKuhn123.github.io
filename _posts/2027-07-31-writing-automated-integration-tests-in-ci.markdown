@@ -5,7 +5,7 @@ date:   2026-07-31 08:00:00 -0400
 categories: programming
 ---
 
-My foray into integration testing started when AI enhanced my team's delivery speed. Our work-intake process didn't initially keep pace, so our increased delivery speed translated to more free time for me.
+My foray into integration testing started when AI enhanced my team's delivery speed. Our work-intake process didn't initially keep pace, so our increased delivery speed translated to more free time.
 
 For many, this new free time was spent "verifying" AI code. 
 
