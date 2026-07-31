@@ -208,8 +208,8 @@ I did NOT achieve my goals of:
 
 As of writing this, I have yet to see if my team mates will adopt this strategy. I'm okay with whatever happens, whether they adopt it or not. I think this is a well-engineered solution. My teammates may disagree, and content themselves to know that I found something that works for me while they continue doing things their own way.  
 
-My aim, all along, was to find ways to serve the team with the extra time in the day that I have.  
+My aim, all along, was to find ways to serve the team with the extra time in the day that I have. In the end, I learned a new technique of testing that is beneficial whether I continue to use AI to write all of the code or not!
 
-I might not stop here; I might continue to evolve this strategy, if I can think of ways to make it easier for other people to use.
+I might continue to evolve this strategy, if I can think of ways to make it easier for other people to use.
 
 After all, we are a profession of thinkers and tinkerers!
