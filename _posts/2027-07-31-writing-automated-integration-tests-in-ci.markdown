@@ -49,9 +49,10 @@ Problem solved!
 
 ## Choosing an automation framework
 
-Any idiot can automate a test. cURL. Playwright.  
+Any idiot can automate a test. A little cURL here. A little Playwright there.  
 
-- But how do you run it? 
+- But how do you run it?
+- How do you orchestrate it?
 - How do you make sure they work as expected?
 - How do you make sure they don't bring down the system?
 - How do you make sure they clean up when they're finished?
