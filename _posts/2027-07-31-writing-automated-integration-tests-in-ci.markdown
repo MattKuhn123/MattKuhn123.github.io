@@ -159,17 +159,25 @@ So, in the end, I got what I wanted; the ability to use the custom-smoke-tests p
 
 You don't want these tests running for a long time; everyone is waiting on the deployment to finish!  
 
-I figured that the best people to decide which few tests get executed would be the product owners and managers.  
+So this maybe isn't a great option for executing automated integration tests... But maybe the effort we put into figuring out how to use this phase of the pipeline can be re-purposed?
 
-However; they don't have the technical expertise to write tests. So do we, as a team, really want to encumber them to have this new responsibility? Not only of learning how to write them, but also maintain them? That seems like a lot.
+Maybe we can give the PM, PO and other stakeholders the opportunity to have a hook into the pipeline; to give them a chance to put a constraint on system to "verify" that it does what they think it should do.
+
+They don't currently have the technical expertise to write tests that they feel confident in. Maybe someday, but not today.
 
 **How do we handle test failures in the custom-smoke-tests?**
 
 What does it mean if the smoke tests fail?  
 
-I can either program it so that smoke test failures would fail the deployment; but that seemed like a bad idea, because they're flakey sometimes.  
+I can program it so that smoke test failures would fail the deployment; but that seemed like a bad idea, because the tests are flakey sometimes.  
 
-But on the other hand, if I mute the test failures, then no one will know about them, anyway! I pitched the idea to my team that _maybe_ we could get some kind of reporting on it, but that didn't really go anywhere. No one expressed interest, and I wasn't sure if it was possible anyway.  
+But on the other hand, if I mute the test failures, then no one will know about them, anyway!  
+
+I pitched the idea to my team that _maybe_ we could get some kind of reporting on it, but that didn't really go anywhere. No one expressed interest, and I wasn't sure if it was possible anyway.  
+
+So, not a whole lot of value came from figuring out how to execute the custom-smoke-tests phase of the pipeline.  
+
+Oh well! Maybe it will be useful for something else someday.
 
 ### Back to the drawing board again!
 
