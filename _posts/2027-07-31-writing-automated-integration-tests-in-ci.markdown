@@ -109,17 +109,17 @@ HTTP Requests are represented in text-based `.http` files. I found this far simp
 
 I loved this solution, but, still, no one else on the team adopted it. It wasn't for lack of trying! Every time I reviewed code with them, I always showed them the automation script that I wrote. They were happy for me that I found a solution that I liked, but they still didn't want to adopt the strategy themselves.
 
-### Back to the drawing board
+### Nothing is working. Why not??
 
 So now I've had two strong solutions that I've had to pass over. My peer developers on the team didn't want to adopt my framework, and my PM/PO don't see it as a value-add for them, either. 
 
 Well, until now, I haven't told you some of the issues I've been having with these automation tests.
 
-- They're somewhat flakey (Mainly due to timing and race conditions).
+- They're somewhat flakey (mainly due to timing and race conditions).
 - They raise false alarms.
 - They take forever to write.
 - It's hard to tell exactly what they're testing sometimes (despite my best efforts to write clear tests).
-- There's no easy way to find them!! I wrote the test; now where is it??
+- There's no easy way to find them!! Where are they, how do I run them, how do I see what they are...??
 - They don't prevent issues; only discover them (at inconvenient times, too...)
 - **They're out-of-sync with the actual _application_. They don't live in the code, and they don't run in the CI/CD pipeline**.
 
