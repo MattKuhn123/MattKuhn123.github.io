@@ -120,9 +120,9 @@ I loved this solution, but, still, no one else on the team adopted it. It wasn't
 
 ### Nothing is working. Why not??
 
-So now I've had two strong solutions that I've had to pass over. My peer developers on the team didn't want to adopt my framework, and my PM/PO don't see it as a value-add for them, either. 
+So what I'm noticing at this point is that these automation tests aren't meeting _anyone's_ needs. Worse, they're not adapted to anyone's way of working.
 
-Well, until now, I haven't told you some of the issues I've been having with these automation tests.
+And they have other problems...
 
 - They're somewhat flakey (mainly due to timing and race conditions).
 - They raise false alarms.
