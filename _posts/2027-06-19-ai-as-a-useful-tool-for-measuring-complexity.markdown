@@ -173,7 +173,11 @@ He was well beyond where I was!
 
 His strategy is to write these integration tests _into the application's tests_ and embed them in the CI/CD pipeline. The linchpin of his operation was "test doubles" (something that I saw him refer to as capture/mock). His strategy is to write tests and _capture_ all of the HTTP activity. Once captured, they can be replayed in _mock_ mode so that they'll work in the CI/CD pipeline.  
 
-To my amazement, he worked closely with me from that moment forward, assisting me with writing the code and configuration that could execute this capture/mock strategy.  
+So, just to clarify; he runs his application as though he were running it normally, locally, and his unit tests hit the application's real HTTP APIs.
+
+Well, this is exactly what I've been trying to get to do!
+
+He worked closely with me from that moment forward, assisting me with writing the code and configuration that could execute this capture/mock strategy.  
 
 ### Conclusion
 
