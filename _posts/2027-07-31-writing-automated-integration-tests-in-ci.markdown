@@ -202,14 +202,10 @@ I solved many of the problems that I set out to solve:
 
 I did NOT achieve my goals of:
 
-- Alleviating the testing burden from the PM/PO by increasing their understanding and confidence in our testing framework. (It's Java code, too technical for them to really understand _what_ we're testing and, therefore, what they don't need to test).
-- Writing the tests in a simple, non-technical format.
-- Achieving adoption among my immediate teammates.
+- Writing the tests in a non-technical format that even non-technical people would understand.
+- Creating a new framework that others would want to adopt (because, in the end, I personally adopted someone else's framework).
 
-As of writing this, I have yet to see if my team mates will adopt this strategy. I'm okay with whatever happens, whether they adopt it or not. I think this is a well-engineered solution. My teammates may disagree, and content themselves to know that I found something that works for me while they continue doing things their own way.  
+My aim, all along, was to find ways to serve the team with the extra time in the day that I have.  
 
-My aim, all along, was to find ways to serve the team with the extra time in the day that I have. In the end, I learned a new technique of testing that is beneficial whether I continue to use AI to write all of the code or not!
+In the end, I learned a new technique of testing that is beneficial whether I continue to use AI to write all of the code or not!
 
-I might continue to evolve this strategy, if I can think of ways to make it easier for other people to use.
-
-After all, we are a profession of thinkers and tinkerers!
