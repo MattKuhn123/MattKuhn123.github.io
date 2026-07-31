@@ -17,7 +17,7 @@ But we're also tinkerers and thinkers, so I got to tinkering and thinking.
 
 For me, one thing I noticed about "verifying" code was that I cared *less* about AI's adherence to what we in the community call "clean" code. To some degree, I didn't want the code to be a mess, but I also know that all code eventually becomes a "giant turd ball," anyway. To quote Dale Gribble, I felt that my code-reading verification needed only go so far as to "make sure my air is clean and that my food has only an _acceptable_ amount of rat feces in it".
 
-My new way of thinking became something like: _"Who cares if I read every line of code to verify that the DRY principle wasn't violated. Doesn't it matter more if it does what it is supposed to do?"_
+My new way of thinking became something like: _"Who cares if I read every line of code to verify that the DRY principle wasn't violated. Doesn't it matter more if it does what it is supposed to do? What's the best way to verify **that**?"_
 
 So I started to think of the code almost as a black box that had a certain set of inputs and outputs.
 
