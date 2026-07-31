@@ -21,7 +21,7 @@ My new way of thinking became something like: _"Who cares if I read every line o
 
 So I started to think of the code almost as a black box.
 
-In testing terminology: I started to think of the _application_ as a unit (as opposed to the java classes that the application is composed of).
+In testing terminology: I started to think of the _application_, itself, as a singular **unit**.
 
 So, to recap; at this point, I'm focusing on writing integration tests for my application, and aiming for an automation scheme. And this is where my journey really starts.
 
