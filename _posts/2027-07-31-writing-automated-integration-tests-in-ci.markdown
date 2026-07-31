@@ -39,7 +39,7 @@ I made my case; that unit testing is fine, but it's not enough and we can do bet
 
 The first hurdle for automating integration testing was finding a way to seed test data in our domain. 
 
-The main part of our domain is **clients** making requests to submit **contracts**, where the validation and workflow for the contract submission is based largely on how the client was configured internally. The way that the contract submission was associated with a client was by the authentication that was used to submit the contract; and the limitation was that we only had one set of credentials! That meant we could only test **one client configuration at a time!** We had a tremendously manual process of testing a certain client configuration, and manually editing that client configuration using an admin tool web interface.
+The main part of our domain is **clients** making requests to submit **contracts**, where the validation and workflow for the contract submission is based largely on how the client is configured internally. The way that the contract submission is associated with a client is by the authentication that is used to submit the contract; and the limitation is that we only had one set of credentials! That meant we could only test **one client configuration at a time!** We had a tremendously manual process of testing a certain client configuration, and manually editing that client configuration using an admin tool web interface.
 
 So there's our first hurdle; to make it so that you can **seed** client configuration on-the-fly, and to be able to "impersonate" that client for testing purposes. 
 
