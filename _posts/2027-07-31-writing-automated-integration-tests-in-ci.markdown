@@ -224,6 +224,7 @@ I solved many of the problems that I set out to solve:
 - Preventing regressions from sneaking into builds.
 - Requiring as little technical knowledge as possible.
 - Keeping the tests discoverable by co-locating them with the application.
+- Having a way to run the tests that is provably safe; doesn't bring the system down and definitely cleans up after itself.
 
 I did NOT achieve my goals of:
 
