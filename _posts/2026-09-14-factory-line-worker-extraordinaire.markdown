@@ -25,11 +25,11 @@ Cleaning glass at an industrial scale was more involved than spraying it with Wi
 
 The challenge was that the work orders were *NOT* in the same sort-order as the glass. So the factory workers spent _a lot_ of time reading the work orders, calculating the size of the glass based on the dimensions, and putting them in a meaningful sort-order before even "starting" their work. 
 
-If there was a handy software engineer around, maybe _(s)he_ could figure out how to use a computer to do that in the blink of an eye! But, like I said, this was the 90's. Software solutions weren't around every corner and under every rock just yet. Plus, Schwartz was a somewhat small operation, and _not_ on the cutting edge of technology.
+If there was a software engineer handy, maybe _(s)he_ could figure out how to use a computer to do that in the blink of an eye! But, like I said, this was the 90's. Software solutions weren't around every corner and under every rock just yet. Plus, Schwartz was a somewhat small operation, and _not_ on the cutting edge of technology.
 
 That's where Factory Line Worker Extraordinaire, Brandon Schenz, comes in!  
 
-Using a free VB3 development environment he got from his college's student bookstore (and, presumably, a piece of gum and a paperclip), Brandon wrote a program to do exactly that.
+Using a free VB3 development environment he got from his college's student bookstore _(and, presumably, a piece of gum and a paperclip)_, Brandon wrote a program to do exactly that.
 
 When it was finished, his program improved productivity by a remarkable factor of **3X**! Brandon continued to iterate on and improve his program at Schwartz until he eventually left a few years later. (Funny enough, his next role was sales associate for a tennis racket company.... Where, as you can imagine, he stepped out of his lane to deliver _more_ software. I guess his calling wasn't obvious to him, yet!)
 
