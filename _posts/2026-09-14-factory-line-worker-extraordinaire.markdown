@@ -37,6 +37,6 @@ When I heard his story, I had to ask him what drove him to go above and beyond l
 
 He said he might have been inspired by his partner's dad, who installed the nation's very first computerized telephone switching machine. _(Which, if you don't know what a telephone switching system is, then think of Rosemary from Hong Kong Phooie... And if you don't know what Hong Kong Phooie is, then nevermind)_.  
 He also acknowledged that he _was_ in school for it, so maybe that's why it was top-of-mind for him.  
-But I think Brandon just has that _stuff_ inside him that makes him that makes him want to see things work _better._  
+But I know Brandon. We work for the same company, and I'm friends with him from hanging out at our C3 (Code Craft Community) meetup. I think he might not phrase it this way, but he just has that _stuff_ inside him that makes him that makes him want to see things work _better._  
 
 By the way, in case you were wondering, he _is_ happily re-married to this day (sorry, ladies).
