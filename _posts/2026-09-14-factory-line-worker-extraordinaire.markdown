@@ -35,7 +35,7 @@ When it was finished, his program improved productivity by a remarkable factor o
 
 When I heard his story, I had to ask him what drove him to go above and beyond like that. Because, in hindsight, it might sound *obvious* to write a program to  automate that. But put yourself in a factory worker's shoes: your job doesn't even involve _using_ a computer, much less _programming_ one. Plus, why rock the boat? Why take on additional responsibility? Why risk failure?
 
-He said he might have been inspired by his partner's dad, who installed the nation's very first computerized telephone switching machine. _(Which, if you don't know what a telephone switching system is, then think of Rosemary from Hong Kong Phooie... And if you don't know what Hong Kong Phooie is, then nevermind)_.  
+He said he might have been inspired by his co-worker's dad, who installed the nation's very first computerized telephone switching machine. _(Which, if you don't know what a telephone switching system is, then think of Rosemary from Hong Kong Phooie... And if you don't know what Hong Kong Phooie is, then nevermind)_.  
 He also acknowledged that he _was_ in school for it, so maybe that's why it was top-of-mind for him.  
 But I know Brandon. We work for the same company, and I'm friends with him from hanging out at our C3 (Code Craft Community) meetup. I think he might not phrase it this way, but he just has that _stuff_ inside him that makes him that makes him want to see things work _better._  
 
