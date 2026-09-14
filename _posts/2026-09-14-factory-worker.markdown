@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Glass Cleaner"
+title:  "Factory Line Worker Extraordinaire"
 date:   2026-09-14 08:00:00 -0400
 categories: thats-my-user-story-and-im-sticking-to-it
 ---
