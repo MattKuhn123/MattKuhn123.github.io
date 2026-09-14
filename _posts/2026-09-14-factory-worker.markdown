@@ -33,7 +33,7 @@ Using nothing but a piece of gum, a paper clip, and a free VB3 development envir
 
 When it was finished, his program improved productivity by a remarkable factor of **3X**, much to the pleasure of his partner and of management! Brandon continued to iterate on his program at Schwartz until he eventually left the company a few years later. (Funny enough, his next role was as a sales associate for a tennis racket company.... Where, as you can imagine, he stepped outside his lane to deliver _more_ software. I guess his calling wasn't obvious to him, yet!)
 
-When I heard his story, I had to ask him what drove him to go above and beyond like that.
+When I heard his story, I had to ask him what drove him to go above and beyond like that. Because, in hindsight, it might sound *obvious* to write a program to do all of the calculations on the glass's dimensions, and to print out a report of the work-orders in an order that has been sorted in an optimal way for the factory line. But put yourself in a factory worker's shoes: your job does not involve even _using_ a computer, much less programming one. Plus, why rock the boat? Why take on additional responsibility? Why risk failure?
 
 He said he might have been inspired by his partner's dad, who installed the nation's very first computerized telephone switching machine. _(Which, if you don't know what a telephone switching system is, then think of Rosemary from Hong Kong Phooie... And if you don't know what Hong Kong Phooie is, then nevermind)_.  
 He also acknowledged that he _was_ in school for it, so maybe that's why it was top-of-mind for him.  
