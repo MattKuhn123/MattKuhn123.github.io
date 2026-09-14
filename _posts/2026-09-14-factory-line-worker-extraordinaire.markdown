@@ -21,7 +21,7 @@ Let me tell you a quick story about Brandon Schenz.
 
 It was the 90's, and Brandon was in his early 20's. He was going through a rough patch, trying to get back on his feet after his first marriage fell apart. He was living in Columbus, Ohio working as a glass cleaner in a factory for Schwartz Glass.  
 
-Cleaning glass at an industrial scale was more involved than spraying it with Windex. Brandon worked with industrial machinery in dangerous conditions handling thin, sharp glass _without_ gloves. (At least, that's what Brandon told me. Seems like maybe it was a personal decision to _not_ wear gloves, so maybe Brandon was at fault for _some_ of his danger! But I digress...) He & his partner would prepare the glass by stacking the glass from largest to smallest _(like those ring tower toys for toddlers)_.  
+Cleaning glass at an industrial scale was more involved than spraying it with Windex. Brandon worked with industrial machinery in dangerous conditions handling thin, sharp glass _without_ gloves. (At least, that's what Brandon told me. Seems like maybe it was a personal decision to _not_ wear gloves, so maybe Brandon was at fault for _some_ of his danger! But I digress...) He & his partner would prepare the glass by stacking the panes from largest to smallest _(like those ring tower toys for toddlers)_.  
 
 The challenge was that the work orders were *NOT* in the same sort-order as the glass. So the factory workers spent _a lot_ of time reading the work orders, calculating the size of the glass based on the dimensions, and putting them in a meaningful sort-order before even "starting" their work. 
 
