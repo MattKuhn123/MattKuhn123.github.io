@@ -116,6 +116,7 @@ Things to _not_ do:
 - Showing someone the error of their ways by example.
 - Exposing someone for their lack of discipline.
 - Make resume-driven decisions.
+- Looking for the wrong in someone else.
 
 Red Herrings (things that might feel right but _aren't_):
 
